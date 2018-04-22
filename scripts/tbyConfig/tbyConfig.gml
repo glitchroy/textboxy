@@ -3,6 +3,7 @@
 //Appearance
 #macro tbyTextboxSprite		sprTextbox
 #macro tbyPauseSprite		sprTextboxPause //ideal height: 2x tileSize
+#macro tbyPauseSpriteSpeed	0.04
 #macro tbyBubbleSprite		sprTextboxBubble
 #macro tbyTileSize			8
 #macro tbyDrawPauseSymbol	true
@@ -12,11 +13,11 @@
 #macro tbyDefaultMaxWidth		200
 #macro tbyDefaultLineAmount		4
 #macro tbyLineHeight			10
-#macro tbyDefaultWaitPerChar	2 //in steps
-#macro tbyWaitStepsPerWait		15 //how many steps to wait per . character
+#macro tbyDefaultWaitPerChar	4 //in steps
+#macro tbyWaitStepsPerWait		(room_speed/4) //how many steps to wait per . character
 
 //Keys that the message should listen to
-#macro tbyInputKey			keyboard_check(vk_space) || keyboard_check(vk_enter)
+#macro tbyInputKey			(keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 
 #endregion
 
@@ -63,7 +64,9 @@ enum TbyAction {
 	SetMaxWidth = tbyActionSetMaxWidth,
 	SetMaxLines = tbyActionSetMaxLines,
 	SetOrigin   = tbyActionSetOrigin,
-	ShowString  = tbyActionShowString
+	ShowString  = tbyActionShowString,
+	SetSpeed	= tbyActionSetSpeed,
+	SetPause	= tbyActionSetPause
 }
 
 /*

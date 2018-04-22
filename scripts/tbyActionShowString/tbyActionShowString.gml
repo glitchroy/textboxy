@@ -10,10 +10,11 @@ with (tbyM()) {
 	//Returns string with proper line breaks
 	var bs = tbySmartLineBreak(currentFont, maxWidth, cleanString)
 	
-	//Make string availiable to textboxManager
-	currentMessage = bs;
-	currentWidth = string_width(bs); //padding
+	//Make vars availiable to textboxManager
+	currentWidth = string_width(bs);
 	currentLines = string_count("\n", bs)+1;
+	//Add one tile to width if only one line
+	if (tbyDrawPauseSymbol && currentLines == 1) currentWidth += tbyTileSize;
 	
 	/*
 	//if we have too many lines, we should
@@ -29,5 +30,7 @@ with (tbyM()) {
 			 min(currentWidth, maxWidth)+tbyTileSize*2,
 			 min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
 
-	currentText = tbyT(bs, s, currentFont, tc[0], tc[1]);
+	currentText = tbyT(bs, s, currentFont, tc[0], tc[1],
+					   currentWidth, currentLines*tbyLineHeight,
+					   standardWait)
 }

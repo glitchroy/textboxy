@@ -9,7 +9,7 @@ for (var i = 0; i < string_length(dirtyText); i++) {
 	//add the character and default values
 	ccGrid[# i, 0] = string_copy(cleanText, i+1, 1);
 	if (ccGrid[# i, TbyControlCode.Wait] == undefined) {
-		ccGrid[# i, TbyControlCode.Wait] = defaultWait;
+		ccGrid[# i, TbyControlCode.Wait] = wait;
 	}
 	
 	//check dirty character

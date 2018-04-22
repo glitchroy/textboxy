@@ -2,18 +2,18 @@
 ///@desc Draws a textbox with the specified parameters
 ///@param x = 0
 ///@param y = 0
-///@param width = tileSize (min: tileSize)
-///@param height = tileSize (min: tileSize)
+///@param width = tileSize (min: tileSize/2)
+///@param height = tileSize (min: tileSize/2)
 
 #region Local Variables
 var tx = 0;
 var ty = 0;
-var tw = tbyTileSize;
-var th = tbyTileSize;
+var tw = tbyTileSize/2;
+var th = tbyTileSize/2;
 
 switch (argument_count) {
-	case 4: th = max(tbyTileSize, argument[3]);
-	case 3: tw = max(tbyTileSize, argument[2]);
+	case 4: th = max(tbyTileSize/2, argument[3]);
+	case 3: tw = max(tbyTileSize/2, argument[2]);
 	case 2: ty = argument[1];
 	case 1: tx = argument[0];
 			break;

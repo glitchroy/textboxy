@@ -27,12 +27,36 @@ surface_resize(application_surface,
 /* You can use @"string" to create a string literal
 Look at the documentation for more info */
 
-tbyAddAction(TbyAction.SetSpeaker, id);
-//tbyAddAction(TbyAction.SetOrigin, 100, 100);
-//tbyAddAction(TbyAction.ShowString,
-//@"This [c1][.....]looks[c0] [...]like real dialogue actually.
-//Strange, but [c2]I gue[r]ss it works, dun[.]nit? This is great[lol].");
+tbyAddAction(TbyAction.SetSpeed, 3);
+tbyAddAction(TbyAction.SetMaxWidth, 300);
+tbyAddAction(TbyAction.SetMaxLines, 1);
+tbyAddAction(TbyAction.SetOrigin, 480/2, 0);
 tbyAddAction(TbyAction.ShowString,
-@"Listen here you [j]little shit[r].[...]
-I'll have you know that I graduated [c4]top of my class[c0]!!!");
+@"Somewhere,[...] in a codebase far,[..] far away[.].[.].[.].");
+tbyAddAction(TbyAction.SetPause, 60);
+
+tbyAddAction(TbyAction.SetSpeed, 2);
+tbyAddAction(TbyAction.SetMaxWidth, 150);
+tbyAddAction(TbyAction.SetMaxLines, 4);
+tbyAddAction(TbyAction.SetSpeaker, id);
+tbyAddAction(TbyAction.ShowString,
+@"I'm [c1]movin[c0]'!");
+tbyAddAction(TbyAction.SetPause, 20);
+tbyAddAction(TbyAction.ShowString,
+@"And I [j]love[r] it.");
+tbyAddAction(TbyAction.ShowString,
+@"I just have to say:[...][c2]
+[j]Color me[c0] impressed!");
+
+tbyAddAction(TbyAction.SetSpeaker, noone);
+tbyAddAction(TbyAction.SetOrigin, 480/2, 0);
+tbyAddAction(TbyAction.ShowString,
+@"I'm up here now, and I will automatically line break if you don't do it yourself!");
+tbyAddAction(TbyAction.ShowString,
+@"Nice.");
+
+tbyAddAction(TbyAction.SetSpeaker, id);
+tbyAddAction(TbyAction.ShowString,
+@"Weeeeeeeeeeeeeee!");
+
 tbyStart();

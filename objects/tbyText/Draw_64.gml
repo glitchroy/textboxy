@@ -19,8 +19,8 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	draw_set_font(font);
 	
 	if (currentJitter) {
-		jx = choose(-1, 1, 0, 0, 0, 0, 0);
-		jy = choose(-1, 1, 0, 0, 0, 0, 0);
+		jx = choose(-1, 1, 0, 0, 0, 0, 0, 0, 0);
+		jy = choose(-1, 1, 0, 0, 0, 0, 0, 0, 0);
 	}
 	
 	draw_text(dx+offx+jx, dy+offy+jy, c);
@@ -31,4 +31,10 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	} else {
 		offx += string_width(c);
 	}
+}
+
+if (finished) {
+	var fx = x+width+tbyTileSize;
+	var fy = y+height+tbyTileSize;
+	draw_sprite(tbyPauseSprite, -1, fx, fy);
 }

@@ -25,6 +25,8 @@ currentLines = maxLines;
 
 currentFont = tbyDefaultFont;
 
+standardWait = tbyDefaultWaitPerChar;
+
 //Origin coordinates
 ox = 0;
 oy = 0;
@@ -35,3 +37,5 @@ ty = undefined;
 currentText = noone;
 
 running = false;
+
+globalPause = 0;

@@ -4,7 +4,7 @@
 
 var ccChar = tbyControlCodeOpening;
 
-var cleanString = argument0;
+var cleanString = string_replace_all(argument0, "\r\n", "\n");;
 while (string_count(ccChar, cleanString) > 0) {
 	
 	var codeBeginPos = string_pos(ccChar, cleanString);
