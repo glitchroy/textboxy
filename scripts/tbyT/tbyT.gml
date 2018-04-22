@@ -1,7 +1,7 @@
 ///@function tbyT(text, dirtyText, font, x, y)
 ///@desc Creates a new text instance with the given string
-///@param text
-///@param dirtyText
+///@param text string without control codes
+///@param dirtyText string with control codes
 ///@param font
 ///@param x
 ///@param y

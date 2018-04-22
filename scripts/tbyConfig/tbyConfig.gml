@@ -11,7 +11,7 @@
 //Technical
 #macro tbyDefaultMaxWidth		200
 #macro tbyDefaultLineAmount		4
-#macro tbyDefaultLineHeight		10
+#macro tbyLineHeight			10
 #macro tbyDefaultWaitPerChar	2 //in steps
 #macro tbyWaitStepsPerWait		15 //how many steps to wait per . character
 
@@ -29,9 +29,10 @@
 #macro tbyCreateManagerSnippet	instance_create_depth(0, 0, -10000, tbyTextboxManager)
 #macro tbyCreateTextSnippet		instance_create_depth(0, 0, -10001, tbyText)
 
-#macro tbyControlCodeOpening	"["
+#macro tbyControlCodeOpening	"[" //these should not be the same string
 #macro tbyControlCodeClosing	"]"
 
+//Editing the colors requires chaning tbyTranslateColor()m too
 enum TbyColor {
 	White = c_white,
 	Red = c_red,
@@ -90,12 +91,13 @@ enum TbyControlCode {
 	_SIZE
 }
 
-
 #macro tbySingleton if (instance_number(object_index)>1) {instance_destroy();}
 
 //Only to be used in the tbyTextboxManager object
 #macro tbyManagerStart event_user(0);
 #macro tbyManagerNextAction event_user(1);
+
+//Only to be used in the tbyText object
 #macro tbyTextStart event_user(0);
 
 #endregion

@@ -1,5 +1,6 @@
 ///@function tbyGetControlCodes(map)
-///@desc map
+///@desc Returns the mapped control codes values for use in messages
+///@param map
 
 var map = argument0;
 ds_map_clear(map);

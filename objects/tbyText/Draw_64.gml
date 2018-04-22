@@ -27,7 +27,7 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	
 	if (c = "\n") {
 		offx = 0;
-		offy += tbyDefaultLineHeight;
+		offy += tbyLineHeight;
 	} else {
 		offx += string_width(c);
 	}

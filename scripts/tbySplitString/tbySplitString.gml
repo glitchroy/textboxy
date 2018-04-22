@@ -1,6 +1,10 @@
 ///@function tbySplitString(string, delimiter, list?)
+///@desc Returns a ds_list of the string split at the delimiter
+///@param string
+///@param delimiter
+///@param list?
 // Taken from https://yal.cc/gamemaker-split-string/
-// Returns a ds list
+
 var s = argument[0], d = argument[1], r;
 if (argument_count >= 3) {
     r = argument[2];

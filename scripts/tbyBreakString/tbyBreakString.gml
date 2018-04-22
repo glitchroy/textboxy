@@ -8,8 +8,8 @@
 We have a maximum width in pixels and want to know at
 what character index (starting from 1) we want to split
 the string into two parts. This is a bit tricky, since
-we easily translate a width in pixels into a width in 
-characters.
+we can't easily translate a width in pixels into a
+width in characters.
 What we do here is half the character length of the string
 until we reach a width in pixels that is lower than the
 given maximum. After that, we advance character-by-character

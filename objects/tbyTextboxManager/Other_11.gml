@@ -12,7 +12,7 @@ if (!is_array(action)) exit; //faulty action, skip it
 
 var actionScript = action[0];
 if !script_exists(actionScript) exit; //action does not exist, skip it
-currentAction = actionScript;
+//currentAction = actionScript;
 
 //delete any old text instances
 instance_destroy(tbyTextObject);
