@@ -2,7 +2,7 @@
 ///@desc This should not be called manually
 ///@param string
 
-var s = argument0;
+var s = string_replace_all(argument0, "\r\n", "\n");
 with (tbyM()) {
 	//Strip control codes and store them for later use
 	var cleanString = tbyStripControlCodes(s);
