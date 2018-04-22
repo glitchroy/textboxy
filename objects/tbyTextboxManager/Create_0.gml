@@ -8,7 +8,7 @@ spawning of text instances for drawing text
 */
 
 //singleton code - destory this object if it already exists
-tbySingleton
+tbySingleton;
 
 //Create variables
 actionQueue = ds_queue_create();
@@ -34,5 +34,8 @@ oy = 0;
 tx = undefined;
 ty = undefined;
 currentText = noone;
+
+ccMap = ds_map_create();
+tbySetupControlCodes(ccMap);
 
 running = false;

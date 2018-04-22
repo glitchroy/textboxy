@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "4653f011-db3e-4f22-bb6a-6a06b8086274",
+            "Value": {
+                "id": "e4e5ede6-337e-4513-8b60-1a5ad93a1083",
+                "resourcePath": "scripts\\tbySetupControlCodes\\tbySetupControlCodes.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4b61c504-bfef-4584-95d2-5d80564dfd5f",
             "Value": {
                 "id": "e11ff427-ef63-4126-853b-a377be6d49db",
@@ -512,6 +520,7 @@
         "11e70319-aae4-402c-be25-d723bf79a400",
         "8f68ef59-76b1-4936-b00e-4fa6a085c518",
         "3c7df341-0eb3-4579-aedd-ff7502ca647d",
+        "4653f011-db3e-4f22-bb6a-6a06b8086274",
         "64ad0613-0a53-47a0-9d0b-7c921b87bdb9",
         "9e8edda7-1f78-4bf2-b616-e34ac7f26c83",
         "55c59f0b-4458-4fda-8648-b0d9c0f664e9",

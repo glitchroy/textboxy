@@ -30,6 +30,6 @@ Look at the documentation for more info */
 tbyAddAction(TbyAction.SetSpeaker, id);
 //tbyAddAction(TbyAction.SetOrigin, 100, 100);
 tbyAddAction(TbyAction.ShowString,
-@"This looks like real dialogue actually.
+@"This #c1looks#c0 #...like real dialogue actually.
 Strange, but I guess it works, dunnit? This is great.");
 tbyStart();

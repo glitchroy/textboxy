@@ -12,8 +12,8 @@
 #macro tbyDefaultMaxWidth		200
 #macro tbyDefaultLineAmount		4
 #macro tbyDefaultLineHeight		10
-#macro tbyDefaultCharsPerStep	2 //0.5 etc allowed too
-
+#macro tbyDefaultWaitPerChar	2 //in steps
+#macro tbyWaitStepsPerWait		5
 
 //Keys that the message should listen to
 #macro tbyInputKey			keyboard_check(vk_space) || keyboard_check(vk_enter)
@@ -28,6 +28,8 @@
 // Change this if you have a dedicated layer for manager objects
 #macro tbyCreateManagerSnippet	instance_create_depth(0, 0, -10000, tbyTextboxManager)
 #macro tbyCreateTextSnippet		instance_create_depth(0, 0, -10001, tbyText)
+
+#macro tbyControlCodeChar		"#"
 
 #endregion
 
@@ -48,9 +50,31 @@ enum TbyAction {
 	ShowString  = tbyActionShowString
 }
 
+/*
+Every string index has a control code payload.
+They take the following form:
++----------+---+---+---+---+---+---+---+
+|++++++++++| T | e | s | t | i | n | g |
++----------+---+---+---+---+---+---+---+
+|Color     | 1 | 1 | 1 | 1 | 2 | 2 | 2 |
++----------+---+---+---+---+---+---+---+
+|WaitFrames| 0 | 0 | 0 | 0 | 0 | 0 | 3 |
++----------+---+---+---+---+---+---+---+
+|Jittery?  | f | f | t | t | t | t | t |
++----------+---+---+---+---+---+---+---+
+|...       |   |   |   |   |   |   |   |
++----------+---+---+---+---+---+---+---+
+*/
+
 enum TbyControlCode {
-	Jittery
+	Reset,
+	Color,
+	Font,
+	Wait,
+	Jittery,
+	_SIZE
 }
+
 
 #macro tbySingleton if (instance_number(object_index)>1) {instance_destroy();}
 
