@@ -16,6 +16,15 @@
 #macro tbyDefaultWaitPerChar	4 //in steps
 #macro tbyWaitStepsPerWait		(room_speed/4) //how many steps to wait per . character
 
+//Audio
+#macro tbyPlaySpeechSound		true
+#macro tbySpeechSound			sndSpeechDefault
+#macro tbySpeechPitchChange		random_range(0.8, 1.2)
+#macro tbySpeechIteration		3 //play sound every x characters
+#macro tbyPlayConfirmSound		true
+#macro tbyConfirmSound			sndMsgConfirm
+
+
 //Keys that the message should listen to
 #macro tbyInputKey			(keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 

@@ -543,6 +543,22 @@
             }
         },
         {
+            "Key": "f783ce27-3c8e-4cf7-b1b8-58e9b6f24349",
+            "Value": {
+                "id": "2f9aaea8-4ea7-4f2e-839d-d6406e3c0505",
+                "resourcePath": "sounds\\sndMsgConfirm\\sndMsgConfirm.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "f7ac0330-ed1e-4f84-9fbe-ca9be2ab9835",
+            "Value": {
+                "id": "03094d93-f8c2-4ddd-9e73-2525c4bcdbe5",
+                "resourcePath": "sounds\\sndSpeechDefault\\sndSpeechDefault.yy",
+                "resourceType": "GMSound"
+            }
+        },
+        {
             "Key": "fc44b9e3-a0ef-4f57-a121-c19eca2c0c23",
             "Value": {
                 "id": "8af116c5-3974-4ae6-837b-d20000d011c2",
