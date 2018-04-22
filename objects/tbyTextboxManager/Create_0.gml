@@ -35,7 +35,4 @@ tx = undefined;
 ty = undefined;
 currentText = noone;
 
-ccMap = ds_map_create();
-tbySetupControlCodes(ccMap);
-
 running = false;

@@ -1,6 +1,7 @@
-///@function tbyT(text, font, x, y)
+///@function tbyT(text, dirtyText, font, x, y)
 ///@desc Creates a new text instance with the given string
 ///@param text
+///@param dirtyText
 ///@param font
 ///@param x
 ///@param y
@@ -11,12 +12,14 @@ if (instance_exists(tbyTextObject)) {
 
 var t = tbyCreateTextSnippet;
 var s = argument0;
-var f = argument1;
-var fx = argument2;
-var fy = argument3;
+var ds = argument1;
+var f = argument2;
+var fx = argument3;
+var fy = argument4;
 
 with (t) {
-	text = s;
+	cleanText = s;
+	dirtyText = ds;
 	font = f;
 	x = fx;
 	y = fy;

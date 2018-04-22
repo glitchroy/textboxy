@@ -24,15 +24,7 @@ array_copy(arguments, 0, action, 1, array_length_1d(action)-1)
 tbySpread(actionScript, arguments);
 
 //when to call new action immediatly?
-if (actionScript == TbyAction.ShowString) {
-	//Create new string instance, don't advance
-	var tc = tbyOriginToTopLeft(
-			 ox, oy,
-			 min(currentWidth, maxWidth)+tbyTileSize*2,
-			 min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
-
-	currentText = tbyT(currentMessage, currentFont, tc[0], tc[1]);
-} else {
+if (actionScript != TbyAction.ShowString) {
 	//advance to next action
 	tbyManagerNextAction;
 }

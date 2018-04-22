@@ -2,7 +2,6 @@ if !running exit;
 
 #region Speaker movement
 // If speaker moves, update origin
-log(speaker)
 if (instance_exists(speaker)) {
 	if (speakerX != speaker.x || speakerY != speaker.y) {
 		//speaker pos changed

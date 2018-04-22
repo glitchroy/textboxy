@@ -13,7 +13,7 @@
 #macro tbyDefaultLineAmount		4
 #macro tbyDefaultLineHeight		10
 #macro tbyDefaultWaitPerChar	2 //in steps
-#macro tbyWaitStepsPerWait		5
+#macro tbyWaitStepsPerWait		15 //how many steps to wait per . character
 
 //Keys that the message should listen to
 #macro tbyInputKey			keyboard_check(vk_space) || keyboard_check(vk_enter)
@@ -29,7 +29,22 @@
 #macro tbyCreateManagerSnippet	instance_create_depth(0, 0, -10000, tbyTextboxManager)
 #macro tbyCreateTextSnippet		instance_create_depth(0, 0, -10001, tbyText)
 
-#macro tbyControlCodeChar		"#"
+#macro tbyControlCodeOpening	"["
+#macro tbyControlCodeClosing	"]"
+
+enum TbyColor {
+	White = c_white,
+	Red = c_red,
+	Orange = c_orange,
+	Yellow = c_yellow,
+	Green = c_green,
+	Blue = c_aqua,
+	Purple = c_purple
+}
+
+enum TbyFont {
+	Default = tbyDefaultFont
+}
 
 #endregion
 
@@ -67,7 +82,7 @@ They take the following form:
 */
 
 enum TbyControlCode {
-	Reset,
+	Reset, //this needs to be on 0 position
 	Color,
 	Font,
 	Wait,

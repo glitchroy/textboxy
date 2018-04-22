@@ -4,8 +4,11 @@
 
 var s = argument0;
 with (tbyM()) {
+	//Strip control codes and store them for later use
+	var cleanString = tbyStripControlCodes(s);
+	
 	//Returns string with proper line breaks
-	var bs = tbySmartLineBreak(currentFont, maxWidth, s)
+	var bs = tbySmartLineBreak(currentFont, maxWidth, cleanString)
 	
 	//Make string availiable to textboxManager
 	currentMessage = bs;
@@ -20,4 +23,11 @@ with (tbyM()) {
 		//would be better for performance instead
 		//of using SplitString again?
 	}*/
+	
+	var tc = tbyOriginToTopLeft(
+			 ox, oy,
+			 min(currentWidth, maxWidth)+tbyTileSize*2,
+			 min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
+
+	currentText = tbyT(bs, s, currentFont, tc[0], tc[1]);
 }

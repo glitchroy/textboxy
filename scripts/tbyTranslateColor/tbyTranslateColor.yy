@@ -1,8 +1,8 @@
 {
-    "id": "4653f011-db3e-4f22-bb6a-6a06b8086274",
+    "id": "f12f8018-2133-40ea-b572-46fabeb56033",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tbySetupControlCodes",
+    "name": "tbyTranslateColor",
     "IsCompatibility": false,
     "IsDnD": false
 }
