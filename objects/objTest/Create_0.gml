@@ -32,7 +32,8 @@ tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
 tbyAddAction(TbyAction.SetSpeaker, id);
 tbyAddAction(TbyAction.ShowString,
-@"Test
-[c2][j]Color me[c0] impressed!");
+@"Don't interrupt m-[..][^]");
+tbyAddAction(TbyAction.ShowString,
+@"Test [.][c2][j]Color me[c0][...] i[.]m[.]p[.]ressed!");
 
 tbyStart();

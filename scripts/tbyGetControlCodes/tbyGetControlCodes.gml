@@ -10,3 +10,4 @@ map[? "c"] = TbyControlCode.Color;
 map[? "f"] = TbyControlCode.Font;
 map[? "."] = TbyControlCode.Wait;
 map[? "j"] = TbyControlCode.Jittery;
+map[? "^"] = TbyControlCode.Skip;

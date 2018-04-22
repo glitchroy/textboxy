@@ -100,6 +100,7 @@ enum TbyControlCode {
 	Font,
 	Wait,
 	Jittery,
+	Skip,
 	_SIZE
 }
 

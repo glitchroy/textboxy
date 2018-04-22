@@ -61,7 +61,11 @@ for (var i = 0; i < string_length(dirtyText); i++) {
 				if (check != TbyControlCode.Reset) {
 					//Apply data
 					var index = i+1;
-					if (check == TbyControlCode.Wait) index--; //timing one char before
+					//timing one char before
+					if (check == TbyControlCode.Wait ||
+						check == TbyControlCode.Skip) {
+						index-=2;
+					}
 					ccGrid[# index, check] = data;
 				} else {
 					//Reset column
