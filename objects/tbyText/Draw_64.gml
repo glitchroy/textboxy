@@ -34,7 +34,7 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 }
 
 if (tbyDrawPauseSymbol && finished) {
-	var fx = x+width+tbyTileSize;
-	var fy = y+height+tbyTileSize;
+	var fx = x+width+tbyTileSize*2;
+	var fy = y+height+tbyTileSize*2;
 	draw_sprite(tbyPauseSprite, -1, fx, fy);
 }

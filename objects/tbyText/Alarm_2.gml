@@ -1,4 +1,4 @@
-/// @description Normal delay before skip code ^
+/// @description Normal delay and then skip code ^
 
 finished = true;
 instance_destroy();

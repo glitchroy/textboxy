@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// @description Extend counter and check finish condition
 
 if (textCounter < string_length(cleanText)) {
 	textCounter++;

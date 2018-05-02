@@ -106,10 +106,10 @@ enum TbyCode {
 #macro tbySingleton if (instance_number(object_index)>1) {instance_destroy();}
 
 //Only to be used in the tbyTextboxManager object
-#macro tbyManagerStart event_user(0);
-#macro tbyManagerNextAction event_user(1);
+#macro tbyManagerStart event_user(0)
+#macro tbyManagerNextAction event_user(1)
 
 //Only to be used in the tbyText object
-#macro tbyTextStart event_user(0);
+#macro tbyTextStart event_user(0)
 
 #endregion
