@@ -27,13 +27,22 @@ surface_resize(application_surface,
 /* You can use @"string" to create a string literal
 Look at the documentation for more info */
 
-tbyAddAction(TbyAction.SetSpeed, 1);
 tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
 tbyAddAction(TbyAction.SetSpeaker, id);
+tbyAddAction(TbyAction.SetSpeed, 3);
 tbyAddAction(TbyAction.ShowString,
-@"Don't interrupt m-[..][^]");
+@"What is a man?");
+tbyAddAction(TbyAction.SetPause, 15);
+tbyAddAction(TbyAction.SetSpeed, 1);
 tbyAddAction(TbyAction.ShowString,
-@"Test [.][c2][j]Color me[c0][...] i[.]m[.]p[.]ressed!");
+@"A [c/red]miserable little pile of secrets[r]?[...]
+But enough talk[.].[.].[.].");
+tbyAddAction(TbyAction.SetPause, 30);
+tbyAddAction(TbyAction.SetSpeed, 3);
+tbyAddAction(TbyAction.ShowString,
+@"[j]Have at you!");
+//tbyAddAction(TbyAction.ShowString,
+//@"Test[.][c2][j]Color me[c0][...]i[.]m[r][.]p[.]ressed!");
 
 tbyStart();

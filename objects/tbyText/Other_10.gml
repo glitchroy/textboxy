@@ -1,104 +1,191 @@
 /// @description Initialize everything
-ccGrid = ds_grid_create(string_length(cleanText),
-						TbyControlCode._SIZE);
-var ccMap = -1;
-ds_grid_clear(ccGrid, undefined);
 
-#region Create cc map
-for (var i = 0; i < string_length(dirtyText); i++) {
-	//add the character and default values
-	ccGrid[# i, 0] = string_copy(cleanText, i+1, 1);
-	if (ccGrid[# i, TbyControlCode.Wait] == undefined) {
-		ccGrid[# i, TbyControlCode.Wait] = wait;
+// TODO: See if this dirty hack can be removed
+/* Adding a space ensures that a trailing
+control code gets processed, too */ 
+cleanText = cleanText+" ";
+dirtyText = dirtyText+" ";
+
+ccGrid = ds_grid_create(string_length(cleanText),
+						TbyCode._SIZE);
+
+ds_grid_clear(ccGrid, undefined);
+var ccMap = tbyArrayToMap(tbyControlIdentifiers);
+var colors = tbyArrayToMap(tbyColorNames);
+
+#region Create ControlCode Grid
+/* At the end of this loop, we want a grid
+of every character and the corresponding codes
+for every index.
+*/
+var si;
+var i;
+for (i = 0; i < string_length(cleanText); i++) {
+	si = i+1; //string index - strings start at 1
+	
+	// Put our clean char in the grid to begin with
+	ccGrid[# i, 0] = string_copy(cleanText, si, 1);
+	// Initialize our default time if we don't have any set yet
+	if (ccGrid[# i, TbyCode.Wait] == undefined) {
+		ccGrid[# i, TbyCode.Wait] = wait;
 	}
 	
-	//check dirty character
-	var dirtyChar = string_char_at(dirtyText, i+1);
-	if (dirtyChar == tbyControlCodeOpening) {
-		//control code found at i+1
-		var ccBegin = i+1;
-		
-		// get string between the codes
-		var ccEnd = ccBegin;
-		for (var j = i; j <= string_length(dirtyText); j++) {
-			if (string_char_at(dirtyText, j) == tbyControlCodeClosing) {
-				ccEnd = j;
-				i--;
-				break;
-			};
-		}
-		
-		var code = string_copy(dirtyText, ccBegin+1, ccEnd-ccBegin-1);
-		//strip code
-		dirtyText = string_delete(dirtyText, ccBegin, ccEnd-ccBegin+1);
-		
-		if (is_string(code) && string_length(code) > 0) {
-			//Is the code valid? Check if a valid character comes after
-			ccMap = ds_map_create();
-			tbyGetControlCodes(ccMap);
-	
-			var check = ds_map_find_value(ccMap,
-						string_char_at(code, 1));
+	#region Check for control codes
+	var dirtyChar = string_char_at(dirtyText, si);
 
-			if (!is_undefined(check)) {
-				// valid code, first character matches
-				// check now holds the type of code
-				var data = true;
-				if (string_length(code) > 1 || check == TbyControlCode.Wait) {
-					// we have additional data like color id
-					data = string_delete(code, 1, 1);
-					switch (check) {
-						case TbyControlCode.Color:
-							data = tbyTranslateColor(real(data));
-						break;
-						case TbyControlCode.Wait:
-							data = (string_length(data)+1)*tbyWaitStepsPerWait;
-							//error("WAITING SETUP", data);
-						break;
-					}
-				}
-				
-				if (check != TbyControlCode.Reset) {
-					//Apply data
-					var index = i+1;
-					//timing one char before
-					if (check == TbyControlCode.Wait ||
-						check == TbyControlCode.Skip) {
-						index-=2;
-					}
-					ccGrid[# index, check] = data;
-				} else {
-					//Reset column
-					tbyControlCodeDefaultValue(ccGrid, i+1);
-				}
+	if (dirtyChar != tbyControlCodeOpening) continue;
+		
+	// We found a control code opening at si
+	var ccBegin = si;
+	// We want the whole content of the control code
+	// If we encounter another opening char before
+	// or no end char at all, this code is invalid
+	#region Strip out whole control code
+	var skip = string_count(tbyControlCodeClosing, dirtyText);
+	
+	var j;
+	if (skip > 0) {
+		// Loop through all characters starting from the
+		// one after this opening (that's why its ccBegin+1)
+		for (j = ccBegin+1; j < string_length(dirtyText); j++) {
+			var c = string_char_at(dirtyText, j);
+			
+			if (c == tbyControlCodeOpening) {
+				skip = true;
+				break;
+			}
+			if (c == tbyControlCodeClosing) {
+				skip = false;
+				break;
 			}
 		}
-		
 	}
-}
+	
+	if (skip) continue;
+	#endregion
+	
+	// Found end successfully
+	var ccEnd = j;
+	var ccCodeLength = ccEnd-(ccBegin-1) //remove 1 indexing
+	
+	//+1 so we start after the opening char and -2 so we only take the inner string
+	var ccCode = string_copy(dirtyText, ccBegin+1, ccCodeLength-2);
+
+	// Delete this code out (+1 so we delete the ending char too)
+	dirtyText = string_delete(dirtyText, ccBegin, ccCodeLength);
+	
+	#region Process the code
+	if !is_string(ccCode) continue;
+	if (string_length(ccCode) <= 0) continue; // fail cases
+			
+	// Check if the first character of the control code
+	// is in the reference map
+	var codeCheck = ccMap[? string_char_at(ccCode, 1)];
+	
+	if (is_undefined(codeCheck)) continue; //if not, it's an invalid code
+	
+	/* We want to figure out the control code data
+	for the specific code */
+	var data = true; //default case is just true
+	
+	#region Specific code behaviour
+	if (codeCheck == TbyCode.Reset) {
+		/* Reset Code is a special case. We just reset the
+		current column and continue. The script below
+		handles the rest */
+		tbyControlCodeDefaultValue(ccGrid, i);
+		continue;
+	}
+	
+	// This is the big control code character switch statement
+	// (Lots of alliterations!)
+	switch (codeCheck) {
+		case TbyCode.Color:
+			/* Color expects the delimiter and a string after
+			For simplicity's sake, we assume the color string
+			starts at index 3 */
+			// TODO: Maybe get the string the correct way
+			var colorIdentifier = string_copy(ccCode, 3,
+											  string_length(ccCode)-3+1);
+			var colorValue = colors[? colorIdentifier]
+			
+			if (colorValue != undefined) {
+				data = colorValue;
+			}
+			
+		break;
+		case TbyCode.Font:
+			// TODO: Implement font processing
+		break;
+		case TbyCode.Wait:
+			/* Wait expects a number of steps to wait.
+			This works by counting the number of characters
+			in the code */
+			data = tbyDefaultWaitEachChar + (tbyWaitPerWaitChar * string_length(ccCode))
+		break;
+		// Jittery is fine with the default true
+	}
+	#endregion
+	
+	ccGrid[# i, codeCheck] = data;
+
+	#endregion
+			
+	#endregion
+	
+	// If we got to this point, a control code was
+	// processed. We check the same char again
+	// to account for control codes back to back
+	i = max(0, i-1)
+} // end for-loop
 #endregion
 
+#region Clean-Up
+// Destroy maps again
 if (ds_exists(ccMap, ds_type_map)) {
 	ds_map_destroy(ccMap);
 }
+if (ds_exists(colors, ds_type_map)) {
+	ds_map_destroy(colors);
+}
+#endregion
 
-#region extend every row but wait
-//start at second row, first row is unaffected
-for (var h = 1; h < ds_grid_height(ccGrid); h++) {
-	if (h == TbyControlCode.Wait) continue; //skip waits
+#region Extend rows where it is needed
+for (var row = 1; row < ds_grid_height(ccGrid); row++) {
+	// We start at 1, because the first row is
+	// just the character itself
 	
-	var lastValIndex = -1;
-	for (var rowIndex = 0; rowIndex < ds_grid_width(ccGrid); rowIndex++) {
-		var val = ccGrid[# rowIndex, h];
-		if (val != undefined) {
-			//manually inserted, so it should be extended
-			if (rowIndex+1 < ds_grid_width(ccGrid) &&
-				ccGrid[# rowIndex+1, h] == undefined) {
-
-				//overwrite next value if its undefined
-				ccGrid[# rowIndex+1, h] = val;
-			}
-		}
+	/* We loop through the grid vertically.
+	Some codes like color and jittery extend
+	until they are reset or overwritten. This
+	is accomplished here, on a per-row basis. */
+	
+	// We don't need to extend these codes
+	if (row == TbyCode.Wait ||
+		row == TbyCode.Skip) {
+		continue;
+	}
+	
+	for (var col = 0; col < ds_grid_width(ccGrid); col++) {
+		// Loop through every column in the row
+		var val = ccGrid[# col, row];
+		
+		// If a value is not undefined, that means
+		// it has been changed manually and should be
+		// considered when extending
+		if (val == undefined) continue;
+		// Check if this is not the last value
+		if (col+1 >= ds_grid_width(ccGrid)) continue;
+		
+		// Get the next entry, which will be modified
+		// to match the current one
+		var valNext = ccGrid[# col+1, row]
+		
+		// Check if the next value should be considered
+		if (valNext != undefined) continue;
+		
+		// Overwrite the next value
+		ccGrid[# col+1, row] = val;
 	}
 }
 #endregion

@@ -9,11 +9,11 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	var jx = 0;
 	var jy = 0;
 	
-	currentColor = ccGrid[# i-1, TbyControlCode.Color];
-	if (currentColor == undefined) currentColor = tbyTranslateColor(0);
-	currentJitter = ccGrid[# i-1, TbyControlCode.Jittery];
+	currentColor = ccGrid[# i-1, TbyCode.Color];
+	if (currentColor == undefined) currentColor = tbyDefaultColor;
+	currentJitter = ccGrid[# i-1, TbyCode.Jittery];
 	if (currentJitter == undefined) currentJitter = false;
-	//currentFont = ccGrid[# i-1, TbyControlCode.Font];
+	//currentFont = ccGrid[# i-1, TbyCode.Font];
 	
 	draw_set_color(currentColor);
 	draw_set_font(font);
@@ -33,7 +33,7 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	}
 }
 
-if (finished) {
+if (tbyDrawPauseSymbol && finished) {
 	var fx = x+width+tbyTileSize;
 	var fy = y+height+tbyTileSize;
 	draw_sprite(tbyPauseSprite, -1, fx, fy);

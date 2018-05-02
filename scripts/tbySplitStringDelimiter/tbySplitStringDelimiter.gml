@@ -1,4 +1,4 @@
-///@function tbySplitString(string, delimiter, list?)
+///@function tbySplitStringDelimiter(string, delimiter, list?)
 ///@desc Returns a ds_list of the string split at the delimiter
 ///@param string
 ///@param delimiter

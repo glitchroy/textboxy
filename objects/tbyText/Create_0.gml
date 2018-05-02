@@ -13,15 +13,15 @@ height = undefined;
 cleanText = undefined;
 dirtyText = undefined;
 typewriterText = "";
-textCounter = 1;
+textCounter = 0;
 
 font = undefined;
 
-wait = tbyDefaultWaitPerChar;
+wait = tbyDefaultWaitEachChar;
 
 running = false;
 finished = false;
 
-currentColor = c_white;
+currentColor = tbyDefaultColor;
 currentJitter = false;
 currentFont = font;

@@ -1,8 +1,8 @@
 {
-    "id": "f0ba7c1f-2cbd-4075-bd8d-28f9787cf6da",
+    "id": "53ba6482-8dd7-4419-b328-3ef809339460",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tbySmartLineBreak",
+    "name": "tbyFindLineBreakPosition",
     "IsCompatibility": false,
     "IsDnD": false
 }

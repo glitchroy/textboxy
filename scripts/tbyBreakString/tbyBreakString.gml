@@ -22,7 +22,7 @@ character like a whitespace or comma.
 Finally, we return an array of the now broken string.
 Note that potentially only the first half will be
 shorter than the maximum width, but we deal with
-that in tbySmartLineBreak. */
+that in later. */
 #endregion
 
 var s = argument0;

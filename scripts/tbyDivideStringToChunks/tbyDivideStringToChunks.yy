@@ -1,8 +1,8 @@
 {
-    "id": "f12f8018-2133-40ea-b572-46fabeb56033",
+    "id": "f5d3e606-3116-4db1-a800-766c4537938b",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tbyTranslateColor",
+    "name": "tbyDivideStringToChunks",
     "IsCompatibility": false,
     "IsDnD": false
 }

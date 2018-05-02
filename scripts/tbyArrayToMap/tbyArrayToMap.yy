@@ -1,8 +1,8 @@
 {
-    "id": "4653f011-db3e-4f22-bb6a-6a06b8086274",
+    "id": "2476341c-7c4f-4f9a-a806-de5d37bb3bea",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tbyGetControlCodes",
+    "name": "tbyArrayToMap",
     "IsCompatibility": false,
     "IsDnD": false
 }

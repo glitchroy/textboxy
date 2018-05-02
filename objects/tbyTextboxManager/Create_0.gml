@@ -25,7 +25,7 @@ currentLines = maxLines;
 
 currentFont = tbyDefaultFont;
 
-standardWait = tbyDefaultWaitPerChar;
+standardWait = tbyDefaultWaitEachChar;
 
 //Origin coordinates
 ox = 0;

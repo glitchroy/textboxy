@@ -8,9 +8,9 @@ var c = argument1;
 
 with (tbyTextObject) {
 	if (ds_exists(grid, ds_type_grid)) {
-		grid[# c, TbyControlCode.Color]	= TbyColor.White;
-		grid[# c, TbyControlCode.Font]	= font;
-		grid[# c, TbyControlCode.Wait]	= wait;
-		grid[# c, TbyControlCode.Jittery] = false;
+		grid[# c, TbyCode.Color]	= tbyDefaultColor;
+		grid[# c, TbyCode.Font]		= font;
+		grid[# c, TbyCode.Wait]		= wait;
+		grid[# c, TbyCode.Jittery]	= false;
 	}
 }

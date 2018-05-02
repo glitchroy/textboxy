@@ -13,8 +13,8 @@
 #macro tbyDefaultMaxWidth		200
 #macro tbyDefaultLineAmount		4
 #macro tbyLineHeight			10
-#macro tbyDefaultWaitPerChar	4 //in steps
-#macro tbyWaitStepsPerWait		(room_speed/4) //how many steps to wait per . character
+#macro tbyDefaultWaitEachChar	4 //in steps
+#macro tbyWaitPerWaitChar		(room_speed/4) //how many steps to wait per . character
 
 //Audio
 #macro tbyPlaySpeechSound		true
@@ -39,19 +39,14 @@
 #macro tbyCreateManagerSnippet	instance_create_depth(0, 0, -10000, tbyTextboxManager)
 #macro tbyCreateTextSnippet		instance_create_depth(0, 0, -10001, tbyText)
 
-#macro tbyControlCodeOpening	"[" //these should not be the same string
+// These should all be one character only
+// The format for the defaults is [control_code/additional_data]
+#macro tbyControlCodeOpening	"["
 #macro tbyControlCodeClosing	"]"
+#macro tbyControlCodeDelimiter	"/" 
 
-//Editing the colors requires chaning tbyTranslateColor()m too
-enum TbyColor {
-	White = c_white,
-	Red = c_red,
-	Orange = c_orange,
-	Yellow = c_yellow,
-	Green = c_green,
-	Blue = c_aqua,
-	Purple = c_purple
-}
+#macro tbyDefaultColor c_white
+#macro tbyColorNames [ "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "blue", c_blue, "purple", c_purple]
 
 enum TbyFont {
 	Default = tbyDefaultFont
@@ -94,7 +89,7 @@ They take the following form:
 +----------+---+---+---+---+---+---+---+
 */
 
-enum TbyControlCode {
+enum TbyCode {
 	Reset, //this needs to be on 0 position
 	Color,
 	Font,
@@ -104,6 +99,10 @@ enum TbyControlCode {
 	_SIZE
 }
 
+// They keys should all be ony character only
+#macro tbyControlIdentifiers ["r", TbyCode.Reset, "c", TbyCode.Color, "f", TbyCode.Font, ".", TbyCode.Wait, "j", TbyCode.Jittery, "^", TbyCode.Skip ]
+
+/*  Helper stuff */
 #macro tbySingleton if (instance_number(object_index)>1) {instance_destroy();}
 
 //Only to be used in the tbyTextboxManager object
