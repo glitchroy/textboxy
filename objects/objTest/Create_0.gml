@@ -32,16 +32,7 @@ tbyAddAction(TbyAction.SetMaxLines, 4);
 tbyAddAction(TbyAction.SetSpeaker, id);
 tbyAddAction(TbyAction.SetSpeed, 3);
 tbyAddAction(TbyAction.ShowString,
-@"What is a man?");
-tbyAddAction(TbyAction.SetPause, 15);
-tbyAddAction(TbyAction.SetSpeed, 1);
-tbyAddAction(TbyAction.ShowString,
-@"A [c/red]miserable little pile of secrets[r]?[...]
-But enough talk[.].[.].[.].");
-tbyAddAction(TbyAction.SetPause, 30);
-tbyAddAction(TbyAction.SetSpeed, 3);
-tbyAddAction(TbyAction.ShowString,
-@"[j]Have at you!");
+@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!");
 //tbyAddAction(TbyAction.ShowString,
 //@"Test[.][c2][j]Color me[c0][...]i[.]m[r][.]p[.]ressed!");
 

@@ -136,7 +136,8 @@ for (i = 0; i < string_length(cleanText); i++) {
 	// If we got to this point, a control code was
 	// processed. We check the same char again
 	// to account for control codes back to back
-	i = max(0, i-1)
+	// We limit to -1 because we increase +1 anyway next loop
+	i = max(-1, i-1)
 } // end for-loop
 #endregion
 

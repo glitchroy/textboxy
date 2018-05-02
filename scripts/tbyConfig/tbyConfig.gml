@@ -46,7 +46,7 @@
 #macro tbyControlCodeDelimiter	"/" 
 
 #macro tbyDefaultColor c_white
-#macro tbyColorNames [ "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "blue", c_blue, "purple", c_purple]
+#macro tbyColorNames [ "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "aqua", c_aqua, "blue", c_blue, "purple", c_purple]
 
 enum TbyFont {
 	Default = tbyDefaultFont
