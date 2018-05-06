@@ -471,6 +471,14 @@
             }
         },
         {
+            "Key": "cffe2e03-5443-4b41-8f49-b5bb96d107d1",
+            "Value": {
+                "id": "4556c3ba-0f41-4ff8-9a45-e2099beff3c8",
+                "resourcePath": "fonts\\fontOther\\fontOther.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "d8577805-cb7b-4469-816e-5429c64d7637",
             "Value": {
                 "id": "40d10257-9059-421a-895c-958af306563a",
@@ -491,6 +499,14 @@
             "Value": {
                 "id": "5cab8ea5-bb6d-4e08-9cf8-1b1d8e8d3b13",
                 "resourcePath": "scripts\\error\\error.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f0bc4c0b-050b-4423-8b30-f47b9e22e224",
+            "Value": {
+                "id": "2196aefa-5559-4e24-9021-95b2fe290eaf",
+                "resourcePath": "scripts\\tbyActionSetFont\\tbyActionSetFont.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -573,6 +589,7 @@
         "989dfe49-44f0-46cf-95f1-11a30a2331d0",
         "5fd990ed-67db-46bb-b7a9-1a37c404cec1",
         "4fbeb043-8b8c-4cb2-9c1f-a2e4c1f5acfa",
+        "f0bc4c0b-050b-4423-8b30-f47b9e22e224",
         "05d47f45-b394-48fc-967d-5104cd50a675",
         "189fad13-0e2a-4e23-a069-5c70410bcf05",
         "a7105ed5-9cbb-4b2d-a648-f9ac1690e732",

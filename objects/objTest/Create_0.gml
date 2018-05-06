@@ -32,7 +32,12 @@ tbyAddAction(TbyAction.SetMaxLines, 4);
 tbyAddAction(TbyAction.SetSpeaker, id);
 tbyAddAction(TbyAction.SetSpeed, 3);
 tbyAddAction(TbyAction.ShowString,
-@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!");
+@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!
+Hi");
+tbyAddAction(TbyAction.SetFont, fontOther);
+tbyAddAction(TbyAction.ShowString,
+@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!
+Heyooo");
 //tbyAddAction(TbyAction.ShowString,
 //@"Test[.][c2][j]Color me[c0][...]i[.]m[r][.]p[.]ressed!");
 

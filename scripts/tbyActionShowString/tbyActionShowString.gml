@@ -4,7 +4,7 @@
 var s = string_replace_all(argument0, "\r\n", "\n")
 var l = tbyDivideStringToChunks(s);
 
-draw_set_font(tbyDefaultFont);
+draw_set_font(currentFont);
 
 #region Insert smart line breaks
 var stringBuilder = "";
@@ -33,6 +33,14 @@ for (var i = 0; i < ds_list_size(l); i++) {
 	}
 }
 #endregion
+
+//TODO: Make string building more efficient
+/* What we are doing here is basically
+splitting the string up, inserting line
+breaks and putting it back together, only
+to split it up again later for the control
+code parsing. This is inefficient and could
+be combined into a single step somehow. */
 
 var cleanString = "";
 var dirtyString = "";
@@ -63,7 +71,7 @@ with (tbyM()) {
 				min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
 
 	currentText = tbyT(cleanString, dirtyString, currentFont, tc[0], tc[1],
-						currentWidth, currentLines*tbyLineHeight,
+						currentWidth, currentLines*lineHeight,
 						standardWait)
 }
 #endregion

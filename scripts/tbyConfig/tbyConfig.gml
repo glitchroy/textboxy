@@ -12,7 +12,6 @@
 //Technical
 #macro tbyDefaultMaxWidth		200
 #macro tbyDefaultLineAmount		4
-#macro tbyLineHeight			10
 #macro tbyDefaultWaitEachChar	4 //in steps
 #macro tbyWaitPerWaitChar		(room_speed/4) //how many steps to wait per . character
 
@@ -48,10 +47,6 @@
 #macro tbyDefaultColor c_white
 #macro tbyColorNames [ "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "aqua", c_aqua, "blue", c_blue, "purple", c_purple]
 
-enum TbyFont {
-	Default = tbyDefaultFont
-}
-
 #endregion
 
 
@@ -70,7 +65,8 @@ enum TbyAction {
 	SetOrigin   = tbyActionSetOrigin,
 	ShowString  = tbyActionShowString,
 	SetSpeed	= tbyActionSetSpeed,
-	SetPause	= tbyActionSetPause
+	SetPause	= tbyActionSetPause,
+	SetFont		= tbyActionSetFont
 }
 
 /*
@@ -92,7 +88,6 @@ They take the following form:
 enum TbyCode {
 	Reset, //this needs to be on 0 position
 	Color,
-	Font,
 	Wait,
 	Jittery,
 	Skip,
@@ -100,7 +95,7 @@ enum TbyCode {
 }
 
 // They keys should all be ony character only
-#macro tbyControlIdentifiers ["r", TbyCode.Reset, "c", TbyCode.Color, "f", TbyCode.Font, ".", TbyCode.Wait, "j", TbyCode.Jittery, "^", TbyCode.Skip ]
+#macro tbyControlIdentifiers ["r", TbyCode.Reset, "c", TbyCode.Color, ".", TbyCode.Wait, "j", TbyCode.Jittery, "^", TbyCode.Skip ]
 
 /*  Helper stuff */
 #macro tbySingleton if (instance_number(object_index)>1) {instance_destroy();}

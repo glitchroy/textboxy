@@ -16,6 +16,7 @@ typewriterText = "";
 textCounter = 0;
 
 font = undefined;
+lineHeight = undefined;
 
 wait = tbyDefaultWaitEachChar;
 

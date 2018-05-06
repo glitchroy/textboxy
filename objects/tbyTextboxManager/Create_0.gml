@@ -16,14 +16,16 @@ speaker = noone;
 speakerX = undefined;
 speakerY = undefined;
 
+currentFont = tbyDefaultFont;
+
 maxWidth = tbyDefaultMaxWidth;
 maxLines = tbyDefaultLineAmount;
-lineHeight = tbyLineHeight;
+
+draw_set_font(currentFont);
+lineHeight = string_height(ord("W"));
 
 currentWidth = maxWidth;
 currentLines = maxLines;
-
-currentFont = tbyDefaultFont;
 
 standardWait = tbyDefaultWaitEachChar;
 

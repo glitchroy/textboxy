@@ -103,7 +103,9 @@ for (i = 0; i < string_length(cleanText); i++) {
 		case TbyCode.Color:
 			/* Color expects the delimiter and a string after
 			For simplicity's sake, we assume the color string
-			starts at index 3 */
+			starts at index 3.
+			This means that the color identifier and delimiter
+			both need to be 1 string long.*/
 			// TODO: Maybe get the string the correct way
 			var colorIdentifier = string_copy(ccCode, 3,
 											  string_length(ccCode)-3+1);
@@ -113,9 +115,6 @@ for (i = 0; i < string_length(cleanText); i++) {
 				data = colorValue;
 			}
 			
-		break;
-		case TbyCode.Font:
-			// TODO: Implement font processing
 		break;
 		case TbyCode.Wait:
 			/* Wait expects a number of steps to wait.

@@ -1,4 +1,4 @@
-///@function tbyT(text, dirtyText, font, x, y, w, h, wait)
+///@function tbyT(text, dirtyText, font, x, y, w, h, wait, line)
 ///@desc Creates a new text instance with the given string
 ///@param text string without control codes
 ///@param dirtyText string with control codes
@@ -33,6 +33,10 @@ with (t) {
 	height = fh;
 	
 	wait = waitTime;
+	
+	draw_set_font(font);
+	lineHeight = string_height(ord("W"));
+	
 	tbyTextStart;
 }
 
