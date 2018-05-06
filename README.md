@@ -18,7 +18,7 @@ Some features I'd like to see some day are
 
 Thanks for reading!
 
-# Usage
+# Examples
 All you really need to get started is something like this
 
 ```gml
@@ -44,6 +44,31 @@ tbyAddAction(TbyAction.ShowString,
 tbyStart();
 ```
 
+# Usage
+As you can see, calling different actions and then executing the action queue is at the heart
+of the whole system. The following actions are currently provided
+
+ * `tbyActionSetMaxWidth(maxWidth:Number)` Sets the maximum width before a line break is automatically inserted
+ * `tbyActionSetMaxLines(maxLines:Number)` Sets the maximum number of lines in a given messagebox. (In a future version, this should split the message in two single messages, but for now, it just cuts the message off.)
+ * `tbyActionSetFont(fontResource:Number)` Sets the font for following messages
+ * `tbyActionSetSpeed(speed:Number` Sets the speed for following messages
+ * `tbyActionSetOrigin(x:Number, y:Number)` Sets the messagebox origin (bottom middle of the message box, where the "bubble" sprite is located)
+ * `tbyActionSetPosition(x:Number, y:Number)` Sets the messagebox top-left corner manually
+ * `tbyActionSetPause(frames:Number)` Inserts a pause of x frames in the action queue. Most useful between messages.
+ * `tbyActionSetSpeaker(speakerInstanceId:Number)` Binds the following messages to a speaker. The message will then follow the speaker instance. Set to `noone` or overwrite with `tbyActionSetOrigin()` or `tbyActionSetPosition()`.
+ * `tbyActionShowString(message:String)` Adds a messagebox.
+
+These actions should be called by the `tbyAddAction()` script.
+
+There are also some shorthands so you don't have to type as much.
+```gml
+tby("Testing..."); // adds a ShowString action
+tbyPause(60); // adds a SetPause action
+tby(id, "This is now following a speaker"); // adds a SetSpeaker action, then a ShowString action
+tby(id, 10, "Slower than usual"); // adds a SetSpeaker action, a SetSpeed action and then a ShowString action
+tby(noone, "No speaker anymore");
+tbyStart();
+```
 
 Code snippets used:
  - [_spread from gdash by twisterghost](https://github.com/gm-core/gdash/blob/master/src/scripts/_spread/_spread.gml)
