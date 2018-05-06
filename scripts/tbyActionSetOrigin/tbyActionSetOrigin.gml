@@ -3,6 +3,9 @@
 ///@param ox
 ///@param oy
 
+// This sets the bottom-middle, bottom point
+
 var m = tbyM();
-m.ox = argument0;
-m.oy = argument1;
+
+m.positionUpdate = [TbyPositionUpdateType.Origin,
+					argument0, argument1]

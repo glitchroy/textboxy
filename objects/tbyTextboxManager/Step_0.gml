@@ -5,19 +5,21 @@ if !running exit;
 if (instance_exists(speaker)) {
 	if (speakerX != speaker.x || speakerY != speaker.y) {
 		//speaker pos changed
-		speakerX = speaker.x;
-		speakerY = speaker.y;
-		tbyActionSetOrigin(speakerX, speakerY);
+		var w = min(currentWidth, maxWidth)+tbyTileSize*2;
+		var h = min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2;
 		
-		if (instance_exists(currentText)) {
-			var tc = tbyOriginToTopLeft(
-					 ox, oy,
-					 min(currentWidth, maxWidth)+tbyTileSize*2,
-					 min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
-
-			with (currentText) {
-				x = tc[0];
-				y = tc[1];
+		ox = speaker.x;
+		oy = speaker.y;
+		tlx = ox - floor(w/2);
+		tly = oy - h - floor(sprite_get_height(tbyBubbleSprite)/2);
+		
+		if (instance_exists(currentTextInstance)) {
+			var tx = tlx;
+			var ty = tly;
+			
+			with (currentTextInstance) {
+				x = tx;
+				y = ty;
 			}
 		}
 	}

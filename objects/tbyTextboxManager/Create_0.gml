@@ -29,15 +29,19 @@ currentLines = maxLines;
 
 standardWait = tbyDefaultWaitEachChar;
 
-//Origin coordinates
-ox = 0;
-oy = 0;
+//coordinates
+ox = undefined;
+oy = undefined;
+tlx = 0;
+tly = 0;
+positionUpdate = undefined;
 
 //Text instance coordinates
-tx = undefined;
-ty = undefined;
-currentText = noone;
+currentTextInstance = noone;
 
 running = false;
 
 globalPause = 0;
+
+screenW = display_get_gui_width();
+screenH = display_get_gui_height();

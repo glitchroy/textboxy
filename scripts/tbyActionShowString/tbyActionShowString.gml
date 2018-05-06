@@ -64,13 +64,51 @@ if (ds_exists(l, ds_type_list)) {
 currentWidth = string_width(cleanString);
 currentLines = string_count("\n", cleanString)+1;
 
-with (tbyM()) {
-	var tc = tbyOriginToTopLeft(
-				ox, oy,
-				min(currentWidth, maxWidth)+tbyTileSize*2,
-				min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);
+//Apply position update
+if (is_array(positionUpdate)) {
+	var w = min(currentWidth, maxWidth)+tbyTileSize*2;
+	var h = min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2;
+	var type = positionUpdate[TbyPositionUpdate.Type];
+	
+	var topLeftCoords, originCoords;
+	
+	var xx = positionUpdate[TbyPositionUpdate.X];
+	var yy = positionUpdate[TbyPositionUpdate.Y];
+	
+	switch (type) {
+		case TbyPositionUpdateType.TopLeft:
+			topLeftCoords =	[xx, yy]
+			originCoords =	[xx+floor(w/2), yy+h]
+		break;
+		case TbyPositionUpdateType.Origin:
+			originCoords =	[xx, yy]
+			topLeftCoords =	[xx-floor(w/2), yy-h]
+		break;
+	}
+	positionUpdate = undefined;
+	
+	ox = originCoords[0];
+	oy = originCoords[1];
+	tlx = topLeftCoords[0];
+	tly = topLeftCoords[1];
+	
+	// If we set topLeft, adjust the origin point
+	// downwards
+	if (type == TbyPositionUpdateType.TopLeft) {
+		oy += floor(sprite_get_height(tbyBubbleSprite)/2)
+	} else {
+		// If se set origin, adjust the top corner upwards
+		tly -= floor(sprite_get_height(tbyBubbleSprite)/2)
+	}
+	
+}
 
-	currentText = tbyT(cleanString, dirtyString, currentFont, tc[0], tc[1],
+with (tbyM()) {
+	var textX = clamp(tlx, 0, screenW-currentWidth);
+	var textY = clamp(tly, 0, screenH-currentLines*lineHeight);
+	
+	currentTextInstance = tbyT(cleanString, dirtyString, currentFont,
+						textX, textY,
 						currentWidth, currentLines*lineHeight,
 						standardWait)
 }

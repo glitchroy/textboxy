@@ -63,6 +63,7 @@ enum TbyAction {
 	SetMaxWidth = tbyActionSetMaxWidth,
 	SetMaxLines = tbyActionSetMaxLines,
 	SetOrigin   = tbyActionSetOrigin,
+	SetPosition = tbyActionSetPosition,
 	ShowString  = tbyActionShowString,
 	SetSpeed	= tbyActionSetSpeed,
 	SetPause	= tbyActionSetPause,
@@ -92,6 +93,17 @@ enum TbyCode {
 	Jittery,
 	Skip,
 	_SIZE
+}
+
+enum TbyPositionUpdate {
+	Type,
+	X,
+	Y
+}
+
+enum TbyPositionUpdateType {
+	TopLeft,
+	Origin
 }
 
 // They keys should all be ony character only

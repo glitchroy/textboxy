@@ -29,16 +29,14 @@ Look at the documentation for more info */
 
 tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
+tbyAddAction(TbyAction.SetSpeed, 1);
+tbyAddAction(TbyAction.SetPosition, 10, 10);
+tbyAddAction(TbyAction.ShowString,
+@"I'm set using top-left corner");
+tbyAddAction(TbyAction.SetOrigin, 480/2, 270/2);
+tbyAddAction(TbyAction.ShowString,
+@"I'm set using the origin point!");
 tbyAddAction(TbyAction.SetSpeaker, id);
-tbyAddAction(TbyAction.SetSpeed, 3);
 tbyAddAction(TbyAction.ShowString,
-@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!
-Hi");
-tbyAddAction(TbyAction.SetFont, fontOther);
-tbyAddAction(TbyAction.ShowString,
-@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!
-Heyooo");
-//tbyAddAction(TbyAction.ShowString,
-//@"Test[.][c2][j]Color me[c0][...]i[.]m[r][.]p[.]ressed!");
-
+@"I'm set using the speaker!");
 tbyStart();

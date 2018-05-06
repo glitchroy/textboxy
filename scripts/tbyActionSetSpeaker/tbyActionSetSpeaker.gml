@@ -16,6 +16,7 @@ if (instance_exists(speaker)) {
 	var sx = speaker.x - sprite_get_xoffset(spr) + (sprite_get_width(spr)/2)
 	//top
 	var sy = speaker.y - sprite_get_yoffset(spr)
+	m.positionUpdate = [TbyPositionUpdateType.Origin,
+						sx, sy]
 	
-	tbyActionSetOrigin(sx, sy);
 }
