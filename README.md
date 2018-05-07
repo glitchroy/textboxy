@@ -65,8 +65,9 @@ There are also some shorthands so you don't have to type as much.
 tby("Testing..."); // adds a ShowString action
 tbyPause(60); // adds a SetPause action
 tby(id, "This is now following a speaker"); // adds a SetSpeaker action, then a ShowString action
+tby("The speaker is now set, so this is still following"); // adds a SetSpeaker action, then a ShowString action
 tby(id, 10, "Slower than usual"); // adds a SetSpeaker action, a SetSpeed action and then a ShowString action
-tby(noone, "No speaker anymore");
+tby(noone, "No speaker anymore, but still speed 10");
 tbyStart();
 ```
 
