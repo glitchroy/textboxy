@@ -29,14 +29,10 @@ Look at the documentation for more info */
 
 tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
-tbyAddAction(TbyAction.SetSpeed, 1);
-tbyAddAction(TbyAction.SetPosition, 10, 10);
-tbyAddAction(TbyAction.ShowString,
-@"I'm set using top-left corner");
-tbyAddAction(TbyAction.SetOrigin, 480/2, 270/2);
-tbyAddAction(TbyAction.ShowString,
-@"I'm set using the origin point!");
-tbyAddAction(TbyAction.SetSpeaker, id);
-tbyAddAction(TbyAction.ShowString,
-@"I'm set using the speaker!");
+tby("Hi");
+tbyPause(60)
+tby(id, "Whadup");
+tby(id, 10, "Slo");
+tby("Yoho yhoo");
+tby(noone, "Still slow tho");
 tbyStart();

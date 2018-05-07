@@ -9,3 +9,4 @@ var m = tbyM();
 
 m.positionUpdate = [TbyPositionUpdateType.Origin,
 					argument0, argument1]
+m.speaker = noone;

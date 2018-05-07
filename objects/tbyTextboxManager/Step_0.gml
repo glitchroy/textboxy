@@ -14,8 +14,8 @@ if (instance_exists(speaker)) {
 		tly = oy - h - floor(sprite_get_height(tbyBubbleSprite)/2);
 		
 		if (instance_exists(currentTextInstance)) {
-			var tx = tlx;
-			var ty = tly;
+			var tx = clamp(tlx, 0, screenW-currentWidth);
+			var ty = clamp(tly, 0, screenH-currentLines*lineHeight);
 			
 			with (currentTextInstance) {
 				x = tx;

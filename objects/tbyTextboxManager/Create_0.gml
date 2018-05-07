@@ -30,8 +30,8 @@ currentLines = maxLines;
 standardWait = tbyDefaultWaitEachChar;
 
 //coordinates
-ox = undefined;
-oy = undefined;
+ox = 0;
+oy = 0;
 tlx = 0;
 tly = 0;
 positionUpdate = undefined;

@@ -1,6 +1,37 @@
-///@function tby(string, speakerObject, waitForInput? = true)
+///@function tby([speaker, speed], string)
 ///@desc Shorthand for message box creation
-///@param string The input string (line breaks allowed)
-///@param speakerObject object to talk
-///@param Wait for input
+///@param [speaker
+///@param speed]
+///@param string
 
+var speakerArg = undefined;
+var speedArg = undefined;
+var textArg = undefined;
+
+with (tbyM()) {
+	// defaults are the currently defined
+	speakerArg = speaker;
+	speedArg = standardWait;
+}
+
+switch (argument_count) {
+	case 3: speakerArg = argument[0];
+			speedArg = argument[1];
+			textArg = argument[2];
+			break;
+	case 2: speakerArg = argument[0];
+			textArg = argument[1];
+			break;
+	case 1: textArg = argument[0];
+			break;
+}
+
+if (speakerArg != undefined && speakerArg != noone) {
+	tbyAddAction(TbyAction.SetSpeaker, speakerArg);
+}
+if (speedArg != undefined && speedArg != tbyDefaultWaitEachChar) {
+	tbyAddAction(TbyAction.SetSpeed, speedArg);
+}
+if (textArg != undefined && textArg != "") {
+	tbyAddAction(TbyAction.ShowString, textArg);
+}

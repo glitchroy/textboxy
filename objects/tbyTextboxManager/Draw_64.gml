@@ -9,11 +9,9 @@ var boxY = clamp(tly, 0, screenH-h);
 
 tbyDrawBox(boxX, boxY, w+tbyTileSize*2, h+tbyTileSize*2);
 
+// Draw bubble sprite
 if (tly >= 0 && tly < screenH-h-tbyTileSize*2-sprite_get_height(tbyBubbleSprite)) {
-	draw_sprite(tbyBubbleSprite, -1, ox, oy)
+	if (ox >= tbyTileSize && ox <= screenW-tbyTileSize) {
+		draw_sprite(tbyBubbleSprite, -1, ox, oy)
+	}
 }
-/*
-tbyDrawBoxOrigin(ox, oy,
-		//Add offset to box so inner area is exactly the size we want
-		min(currentWidth, maxWidth)+tbyTileSize*2,
-		min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2);

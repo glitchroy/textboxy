@@ -1,4 +1,4 @@
-///@function tbyActionSetOrigin(pause)
+///@function tbyActionSetPause(pause)
 ///@desc This should not be called manually
 ///@param pause in steps
 
