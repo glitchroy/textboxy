@@ -30,8 +30,8 @@ currentLines = maxLines;
 standardWait = tbyDefaultWaitEachChar;
 
 //coordinates
-tlx = 0;
-tly = 0;
+mx = 0;
+my = 0;
 positionUpdate = undefined;
 
 //Text instance coordinates

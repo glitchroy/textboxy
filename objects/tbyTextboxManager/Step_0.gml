@@ -8,18 +8,11 @@ if (instance_exists(speaker)) {
 		var w = tbyGetBoxWidth();
 		var h = tbyGetBoxHeight();
 		
-		tlx = speaker.x - floor(w/2);
-		tly = speaker.y - h - floor(sprite_get_height(tbyBubbleSprite)/2) - tbyBoxBottomMargin;
-		
-		if (instance_exists(currentTextInstance)) {
-			var tx = clamp(tlx, 0, screenW-w);
-			var ty = clamp(tly, 0, screenH-h);
-			
-			with (currentTextInstance) {
-				x = tx;
-				y = ty;
-			}
-		}
+		var newX = clamp(speaker.x - floor(w/2), 0, screenW-w);
+		var newY = clamp(speaker.y - h - floor(sprite_get_yoffset(tbyBubbleSprite)) - tbyBoxBottomMargin,
+						 0, screenH-h);
+						 
+		tbyUpdatePosition(newX, newY);
 	}
 }
 #endregion

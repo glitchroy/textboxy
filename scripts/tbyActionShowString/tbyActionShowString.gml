@@ -70,43 +70,36 @@ if (is_array(positionUpdate)) {
 	var h = tbyGetBoxHeight();
 	var type = positionUpdate[TbyPositionUpdate.Type];
 	
-	var topLeftCoords;
-	
-	var xx = positionUpdate[TbyPositionUpdate.X];
-	var yy = positionUpdate[TbyPositionUpdate.Y];
+	var topLeftCoords = [ positionUpdate[TbyPositionUpdate.X],
+						  positionUpdate[TbyPositionUpdate.Y] ]
 	
 	switch (type) {
 		case TbyPositionUpdateType.TopLeft:
-			topLeftCoords =	[xx, yy]
+			// Nothing
 		break;
 		case TbyPositionUpdateType.Origin:
-			topLeftCoords =	[xx-floor(w/2), yy-h]
+			topLeftCoords[0] -= floor(w/2);
+			topLeftCoords[1] -= h;
 		break;
 	}
 	positionUpdate = undefined;
-	
-	tlx = topLeftCoords[0];
-	tly = topLeftCoords[1];
 	
 	// This will shift the position up to account for the
 	// bubble sprite, but only if it is shown
 	if (type != TbyPositionUpdateType.TopLeft) {
 		if (speaker != noone) {
-			tly -= floor(sprite_get_yoffset(tbyBubbleSprite))
+			topLeftCoords[1] -= floor(sprite_get_yoffset(tbyBubbleSprite))
 		}
 	}
 	
+	tbyUpdatePosition(topLeftCoords);
 }
 #endregion
 
 with (tbyM()) {
-	
-	var textX = clamp(tlx, 0, screenW-tbyGetBoxWidth());
-	var textY = clamp(tly, 0, screenH-tbyGetBoxHeight());
-	
 	currentTextInstance = tbyT(cleanString, dirtyString, currentFont,
-						textX, textY,
-						currentWidth, currentLines*lineHeight,
+						mx, my,
+						tbyGetBoxWidth(), tbyGetBoxHeight(),
 						standardWait)
 }
 #endregion

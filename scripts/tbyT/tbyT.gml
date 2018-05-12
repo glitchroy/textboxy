@@ -1,4 +1,4 @@
-///@function tbyT(text, dirtyText, font, x, y, w, h, wait, line)
+///@function tbyT(text, dirtyText, font, x, y, w, h, wait)
 ///@desc Creates a new text instance with the given string
 ///@param text string without control codes
 ///@param dirtyText string with control codes

@@ -10,7 +10,8 @@
         "b4aafbb9-dcaf-457d-940c-bec670883c32",
         "3ae348a7-207b-421a-8038-2c6d70eb8271",
         "73164263-59f6-4a51-8551-74e2e0d0c060",
-        "809fc192-f2fb-4b26-9d1f-9fa8a5013cce"
+        "809fc192-f2fb-4b26-9d1f-9fa8a5013cce",
+        "f567ce7a-d654-410e-b42f-a9c0502152c3"
     ],
     "filterType": "GMScript",
     "folderName": "Lib",

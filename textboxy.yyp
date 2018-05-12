@@ -535,6 +535,14 @@
             }
         },
         {
+            "Key": "f567ce7a-d654-410e-b42f-a9c0502152c3",
+            "Value": {
+                "id": "0b3e3df1-f519-4513-9fa9-7750e445e1ea",
+                "resourcePath": "scripts\\tbyUpdatePosition\\tbyUpdatePosition.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f595ad17-85a7-440a-9b89-389276eabb58",
             "Value": {
                 "id": "4671445a-53d9-473b-8b79-b2f9df6f588f",
@@ -622,6 +630,7 @@
         "3ae348a7-207b-421a-8038-2c6d70eb8271",
         "73164263-59f6-4a51-8551-74e2e0d0c060",
         "809fc192-f2fb-4b26-9d1f-9fa8a5013cce",
+        "f567ce7a-d654-410e-b42f-a9c0502152c3",
         "28a95edc-152e-48a4-9731-15b728d839a1",
         "b83b3f72-af89-41d7-bf76-74de17ae9566",
         "2476341c-7c4f-4f9a-a806-de5d37bb3bea",
