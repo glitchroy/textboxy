@@ -1,7 +1,7 @@
 ///@function tbyActionSetOrigin(x, y)
 ///@desc This should not be called manually
-///@param ox
-///@param oy
+///@param originX
+///@param originY
 
 // This sets the bottom-middle, bottom point
 

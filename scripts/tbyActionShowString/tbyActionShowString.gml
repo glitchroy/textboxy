@@ -70,7 +70,7 @@ if (is_array(positionUpdate)) {
 	var h = tbyGetBoxHeight();
 	var type = positionUpdate[TbyPositionUpdate.Type];
 	
-	var topLeftCoords, originCoords;
+	var topLeftCoords;
 	
 	var xx = positionUpdate[TbyPositionUpdate.X];
 	var yy = positionUpdate[TbyPositionUpdate.Y];
@@ -78,27 +78,22 @@ if (is_array(positionUpdate)) {
 	switch (type) {
 		case TbyPositionUpdateType.TopLeft:
 			topLeftCoords =	[xx, yy]
-			originCoords =	[xx+floor(w/2), yy+h]
 		break;
 		case TbyPositionUpdateType.Origin:
-			originCoords =	[xx, yy]
 			topLeftCoords =	[xx-floor(w/2), yy-h]
 		break;
 	}
 	positionUpdate = undefined;
 	
-	ox = originCoords[0];
-	oy = originCoords[1];
 	tlx = topLeftCoords[0];
 	tly = topLeftCoords[1];
 	
-	// If we set topLeft, adjust the origin point
-	// downwards
-	if (type == TbyPositionUpdateType.TopLeft) {
-		oy += floor(sprite_get_height(tbyBubbleSprite)/2)
-	} else {
-		// If se set origin, adjust the top corner upwards
-		tly -= floor(sprite_get_height(tbyBubbleSprite)/2)
+	// This will shift the position up to account for the
+	// bubble sprite, but only if it is shown
+	if (type != TbyPositionUpdateType.TopLeft) {
+		if (speaker != noone) {
+			tly -= floor(sprite_get_yoffset(tbyBubbleSprite))
+		}
 	}
 	
 }

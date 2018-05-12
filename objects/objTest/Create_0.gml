@@ -30,8 +30,10 @@ Look at the documentation for more info */
 tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
 tby("Hi");
-tbyPause(60)
-tby(id, "Whadup");
+tbyAddAction(TbyAction.SetPosition, 100, 100);
+tby("Whadup\nDadup");
+tbyAddAction(TbyAction.SetOrigin, 100, 100);
+tby("Whadup\nDamn");
 tby(id, 10, "Slo");
 tby("Yoho yhoo");
 tby(noone, "Still slow tho");
