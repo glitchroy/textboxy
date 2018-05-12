@@ -64,10 +64,10 @@ if (ds_exists(l, ds_type_list)) {
 currentWidth = string_width(cleanString);
 currentLines = string_count("\n", cleanString)+1;
 
-//Apply position update
+#region Apply position update
 if (is_array(positionUpdate)) {
-	var w = min(currentWidth, maxWidth)+tbyTileSize*2;
-	var h = min(lineHeight*currentLines, lineHeight*maxLines)+tbyTileSize*2;
+	var w = tbyGetBoxWidth();
+	var h = tbyGetBoxHeight();
 	var type = positionUpdate[TbyPositionUpdate.Type];
 	
 	var topLeftCoords, originCoords;
@@ -102,10 +102,12 @@ if (is_array(positionUpdate)) {
 	}
 	
 }
+#endregion
 
 with (tbyM()) {
-	var textX = clamp(tlx, 0, screenW-currentWidth);
-	var textY = clamp(tly, 0, screenH-currentLines*lineHeight);
+	
+	var textX = clamp(tlx, 0, screenW-tbyGetBoxWidth());
+	var textY = clamp(tly, 0, screenH-tbyGetBoxHeight());
 	
 	currentTextInstance = tbyT(cleanString, dirtyString, currentFont,
 						textX, textY,

@@ -19,6 +19,7 @@
 #macro tbyDefaultLineAmount     4
 #macro tbyDefaultWaitEachChar   4 //in steps
 #macro tbyWaitPerWaitChar       (room_speed/4) //how many steps to wait per . character
+#macro tbyBoxBottomMargin		0
 
 //If this expression is true, it counts as having advanced the message
 #macro tbyInputKey              (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
