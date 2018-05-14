@@ -1,5 +1,4 @@
 ccGrid = -1;
-
 tbySingleton;
 /*
 This object handles drawing of text, including

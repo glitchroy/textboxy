@@ -10,36 +10,4 @@ spawning of text instances for drawing the text.
 //singleton code - destory this object if it already exists
 tbySingleton;
 
-//Create variables
-actionQueue = ds_queue_create();
-speaker = noone;
-speakerX = undefined;
-speakerY = undefined;
-
-currentFont = tbyDefaultFont;
-
-maxWidth = tbyDefaultMaxWidth;
-maxLines = tbyDefaultLineAmount;
-
-draw_set_font(currentFont);
-lineHeight = string_height(ord("W"));
-
-currentWidth = maxWidth;
-currentLines = maxLines;
-
-standardWait = tbyDefaultWaitEachChar;
-
-//coordinates
-mx = 0;
-my = 0;
-positionUpdate = undefined;
-
-//Text instance coordinates
-currentTextInstance = noone;
-
-running = false;
-
-globalPause = 0;
-
-screenW = display_get_gui_width();
-screenH = display_get_gui_height();
+tbyManagerSetup;
