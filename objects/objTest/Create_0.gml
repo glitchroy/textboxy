@@ -28,6 +28,7 @@ surface_resize(application_surface,
 Look at the documentation for more info */
 
 tby(id, "Hi du ei");
+tbyPause(20);
 tbyAddAction(TbyAction.SetMaxWidth, 150);
 tbyAddAction(TbyAction.SetMaxLines, 4);
 tby("Hi");
@@ -39,3 +40,4 @@ tby(id, 10, "Slo");
 tby("Yoho yhoo");
 tby(noone, "Still slow tho");
 tbyStart();
+alarm[0] = 50;
