@@ -1,7 +1,7 @@
 /// @description Reset wait tick
 
 if (delayedStart) {
-	running = true;
 	tbyManagerStart;
+	running = true;
 }
 delayedStart = false;
