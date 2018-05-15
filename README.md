@@ -71,5 +71,24 @@ tby(noone, "No speaker anymore, but still speed 10");
 tbyStart();
 ```
 
+Finally, as you have seen above, you call `tbyStart()` to begin execution of the action queue.
+If you want to reset the dialogue mid-execution, you can call `tbyReset()`.
+Imagine some object:
+```gml
+// CREATE_EVENT
+tby("This is an ongoing dialogue...");
+tby("Still talking man");
+tby("You can take your time with clicking this, you know");
+tbyStart();
+alarm[0] = 60;
+
+// ALARM_0
+tbyReset();
+tby("After 60 steps, this box will now show immediately!");
+tbyStart();
+```
+
+# Credits
+
 Code snippets used:
  - [_spread from gdash by twisterghost](https://github.com/gm-core/gdash/blob/master/src/scripts/_spread/_spread.gml)
