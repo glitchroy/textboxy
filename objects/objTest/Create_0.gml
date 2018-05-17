@@ -26,7 +26,10 @@ surface_resize(application_surface,
 
 /* You can use @"string" to create a string literal
 Look at the documentation for more info */
+tby(id, "But this will!");
+tbyStart();
 
+/*
 tby(id, 5, "Hi du ei");
 tbyPause(20);
 tbyAddAction(TbyAction.SetMaxWidth, 150);

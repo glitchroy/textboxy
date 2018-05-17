@@ -33,4 +33,4 @@ if (keyboard_check_pressed(ord("M"))) {
 }
 #endregion
 
-x+=2;
+y+=2;
