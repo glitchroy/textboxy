@@ -26,10 +26,15 @@ switch (argument_count) {
 			break;
 }
 
+// If the values are not set by the user or
+// no default was found, do not update them.
+// Because of this, values that are not specified
+// do not get overwritten
+
 if (speakerArg != undefined && speakerArg != noone) {
 	tbyAddAction(TbyAction.SetSpeaker, speakerArg);
 }
-if (speedArg != undefined && speedArg != tbyDefaultWaitEachChar) {
+if (speedArg != undefined && speedArg != tbyWaitAfterEachChar) {
 	tbyAddAction(TbyAction.SetSpeed, speedArg);
 }
 if (textArg != undefined && textArg != "") {

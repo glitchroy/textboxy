@@ -7,7 +7,7 @@ var h = tbyGetBoxHeight();
 tbyDrawBox(mx, my, w, h);
 
 // Draw bubble sprite
-if (speaker != noone) {
+if (tbyDrawBubbleSprite && speaker != noone) {
 	var ts = tbyTileSize;
 	var sx = speaker.x;
 	var sy = speaker.y;

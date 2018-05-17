@@ -17,7 +17,7 @@ textCounter = 0;
 font = undefined;
 lineHeight = undefined;
 
-wait = tbyDefaultWaitEachChar;
+wait = tbyWaitAfterEachChar;
 
 running = false;
 finished = false;

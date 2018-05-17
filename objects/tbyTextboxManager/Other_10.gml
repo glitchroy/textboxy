@@ -31,7 +31,7 @@ lineHeight = string_height(ord("W"));
 currentWidth = maxWidth;
 currentLines = maxLines;
 
-standardWait = tbyDefaultWaitEachChar;
+standardWait = tbyWaitAfterEachChar;
 
 //coordinates
 mx = 0;

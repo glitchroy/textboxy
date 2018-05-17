@@ -1,5 +1,5 @@
 ///@function tbyDrawSprite(sprite, subimg, x, y, xscale, yscale)
-///@desc draw_sprite_ext with only scale
+///@desc variation of draw_sprite_ext without rotation, blending or alpha
 ///@param sprite
 ///@param subimg
 ///@param x

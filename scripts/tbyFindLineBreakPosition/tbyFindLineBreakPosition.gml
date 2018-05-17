@@ -1,5 +1,5 @@
 ///@function tbyFindLineBreakPosition(list, maxIndex)
-///@desc Finds a good position to break the string
+///@desc Returns an index where a string should be broken (whitespace, comma etc.)
 ///@param ds_list
 ///@param maxIndex
 var l = argument0;

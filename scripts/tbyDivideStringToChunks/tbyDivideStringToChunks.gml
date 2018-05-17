@@ -1,5 +1,5 @@
 ///@function tbyDivideStringToChunks(string)
-///@desc Returns ds_list with chunks (either a char or a control code)
+///@desc Returns ds_list of a string split up into chunks (either control code or single char)
 ///@param string
 
 var s = argument0;

@@ -1,4 +1,4 @@
-if (finished && tbyInputKey) {
+if (finished && tbyPressedConfirm) {
 	instance_destroy();
 }
 

@@ -40,4 +40,4 @@ tby(id, 10, "Slo");
 tby("Yoho yhoo");
 tby(noone, "Still slow tho");
 tbyStart();
-alarm[0] = 50;
+//alarm[0] = 50;

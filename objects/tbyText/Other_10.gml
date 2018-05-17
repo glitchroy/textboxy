@@ -120,7 +120,7 @@ for (i = 0; i < string_length(cleanText); i++) {
 			/* Wait expects a number of steps to wait.
 			This works by counting the number of characters
 			in the code */
-			data = tbyDefaultWaitEachChar + (tbyWaitPerWaitChar * string_length(ccCode))
+			data = tbyWaitAfterEachChar + (tbyWaitPerWaitChar * string_length(ccCode))
 		break;
 		// Jittery is fine with the default true
 	}

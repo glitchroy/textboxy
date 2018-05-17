@@ -33,7 +33,7 @@ for (var i = 1; i <= string_length(typewriterText); i++) {
 	}
 }
 
-if (tbyDrawPauseSymbol && finished) {
+if (tbyDrawPauseSprite && finished) {
 	var fx = x+width;
 	var fy = y+height;
 	draw_sprite(tbyPauseSprite, -1, fx, fy);
