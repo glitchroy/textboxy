@@ -1,107 +1,244 @@
 # textboxy
 
-textboy aims to be a simple to use textbox engine for GameMaker Studio 2.
+textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 
-At the moment, it supports
- * Setting speaker instances for automatically updating the textbox position
- * Automatic line breaks based on a maximum width
- * Control codes for color, pauses etc.
- * A global config with customization options without digging into the code at all
- * Basic text sound options
+## Features
 
-I wanted to keep the features of this engine very simple, so it can be extended upon.  
+* A global [config script](/scripts/tbyConfig/tbyConfig.gml) to adjust the engine without having to dig into the code at all
+* Control codes for changing text properties like color, speed, font, pauses, as well as position and size of the message box
+* Automatic line breaks based on a maximum width and special characters like whitespace and commas
+* Easy linking between message boxes and "speaker" instances, automatically updating the message box position
+* Basic options for text sound
 
-Some features I'd like to see some day are
-  * Support for different fonts
-  * Showing sprite icons in messages
-  * Loading from .csv files
+Some more features I'd like to add are
+* Support for different fonts in one message box
+* Showing icons in text
+* Loading from .csv files
+* Answer options
 
-Thanks for reading!
+# Explanation
 
-# Examples
-All you really need to get started is something like this
+At its core, textboxy utilizes an `action queue`. You queue up different actions like showing strings, changing the position or speed and then execute them all in order.  
+The strings themselves can be modified using `control codes` to adjust color, pauses and other effects.  
 
+A really basic queue would look like this:
 ```gml
+tbyAddAction(TbyAction.SetPosition, 100, 100);
 tbyAddAction(TbyAction.ShowString, "Hello world!");
 tbyStart();
 ```
-This shows a textbox with the content "Hello world!" at position 0, 0.  
-You can edit all basic parameters in the [`tbyConfig()` script](/scripts/tbyConfig/tbyConfig.gml).
-
-A more advanced setup may involve something like this
-```gml
-tbyAddAction(TbyAction.SetMaxWidth, 150);
-tbyAddAction(TbyAction.SetMaxLines, 4);
-tbyAddAction(TbyAction.SetSpeaker, id);
-tbyAddAction(TbyAction.SetSpeed, 3);
-tbyAddAction(TbyAction.ShowString,
-@"This multiline string works by
-using a string literal.[...] [j]Crazy[r]!");
-tbyAddAction(TbyAction.ShowString, "[c/red]You can also add breaks\nlike this, of course.");
-tbyAddAction(TbyAction.SetSpeed, 10);
-tbyAddAction(TbyAction.ShowString,
-@"[j][c/red]R[c/orange]a[c/yellow]i[c/green]n[c/aqua]b[c/blue]o[c/purple]w[r]!");
-tbyStart();
-```
+This would show a message box with the words "Hello world" at position 100, 100 (top-left corner of the message box).  
+You can see all available actions below.
 
 # Usage
 
+## Actions
+<table>
+  <tr>
+    <th>Script</th>
+    <th>Description</th>
+    <th>Example</th>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetMaxWidth(maxWidth:Number)</pre></td>
+    <td>Sets the maximum width before a line break is automatically inserted.</td>
+    <td>
+<pre lang="gml">
+// Sets the maximum width before a line break to 150 pixels
+tbyAddAction(TbyAction.SetMaxWidth, 150);</pre>
+</td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetMaxLines(maxLines:Number)</pre></td>
+    <td>Sets the maximum number of lines in a given message box.<br />(In a future version, this should split the message in two single messages, but for now, it just cuts the message off).</td>
+    <td>
+<pre lang="gml">
+// Message boxes are now at most two lines long
+tbyAddAction(TbyAction.SetMaxLines, 2);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetFont(fontResource:Number)</pre></td>
+    <td>Sets the font for following messages.</td>
+    <td>
+<pre lang="gml">
+// Changes the font to fontBig
+tbyAddAction(TbyAction.SetFont, fontBig);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetSpeed(speed:Number)</pre></td>
+    <td>Sets the speed for following messages.</td>
+    <td>
+<pre lang="gml">
+//Sets the speed to 5, meaning 5 steps pausing between drawing each character
+tbyAddAction(TbyAction.SetSpeed, 5);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetOrigin(x:Number, y:Number)</pre></td>
+    <td>Sets the message box origin (bottom middle of the message box, where the "bubble" sprite is located).</td>
+    <td>
+<pre lang="gml">
+ // The following messages will be drawn with their origin at 100, 100
+tbyAddAction(TbyAction.SetOrigin, 100, 100);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<pre lang="gml">
+tbyActionSetPosition(x:Number, 
+                     y:Number)</pre>
+    </td>
+    <td>Sets the message box top-left corner manually.</td>
+    <td>
+<pre lang="gml">
+// The following messages will be drawn with their top-left corner at 10, 10
+tbyAddAction(TbyAction.SetPosition, 10, 10);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetPause(frames:Number)</pre></td>
+    <td>Inserts a pause of x frames in the action queue. Most useful between messages.</td>
+    <td>
+<pre lang="gml">
+// Pauses for one second before executing the next action in the queue
+tbyAddAction(TbyAction.SetPause, room_speed);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyActionSetSpeaker(instId:Number)</pre></td>
+    <td>Binds the following messages to a speaker. The message will then follow the speaker instance. To reset, set to <tt>noone</tt> or overwrite with <tt>tbyActionSetOrigin()</tt> or <tt>tbyActionSetPosition()</tt>.</td>
+    <td>
+<pre lang="gml">
+// Sets the instance referenced in global.player as the speaker
+tbyAddAction(TbyAction.SetSpeaker, global.player);</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<pre lang="gml">tbyActionShowString(message:String)</pre>
+    </td>
+    <td>Adds a message box.</td>
+    <td>
+<pre lang="gml">
+// Display the message box
+tbyAddAction(TbyAction.ShowString, "[j]Crazy!!!");</pre>
+    </td>
+  </tr>
+  <tr>
+    <th><b>Shorthand</b></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>
+<pre lang="gml">
+tby((optional)instId:Number,
+    (optional)speed:Number,
+    message:String)</pre>
+    </td>
+    <td>Shortcut to set a common message.</td>
+    <td>
+<pre lang="gml">
+tby(id, 4, "First"); // Sets speaker, speed and string
+tby("Second"); // Speaker and string carry over
+tby(noone, "Third"); // Removes the speaker, speed is still 4
+tby(noone, 1, "Fourth"); // To adjust speed, speaker must be specified, too</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyPause(frames:Number)</pre></td>
+    <td></pre>Shortcut for setting a pause</pre></td>
+    <td><pre lang="gml">tbyPause(room_speed/2); // Add a half second pause</pre></td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyStart()</pre></td>
+    <td>Starts execution of the current action queue</td>
+    <td>
+<pre lang="gml">
+tby("Hello");
+...
+tbyStart(); // Execution starts now</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyReset()</pre></td>
+    <td>Resets the textbox manager and removes any text instances</td>
+    <td>
+<pre lang="gml">
+tby("This will never be seen");
+tbyReset();
+tby("But this will!");
+tbyStart();</pre>
+    </td>
+  </tr>
+</table>
+
 ## Control Codes
-The engine provides control codes you can use in your messages.
-You can customize the characters in the [`tbyConfig()` script](/scripts/tbyConfig/tbyConfig.gml#L95).
-The following control codes are currently supported
+You can customize the identifiers in the [`tbyConfig()` script](/scripts/tbyConfig/tbyConfig.gml#L104).
 
 | Name | Default identifier | Description | Example |
 | --- | --- | --- | --- |
-| Color | `c/COLOR` | Sets colors from the [configuration](/scripts/tbyConfig/tbyConfig.gml#L54) | `"[c/blue]I'm blue!"` |
+| Color | `[c/COLOR]` | Sets colors from the [configuration](/scripts/tbyConfig/tbyConfig.gml#L101) | `"[c/blue]I'm blue!"` |
 | Wait | `[.]` | Waits [a set number of frames](/scripts/tbyConfig/tbyConfig.gml#L21), can be stacked | `A long[.....] pause.` |
 | Jittery | `[j]` | Makes the text jitter | `Are you [j]crazy[r]?!` |
-| Skip | `[^]` | Skips to the next action | `Wait,[.] me fini-[..][^]` |
-| Reset | `[r]` | Resets to the default values | `"[j][c/red]This is red and jittery. [r]This is neither."` |
+| Skip | `[^]` | Skips to the next action | `Wait,[.] let me fini-[..][^]` |
+| Reset | `[r]` | Resets to the default values | `"[j][c/red]This is red and jittery.[.] [r]This is neither.[.] [c/blue]This is blue."` |
 
-## Actions 
-As you can see, calling different actions and then executing the action queue is at the heart
-of the whole system. The following actions are currently provided
+# Examples
 
-| Script | Description |
-| --- | --- |
-| `tbyActionSetMaxWidth(maxWidth:Number)` | Sets the maximum width before a line break is automatically inserted. |
-| `tbyActionSetMaxLines(maxLines:Number)` | Sets the maximum number of lines in a given messagebox. (In a future version, this should split the message in two single messages, but for now, it just cuts the message off). |
-| `tbyActionSetFont(fontResource:Number)` | Sets the font for following messages. |
-| `tbyActionSetSpeed(speed:Number` | Sets the speed for following messages. |
-| `tbyActionSetOrigin(x:Number, y:Number)` | Sets the messagebox origin (bottom middle of the message box, where the "bubble" sprite is located). |
-| `tbyActionSetPosition(x:Number, y:Number)` | Sets the messagebox top-left corner manually. |
-| `tbyActionSetPause(frames:Number)` | Inserts a pause of x frames in the action queue. Most useful between messages. |
-| `tbyActionSetSpeaker(speakerInstanceId:Number)` | Binds the following messages to a speaker. The message will then follow the speaker instance. Set to `noone` or overwrite with `tbyActionSetOrigin()` or `tbyActionSetPosition()`. |
-| `tbyActionShowString(message:String)` | Adds a messagebox. |
-
-These actions should be called by the `tbyAddAction()` script.
-
-There are also some shorthands so you don't have to type as much.
+## String literals
+Game Maker 2 supports `string literals` with `@"string"`.  
+Using these, you can define line breaks without having to type `\n`.
 ```gml
-tby("Testing..."); // adds a ShowString action
-tbyPause(60); // adds a SetPause action
-tby(id, "This is now following a speaker"); // adds a SetSpeaker action, then a ShowString action
-tby("The speaker is now set, so this is still following"); // adds a SetSpeaker action, then a ShowString action
-tby(id, 10, "Slower than usual"); // adds a SetSpeaker action, a SetSpeed action and then a ShowString action
-tby(noone, "No speaker anymore, but still speed 10");
+//Both of these produce the same output
+tby(id, "Hello\nWorld!");
+
+tby(id,
+@"Hello
+World!");
+```
+
+## Basic dialogue
+Assuming the instances `player` and `oldMan`.
+```gml
+var oldManSpeed = 6;
+var playerSpeed = tbyWaitAfterEachChar; //this is the default speed defined in tbyConfig()
+
+tby(player, playerSpeed,
+@"Hello,[.] old man.[..]
+Do you know where I can find the [c/red]hidden treasure[r]?");
+tby(oldMan, oldManSpeed,
+@"[j]Oooohhhhh[r],[.] it is the [c/red]hidden treasure[r]
+you seek?[.] Good luck finding it,[.]
+nobody knows where it is[.].[.].[.].");
+tby(player, playerSpeed,
+@"You have to know something!")
+tbyPause(room_speed/2); //Half a second
+tby("Please?") //speaker and speed carry over
+tby(oldMan, oldManSpeed,
+@"[j]OoooooOooohhh[r],[.] I am telling you,[.] no o-[...][^]")
+tby(player, playerSpeed,
+@"I get it,[.] you are no help either.");
+
 tbyStart();
 ```
 
-Finally, as you have seen above, you call `tbyStart()` to begin execution of the action queue.
-If you want to reset the dialogue mid-execution, you can call `tbyReset()`.
-Imagine some object:
+## Resetting the queue
 ```gml
 // CREATE_EVENT
 tby("This is an ongoing dialogue...");
-tby("Still talking man");
-tby("You can take your time with clicking this, you know");
+tby("Still talking, man");
+tby("You can take your time with advancing this, you know");
 tbyStart();
 alarm[0] = 60;
 
 // ALARM_0
 tbyReset();
-tby("After 60 steps, this box will now show immediately!");
+tby(
+@"After 60 steps, this box will now appear immediately,
+even if something else was showing before!");
 tbyStart();
 ```
 
