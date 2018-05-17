@@ -189,7 +189,7 @@ You can customize the identifiers in the [`tbyConfig()` script](/scripts/tbyConf
 # Examples
 
 ## String literals
-Game Maker 2 supports `string literals` with `@"string"`.  
+Game Maker Studio 2 supports `string literals` with `@"string"`.  
 Using these, you can define line breaks without having to type `\n`.
 ```gml
 //Both of these produce the same output
