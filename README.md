@@ -1,5 +1,7 @@
 # textboxy
-
+<p align="center">
+  <img width="507" height="90" src="https://i.imgur.com/uFojZyT.gif">
+</p>
 textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 
 ## Features
@@ -201,6 +203,10 @@ tbyStart();</pre>
 </table>
 
 ## Control Codes
+<p align="center">
+  <img width="366" height="141" src="https://i.imgur.com/gZgdo2N.gif">
+</p>
+
 You can customize the identifiers in the [`tbyConfig()` script](/scripts/tbyConfig/tbyConfig.gml#L104).
 
 | Name | Default identifier | Description | Example |
