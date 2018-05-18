@@ -11,6 +11,7 @@ textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 * Automatic line breaks based on a maximum width and special characters like whitespace and commas
 * Easy linking between message boxes and "speaker" instances, automatically updating the message box position
 * Basic options for text sound
+* Basic callbacks 
 
 Some more features I'd like to add are
 * Support for different fonts in one message box
@@ -204,18 +205,29 @@ tbyStart();</pre>
 
 ## Control Codes
 <p align="center">
-  <img width="366" height="141" src="https://i.imgur.com/gZgdo2N.gif">
+  <img width="366" height="141" src="https://i.imgur.com/z8rfCtA.gif">
 </p>
 
 You can customize the identifiers in the [`tbyConfig()` script](/scripts/tbyConfig/tbyConfig.gml#L104).
 
 | Name | Default identifier | Description | Example |
 | --- | --- | --- | --- |
-| Color | `[c/COLOR]` | Sets colors from the [configuration](/scripts/tbyConfig/tbyConfig.gml#L101) | `"[c/blue]I'm blue!"` |
+| Color | `[c/COLOR]` | Sets colors from the [configuration](/scripts/tbyConfig/tbyConfig.gml#L107) | `"[c/blue]I'm blue!"` |
 | Wait | `[.]` | Waits [a set number of frames](/scripts/tbyConfig/tbyConfig.gml#L21), can be stacked | `A long[.....] pause.` |
 | Jittery | `[j]` | Makes the text jitter | `Are you [j]crazy[r]?!` |
 | Skip | `[^]` | Skips to the next action | `Wait,[.] let me fini-[..][^]` |
 | Reset | `[r]` | Resets to the default values | `"[j][c/red]This is red and jittery.[.] [r]This is neither.[.] [c/blue]This is blue."` |
+
+## Callbacks
+[These scripts](/scripts/tbyConfig/tbyConfig.gml#L28) get called every time the action is executed.  
+They are useful for a number of things, e.g. setting a pause state during dialogue.  
+
+| Callback | Description |
+| --- | --- |
+| <pre lang="gml">tbyOnMessageStart(speakerId:Number, message:String)</pre> | Gets called when a new message is shown |
+| <pre lang="gml">tbyOnMessageEnd()</pre> | Gets called every time a message ends |
+| <pre lang="gml">tbyOnQueueBegin()</pre> | Gets called when an action queue is beginning |
+| <pre lang="gml">tbyOnQueueFinish()</pre> | Gets called when an action queue is finished |
 
 # Examples
 
