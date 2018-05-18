@@ -8,7 +8,10 @@ if (instance_exists(speaker)) {
 		var w = tbyGetBoxWidth();
 		var h = tbyGetBoxHeight();
 		
-		var newX = clamp(speaker.x - floor(w/2), 0, screenW-w);
+		var speakerSprite = speaker.sprite_index;
+		var spriteHalf = sprite_get_xoffset(speakerSprite) + (sprite_get_width(speakerSprite)/2)
+		
+		var newX = clamp(speaker.x - floor(w/2) + spriteHalf, 0, screenW-w);
 		var newY = clamp(speaker.y - h - floor(sprite_get_yoffset(tbyBubbleSprite)) - tbyBoxBottomMargin,
 						 0, screenH-h);
 						 

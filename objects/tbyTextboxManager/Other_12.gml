@@ -5,6 +5,12 @@ if !running exit;
 // Check if we have actions left
 if (ds_queue_empty(actionQueue)) {
 	running = false;
+	
+	// Callback
+	if (script_exists(tbyCbOnQueueFinish)) {
+		script_execute(tbyCbOnQueueFinish);
+	}
+	
 	exit;
 }
 

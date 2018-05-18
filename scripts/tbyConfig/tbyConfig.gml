@@ -20,10 +20,16 @@
 #macro tbyDefaultLineAmount     4
 #macro tbyWaitAfterEachChar     4 // (In steps) Usual amount to wait after each character is drawn
 #macro tbyWaitPerWaitChar       (room_speed/4) // How many steps to wait per . character
-#macro tbyBoxBottomMargin       0 // (In pixels) Space between origin and bottom edge of the textbox
+#macro tbyBoxBottomMargin       2 // (In pixels) Space between origin and bottom edge of the textbox
 
 // If this expression is true, it counts as having advanced the message
 #macro tbyPressedConfirm        (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+
+// Callbacks
+#macro tbyCbOnMessageStart      tbyOnMessageStart
+#macro tbyCbOnMessageEnd        tbyOnMessageEnd
+#macro tbyCbOnQueueBegin        tbyOnQueueBegin
+#macro tbyCbOnQueueFinish       tbyOnQueueFinish
 
 /**** Audio ****/
 // Options concerning audio

@@ -96,6 +96,11 @@ if (is_array(positionUpdate)) {
 }
 #endregion
 
+// Callback
+if (script_exists(tbyCbOnMessageStart)) {
+	script_execute(tbyCbOnMessageStart, speaker, cleanString);
+}
+
 with (tbyM()) {
 	currentTextInstance = tbyT(cleanString, dirtyString, currentFont,
 						mx, my,

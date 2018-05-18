@@ -1,8 +1,8 @@
 {
-    "id": "11e70319-aae4-402c-be25-d723bf79a400",
+    "id": "ce0d3281-3f49-4b85-b5cb-112314fb3d90",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "chance",
+    "name": "tbyOnQueueFinish",
     "IsCompatibility": false,
     "IsDnD": false
 }

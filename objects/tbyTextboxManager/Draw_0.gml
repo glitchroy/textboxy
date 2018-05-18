@@ -9,7 +9,8 @@ tbyDrawBox(mx, my, w, h);
 // Draw bubble sprite
 if (tbyDrawBubbleSprite && speaker != noone) {
 	var ts = tbyTileSize;
-	var sx = speaker.x;
+	var spr = speaker.sprite_index;
+	var sx = speaker.x - sprite_get_xoffset(spr) + (sprite_get_width(spr)/2);
 	var sy = speaker.y;
 	var m = tbyBoxBottomMargin;
 	var soff = floor(sprite_get_yoffset(tbyBubbleSprite));
