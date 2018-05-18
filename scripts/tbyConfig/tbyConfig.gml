@@ -4,12 +4,12 @@
 // Options concerning sprites,
 // dimensions, animation speed and
 // fonts
-#macro tbyTextboxSprite         sprTextbox //Sprite needs to be square
+#macro tbyTextboxSprite         sprTextbox // Sprite needs to be square
 #macro tbyTileSize              8 // Same as width/height of textboxSprite
 #macro tbyDrawPauseSprite       true
-#macro tbyPauseSprite           sprTextboxPause //Origin is the bottom edge of the textbox
-#macro tbyPauseSpriteSpeed      0.04 //Only applicable for pause sprites with multiple frames
-#macro tbyDrawBubbleSprite      true //Whether to draw the "speech indicator" at the bottom
+#macro tbyPauseSprite           sprTextboxPause // Origin is the bottom edge of the textbox
+#macro tbyPauseSpriteSpeed      0.04 // Only applicable for pause sprites with multiple frames
+#macro tbyDrawBubbleSprite      true // Whether to draw the "speech indicator" at the bottom
 #macro tbyBubbleSprite          sprTextboxBubble
 #macro tbyDefaultFont           fontDefault
 
@@ -18,19 +18,19 @@
 // of technical features
 #macro tbyDefaultMaxWidth       200
 #macro tbyDefaultLineAmount     4
-#macro tbyWaitAfterEachChar     4 //(In steps) Usual amount to wait after each character is drawn
-#macro tbyWaitPerWaitChar       (room_speed/4) //How many steps to wait per . character
-#macro tbyBoxBottomMargin       0 //(In pixels) Space between origin and bottom edge of the textbox
+#macro tbyWaitAfterEachChar     4 // (In steps) Usual amount to wait after each character is drawn
+#macro tbyWaitPerWaitChar       (room_speed/4) // How many steps to wait per . character
+#macro tbyBoxBottomMargin       0 // (In pixels) Space between origin and bottom edge of the textbox
 
-//If this expression is true, it counts as having advanced the message
+// If this expression is true, it counts as having advanced the message
 #macro tbyPressedConfirm        (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 
 /**** Audio ****/
 // Options concerning audio
 #macro tbyPlaySpeechSound       true
 #macro tbySpeechSound           sndSpeechDefault
-#macro tbySpeechPitchChange     random_range(0.8, 1.2) //(Number 0.0-1.0) Pitch modifier to apply to sound
-#macro tbySpeechIteration       3 //Play sound every x characters
+#macro tbySpeechPitchChange     random_range(0.8, 1.2) // (Number 0.0-1.0) Pitch modifier to apply to sound
+#macro tbySpeechIteration       3 // Play sound every x characters
 
 #macro tbyPlayConfirmSound      true
 #macro tbyConfirmSound          sndMsgConfirm
@@ -44,7 +44,7 @@
 #macro tbyTextObject            tbyText
 // Change this if you have a dedicated layer for manager objects
 #macro tbyCreateManagerSnippet  instance_create_depth(0, 0, -10000, tbyTextboxManager)
-#macro tbyCreateTextSnippet     instance_create_depth(0, 0, -10001, tbyText) //Needs to be on a higher up (lower depth)
+#macro tbyCreateTextSnippet     instance_create_depth(0, 0, -10001, tbyText) // Needs to be on a higher up (lower depth)
 
 // The format for the defaults is [control_code/additional_data], e.g. [c/red]
 // These should all be one character only
@@ -89,12 +89,12 @@ They take the following form:
 
 // Control codes
 enum TbyCode {
-	Reset, //Resets needs to be on position 0
+	Reset, // Resets needs to be on position 0
 	Color,
 	Wait,
 	Jittery,
 	Skip,
-	_SIZE //This needs to be last
+	_SIZE // This needs to be last
 }
 
 #macro tbyDefaultColor          c_white
@@ -132,12 +132,12 @@ enum TbyPositionUpdateType {
 // Ensures that only one of these objects can exist at the same time
 #macro tbySingleton             if (instance_number(object_index)>1) {instance_destroy();}
 
-//Only to be used in the tbyTextboxManager object
+// Only to be used in the tbyTextboxManager object
 #macro tbyManagerSetup          event_user(0)
 #macro tbyManagerStart          event_user(1)
 #macro tbyManagerNextAction     event_user(2)
 
-//Only to be used in the tbyText object
+// Only to be used in the tbyText object
 #macro tbyTextStart             event_user(0)
 
 #endregion

@@ -6,10 +6,6 @@ if (mouse_check_button(mb_left)) {
 }
 
 if (keyboard_check_pressed(ord("P"))) {
-	//TODO: Reset needs to work actually
-	// Currently instance_destroy is destroying
-	// next step instead, do a real reset with all vars
-	// Add a setup script maybe so you can just re-call that
 	log("0")
 	tbyReset();
 	log("1")
