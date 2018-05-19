@@ -35,6 +35,13 @@ if (keyboard_check_pressed(ord("M"))) {
 
 if (keyboard_check_pressed(ord("R"))) game_restart();
 
+if (keyboard_check_pressed(ord("F"))) {
+	var s = choose("I'm talking!", "Hey there!", "Woaoaahh!");
+	tbyReset();
+	tby(id, 2, s);
+	tbyStart();
+}
+
 depth = -y;
 
 if (!variable_global_exists("pause")) global.pause = false;
@@ -62,8 +69,8 @@ if (keyU) dir = Dir.Up else
 if (keyD) dir = Dir.Down;
 
 if (dir != undefined && keyC) {
-	var cx = x+8 + lengthdir_x(12, dir);
-	var cy = y+8 + lengthdir_y(12, dir);
+	var cx = x+8 + lengthdir_x(10, dir);
+	var cy = y+8 + lengthdir_y(10, dir);
 	var c = instance_position(cx, cy, objBlue);
 	
 	if (c != noone) {
