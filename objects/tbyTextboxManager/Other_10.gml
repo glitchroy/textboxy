@@ -1,4 +1,4 @@
-/// @description Create variables
+/// @description (Re-)initialize variables
 
 #region Explanation
 /* Why do we initialize here and not in Create?
@@ -7,15 +7,20 @@ tbyReset() purposes.
 Since deleting and re-creating the manager would
 take until the next step after execution, it's
 not an option if the user wants to reset
-mid-dialogue. So this is the alternative */
+mid-dialogue. So this is the alternative.
+You'll note that some variables do get defined in
+the Create event. These need to exist during a reset
+or a important for tracking the reset.*/
 #endregion
 
 
-// if this is set, start executing
-// when reset is finished
-delayedStart = false;
+if (!ds_exists(ds_type_queue, actionQueue)) {
+	actionQueue = ds_queue_create();
+}
 
-actionQueue = ds_queue_create();
+alarm[0] = -1;
+alarm[1] = -1;
+
 speaker = noone;
 speakerX = undefined;
 speakerY = undefined;

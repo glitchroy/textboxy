@@ -142,6 +142,7 @@ enum TbyPositionUpdateType {
 #macro tbyManagerSetup          event_user(0)
 #macro tbyManagerStart          event_user(1)
 #macro tbyManagerNextAction     event_user(2)
+#macro tbyManagerReset          event_user(3)
 
 // Only to be used in the tbyText object
 #macro tbyTextStart             event_user(0)

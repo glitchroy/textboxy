@@ -10,4 +10,6 @@ spawning of text instances for drawing the text.
 //singleton code - destory this object if it already exists
 tbySingleton;
 
+actionQueue = -1;
+
 tbyManagerSetup;
