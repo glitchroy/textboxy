@@ -4,4 +4,4 @@
 ///@param string
 
 /* Implement your callback here */
-log("Start message: ", argument0, argument1);
+tbyLog("Start message: ", argument0, argument1);

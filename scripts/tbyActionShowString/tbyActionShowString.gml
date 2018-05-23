@@ -52,7 +52,6 @@ for (var j = 0; j < ds_list_size(l); j++) {
 	// Skip control codes
 	if (string_char_at(c, 1) != tbyControlCodeOpening) {
 		cleanString += string(c);
-		//error(string_width(cleanString), cleanString)
 	}
 }
 

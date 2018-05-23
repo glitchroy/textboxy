@@ -22,7 +22,6 @@ for (var i = 1; i <= string_length(s); i++) {
 		if (cont) continue;
 	}
 	// Normal char or No end found
-	//error("adding", c);
 	ds_list_add(l, c);
 }
 

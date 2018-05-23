@@ -2,5 +2,5 @@
 ///@desc Gets called when an action queue is finished
 
 /* Implement your callback here */
-log("Queue Finish");
+tbyLog("Queue Finish");
 global.pause = false;
