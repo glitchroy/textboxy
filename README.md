@@ -1,6 +1,7 @@
 # textboxy
 <p align="center">
-  <img width="507" height="90" src="https://i.imgur.com/uFojZyT.gif">
+  <img width="507" height="90" src="https://i.imgur.com/uFojZyT.gif"><br/>
+  <a href="https://twitter.com/glitchroy">Twitter</a> | <a href="https://marketplace.yoyogames.com/assets/6934/textboxy-engine">Marketplace</a>
 </p>
 textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 
