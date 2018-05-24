@@ -34,7 +34,7 @@ switch (argument_count) {
 if (speakerArg != undefined && speakerArg != noone) {
 	tbyAddAction(TbyAction.SetSpeaker, speakerArg);
 }
-if (speedArg != undefined && speedArg != tbyWaitAfterEachChar) {
+if (speedArg != undefined) {
 	tbyAddAction(TbyAction.SetSpeed, speedArg);
 }
 if (textArg != undefined && textArg != "") {
