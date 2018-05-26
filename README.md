@@ -13,6 +13,7 @@ textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 * Easy linking between message boxes and "speaker" instances, automatically updating the message box position
 * Basic options for text sound
 * Basic callbacks 
+* Profiles for keeping track of your instances properties (sound, speed etc.) 
 
 Some more features I'd like to add are
 * Support for different fonts in one message box
@@ -135,6 +136,16 @@ tbyAddAction(TbyAction.SetSpeaker,
     </td>
   </tr>
   <tr>
+    <td><pre lang="gml">SetSound(soundResource:Number)</pre></td>
+    <td>Sets the message sound for the following messages.</td>
+    <td>
+<pre lang="gml">
+// Changes the sound to sndHighPitch
+tbyAddAction(TbyAction.SetSound,
+             sndHighPitch);</pre>
+    </td>
+  </tr>
+  <tr>
     <td>
 <pre lang="gml">ShowString(message:String)</pre>
     </td>
@@ -182,6 +193,11 @@ tbyPause(room_speed/2);</pre>
     </td>
   </tr>
   <tr>
+    <th><b>Other</b></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
     <td><pre lang="gml">tbyStart()</pre></td>
     <td>Starts execution of the current action queue</td>
     <td>
@@ -199,6 +215,34 @@ tbyStart(); // Execution starts now</pre>
 tby("This will never be seen");
 tbyReset();
 tby("But this will!");
+tbyStart();</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+<pre lang="gml">
+tbyCreateProfile(instId:Number
+    &lt;optional&gt;sound:Number,
+    &lt;optional&gt;speed:Number)</pre>
+    </td>
+    <td>Returns a new profile array</td>
+    <td>
+<pre lang="gml">
+var oldManProfile = 
+tbyCreateProfile(
+    oldMan, 
+    sndOldMan, 
+    4)</pre>
+    </td>
+  </tr>
+  <tr>
+    <td><pre lang="gml">tbyProfile(profile:Array)</pre></td>
+    <td>Switches to the specified profile</td>
+    <td>
+<pre lang="gml">
+tby("Normal stuff");
+tbyProfile(oldManProfile);
+tby("Now I'm old...");
 tbyStart();</pre>
     </td>
   </tr>
@@ -264,6 +308,39 @@ tby("Please?") //speaker and speed carry over
 tby(oldMan, oldManSpeed,
 @"[j]OoooooOooohhh[r],[.] I am telling you,[.] no o-[...][^]")
 tby(player, playerSpeed,
+@"I get it,[.] you are no help either.");
+
+tbyStart();
+```
+
+## Profiles
+Continuing from the example above, again with the instances `player` and `oldMan`.
+```gml
+// It would make sense to have these as objects variables and addressing them
+// from the instances, e.g. player.profile or something
+var playerProfile = tbyProfileCreate(player, sndPlayer, tbyWaitAfterEachChar);
+var oldManProfile = tbyProfileCreate(oldMan, sndOldMan, 6);
+
+tbyProfile(playerProfile);
+tby(
+@"Hello,[.] old man.[..]
+Do you know where I can find the [c/red]hidden treasure[r]?");
+
+tbyProfile(oldManProfile);
+tby(
+@"[j]Oooohhhhh[r],[.] it is the [c/red]hidden treasure[r]
+you seek?[.] Good luck finding it,[.]
+nobody knows where it is[.].[.].[.].");
+
+tbyProfile(playerProfile);
+tby(
+@"You have to know something!");
+tbyPause(room_speed/2); //Half a second
+tby("Please?"); //speaker and speed carry over
+
+tbyProfile(oldManProfile);
+@"[j]OoooooOooohhh[r],[.] I am telling you,[.] no o-[...][^]")
+tbyProfile(playerProfile);
 @"I get it,[.] you are no help either.");
 
 tbyStart();
