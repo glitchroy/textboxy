@@ -5,7 +5,9 @@
     "name": "8324c662-2ab5-4909-94ae-805b67bc0c2d",
     "children": [
         "8f68ef59-76b1-4936-b00e-4fa6a085c518",
-        "16765620-b4c9-4355-9402-0e9bae6ea0f7"
+        "16765620-b4c9-4355-9402-0e9bae6ea0f7",
+        "86eb81c0-ed17-4157-9dd5-19986f35f599",
+        "922a3014-a6c7-4214-900b-a337b0f250cc"
     ],
     "filterType": "GMScript",
     "folderName": "Shorthands",
