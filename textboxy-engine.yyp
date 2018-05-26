@@ -263,6 +263,14 @@
             }
         },
         {
+            "Key": "68d5c586-30ab-4306-b085-e379e446b637",
+            "Value": {
+                "id": "c9e5d454-7f92-4e52-bff3-17c27ded6d02",
+                "resourcePath": "scripts\\tbyActionSetSound\\tbyActionSetSound.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "6974b910-09c6-498d-aed1-3f6479975d91",
             "Value": {
                 "id": "14606441-3ed4-443d-87d3-fa698bd460d6",
@@ -591,6 +599,7 @@
         "4fbeb043-8b8c-4cb2-9c1f-a2e4c1f5acfa",
         "f0bc4c0b-050b-4423-8b30-f47b9e22e224",
         "05d47f45-b394-48fc-967d-5104cd50a675",
+        "68d5c586-30ab-4306-b085-e379e446b637",
         "189fad13-0e2a-4e23-a069-5c70410bcf05",
         "b4fcb86a-1ca4-490a-a169-be47f21e3c44",
         "a7105ed5-9cbb-4b2d-a648-f9ac1690e732",

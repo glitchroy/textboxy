@@ -34,7 +34,7 @@
 /**** Audio ****/
 // Options concerning audio
 #macro tbyPlaySpeechSound       true
-#macro tbySpeechSound           sndSpeechDefault
+#macro tbyDefaultSpeechSound    sndSpeechDefault
 #macro tbySpeechPitchChange     random_range(0.8, 1.2) // (Number 0.0-1.0) Pitch modifier to apply to sound
 #macro tbySpeechIteration       3 // Play sound every x characters
 
@@ -71,7 +71,8 @@ enum TbyAction {
     ShowString  = tbyActionShowString,
     SetSpeed    = tbyActionSetSpeed,
     SetPause    = tbyActionSetPause,
-    SetFont     = tbyActionSetFont
+    SetFont     = tbyActionSetFont,
+	SetSound    = tbyActionSetSound
 }
 
 /*

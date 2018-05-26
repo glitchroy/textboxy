@@ -38,6 +38,8 @@ currentLines = maxLines;
 
 standardWait = tbyWaitAfterEachChar;
 
+sound = tbyDefaultSpeechSound;
+
 //coordinates
 mx = 0;
 my = 0;

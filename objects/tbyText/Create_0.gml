@@ -19,6 +19,8 @@ lineHeight = undefined;
 
 wait = tbyWaitAfterEachChar;
 
+messageSound = undefined;
+
 running = false;
 finished = false;
 

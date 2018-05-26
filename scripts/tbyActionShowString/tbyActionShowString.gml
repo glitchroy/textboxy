@@ -104,6 +104,6 @@ with (tbyM()) {
 	currentTextInstance = tbyT(cleanString, dirtyString, currentFont,
 						mx, my,
 						tbyGetBoxWidth(), tbyGetBoxHeight(),
-						standardWait)
+						standardWait, sound)
 }
 #endregion
