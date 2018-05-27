@@ -87,7 +87,7 @@ if (is_array(positionUpdate)) {
 	// bubble sprite, but only if it is shown
 	if (type != TbyPositionUpdateType.TopLeft) {
 		if (speaker != noone) {
-			topLeftCoords[1] -= floor(sprite_get_yoffset(tbyBubbleSprite))
+			topLeftCoords[1] -= sprite_get_height(tbyBubbleSprite)
 		}
 	}
 	

@@ -8,16 +8,23 @@ tbyDrawBox(mx, my, w, h);
 
 // Draw bubble sprite
 if (tbyDrawBubbleSprite && speaker != noone) {
-	var ts = tbyTileSize;
-	var spr = speaker.sprite_index;
-	var sx = speaker.x - sprite_get_xoffset(spr) + (sprite_get_width(spr)/2);
-	var sy = speaker.y;
-	var m = tbyBoxBottomMargin;
-	var soff = floor(sprite_get_yoffset(tbyBubbleSprite));
+	var speakerSprite = speaker.sprite_index;
+		
+	//top-left x/y
+	var tlx = speaker.x - sprite_get_xoffset(speakerSprite);
+	var tly = speaker.y - sprite_get_yoffset(speakerSprite);
+	var bubbleHeight = sprite_get_height(tbyBubbleSprite);
 	
-	if (sx > ts && sx < screenW-ts) { //Origin is in x bounds
-		if (sy > h+soff+m && sy < screenH-soff+m) { //Origin is in y bounds
-			draw_sprite(tbyBubbleSprite, -1, sx, sy-soff-m)
-		}
-	}
+	//bubbleSprite x/y
+	var bx = tlx + sprite_get_width(speakerSprite)/2;
+	var by = tly-bubbleHeight-tbyBoxBottomMargin;
+	
+	//exit conditions
+	if (tly-bubbleHeight < h) exit; //bubble sprite would be clipping into the box
+	if (by > screenH) exit; //speaker is out of view
+	if (bx < tbyTileSize) exit; //clips the left edge
+	if (bx > screenW-tbyTileSize) exit; //clips the right edge
+	
+	//my + h is more reliable as y because it doesn't lag behind the msgbox
+	draw_sprite(tbyBubbleSprite, -1, bx, my + h)
 }

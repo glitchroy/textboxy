@@ -11,12 +11,17 @@ if (instance_exists(speaker)) {
 	m.speakerY = speaker.y;
 	
 	// ORIGIN
-	var spr = speaker.sprite_index;
-	//middle
-	var sx = speaker.x - sprite_get_xoffset(spr) + (sprite_get_width(spr)/2)
-	//top
-	var sy = speaker.y - sprite_get_yoffset(spr) - tbyBoxBottomMargin;
-	m.positionUpdate = [TbyPositionUpdateType.Origin,
-						sx, sy]
+	//top-left x/y
+	var speakerSprite = speaker.sprite_index;
+	var tlx = speaker.x - sprite_get_xoffset(speakerSprite);
+	var tly = speaker.y - sprite_get_yoffset(speakerSprite);
+	//middle x
+	var middleX = tlx + sprite_get_width(speakerSprite)/2;
+	
+	var sx = middleX;
+	//the bubble sprite height gets applied in the positionUpdate
+	var sy = tly - tbyBoxBottomMargin;
+	
+	m.positionUpdate = [TbyPositionUpdateType.Origin, sx, sy]
 	
 }
