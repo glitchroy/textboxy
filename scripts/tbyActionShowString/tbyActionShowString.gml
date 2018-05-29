@@ -90,8 +90,9 @@ if (is_array(positionUpdate)) {
 			topLeftCoords[1] -= sprite_get_height(tbyBubbleSprite)
 		}
 	}
-	
 	tbyUpdatePosition(topLeftCoords);
+} else {
+	tbyCalculateSpeakerOffset()
 }
 #endregion
 

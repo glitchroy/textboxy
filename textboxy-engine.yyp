@@ -527,6 +527,14 @@
             }
         },
         {
+            "Key": "eb14ceaf-89a3-4733-91aa-3bb1a41ff077",
+            "Value": {
+                "id": "5c4986b8-e4bc-4ce8-a5f2-bbe458a6a874",
+                "resourcePath": "scripts\\tbyCalculateSpeakerOffset\\tbyCalculateSpeakerOffset.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f0bc4c0b-050b-4423-8b30-f47b9e22e224",
             "Value": {
                 "id": "2196aefa-5559-4e24-9021-95b2fe290eaf",
@@ -645,6 +653,7 @@
         "bb645209-e539-46b4-b406-02fb4f600f4d",
         "64ad0613-0a53-47a0-9d0b-7c921b87bdb9",
         "3bfa7f35-ae8a-411e-9513-513fc8d4a635",
+        "eb14ceaf-89a3-4733-91aa-3bb1a41ff077",
         "8f68ef59-76b1-4936-b00e-4fa6a085c518",
         "16765620-b4c9-4355-9402-0e9bae6ea0f7",
         "922a3014-a6c7-4214-900b-a337b0f250cc",
