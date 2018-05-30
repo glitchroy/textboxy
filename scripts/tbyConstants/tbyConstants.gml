@@ -1,4 +1,5 @@
 #region Changes here are not intended and need manual configuration
+#macro tbyVersion "0.2.2"
 
 // Frame indices for message sprite 9slice
 enum TbySliceIndex {
