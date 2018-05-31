@@ -345,9 +345,9 @@ tbyPause(room_speed/2); //Half a second
 tby("Please?"); //speaker and speed carry over
 
 tbyProfile(oldManProfile);
-@"[j]OoooooOooohhh[r],[.] I am telling you,[.] no o-[...][^]")
+tby("[j]OoooooOooohhh[r],[.] I am telling you,[.] no o-[...][^]"):
 tbyProfile(playerProfile);
-@"I get it,[.] you are no help either.");
+tby("I get it,[.] you are no help either.");
 
 tbyStart();
 ```
