@@ -14,6 +14,12 @@ textboxy aims to be a simple to use textbox engine for GameMaker Studio 2.
 * Basic options for text sound
 * Basic callbacks 
 * Profiles for keeping track of your instances properties (sound, speed etc.) 
+* Easily create your own skins or use one of the defaults:
+
+<p align="center">
+  <img width="350" height="60" src="https://i.imgur.com/wjl8gsK.png">
+</p>
+
 
 Some more features I'd like to add are
 * Support for different fonts in one message box
