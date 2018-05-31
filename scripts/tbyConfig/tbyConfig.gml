@@ -4,14 +4,14 @@
 // Options concerning sprites,
 // dimensions, animation speed and
 // fonts
-#macro tbyTextboxSprite         sprTextbox // Sprite needs to be square
+#macro tbyTextboxSprite         sprTbySkinA // Sprite needs to be square
 #macro tbyTileSize              8 // Same as width/height of textboxSprite
 #macro tbyDrawPauseSprite       true
-#macro tbyPauseSprite           sprTextboxPause // Origin is the bottom edge of the textbox
+#macro tbyPauseSprite           sprTbySkinPauseA // Origin is the bottom edge of the textbox
 #macro tbyPauseSpriteSpeed      0.04 // Only applicable for pause sprites with multiple frames
 #macro tbyDrawBubbleSprite      true // Whether to draw the "speech indicator" at the bottom
-#macro tbyBubbleSprite          sprTextboxBubble
-#macro tbyDefaultFont           fontDefault
+#macro tbyBubbleSprite          sprTbySkinBubbleA
+#macro tbyDefaultFont           fontTbyDefault
 
 /**** Technical ****/
 // Options concerning functionality
@@ -104,8 +104,8 @@ enum TbyCode {
 	_SIZE // This needs to be last
 }
 
-#macro tbyDefaultColor          c_white
-#macro tbyColorNames [ "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "aqua", c_aqua, "blue", c_blue, "purple", c_purple]
+#macro tbyDefaultColor          c_black
+#macro tbyColorNames [ "black", c_black, "white", c_white, "red", c_red, "orange", c_orange, "yellow", c_yellow, "green", c_green, "aqua", c_aqua, "blue", c_blue, "purple", c_purple]
 
 // They keys should all be ony character only
 #macro tbyControlIdentifiers ["r", TbyCode.Reset, "c", TbyCode.Color, ".", TbyCode.Wait, "j", TbyCode.Jittery, "^", TbyCode.Skip]

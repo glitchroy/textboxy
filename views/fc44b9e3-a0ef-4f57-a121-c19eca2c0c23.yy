@@ -4,9 +4,10 @@
     "mvc": "1.1",
     "name": "fc44b9e3-a0ef-4f57-a121-c19eca2c0c23",
     "children": [
-        "77810701-2b0f-4200-b548-0d7cafd2bf63",
-        "d8577805-cb7b-4469-816e-5429c64d7637",
-        "f595ad17-85a7-440a-9b89-389276eabb58"
+        "bb228792-6aba-482a-8e55-4c30ec998441",
+        "d8495a53-313f-457e-b13e-8c00b9d82978",
+        "72e07ec6-64c3-41bc-95c2-d59551f610d9",
+        "2405112a-2066-4d28-9a7f-377fbd56f20f"
     ],
     "filterType": "GMSprite",
     "folderName": "textboxy",
