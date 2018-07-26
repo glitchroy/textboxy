@@ -1,0 +1,1 @@
+allowResizing = true;
