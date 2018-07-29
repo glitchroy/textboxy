@@ -2,7 +2,7 @@
     "id": "7b84c1b0-4936-46f2-a5b5-2102ca3346fb",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "objTesting",
+    "name": "objTextbox",
     "eventList": [
         {
             "id": "cca7ecdc-cb94-4bae-b738-a01175bcd972",

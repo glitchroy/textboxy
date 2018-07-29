@@ -3,7 +3,7 @@ singleton;
 windowScale = 2;
 windowScaleMax = 3;
 
-allowSubpixels = true;
+allowSubpixels = false;
 allowResizing = true; //timer for adjusting
 
 window_set_color(c_black);

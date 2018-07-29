@@ -455,6 +455,14 @@
             }
         },
         {
+            "Key": "495dd65b-3213-4aae-8125-fe06c827abab",
+            "Value": {
+                "id": "0912df6f-8e51-4cbf-9932-f6aeb2a29ddc",
+                "resourcePath": "scripts\\textbox_create\\textbox_create.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4af4d3c7-1882-48bb-b61a-c6fa76fad4f1",
             "Value": {
                 "id": "771e0377-a1c5-4215-969e-9cc31f3756f2",
@@ -647,6 +655,14 @@
             }
         },
         {
+            "Key": "72cffeaf-a7f6-444f-a628-dcdfbcc33cc8",
+            "Value": {
+                "id": "dccd4794-0603-47fb-b699-ff0fd8de8c2e",
+                "resourcePath": "scripts\\textbox_find_next_selectable\\textbox_find_next_selectable.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "73d76eff-c580-4c7f-8a7a-50753795d711",
             "Value": {
                 "id": "559e402a-c64c-4409-9612-507c72f5be72",
@@ -706,7 +722,7 @@
             "Key": "7b84c1b0-4936-46f2-a5b5-2102ca3346fb",
             "Value": {
                 "id": "feb7ead2-466e-407b-a21c-a18f4c33fcc5",
-                "resourcePath": "objects\\objTesting\\objTesting.yy",
+                "resourcePath": "objects\\objTextbox\\objTextbox.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1621,7 +1637,9 @@
         "34acb1a0-ac1a-4c94-8ae1-7ebed9700047",
         "bb1ac704-22c6-41d2-b15d-6d85b25baad3",
         "09d15875-1e0a-461f-b889-8de5f2754f4e",
-        "54fb8a8a-4dc4-4e8d-9138-ab397c336b01"
+        "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
+        "495dd65b-3213-4aae-8125-fe06c827abab",
+        "72cffeaf-a7f6-444f-a628-dcdfbcc33cc8"
     ],
     "tutorial": ""
 }

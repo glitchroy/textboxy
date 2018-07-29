@@ -1,12 +1,11 @@
 /// @param json
-/// @param data(array)
+/// @param data array
 /// @param changed
-/// @param different_event
+/// @param different
 
-var json      = argument0;
-var data      = argument1;
-var changed   = argument2;
-var different = argument3;
+//called from text event
+
+var json = argument0, data = argument1, changed = argument2, different = argument3;
 
 if ( different ) {
     waiting = true;

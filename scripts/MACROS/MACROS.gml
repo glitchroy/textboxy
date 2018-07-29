@@ -12,3 +12,6 @@
 #macro tm_pixel tilemap_get_at_pixel
 #macro arr_length array_length_1d
 #macro is_parent object_is_ancestor
+
+#macro layerText "Text"
+#macro layerManagers "Managers"
