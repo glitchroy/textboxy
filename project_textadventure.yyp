@@ -506,7 +506,7 @@
             "Key": "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
             "Value": {
                 "id": "fa47f560-1fe5-41b2-83d5-8d40f9386d4c",
-                "resourcePath": "scripts\\handleWait\\handleWait.yy",
+                "resourcePath": "scripts\\textbox_handle_wait\\textbox_handle_wait.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1455,6 +1455,14 @@
             }
         },
         {
+            "Key": "ee687aed-3a23-4510-bfe5-f532658d36cd",
+            "Value": {
+                "id": "3b879464-7049-41a3-8bda-5a32733868fb",
+                "resourcePath": "scripts\\textbox_handle_speed\\textbox_handle_speed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f3245528-5b3b-463f-ae3f-0ec091734103",
             "Value": {
                 "id": "fd74125a-3b7d-405d-8bcd-f569d2d50edc",
@@ -1638,6 +1646,7 @@
         "bb1ac704-22c6-41d2-b15d-6d85b25baad3",
         "09d15875-1e0a-461f-b889-8de5f2754f4e",
         "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
+        "ee687aed-3a23-4510-bfe5-f532658d36cd",
         "495dd65b-3213-4aae-8125-fe06c827abab",
         "72cffeaf-a7f6-444f-a628-dcdfbcc33cc8"
     ],

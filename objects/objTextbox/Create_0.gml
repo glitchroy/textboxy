@@ -6,6 +6,7 @@ textRaw = undefined;
 text = undefined;
 selectable = undefined;
 selected = undefined;
+textSpeed = 1;
 
 //visual
 smoothness = 0

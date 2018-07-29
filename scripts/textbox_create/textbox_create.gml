@@ -10,6 +10,10 @@ var ty = argument_count > 3 ? argument[3] : gameHeight/2;
 var tb = instance_create_layer(tx, ty, layerText, objTextbox)
 
 with (tb) {
+    // Replace text from string literals
+	ttext = string_replace_all(ttext,"\r\n","\n")
+	ttext = string_replace_all(ttext, "\t", "");
+    
     textRaw = ttext;
     selectable = canSelect;
     
