@@ -15,3 +15,9 @@
 
 #macro layerText "Text"
 #macro layerManagers "Managers"
+
+enum TBSize {
+    width,
+    height,
+    sizeof
+}

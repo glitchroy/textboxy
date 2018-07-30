@@ -1,3 +1,3 @@
 if (room != room_first) {
-    //var tb:TextBox = new TextBox(10, 10, "test")
+    textbox_create("Lorem ipsummmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmlong boye 123 123 123", false, 10, 10, [gameWidth-20-100, gameHeight-10])
 }

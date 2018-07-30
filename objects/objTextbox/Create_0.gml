@@ -8,5 +8,7 @@ selectable = undefined;
 selected = undefined;
 textSpeed = 1;
 
+size = undefined
+
 //visual
 smoothness = 0
