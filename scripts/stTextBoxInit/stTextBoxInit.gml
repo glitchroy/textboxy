@@ -15,9 +15,8 @@ if (arr_length(size) >= TBSize.height) {
     }
 }
 
-text = scribble_create(textRaw, maxWidth, "sprFontMain",
-					   fa_left, c_white, 0);
-   
+text = scribble_create(textRaw, maxWidth, "sprFontMain");
+
 //set origin point of box to middle
 scribble_set_box_alignment(text); 
 

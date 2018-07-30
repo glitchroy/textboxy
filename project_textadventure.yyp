@@ -394,7 +394,7 @@
             "Key": "3dee5873-260c-4a48-90d8-0c51f65b6951",
             "Value": {
                 "id": "63127bdc-96de-49e7-8e55-36517dbc9aff",
-                "resourcePath": "sprites\\sprFontMain\\sprFontMain.yy",
+                "resourcePath": "sprites\\sprFontMainOld\\sprFontMainOld.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -404,6 +404,14 @@
                 "id": "b970d64c-282a-47b8-90fe-7a29fc0eb0b5",
                 "resourcePath": "views\\3eb90e27-7e01-420d-b094-65dd09bf14f5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "3f26a63f-a895-485f-81b6-ef35d9ee94cd",
+            "Value": {
+                "id": "9ac22705-b8b5-4fa4-802a-6b5f4591789b",
+                "resourcePath": "sprites\\sprFontMain\\sprFontMain.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

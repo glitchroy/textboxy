@@ -24,7 +24,7 @@
 #macro SCRIBBLE_FONT_DIRECTORY "Fonts/"
 
 #macro SCRIBBLE_DEFAULT_FONT "sprFontMain"
-#macro SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,.-;:_+-*/\\'\"!?~^°<>|(){[]}%&=#@$ÄÖÜäöüß"
+#macro SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789,.-;:_+-*/\\'\"!?~^°<>|(){[]}%&=#@$ÄÖÜäöüß«»"
 #macro SCRIBBLE_DEFAULT_SPRITEFONT_SEPARATION 0
 #macro SCRIBBLE_DEFAULT_SHADER shScribble
 

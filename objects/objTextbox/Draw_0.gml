@@ -14,7 +14,7 @@ scribble_draw(text, s[0]+margin, s[1]+margin);
 
 // Finished circle
 draw_set_color(c_white);
-if (selected && stateName == "Finished") draw_circle(s[2]-8, s[3]-8, 4, false);
+if (selected && stateName == "Finished") draw_circle(s[2]-7, s[3]-7, 3, false);
 
 if (selectable && !selected) {
 	//inactive
