@@ -5,6 +5,9 @@ switch( string( argument0 ) ) {
     
     case "c_test": return make_colour_rgb( 100, 150, 200 ); break;
     
+	case "c_command": return c_yellow; break;
+	case "c_thing": return c_aqua; break;
+	
     case "c_aqua":    return c_aqua;    break;
     case "c_black":   return c_black;   break;
     case "c_blue":    return c_blue;    break;

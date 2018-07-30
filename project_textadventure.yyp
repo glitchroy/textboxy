@@ -455,6 +455,14 @@
             }
         },
         {
+            "Key": "465b5728-029c-467a-a06a-8d24acd88457",
+            "Value": {
+                "id": "692649cb-d237-4af6-b741-6639046640a7",
+                "resourcePath": "sprites\\iconNumber\\iconNumber.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "47655098-3989-4e7d-a10d-e136a65b9543",
             "Value": {
                 "id": "fecadbd6-97fa-4202-8fd0-c2d91f338947",
@@ -951,14 +959,6 @@
             }
         },
         {
-            "Key": "9f02de9f-6de9-4db1-9411-e6ea08c02285",
-            "Value": {
-                "id": "369e47e3-1852-4bbb-a1d4-3807b156925d",
-                "resourcePath": "sprites\\sCoin\\sCoin.yy",
-                "resourceType": "GMSprite"
-            }
-        },
-        {
             "Key": "9fdb5ea6-7580-494f-9759-66821915ddcc",
             "Value": {
                 "id": "18c2fef6-e21f-4ee6-924a-db12d805e91f",
@@ -1343,6 +1343,14 @@
             }
         },
         {
+            "Key": "c9465435-7305-47fe-ae1f-a10b7497c384",
+            "Value": {
+                "id": "01a38a37-7798-4877-990c-3d05fa11b2fa",
+                "resourcePath": "sprites\\iconThing\\iconThing.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c9cd4938-7835-4779-a0f4-7143b642bd0f",
             "Value": {
                 "id": "a60ceff4-50d2-4325-bd47-47c926e61533",
@@ -1524,6 +1532,14 @@
                 "id": "f2e49ed4-b540-4e90-ba91-2c628af64e44",
                 "resourcePath": "scripts\\__scribble_default_shader_values\\__scribble_default_shader_values.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "eab60bef-8142-4bb7-b35f-a380bab29bb5",
+            "Value": {
+                "id": "69f3d7f1-480d-45cb-b6d5-4bf981061e1d",
+                "resourcePath": "views\\eab60bef-8142-4bb7-b35f-a380bab29bb5.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
