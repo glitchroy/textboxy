@@ -8,5 +8,5 @@
 var json = argument0, data = argument1, changed = argument2, different = argument3;
 
 if ( different ) {
-    textSpeed = data[0];
+    textSpeed = real(data[0]);
 }

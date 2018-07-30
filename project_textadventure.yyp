@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "206269d1-a69e-4e4f-9a26-1ef11b01e919",
+            "Value": {
+                "id": "ebc57730-0310-411c-8d37-e396c5a87148",
+                "resourcePath": "scripts\\stTextBoxWaiting\\stTextBoxWaiting.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2556e855-8983-412c-8d45-8c59e5d89947",
             "Value": {
                 "id": "6dcc3d43-e77d-40d7-b352-598e681ca430",
@@ -332,6 +340,14 @@
                 "id": "a99bdcc0-7e9e-4e8e-b48d-d4be3026beac",
                 "resourcePath": "views\\48e0b400-bc21-441f-9cf6-849f7fcd08ce-room.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "35835d72-bf5c-4ffc-a052-bb2110245853",
+            "Value": {
+                "id": "5a24dd8c-de87-4cdd-b146-5a888f383f79",
+                "resourcePath": "scripts\\stTextBoxFinished\\stTextBoxFinished.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1007,6 +1023,14 @@
             }
         },
         {
+            "Key": "a71d8dd7-a364-4c31-a8cc-7c81b5feefbb",
+            "Value": {
+                "id": "d77ac314-8599-45e8-a78d-63375b737d86",
+                "resourcePath": "scripts\\stTextBoxInit\\stTextBoxInit.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a7b0bcec-e3f0-4cc8-a0d1-000e29a5794a",
             "Value": {
                 "id": "3b366f14-a573-4f16-9db9-61768b59fa4d",
@@ -1207,6 +1231,14 @@
             }
         },
         {
+            "Key": "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
+            "Value": {
+                "id": "d7285edb-def6-4947-ad3f-594870ad1e92",
+                "resourcePath": "scripts\\stTextBoxWriting\\stTextBoxWriting.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c16bc21c-277e-4cea-9c20-ce39745a0430",
             "Value": {
                 "id": "21d95e87-7757-428a-ac96-ba7a312b3a87",
@@ -1311,6 +1343,14 @@
             }
         },
         {
+            "Key": "ca1c24cb-29ea-42b3-9315-b1d9543e5937",
+            "Value": {
+                "id": "1fdd7c0e-00cf-472e-8ab6-45e051d384e9",
+                "resourcePath": "views\\ca1c24cb-29ea-42b3-9315-b1d9543e5937.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "a4a671e8-7a67-41ec-aeac-662bfabcc64b",
@@ -1367,10 +1407,26 @@
             }
         },
         {
+            "Key": "d4424aa5-b516-4627-9c16-fa81f786bc69",
+            "Value": {
+                "id": "a1507576-ea5f-48b2-b329-4dee056ac173",
+                "resourcePath": "views\\d4424aa5-b516-4627-9c16-fa81f786bc69.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "d4851883-2f1c-4246-bdfe-cf58b268a32c",
             "Value": {
                 "id": "ddd6cb56-c9b6-4826-a67d-aae977cc52b1",
                 "resourcePath": "scripts\\GLOBALS\\GLOBALS.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d6c827c1-fe5b-4793-a95c-cd3467219fa1",
+            "Value": {
+                "id": "8407e72a-e387-498f-a52d-b17cd7d74cae",
+                "resourcePath": "scripts\\stTextBoxInactive\\stTextBoxInactive.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1657,7 +1713,12 @@
         "ee687aed-3a23-4510-bfe5-f532658d36cd",
         "495dd65b-3213-4aae-8125-fe06c827abab",
         "72cffeaf-a7f6-444f-a628-dcdfbcc33cc8",
-        "50f09a15-283e-4d7c-b3da-4d0d3a4ceef6"
+        "50f09a15-283e-4d7c-b3da-4d0d3a4ceef6",
+        "a71d8dd7-a364-4c31-a8cc-7c81b5feefbb",
+        "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
+        "206269d1-a69e-4e4f-9a26-1ef11b01e919",
+        "d6c827c1-fe5b-4793-a95c-cd3467219fa1",
+        "35835d72-bf5c-4ffc-a052-bb2110245853"
     ],
     "tutorial": ""
 }

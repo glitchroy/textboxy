@@ -1,0 +1,1 @@
+if (selectable && selected) stateSwitchPrevious()

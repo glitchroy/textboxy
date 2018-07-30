@@ -3,6 +3,7 @@
 /// @param ?width = undefined
 /// @param ?height = undefined
 /// @param margin = 10
+//args xPos = gameWidth/2, yPos = gameHeight/2, ?width, ?height, margin = 10
 var xPos = argument_count > 0 ? argument[0] : gameWidth/2;
 var yPos = argument_count > 1 ? argument[1] : gameHeight/2;
 var width = argument_count > 2 ? argument[2] : undefined;

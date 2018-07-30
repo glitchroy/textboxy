@@ -1,23 +1,20 @@
-if (text == undefined) exit;
+if (stateName == "Init") exit;
 var margin = 4;
 
-var tsize/*:TBSize*/ = size;
-var s;
-if (tsize[TBSize.width] == undefined || tsize[TBSize.height] == undefined) {
+var size/*:TBSize*/ = tbSize
+var s = size;
+if (arr_length(size) <= TBSize.width || size[TBSize.width] == undefined || size[TBSize.height] == undefined) {
     s = scribble_get_box( text, x, y, margin, margin, margin, margin );
-} else {
-    s = tsize;
 }
-
 // Background
 draw_set_color(c_black);
 draw_rectangle( s[0], s[1], s[2], s[3], false);
 
-scribble_draw( text, s[0]+margin, s[1]+margin);
+scribble_draw(text, s[0]+margin, s[1]+margin);
 
 // Finished circle
 draw_set_color(c_white);
-if (selected && finished) draw_circle(s[2]-8, s[3]-8, 4, false);
+if (selected && stateName == "Finished") draw_circle(s[2]-8, s[3]-8, 4, false);
 
 if (selectable && !selected) {
 	//inactive
@@ -35,7 +32,7 @@ if (global.debug) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
-    "| Finished: " + stringBool(finished) +
+    "| State: " + stateName + 
     "| Selected: " + stringBool(selected);
 	scribble_basic_draw_cached("sprFontSmall",
 							   string_upper(ds),
