@@ -1,13 +1,12 @@
 if (text == undefined) exit;
 var margin = 4;
-var box = scribble_get_box( text, x, y, margin, margin, margin, margin );
 
+var tsize/*:TBSize*/ = size;
 var s;
-if (is_array(size)) {
-    var bsize/*:TBSize*/ = size;
-    s = [x, y, x+bsize[TBSize.width], y+bsize[TBSize.height]]
+if (tsize[TBSize.width] == undefined || tsize[TBSize.height] == undefined) {
+    s = scribble_get_box( text, x, y, margin, margin, margin, margin );
 } else {
-    s = box;
+    s = tsize;
 }
 
 // Background

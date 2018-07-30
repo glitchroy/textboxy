@@ -17,7 +17,10 @@
 #macro layerManagers "Managers"
 
 enum TBSize {
+    x,
+    y,
     width,
     height,
+    margin,
     sizeof
 }

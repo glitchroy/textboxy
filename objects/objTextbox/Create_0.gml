@@ -8,7 +8,7 @@ selectable = undefined;
 selected = undefined;
 textSpeed = 1;
 
-size = undefined
+size = tbsize_create()
 
 //visual
 smoothness = 0
