@@ -1,0 +1,1 @@
+if (selectable && selected) state_switch_previous()

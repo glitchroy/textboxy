@@ -1,7 +1,7 @@
-stateMachineInit();
-stateCreate("Init", stTextBoxInit)
-stateCreate("Writing", stTextBoxWriting)
-stateCreate("Waiting", stTextBoxWaiting)
-stateCreate("Inactive", stTextBoxInactive)
-stateCreate("Finished", stTextBoxFinished)
-stateInit("Init")
+state_machine_init();
+state_create("Init", st_textbox_init)
+state_create("Writing", st_texttox_writing)
+state_create("Waiting", st_textbox_waiting)
+state_create("Inactive", st_textbox_inactive)
+state_create("Finished", st_textbox_finished)
+state_init("Init")

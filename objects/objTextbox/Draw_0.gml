@@ -33,7 +33,7 @@ if (global.debug) {
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
     "| State: " + stateName + 
-    "| Selected: " + stringBool(selected);
+    "| Selected: " + string_bool(selected);
 	scribble_basic_draw_cached("sprFontSmall",
 							   string_upper(ds),
 							   s[0],
