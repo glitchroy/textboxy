@@ -1,9 +1,7 @@
-/// @param font
-/// @param string
-/// @param [colour]
-/// @param [alpha]
+/// @param _font
+/// @param ...
 
-var _font   = argument[0];
+var _font = argument[0];
 var _string = __scribble_replace_newlines( argument[1] );
 var _colour = ((argument_count < 3) || ( argument[2] == undefined))? c_white : argument[2];
 var _alpha  = ((argument_count < 4) || ( argument[3] == undefined))? 1       : argument[3];
@@ -25,7 +23,7 @@ for( var _pos = 1; _pos <= _length; _pos++ ) {
     
     var _char = string_copy( _string, _pos, 1 );
     
-    if ( ord( _char ) == 10 ) {
+    if ( ord( _char ) == 10 || ord( _char ) == 13 ) {
         _line++;
         _x = 0;
         _y += _line_height;

@@ -7,12 +7,7 @@ waitTimer = 0;
 var size/*:TBSize*/ = tbSize
 
 //Calc max size (the custom box width if specified or the whole game screen)
-var maxWidth = gameWidth;
-if (arr_length(size) >= TBSize.height) {
-    if (size[TBSize.width] != undefined && size[TBSize.height] != undefined) {
-        maxWidth = size[TBSize.width];
-    }
-}
+var maxWidth = size[TBSize.width];
 
 text = scribble_create(textRaw, maxWidth, "sprFontMain");
 
