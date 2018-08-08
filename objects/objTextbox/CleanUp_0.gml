@@ -1,2 +1,4 @@
 state_cleanup();
-scribble_destroy(text);
+if (text != undefined) {
+    scribble_destroy(text);
+}

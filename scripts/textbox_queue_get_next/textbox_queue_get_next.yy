@@ -1,8 +1,8 @@
 {
-    "id": "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
+    "id": "330da339-9f3d-48bf-b01f-b9304227c5d4",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "st_texttox_writing",
+    "name": "textbox_queue_get_next",
     "IsCompatibility": false,
     "IsDnD": false
 }

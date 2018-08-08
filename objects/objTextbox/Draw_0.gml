@@ -1,4 +1,11 @@
 if (stateName == "Init") exit;
+if (text == undefined) exit;
+var ghostMode = false;
+if (stateName == "QueuedUp") {
+    if (!global.debug) exit;
+    ghostMode = true;
+}
+if (stateName == "Inactive") ghostMode = true;
 var margin = 4;
 
 var size/*:TBSize*/ = tbSize
@@ -14,9 +21,9 @@ scribble_draw(text, s[0]+margin, s[1]+margin);
 
 // Finished circle
 draw_set_color(c_white);
-if (selected && stateName == "Finished") draw_circle(s[2]-7, s[3]-7, 3, false);
+if (stateName == "Finished") draw_circle(s[2]-7, s[3]-7, 3, false);
 
-if (selectable && !selected) {
+if (ghostMode) {
 	//inactive
 	draw_set_color(c_black);
 	draw_set_alpha(0.65);

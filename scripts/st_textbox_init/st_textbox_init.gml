@@ -1,5 +1,4 @@
 // Init basics
-
 position = 0;
 textSpeed = 1;
 smoothness = 0;
@@ -29,9 +28,13 @@ scribble_set_wave(text, 2)
 
 //do selection
 if (selectable) {
-    with (objTextbox) selected = false;
+    //with (objTextbox) selected = false;
     selected = true;
 }
 
-
-state_switch("Writing")
+if (queue == undefined) {
+    //Execute immediately
+    state_switch("Writing")
+} else {
+    state_switch("QueuedUp")
+}

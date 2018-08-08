@@ -9,8 +9,18 @@ var tsize/*:TBSize*/ = argument_count > 2 ? argument[2] : tbsize_create();;
 var tb = instance_create_layer(tsize[TBSize.x], tsize[TBSize.y], layerText, objTextbox)
 
 with (tb) {
+    // This is run before the INIT state, but after objTextbox CREATE event
     selectable = canSelect;
     tbSize = tsize;
+
+    //queue stuff
+    queue = undefined;
+    releaseFromQueue = false
+    if (global.tbQueueID != undefined && ds_exists(global.tbQueueID, ds_type_queue)) {
+        //part of queue
+        ds_queue_enqueue(global.tbQueueID, id)
+        queue = global.tbQueueID;
+    }
 
     // TEXT
     // Replace text from string literals
