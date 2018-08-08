@@ -30,11 +30,12 @@
 
 #macro SCRIBBLE_HASH_NEWLINE true
 #macro SCRIBBLE_USE_INTERNAL_TIMER true
+#macro SCRIBBLE_COMPATIBILITY_MODE false
 
 #region -- Internal Definitions --
 
-#macro __SCRIBBLE_VERSION "02.01.01"
-#macro __SCRIBBLE_DATE    "2018/06/03"
+#macro __SCRIBBLE_VERSION "02.02.00"
+#macro __SCRIBBLE_DATE    "2018/08/05"
 
 #macro SCRIBBLE_VERTEX_FORMAT global.__scribble_vertex_format
 
