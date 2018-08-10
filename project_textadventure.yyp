@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "19881b74-396c-4c1f-93e2-d33f6a3d2de5",
+            "Value": {
+                "id": "7f3686ce-0efb-4272-9164-9a4c2b018a8c",
+                "resourcePath": "sprites\\sprTbConfirm\\sprTbConfirm.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "206269d1-a69e-4e4f-9a26-1ef11b01e919",
             "Value": {
                 "id": "ebc57730-0310-411c-8d37-e396c5a87148",
@@ -375,6 +383,14 @@
             }
         },
         {
+            "Key": "36282c7a-c183-463c-8708-fb0c72b01930",
+            "Value": {
+                "id": "13b50827-fcbd-4c92-80fb-c91a9a679c61",
+                "resourcePath": "extensions\\UniversalGetSet\\UniversalGetSet.yy",
+                "resourceType": "GMExtension"
+            }
+        },
+        {
             "Key": "3a479606-3abc-4c0a-ba65-b8a104c61c52",
             "Value": {
                 "id": "2cdd511b-4766-4599-9ac5-8e48dcf7e855",
@@ -522,7 +538,7 @@
             "Key": "4aee60f2-0f44-4de3-b6a4-4ad3d880a7ad",
             "Value": {
                 "id": "c4b3b372-ccbb-4897-ae9a-21825d41e0a8",
-                "resourcePath": "scripts\\textbox_queue_reset\\textbox_queue_reset.yy",
+                "resourcePath": "scripts\\textbox_queue_destroy\\textbox_queue_destroy.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -699,6 +715,14 @@
             "Value": {
                 "id": "e4e7d3e5-4ce5-4e11-8de3-00bda6ff6455",
                 "resourcePath": "scripts\\scribble_get_length\\scribble_get_length.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "6feed867-4eca-4891-ba75-b192a908fd1d",
+            "Value": {
+                "id": "4c929539-6355-4ee1-8f00-e300f322a8fe",
+                "resourcePath": "scripts\\array_clone\\array_clone.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1790,6 +1814,7 @@
         "34acb1a0-ac1a-4c94-8ae1-7ebed9700047",
         "bb1ac704-22c6-41d2-b15d-6d85b25baad3",
         "09d15875-1e0a-461f-b889-8de5f2754f4e",
+        "6feed867-4eca-4891-ba75-b192a908fd1d",
         "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
         "ee687aed-3a23-4510-bfe5-f532658d36cd",
         "495dd65b-3213-4aae-8125-fe06c827abab",

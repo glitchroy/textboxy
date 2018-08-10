@@ -9,8 +9,7 @@ if (stateName == "Inactive") ghostMode = true;
 var padding = 6;
 
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
-var s/*:TBSize*/ = array_create(0);
-array_copy(s, 0, tbSize, 0, arr_length(tbSize));
+var s/*:TBSize*/ = array_clone(tbSize)
 
 if (s[TBSize.width] > gameWidth) s[@TBSize.width] = box[2]-box[0]
 if (s[TBSize.height] > gameHeight) s[@TBSize.height] = box[3]-box[1]
@@ -28,7 +27,7 @@ scribble_draw(text, s[TBSize.x]+padding/2, s[TBSize.y]+padding/2);
 
 // Finished circle
 draw_set_color(c_white);
-if (selectable && stateName == "Finished") draw_circle(s[2]-7, s[3]-7, 3, false);
+if (selectable && stateName == "Finished") draw_sprite(sprTbConfirm, -1, s[TBSize.x]+s[TBSize.width] - 4, s[TBSize.y]+s[TBSize.height] - 4)
 
 // Border
 draw_set_color(c_white);
@@ -43,12 +42,12 @@ if (ghostMode) {
 }
 
 
-if (global.debug) {
+if (global.debug && (!selectable || (selectable && selected))) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
     "| State: " + stateName + 
-    "| Selected: " + string_bool(selected);
+    "| Selectable: " + string_bool(selectable);
 	scribble_basic_draw_cached("sprFontSmall",
 							   string_upper(ds),
 							   s[TBSize.x],

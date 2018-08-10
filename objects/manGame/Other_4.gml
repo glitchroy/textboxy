@@ -1,1 +1,1 @@
-textbox_queue_reset();
+textbox_queue_destroy();

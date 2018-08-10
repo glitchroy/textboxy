@@ -6,6 +6,7 @@ if ((position >= scribble_get_length(text))) {
 }
 
 // --> INACTIVE
+
 if (selectable && !selected) {
     state_switch("Inactive")
 }
