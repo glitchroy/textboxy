@@ -5,7 +5,7 @@ if (selectable) {
             instance_destroy();
             
             if (queue != undefined) {
-                textbox_queue_get_next()
+                textbox_queue_next_entry()
             } else {
                 //no queue, so select manually
                 var next = textbox_find_next_selectable();

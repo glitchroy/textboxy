@@ -1,7 +1,7 @@
 /// @param ttext = ""
 /// @param choices = []
 /// @param tsize = tbsize_create()
-//args ttext = "", canSelect = false, tsize:TBSize = new TBSize()
+//#args ttext = "", choices = [], tsize:TBSize = new TBSize()
 var ttext = argument_count > 0 ? argument[0] : "";
 var choices = argument_count > 1 ? argument[1] : [];
 var tsize/*:TBSize*/ = argument_count > 2 ? argument[2] : tbsize_create();
@@ -17,10 +17,11 @@ with (tb) {
     //queue stuff
     queue = undefined;
     releaseFromQueue = false
-    if (global.tbQueueID != undefined && ds_exists(global.tbQueueID, ds_type_queue)) {
+
+    if (ds_exists(textbox_queue_get_active_id(), ds_type_queue)) {
         //part of queue
-        ds_queue_enqueue(global.tbQueueID, id)
-        queue = global.tbQueueID;
+        ds_queue_enqueue(textbox_queue_get_active_id(), id)
+        queue = global.tbActiveQueueName;
     }
     
     // TEXT

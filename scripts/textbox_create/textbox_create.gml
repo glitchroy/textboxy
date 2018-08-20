@@ -10,16 +10,18 @@ var tb = instance_create_layer(tsize[TBSize.x], tsize[TBSize.y], layerText, objT
 
 with (tb) {
     // This is run before the INIT state, but after objTextbox CREATE event
+    
     selectable = canSelect;
     tbSize = tsize;
     
     //queue stuff
     queue = undefined;
     releaseFromQueue = false
-    if (global.tbQueueID != undefined && ds_exists(global.tbQueueID, ds_type_queue)) {
+    
+    if (ds_exists(textbox_queue_get_active_id(), ds_type_queue)) {
         //part of queue
-        ds_queue_enqueue(global.tbQueueID, id)
-        queue = global.tbQueueID;
+        ds_queue_enqueue(textbox_queue_get_active_id(), id)
+        queue = global.tbActiveQueueName;
     }
     
     // TEXT
