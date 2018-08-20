@@ -799,6 +799,14 @@
             }
         },
         {
+            "Key": "7764a27b-b1ff-4bd4-98d8-83db18a7d262",
+            "Value": {
+                "id": "0c0aacf9-c947-4bc9-b237-258b8f2e0e1e",
+                "resourcePath": "objects\\objTextboxChoice\\objTextboxChoice.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "796cd212-dc41-4f02-8698-e25a72a51527",
             "Value": {
                 "id": "71c85668-ffaa-4b5e-9636-dc1426d90079",
@@ -1511,6 +1519,14 @@
             }
         },
         {
+            "Key": "d5075f10-75c2-4db4-85dd-95a5cf33765d",
+            "Value": {
+                "id": "f2517d40-0104-4d43-a27c-c195807c85ff",
+                "resourcePath": "scripts\\tbchoice_create\\tbchoice_create.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d6c827c1-fe5b-4793-a95c-cd3467219fa1",
             "Value": {
                 "id": "8407e72a-e387-498f-a52d-b17cd7d74cae",
@@ -1612,6 +1628,14 @@
                 "id": "69f3d7f1-480d-45cb-b6d5-4bf981061e1d",
                 "resourcePath": "views\\eab60bef-8142-4bb7-b35f-a380bab29bb5.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "ed2dd605-fbbb-4afa-9adf-73022d6be070",
+            "Value": {
+                "id": "f07b4c15-6fb9-44b7-a63f-39ac437fb338",
+                "resourcePath": "scripts\\st_textbox_choice_finished\\st_textbox_choice_finished.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1818,6 +1842,7 @@
         "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
         "ee687aed-3a23-4510-bfe5-f532658d36cd",
         "495dd65b-3213-4aae-8125-fe06c827abab",
+        "d5075f10-75c2-4db4-85dd-95a5cf33765d",
         "72cffeaf-a7f6-444f-a628-dcdfbcc33cc8",
         "50f09a15-283e-4d7c-b3da-4d0d3a4ceef6",
         "a374281a-e093-48b7-a684-4d3d481ea15c",
@@ -1829,7 +1854,8 @@
         "206269d1-a69e-4e4f-9a26-1ef11b01e919",
         "d6c827c1-fe5b-4793-a95c-cd3467219fa1",
         "35835d72-bf5c-4ffc-a052-bb2110245853",
-        "2c98a465-b823-487d-b99a-6def94219857"
+        "2c98a465-b823-487d-b99a-6def94219857",
+        "ed2dd605-fbbb-4afa-9adf-73022d6be070"
     ],
     "tutorial": ""
 }

@@ -7,7 +7,7 @@ waitTimer = 0;
 var size/*:TBSize*/ = tbSize
 
 //Calc max size (the custom box width if specified or the whole game screen)
-var maxWidth = size[TBSize.width];
+maxWidth = size[TBSize.width];
 
 //message confirmation dot speed
 image_speed = 1/20;
@@ -26,6 +26,7 @@ scribble_set_wave(text, 2)
 
 if (queue == undefined) {
     //Execute immediately
+    selected = true;
     state_switch("Writing")
 } else {
     state_switch("QueuedUp")

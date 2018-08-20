@@ -9,7 +9,8 @@
         "206269d1-a69e-4e4f-9a26-1ef11b01e919",
         "d6c827c1-fe5b-4793-a95c-cd3467219fa1",
         "35835d72-bf5c-4ffc-a052-bb2110245853",
-        "2c98a465-b823-487d-b99a-6def94219857"
+        "2c98a465-b823-487d-b99a-6def94219857",
+        "ed2dd605-fbbb-4afa-9adf-73022d6be070"
     ],
     "filterType": "GMScript",
     "folderName": "TextBox",

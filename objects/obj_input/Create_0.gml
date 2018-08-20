@@ -1,5 +1,7 @@
 enum E_INPUT_SLOT { CONFIRM,
 					MENU,
+					UP,
+					DOWN,
                     __SIZE }
 
 enum E_INPUT_STATE { PRESSED, ON, RELEASED,                    //Simple behaviours
