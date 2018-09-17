@@ -24,3 +24,9 @@ enum TBSize {
     margin,
     sizeof
 }
+
+enum TBType {
+    Normal,
+    Choice,
+    Condition
+}

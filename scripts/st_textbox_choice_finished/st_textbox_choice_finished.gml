@@ -18,11 +18,5 @@ if (manInput.confirm) {
     global.tbChoiceResult = selectedChoice;
     instance_destroy();
     
-    if (queue != undefined) {
-        textbox_queue_next_entry()
-    } else {
-        //no queue, so select manually
-        var next = textbox_find_next_selectable();
-        if (next != noone) next.selected = true;
-    }
+    textbox_queue_next_entry()
 }

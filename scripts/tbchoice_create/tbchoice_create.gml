@@ -14,16 +14,6 @@ with (tb) {
     selectable = true;
     tbSize = tsize;
 
-    //queue stuff
-    queue = undefined;
-    releaseFromQueue = false
-
-    if (ds_exists(textbox_queue_get_active_id(), ds_type_queue)) {
-        //part of queue
-        ds_queue_enqueue(textbox_queue_get_active_id(), id)
-        queue = global.tbActiveQueueName;
-    }
-    
     // TEXT
     // Replace text from string literals
 	ttext = string_replace_all(ttext,"\r\n","\n")

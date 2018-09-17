@@ -1,12 +1,7 @@
 if (stateName == "Init") exit;
 if (text == undefined) exit;
 
-var ghostMode = false;
-if (stateName == "QueuedUp") {
-    if (!global.debug) exit;
-    ghostMode = true;
-}
-if (stateName == "Inactive") ghostMode = true;
+var ghostMode = (stateName == "Inactive");
 
 var padding = 6;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
