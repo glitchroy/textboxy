@@ -14,7 +14,7 @@ if (manInput.choice_down) {
     }
 }
 
-if (tbyInputConfirm) {
+if (tby_input_confirm) {
     global.tbyChoiceResult = selectedChoice;
     instance_destroy();
     

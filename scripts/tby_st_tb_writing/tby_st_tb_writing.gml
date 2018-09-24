@@ -37,9 +37,9 @@ if (stateVar[0] mod textSpeed == 0) {
     
 	//Sound
 	if (frac(position) == 0) {
-	    audio_stop_sound(tbyDefaultSpeechSound)
-		var sound = audio_play_sound(tbyDefaultSpeechSound, 1, false);
-		audio_sound_pitch(sound, tbyDefaultPitchRange);
+	    audio_stop_sound(tby_default_speech_sound)
+		var sound = audio_play_sound(tby_default_speech_sound, 1, false);
+		audio_sound_pitch(sound, tby_default_pitch_range);
 	}
 
 }

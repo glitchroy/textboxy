@@ -1,6 +1,6 @@
 // Init basics
 position = 0;
-textSpeed = tbyDefaultTextSpeed;
+textSpeed = tby_default_text_speed;
 smoothness = 0;
 selected = selectable ? /*false*/true : undefined;
 waitTimer = 0;
@@ -10,9 +10,9 @@ var size/*:TbySize*/ = tbSize
 maxWidth = size[TbySize.width];
 
 //message confirmation dot speed
-image_speed = tbyConfirmationBlinkSpeed;
+image_speed = tby_confirmation_blink_speed;
 
-text = scribble_create(textRaw, maxWidth, tbyDefaultFont);
+text = scribble_create(textRaw, maxWidth, tby_default_font);
 
 //set origin point of box to middle
 scribble_set_box_alignment(text); 
@@ -21,7 +21,7 @@ scribble_set_box_alignment(text);
 scribble_set_char_fade_direct(text, 0, smoothness);
 
 //Defaults
-scribble_set_shake(text, tbyDefaultShakeIntensity)
-scribble_set_wave(text, tbyDefaultWaveIntensity)
+scribble_set_shake(text, tby_default_shake_intensity)
+scribble_set_wave(text, tby_default_wave_intensity)
 
 tby_state_switch("Writing")

@@ -1,7 +1,7 @@
 if (selectable) {
     if (selected) {
         //Confirmation
-        if (tbyInputConfirm) {
+        if (tby_input_confirm) {
             instance_destroy();
             
             tby_queue_next_entry()
