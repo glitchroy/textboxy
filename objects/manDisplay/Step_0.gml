@@ -6,8 +6,8 @@ if (keyboard_check_pressed(ord("M")) && allowResizing) {
 		windowScale = 1;
 	}
 	
-	var windowWidth = gameWidth*windowScale;
-	var windowHeight = gameHeight*windowScale;
+	var windowWidth = game_width*windowScale;
+	var windowHeight = game_height*windowScale;
 	
 	//Change window size and center it
 	window_set_rectangle(
