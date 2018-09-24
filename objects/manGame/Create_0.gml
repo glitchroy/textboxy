@@ -1,7 +1,7 @@
 singleton;
 
-instance_create_layer(0, 0, layerManagers, manDisplay);
-instance_create_layer(0, 0, layerManagers, manDebug);
-instance_create_layer(0, 0, layerManagers, obj_input);
-instance_create_layer(0, 0, layerManagers, manInput);
-global.tbQueueMap = ds_map_create();
+instance_create_layer(0, 0, tbyLayerManagers, manDisplay);
+instance_create_layer(0, 0, tbyLayerManagers, manDebug);
+instance_create_layer(0, 0, tbyLayerManagers, obj_input);
+instance_create_layer(0, 0, tbyLayerManagers, manInput);
+global.tbyQueueMap = ds_map_create();

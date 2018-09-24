@@ -5,16 +5,16 @@ var ghostMode = (stateName == "Inactive");
 
 var padding = 6;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
-var s/*:TBSize*/ = array_clone(tbSize)
+var s/*:TbySize*/ = array_clone(tbSize)
 
-if (s[TBSize.width] > gameWidth) s[@TBSize.width] = box[2]-box[0]
-if (s[TBSize.height] > gameHeight) s[@TBSize.height] = box[3]-box[1]
+if (s[TbySize.width] > gameWidth) s[@TbySize.width] = box[2]-box[0]
+if (s[TbySize.height] > gameHeight) s[@TbySize.height] = box[3]-box[1]
 
 // Background
 draw_set_color(c_black);
-draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, false);
+draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false);
 
-scribble_draw(text, s[TBSize.x]+padding/2, s[TBSize.y]+padding/2);
+scribble_draw(text, s[TbySize.x]+padding/2, s[TbySize.y]+padding/2);
 
 // Finished circle
 draw_set_color(c_white);
@@ -32,21 +32,21 @@ if (stateName == "Finished") {
     var currentLH = Get(text, "lines list", choiceLine, "height");
     
     gpu_set_blendmode_ext(bm_inv_dest_color, bm_zero)
-    draw_rectangle(s[TBSize.x], s[TBSize.y]+heightOffset-1,
-                   s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+heightOffset+currentLH-2, false)
+    draw_rectangle(s[TbySize.x], s[TbySize.y]+heightOffset-1,
+                   s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+heightOffset+currentLH-2, false)
     gpu_set_blendmode_ext(bm_src_alpha, bm_inv_src_alpha)
 
 }
 
 // Border
 draw_set_color(c_white);
-draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, true );
+draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, true );
 
 //inactive?
 if (ghostMode) {
 	draw_set_color(c_black);
 	draw_set_alpha(0.65);
-	draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, false );
+	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false );
 	draw_set_alpha(1);
 }
 
@@ -59,6 +59,6 @@ if (global.debug) {
     "| Choice: " + string(selectedChoice);
 	scribble_basic_draw_cached("sprFontSmall",
 							   string_upper(ds),
-							   s[TBSize.x],
-							   s[TBSize.y]-10);
+							   s[TbySize.x],
+							   s[TbySize.y]-10);
 }

@@ -5,36 +5,36 @@ var ghostMode = (stateName == "Inactive");
 
 var padding = 6;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
-var s/*:TBSize*/ = array_clone(tbSize)
+var s/*:TbySize*/ = array_clone(tbSize)
 
-if (s[TBSize.width] > gameWidth) s[@TBSize.width] = box[2]-box[0]
-if (s[TBSize.height] > gameHeight) s[@TBSize.height] = box[3]-box[1]
+if (s[TbySize.width] > gameWidth) s[@TbySize.width] = box[2]-box[0]
+if (s[TbySize.height] > gameHeight) s[@TbySize.height] = box[3]-box[1]
 
 if (selectable) {
     //expand box for size of "confirmation" dot
-    s[@TBSize.width] += 4;
-    s[@TBSize.x] -= 2;
+    s[@TbySize.width] += 4;
+    s[@TbySize.x] -= 2;
 }
 
 // Background
 draw_set_color(c_black);
-draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, false);
+draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false);
 
-scribble_draw(text, s[TBSize.x]+padding/2, s[TBSize.y]+padding/2);
+scribble_draw(text, s[TbySize.x]+padding/2, s[TbySize.y]+padding/2);
 
 // Finished circle
 draw_set_color(c_white);
-if (selectable && stateName == "Finished") draw_sprite(sprTbConfirm, -1, s[TBSize.x]+s[TBSize.width] - 4, s[TBSize.y]+s[TBSize.height] - 4)
+if (selectable && stateName == "Finished") draw_sprite(sprTbConfirm, -1, s[TbySize.x]+s[TbySize.width] - 4, s[TbySize.y]+s[TbySize.height] - 4)
 
 // Border
 draw_set_color(c_white);
-draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, true );
+draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, true );
 
 //inactive?
 if (ghostMode) {
 	draw_set_color(c_black);
 	draw_set_alpha(0.65);
-	draw_rectangle( s[TBSize.x], s[TBSize.y], s[TBSize.x]+s[TBSize.width]-1, s[TBSize.y]+s[TBSize.height]-1, false );
+	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false );
 	draw_set_alpha(1);
 }
 
@@ -47,6 +47,6 @@ if (global.debug && (!selectable || (selectable && selected))) {
     "| Selectable: " + string_bool(selectable);
 	scribble_basic_draw_cached("sprFontSmall",
 							   string_upper(ds),
-							   s[TBSize.x],
-							   s[TBSize.y]-10);
+							   s[TbySize.x],
+							   s[TbySize.y]-10);
 }

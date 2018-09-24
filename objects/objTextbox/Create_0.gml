@@ -1,7 +1,7 @@
 state_machine_init();
-state_create("Init", st_textbox_init)
-state_create("Writing", st_textbox_writing)
-state_create("Waiting", st_textbox_waiting)
-state_create("Inactive", st_textbox_inactive)
-state_create("Finished", st_textbox_finished)
+state_create("Init", tby_st_tb_init)
+state_create("Writing", tby_st_tb_writing)
+state_create("Waiting", tby_st_tb_waiting)
+state_create("Inactive", tby_st_tb_inactive)
+state_create("Finished", tby_st_tb_finished)
 state_init("Init")
