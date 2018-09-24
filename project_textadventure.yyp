@@ -226,7 +226,7 @@
             "Key": "19881b74-396c-4c1f-93e2-d33f6a3d2de5",
             "Value": {
                 "id": "7f3686ce-0efb-4272-9164-9a4c2b018a8c",
-                "resourcePath": "sprites\\sprTbConfirm\\sprTbConfirm.yy",
+                "resourcePath": "sprites\\sprTbyConfirm\\sprTbyConfirm.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -450,7 +450,7 @@
             "Key": "3f26a63f-a895-485f-81b6-ef35d9ee94cd",
             "Value": {
                 "id": "9ac22705-b8b5-4fa4-802a-6b5f4591789b",
-                "resourcePath": "sprites\\sprFontMain\\sprFontMain.yy",
+                "resourcePath": "sprites\\sprTbyFontMain\\sprTbyFontMain.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -474,7 +474,7 @@
             "Key": "4391d373-68b9-4dfc-9f18-229496d9de41",
             "Value": {
                 "id": "50921a80-d768-443d-9d64-4d9ca06f5b00",
-                "resourcePath": "sprites\\sprFontSmall\\sprFontSmall.yy",
+                "resourcePath": "sprites\\sprTbyFontSmall\\sprTbyFontSmall.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -810,7 +810,7 @@
             "Key": "7764a27b-b1ff-4bd4-98d8-83db18a7d262",
             "Value": {
                 "id": "0c0aacf9-c947-4bc9-b237-258b8f2e0e1e",
-                "resourcePath": "objects\\objTextboxChoice\\objTextboxChoice.yy",
+                "resourcePath": "objects\\objTbyChoice\\objTbyChoice.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -834,7 +834,7 @@
             "Key": "7b84c1b0-4936-46f2-a5b5-2102ca3346fb",
             "Value": {
                 "id": "feb7ead2-466e-407b-a21c-a18f4c33fcc5",
-                "resourcePath": "objects\\objTextbox\\objTextbox.yy",
+                "resourcePath": "objects\\objTbyTb\\objTbyTb.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -1682,7 +1682,7 @@
             "Key": "f7ac0330-ed1e-4f84-9fbe-ca9be2ab9835",
             "Value": {
                 "id": "e411818c-bc97-445d-a5ad-546bf7aadfac",
-                "resourcePath": "sounds\\sndSpeechDefault\\sndSpeechDefault.yy",
+                "resourcePath": "sounds\\sndTbySpeechDefault\\sndTbySpeechDefault.yy",
                 "resourceType": "GMSound"
             }
         },

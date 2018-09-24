@@ -2,7 +2,7 @@
     "id": "4391d373-68b9-4dfc-9f18-229496d9de41",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sprFontSmall",
+    "name": "sprTbyFontSmall",
     "For3D": false,
     "HTile": false,
     "VTile": false,

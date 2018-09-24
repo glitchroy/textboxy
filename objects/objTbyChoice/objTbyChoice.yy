@@ -2,7 +2,7 @@
     "id": "7764a27b-b1ff-4bd4-98d8-83db18a7d262",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "objTextboxChoice",
+    "name": "objTbyChoice",
     "eventList": [
         {
             "id": "446d0704-51f8-4842-b251-cc9bbc8310f2",
