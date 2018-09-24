@@ -8,7 +8,7 @@ if (selectable) {
         }
     } else {
         // --> INACTIVE
-        state_switch("Inactive")
+        tby_state_switch("Inactive")
     }
 }
 

@@ -1,5 +1,5 @@
 if (waitTimer > 0) {
     waitTimer--;
 } else {
-    state_switch_previous()
+    tby_state_switch_previous()
 }

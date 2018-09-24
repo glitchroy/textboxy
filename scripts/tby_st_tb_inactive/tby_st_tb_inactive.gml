@@ -1,1 +1,1 @@
-if (selectable && selected) state_switch_previous()
+if (selectable && selected) tby_state_switch_previous()

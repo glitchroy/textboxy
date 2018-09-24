@@ -24,4 +24,4 @@ scribble_set_char_fade_direct(text, 0, smoothness);
 scribble_set_shake(text, tbyDefaultShakeIntensity)
 scribble_set_wave(text, tbyDefaultWaveIntensity)
 
-state_switch("Writing")
+tby_state_switch("Writing")

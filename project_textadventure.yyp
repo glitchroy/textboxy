@@ -34,7 +34,7 @@
             "Key": "00b6cf93-97ae-4eb9-b1d6-422da548cb03",
             "Value": {
                 "id": "ac8affb0-942e-481e-bd52-816bb6bdb560",
-                "resourcePath": "scripts\\state_machine_init\\state_machine_init.yy",
+                "resourcePath": "scripts\\tby_state_machine_init\\tby_state_machine_init.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -146,7 +146,7 @@
             "Key": "0cb29613-6eb5-4667-be61-a06f554fc7ee",
             "Value": {
                 "id": "d6501f47-7dda-49ee-aca5-c558ac3bbe33",
-                "resourcePath": "scripts\\state_init\\state_init.yy",
+                "resourcePath": "scripts\\tby_state_init\\tby_state_init.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -162,7 +162,7 @@
             "Key": "0e8f5d6f-08ad-40dd-8636-ea12a6d41928",
             "Value": {
                 "id": "22271c1f-0302-45c8-b8cb-fb113fd9dfc5",
-                "resourcePath": "scripts\\state_execute\\state_execute.yy",
+                "resourcePath": "scripts\\tby_state_execute\\tby_state_execute.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -706,7 +706,7 @@
             "Key": "65beaec9-ecce-4abc-b3c8-90b017d1c365",
             "Value": {
                 "id": "59dd9905-b984-45cf-885f-094eae836a16",
-                "resourcePath": "scripts\\state_switch_previous\\state_switch_previous.yy",
+                "resourcePath": "scripts\\tby_state_switch_previous\\tby_state_switch_previous.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -754,7 +754,7 @@
             "Key": "705e25d6-b017-4359-a765-b4e0869116c9",
             "Value": {
                 "id": "31cead0c-717e-4a4e-8d66-25ba79757e74",
-                "resourcePath": "scripts\\state_create\\state_create.yy",
+                "resourcePath": "scripts\\tby_state_create\\tby_state_create.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -922,7 +922,7 @@
             "Key": "90155dda-369f-4ded-92dd-3c1ba1f6b436",
             "Value": {
                 "id": "774af57e-53e3-4244-b6ad-f5c8aaf14ab9",
-                "resourcePath": "scripts\\state_update\\state_update.yy",
+                "resourcePath": "scripts\\tby_state_update\\tby_state_update.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -986,7 +986,7 @@
             "Key": "96869772-5b9b-4079-a001-b28cef08d91c",
             "Value": {
                 "id": "ffe8872d-1cc6-453b-bd43-8edcc4dc97e7",
-                "resourcePath": "scripts\\state_cleanup\\state_cleanup.yy",
+                "resourcePath": "scripts\\tby_state_cleanup\\tby_state_cleanup.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1279,6 +1279,14 @@
             }
         },
         {
+            "Key": "b7359b85-2585-4176-9838-fa62813afc0a",
+            "Value": {
+                "id": "fa90a68a-7a7a-45e8-9e6e-c208854c1a6b",
+                "resourcePath": "views\\b7359b85-2585-4176-9838-fa62813afc0a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "b79b386b-51f0-4f86-ae01-f69735f50fb7",
             "Value": {
                 "id": "bea21840-74fe-4393-8f16-4392f1443c60",
@@ -1434,7 +1442,7 @@
             "Key": "c9cd4938-7835-4779-a0f4-7143b642bd0f",
             "Value": {
                 "id": "a60ceff4-50d2-4325-bd47-47c926e61533",
-                "resourcePath": "scripts\\state_get_previous\\state_get_previous.yy",
+                "resourcePath": "scripts\\tby_state_get_previous\\tby_state_get_previous.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1650,7 +1658,7 @@
             "Key": "f3245528-5b3b-463f-ae3f-0ec091734103",
             "Value": {
                 "id": "fd74125a-3b7d-405d-8bcd-f569d2d50edc",
-                "resourcePath": "scripts\\state_switch\\state_switch.yy",
+                "resourcePath": "scripts\\tby_state_switch\\tby_state_switch.yy",
                 "resourceType": "GMScript"
             }
         },

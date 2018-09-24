@@ -1,8 +1,8 @@
 {
-    "id": "96869772-5b9b-4079-a001-b28cef08d91c",
+    "id": "00b6cf93-97ae-4eb9-b1d6-422da548cb03",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "state_cleanup",
+    "name": "tby_state_machine_init",
     "IsCompatibility": false,
     "IsDnD": false
 }

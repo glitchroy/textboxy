@@ -2,13 +2,13 @@ if (text == undefined) exit;
 
 // --> FINISHED
 if ((position >= scribble_get_length(text))) {
-    state_switch("Finished")
+    tby_state_switch("Finished")
 }
 
 // --> INACTIVE
 
 if (selectable && !selected) {
-    state_switch("Inactive")
+    tby_state_switch("Inactive")
 }
 
 if (stateNew) {

@@ -9,5 +9,5 @@ var json = argument0, data = argument1, changed = argument2, different = argumen
 
 if ( different ) {
 	waitTimer = room_speed*real(data[0]);
-	state_switch("Waiting")
+	tby_state_switch("Waiting")
 }
