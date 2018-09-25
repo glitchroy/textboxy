@@ -12,7 +12,7 @@
         "dc677b8d-52e4-43dd-89d4-2e8311104d26"
     ],
     "filterType": "GMScript",
-    "folderName": "textboxy",
+    "folderName": "Textboxes",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

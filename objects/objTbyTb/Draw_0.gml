@@ -5,7 +5,7 @@ var ghostMode = (stateName == "Inactive");
 
 var padding = 6;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
-var s/*:TbySize*/ = array_clone(tbSize)
+var s/*:TbySize*/ = tby_array_clone(tbSize)
 
 if (s[TbySize.width] > game_width) s[@TbySize.width] = box[2]-box[0]
 if (s[TbySize.height] > game_height) s[@TbySize.height] = box[3]-box[1]
@@ -44,7 +44,7 @@ if (global.debug && (!selectable || (selectable && selected))) {
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
     "| State: " + stateName + 
-    "| Selectable: " + string_bool(selectable);
+    "| Selectable: " + tby_string_bool(selectable);
 	scribble_basic_draw_cached("sprTbyFontSmall",
 							   string_upper(ds),
 							   s[TbySize.x],

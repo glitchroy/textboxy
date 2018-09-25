@@ -7,7 +7,7 @@
         "a51f6eff-4378-4a8c-a249-9e1f00f8ce0c"
     ],
     "filterType": "GMShader",
-    "folderName": "Lib",
+    "folderName": "textboxy",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

@@ -8,6 +8,6 @@ var args = argument_count > 1 ? argument[1] : [];
 
 if (ds_exists(tby_queue_get_active_id(), ds_type_queue)) {
     //part of queue
-    ds_queue_enqueue(tby_queue_get_active_id(), concat([type], args))
+    ds_queue_enqueue(tby_queue_get_active_id(), tby_concat([type], args))
     queue = global.tbyActiveQueueName;
 }
