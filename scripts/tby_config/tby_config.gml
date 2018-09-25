@@ -12,7 +12,9 @@
 #macro tby_layer_text "Text"
 #macro tby_layer_managers "Managers"
 
-#macro tby_input_confirm (manInput.confirm)
+#macro tby_input_confirm (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+#macro tby_input_choice_up (keyboard_check_pressed(ord("I")) || keyboard_check_pressed(vk_up))
+#macro tby_input_choice_down (keyboard_check_pressed(ord("K")) || keyboard_check_pressed(vk_down))
 
 #macro tby_object_textbox objTbyTb
 #macro tby_object_choice objTbyChoice

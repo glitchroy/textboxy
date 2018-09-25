@@ -1,13 +1,13 @@
 var choiceLength = tby_array_len(choices)-1
 
-if (manInput.choice_up) {
+if (tby_input_choice_up) {
     selectedChoice--;
     if (selectedChoice < 0) {
         selectedChoice = choiceLength;
     }
 }
 
-if (manInput.choice_down) {
+if (tby_input_choice_down) {
     selectedChoice++;
     if (selectedChoice > choiceLength) {
         selectedChoice = 0;

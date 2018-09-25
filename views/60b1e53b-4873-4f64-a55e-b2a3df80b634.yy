@@ -6,8 +6,7 @@
     "children": [
         "cd6cd914-716c-466d-b6bb-d29e4a14dd73",
         "afeec596-e93c-40a1-93af-5316fe5b78f4",
-        "a3640b0f-3e60-4882-a2c4-99e840a11c95",
-        "c2a00dd8-9279-4493-8797-1814968e2ab3"
+        "a3640b0f-3e60-4882-a2c4-99e840a11c95"
     ],
     "filterType": "GMObject",
     "folderName": "Managers",
