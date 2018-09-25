@@ -7,6 +7,10 @@
 
 #macro tby_array_len array_length_1d
 
+#macro tby_object_manager objTby
+#macro tby_object_textbox objTbyTb
+#macro tby_object_choice objTbyChoice
+
 enum TbySize {
     x,
     y,
