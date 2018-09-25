@@ -1,4 +1,4 @@
-singleton;
+tby_singleton;
 
 windowScale = 2;
 windowScaleMax = 3;
@@ -9,8 +9,8 @@ allowResizing = true; //timer for adjusting
 window_set_color(c_black);
 
 // INITAL SETUP //
-var windowWidth = game_width*windowScale;
-var windowHeight = game_height*windowScale;
+var windowWidth = tby_game_width*windowScale;
+var windowHeight = tby_game_height*windowScale;
 	
 //Change window size and center it
 window_set_rectangle(

@@ -1,7 +1,7 @@
 
-if (global.debug) {
+if (global.tbyDebug) {
     var q = tby_queue_get_active_id();
-    var str = "Debug: \t\t" + tby_string_bool(global.debug) +
+    var str = "Debug: \t\t" + tby_string_bool(global.tbyDebug) +
             "\nActive queue: \t\t" + string(global.tbyActiveQueueName) + " (" + string(q) + ")" +
             "\nQueue length: \t\t" + string(q ? ds_queue_size(q) : "-") +
             "\nChoice result: \t\t" + string(global.tbyChoiceResult)

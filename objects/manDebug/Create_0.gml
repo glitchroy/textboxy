@@ -1,1 +1,1 @@
-singleton;
+tby_singleton;

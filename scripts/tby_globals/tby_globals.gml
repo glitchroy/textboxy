@@ -3,8 +3,7 @@ gml_pragma("global", "tby_globals()")
 //this call is usually made in __scribble_init() itself per gml_pragma
 __scribble_init();
 
-global.debug = true;
-global.pause = false;
+global.tbyDebug = true;
 global.tbyChoiceResult = undefined;
 
 global.tbyQueueMap = undefined; //map of ds_queue ids <--> names

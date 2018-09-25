@@ -1,6 +1,6 @@
-if (keyboard_check_pressed(ord("D"))) global.debug = !global.debug;
+if (keyboard_check_pressed(ord("D"))) global.tbyDebug = !global.tbyDebug;
 
-//if (!global.debug) exit;
+//if (!global.tbyDebug) exit;
 
 
 if (keyboard_check_pressed(ord("R"))) game_restart();

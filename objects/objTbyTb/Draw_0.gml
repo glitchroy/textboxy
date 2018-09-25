@@ -7,8 +7,8 @@ var padding = 6;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
 var s/*:TbySize*/ = tby_array_clone(tbSize)
 
-if (s[TbySize.width] > game_width) s[@TbySize.width] = box[2]-box[0]
-if (s[TbySize.height] > game_height) s[@TbySize.height] = box[3]-box[1]
+if (s[TbySize.width] > tby_game_width) s[@TbySize.width] = box[2]-box[0]
+if (s[TbySize.height] > tby_game_height) s[@TbySize.height] = box[3]-box[1]
 
 if (selectable) {
     //expand box for size of "confirmation" dot
@@ -39,7 +39,7 @@ if (ghostMode) {
 }
 
 
-if (global.debug && (!selectable || (selectable && selected))) {
+if (global.tbyDebug && (!selectable || (selectable && selected))) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
