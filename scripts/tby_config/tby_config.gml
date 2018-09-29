@@ -1,3 +1,5 @@
+#macro tby_default_skin [sprTbySkinFrameDebug, sprTbySkinBubbleB, sprTbySkinPauseB]
+
 #macro tby_default_text_speed 1
 
 #macro tby_confirmation_blink_speed 1/20

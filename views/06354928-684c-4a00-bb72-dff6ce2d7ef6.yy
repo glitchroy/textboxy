@@ -10,7 +10,8 @@
         "135ad321-b442-4ca4-a66b-61f14c1010ec",
         "d9915e19-97f1-46b0-83f0-9d57da7f7bc2",
         "afcc6e5f-be22-43d0-80d6-30dbaf7756a4",
-        "ca1c24cb-29ea-42b3-9315-b1d9543e5937"
+        "ca1c24cb-29ea-42b3-9315-b1d9543e5937",
+        "8b1570f2-53db-49c9-b2b3-7223da08ab4d"
     ],
     "filterType": "GMScript",
     "folderName": "textboxy",

@@ -2,7 +2,7 @@
     "id": "a49be9e1-d8ba-46d9-a667-86d695fb6e9d",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sprTbySkinA",
+    "name": "sprTbySkinFrameA",
     "For3D": false,
     "HTile": false,
     "VTile": false,
