@@ -28,9 +28,9 @@ with (tb) {
 	
 	var choiceString = ttext != "" ? "\n" : "";
 
-	for (var i = 0; i < tby_array_len(choices); i++) {
+	for (var i = 0; i < tby_arrlen(choices); i++) {
 	    choiceString += choices[i];
-	    if (i != tby_array_len(choices)-1) choiceString += "[ev|wait|0.25]\n"
+	    if (i != tby_arrlen(choices)-1) choiceString += "[ev|wait|0.25]\n"
 	}
 	
 	textRaw = ttext + choiceString;

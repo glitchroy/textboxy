@@ -10,7 +10,6 @@
 #macro tby_default_pitch_range irandom_range(0.8, 1.2)
 
 #macro tby_layer_text "Text"
-#macro tby_layer_managers "Managers"
 
 #macro tby_input_confirm (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 #macro tby_input_choice_up (keyboard_check_pressed(ord("I")) || keyboard_check_pressed(vk_up))

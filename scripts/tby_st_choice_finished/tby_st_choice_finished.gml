@@ -1,4 +1,4 @@
-var choiceLength = tby_array_len(choices)-1
+var choiceLength = tby_arrlen(choices)-1
 
 if (tby_input_choice_up) {
     selectedChoice--;

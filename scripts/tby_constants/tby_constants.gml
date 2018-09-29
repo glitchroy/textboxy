@@ -5,7 +5,7 @@
 #macro tby_game_width 640
 #macro tby_game_height 360
 
-#macro tby_array_len array_length_1d
+#macro tby_arrlen array_length_1d
 
 #macro tby_object_manager objTby
 #macro tby_object_textbox objTbyTb

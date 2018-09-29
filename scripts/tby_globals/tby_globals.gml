@@ -11,6 +11,14 @@ global.tbyActiveQueueName = undefined; //ds_queue name
 global.tbySuspendedQueuesQueue = undefined; //queue of other queues to activate after ^ this ^
 global.tbyQueueKickoff = false
 
+//Create Text layer if it doesn't exist
+layer_set_target_room(room_first)
+if (!layer_exists(tby_layer_text)) {
+	layer_create(-1000, tby_layer_text);
+}
+layer_reset_target_room()
+	
+
 // From __scrible_init()
 if (!instance_exists(tby_object_manager)) {
 	room_instance_add(room_first, 0, 0, tby_object_manager);
