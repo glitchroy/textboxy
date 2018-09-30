@@ -1,5 +1,5 @@
 #macro tby_default_skin [sprTbySkinFrameA, sprTbySkinBubbleA, sprTbySkinPauseA]
-#macro tby_default_color c_black
+#macro tby_default_color c_white
 
 #macro tby_default_text_speed 1
 

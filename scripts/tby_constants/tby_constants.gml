@@ -25,7 +25,8 @@ enum TbySize {
 enum TbyType {
     Normal,
     Choice,
-    Condition
+    //Condition
+    Option
 }
 
 enum TbySkin {
@@ -38,4 +39,16 @@ enum TbyFrame {
     TopLeft, TopMid, TopRight,
     MidLeft, Mid, MidRight,
     BotLeft, BotMid, BotRight
+}
+
+enum TbyOption {
+    SetShake,   // real
+    SetWave,    // real
+    SetPosition // [TbyPosition, Value]
+}
+
+enum TbyPosition {
+    Instance,
+    Custom
+    //TODO: Implement PRESET positions
 }

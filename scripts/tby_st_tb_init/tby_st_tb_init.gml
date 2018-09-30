@@ -21,7 +21,7 @@ scribble_set_box_alignment(text);
 scribble_set_char_fade_direct(text, 0, smoothness);
 
 //Defaults
-scribble_set_shake(text, tby_default_shake_intensity)
-scribble_set_wave(text, tby_default_wave_intensity)
+scribble_set_shake(text, global.tbyCurrentOptionsMap[? TbyOption.SetShake])
+scribble_set_wave(text, global.tbyCurrentOptionsMap[? TbyOption.SetWave])
 
 tby_state_switch("Writing")

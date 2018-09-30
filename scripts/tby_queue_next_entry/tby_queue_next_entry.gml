@@ -34,6 +34,9 @@ if (ds_exists(q, ds_type_queue)) {
         case TbyType.Choice:
             tby_choice_create(tbData[1], tbData[2], tbData[3]);
         break;
+        case TbyType.Option:
+            tby_set_option(tbData)
+        break;
     }
     
 }

@@ -7,7 +7,10 @@ if (q != undefined && ds_exists(q, ds_type_queue)) {
     ds_queue_destroy(q)
     ds_map_delete(global.tbyQueueMap, name)
     if (global.tbyActiveQueueName == name) {
+        ds_list_add(global.tbyFinishedQueueList, name);
+        
         global.tbyActiveQueueName = undefined;
         global.tbyQueueKickoff = false
+        tby_reset_options()
     }
 }

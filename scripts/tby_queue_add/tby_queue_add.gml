@@ -5,6 +5,7 @@ var args = argument_count > 1 ? argument[1] : [];
 
 //Args Normal --> Text, CanSelect, Size
 //Args Choice --> Text, ChoiceArray, Size
+//Args Option --> Type, Args
 
 if (ds_exists(tby_queue_get_active_id(), ds_type_queue)) {
     //part of queue

@@ -439,6 +439,14 @@
             }
         },
         {
+            "Key": "40af14e2-6ee2-4312-a85b-aefd7713d6c2",
+            "Value": {
+                "id": "5dcb6d5b-d59c-4651-8e00-c25ec0bcae88",
+                "resourcePath": "scripts\\tby_queue_set\\tby_queue_set.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "41a4ab61-6627-485e-a01b-c23c177c916e",
             "Value": {
                 "id": "4a9f845a-e929-4be8-8062-87b7b56c0a62",
@@ -507,6 +515,14 @@
             "Value": {
                 "id": "0912df6f-8e51-4cbf-9932-f6aeb2a29ddc",
                 "resourcePath": "scripts\\tby_tb_create\\tby_tb_create.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4a7c2ca9-1001-4016-b367-2e64dfadca55",
+            "Value": {
+                "id": "906e79b3-3466-442c-bdaa-a841565cd733",
+                "resourcePath": "scripts\\tby_reset_options\\tby_reset_options.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1463,6 +1479,14 @@
             }
         },
         {
+            "Key": "d7f9ef21-b63c-4906-b0cb-957c0647e0d6",
+            "Value": {
+                "id": "980ceb8e-2822-4246-acc9-d589ce734ad2",
+                "resourcePath": "scripts\\tby_queue_is_finished\\tby_queue_is_finished.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "d8577805-cb7b-4469-816e-5429c64d7637",
             "Value": {
                 "id": "18792c1a-d25a-4b4e-8944-4b4da70b9fca",
@@ -1492,6 +1516,14 @@
                 "id": "84b159bb-7295-43e1-aa42-ac404363f4ac",
                 "resourcePath": "views\\d9915e19-97f1-46b0-83f0-9d57da7f7bc2.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "da3ccd29-941d-4a6c-8a7d-b87d4248925f",
+            "Value": {
+                "id": "1d02293a-fd20-4bdc-87b5-4f01db59fadb",
+                "resourcePath": "scripts\\tby_set_option\\tby_set_option.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1803,7 +1835,11 @@
         "a924248d-9f71-4981-a221-e7f244dfa9ef",
         "583b69b9-ec5e-4255-9865-a2202433cb71",
         "f89b9c1c-e14c-4a61-977b-aadc4d913aee",
+        "40af14e2-6ee2-4312-a85b-aefd7713d6c2",
+        "d7f9ef21-b63c-4906-b0cb-957c0647e0d6",
         "d5075f10-75c2-4db4-85dd-95a5cf33765d",
+        "4a7c2ca9-1001-4016-b367-2e64dfadca55",
+        "da3ccd29-941d-4a6c-8a7d-b87d4248925f",
         "a71d8dd7-a364-4c31-a8cc-7c81b5feefbb",
         "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
         "206269d1-a69e-4e4f-9a26-1ef11b01e919",

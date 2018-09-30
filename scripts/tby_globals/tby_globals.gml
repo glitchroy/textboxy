@@ -5,11 +5,12 @@ __scribble_init();
 
 global.tbyDebug = true;
 global.tbyChoiceResult = undefined;
-
+global.tbyCurrentOptionsMap = undefined;
 global.tbyQueueMap = undefined; //map of ds_queue ids <--> names
 global.tbyActiveQueueName = undefined; //ds_queue name
 global.tbySuspendedQueuesQueue = undefined; //queue of other queues to activate after ^ this ^
 global.tbyQueueKickoff = false
+global.tbyFinishedQueueList = undefined;
 
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)

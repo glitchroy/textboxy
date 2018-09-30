@@ -46,7 +46,7 @@ if (stateName == "Finished") {
 if (ghostMode) {
 	draw_set_color(c_black);
 	draw_set_alpha(0.65);
-	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false );
+	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]+padding-1, s[TbySize.y]+s[TbySize.height]+padding-1, false );
 	draw_set_alpha(1);
 }
 
