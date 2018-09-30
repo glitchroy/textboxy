@@ -12,7 +12,7 @@ maxWidth = size[TbySize.width];
 //message confirmation dot speed
 image_speed = tby_confirmation_blink_speed;
 
-text = scribble_create(textRaw, maxWidth, tby_default_font);
+text = scribble_create(textRaw, maxWidth, tby_default_font, fa_left, tby_default_color);
 
 //set origin point of box to middle
 scribble_set_box_alignment(text); 

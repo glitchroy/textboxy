@@ -12,6 +12,7 @@ if (mouse_check_button_pressed(mb_right)) {
     tby_queue_use(qn);
 
     tby_queue_add(TbyType.Normal, ["[wave]I will present you a choice!", true, size])
+    tby_queue_add(TbyType.Normal, ["lol", true, size])
     tby_queue_add(TbyType.Choice, 
 ["What should I do?[ev|wait|0.2]",
 ["Do this!", "Do that!", "Do the [wave]third thing[]"], size])

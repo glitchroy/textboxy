@@ -7,8 +7,8 @@ var bx = argument0, by = argument1, bw = argument2, bh = argument3;
 
 var frame = tby_array_get(tby_default_skin, TbySkin.Frame);
 var ts = tby_tile_size
-var widthPercentage = (1/ts)*(bw-ts)
-var heightPercentage = (1/ts)*(bh-ts)
+var widthPercentage = (1/ts)*(bw-ts*2)
+var heightPercentage = (1/ts)*(bh-ts*2)
 
 tby_draw_sprite(frame, bx, by, TbyFrame.TopLeft)
 tby_draw_sprite(frame, bx+ts, by, TbyFrame.TopMid, widthPercentage)

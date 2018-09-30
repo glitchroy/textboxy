@@ -25,17 +25,18 @@ scribble_draw(text, s[TbySize.x]+padding, s[TbySize.y]+padding);
 
 // Finished circle
 draw_set_color(c_white);
-if (selectable && stateName == "Finished") draw_sprite(sprTbyConfirm, -1, s[TbySize.x]+s[TbySize.width] - 4, s[TbySize.y]+s[TbySize.height] - 4)
+var circleSprite = tby_array_get(tby_default_skin, TbySkin.Pause)
+if (selectable && stateName == "Finished") draw_sprite(circleSprite, -1, s[TbySize.x]+s[TbySize.width]+padding, s[TbySize.y]+s[TbySize.height]+padding)
 
 // Border
-draw_set_color(c_white);
-draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]+padding-1, s[TbySize.y]+s[TbySize.height]+padding-1, true );
+//draw_set_color(c_white);
+//draw_rectangle( s.x, s.y, s.x+s.width+padding-1, s.y+s.height+padding-1, true );
 
 //inactive?
 if (ghostMode) {
 	draw_set_color(c_black);
 	draw_set_alpha(0.65);
-	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false );
+	draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]+padding-1, s[TbySize.y]+s[TbySize.height]+padding-1, false );
 	draw_set_alpha(1);
 }
 

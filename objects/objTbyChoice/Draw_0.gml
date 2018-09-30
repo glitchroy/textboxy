@@ -3,7 +3,7 @@ if (text == undefined) exit;
 
 var ghostMode = (stateName == "Inactive");
 
-var padding = 6;
+var padding = tby_tile_size;
 var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
 var s/*:TbySize*/ = tby_array_clone(tbSize)
 
@@ -12,9 +12,9 @@ if (s[TbySize.height] > tby_game_height) s[@TbySize.height] = box[3]-box[1]
 
 // Background
 draw_set_color(c_black);
-draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, false);
+tby_draw_box(s[TbySize.x], s[TbySize.y], s[TbySize.width]+padding, s[TbySize.height]+padding)
 
-scribble_draw(text, s[TbySize.x]+padding/2, s[TbySize.y]+padding/2);
+scribble_draw(text, s[TbySize.x]+padding, s[TbySize.y]+padding);
 
 // Finished circle
 draw_set_color(c_white);
@@ -32,15 +32,15 @@ if (stateName == "Finished") {
     var currentLH = Get(text, "lines list", choiceLine, "height");
     
     gpu_set_blendmode_ext(bm_inv_dest_color, bm_zero)
-    draw_rectangle(s[TbySize.x], s[TbySize.y]+heightOffset-1,
-                   s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+heightOffset+currentLH-2, false)
+    draw_rectangle(s[TbySize.x], s[TbySize.y]+heightOffset+2,
+                   s[TbySize.x]+s[TbySize.width]+padding-1, s[TbySize.y]+heightOffset+currentLH+2, false)
     gpu_set_blendmode_ext(bm_src_alpha, bm_inv_src_alpha)
 
 }
 
 // Border
-draw_set_color(c_white);
-draw_rectangle( s[TbySize.x], s[TbySize.y], s[TbySize.x]+s[TbySize.width]-1, s[TbySize.y]+s[TbySize.height]-1, true );
+//draw_set_color(c_white);
+//draw_rectangle( s.x, s.y, s.x+s.width-1, s.y+s.height-1, true );
 
 //inactive?
 if (ghostMode) {
