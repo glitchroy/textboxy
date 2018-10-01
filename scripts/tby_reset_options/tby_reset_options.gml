@@ -6,4 +6,4 @@ if (global.tbyCurrentOptionsMap != undefined && ds_exists(global.tbyCurrentOptio
 
 global.tbyCurrentOptionsMap[? TbyOption.SetShake] = tby_default_shake_intensity
 global.tbyCurrentOptionsMap[? TbyOption.SetWave] = tby_default_wave_intensity
-global.tbyCurrentOptionsMap[? TbyOption.SetPosition] = [TbyPosition.Custom, 0, 0]
+global.tbyCurrentOptionsMap[? TbyOption.SetInstance] = noone

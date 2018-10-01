@@ -1,3 +1,8 @@
+if (instance_exists(inst)) {
+    tby_tb_update_position(inst);
+    tby_tb_clamp_position()
+}
+
 var choiceLength = tby_arrlen(choices)-1
 
 if (tby_input_choice_up) {

@@ -2,8 +2,9 @@ if (keyboard_check_pressed(ord("D"))) global.tbyDebug = !global.tbyDebug;
 
 //if (!global.tbyDebug) exit;
 
-
-if (keyboard_check_pressed(ord("R"))) game_restart();
+if (keyboard_check_pressed(ord("R"))) {
+    game_restart();
+}
 
 if (mouse_check_button_pressed(mb_right)) {
     debugSequence = true;

@@ -4,3 +4,4 @@ __scribble_additional_init_commands();
 #endregion
 
 global.tbyQueueMap = ds_map_create();
+tby_reset_options()

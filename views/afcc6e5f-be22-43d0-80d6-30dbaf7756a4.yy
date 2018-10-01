@@ -11,7 +11,8 @@
         "606e8619-ba4e-4e70-9a1e-578c4ea051a0",
         "dc677b8d-52e4-43dd-89d4-2e8311104d26",
         "4a7c2ca9-1001-4016-b367-2e64dfadca55",
-        "da3ccd29-941d-4a6c-8a7d-b87d4248925f"
+        "da3ccd29-941d-4a6c-8a7d-b87d4248925f",
+        "5abb369d-5031-4b83-9c03-8d10712c249a"
     ],
     "filterType": "GMScript",
     "folderName": "Textboxes",

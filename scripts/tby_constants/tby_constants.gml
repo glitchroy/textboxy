@@ -44,11 +44,11 @@ enum TbyFrame {
 enum TbyOption {
     SetShake,   // real
     SetWave,    // real
-    SetPosition // [TbyPosition, Value]
+    SetInstance // instance_id or noone
 }
-
+/*
 enum TbyPosition {
     Instance,
     Custom
     //TODO: Implement PRESET positions
-}
+}*/

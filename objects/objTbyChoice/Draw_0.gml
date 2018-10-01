@@ -4,24 +4,18 @@ if (text == undefined) exit;
 var ghostMode = (stateName == "Inactive");
 
 var padding = tby_tile_size;
-var box = scribble_get_box( text, x, y, padding, padding, padding, padding );
 var s/*:TbySize*/ = tby_array_clone(tbSize)
+var box = scribble_get_box( text, s[TbySize.x], s[TbySize.y], padding, padding, padding, padding );
 
-if (s[TbySize.width] > tby_game_width) s[@TbySize.width] = box[2]-box[0]
-if (s[TbySize.height] > tby_game_height) s[@TbySize.height] = box[3]-box[1]
+if (s[TbySize.width] > tby_game_width) s[@TbySize.width] = box[2]-box[0] else s[@TbySize.width]+=padding
+if (s[TbySize.height] > tby_game_height) s[@TbySize.height] = box[3]-box[1] else s[@TbySize.height]+=padding
 
 // Background
 draw_set_color(c_black);
 tby_draw_box(s[TbySize.x], s[TbySize.y], s[TbySize.width]+padding, s[TbySize.height]+padding)
 
-scribble_draw(text, s[TbySize.x]+padding, s[TbySize.y]+padding);
-
-// Finished circle
 draw_set_color(c_white);
 if (stateName == "Finished") {
-    //draw_sprite(sprTbyConfirm, -1, s.x+s.width - 4, s.y+s.height - 4)
-    draw_set_color(c_white);
-    
     choiceLine = choiceFirstLine + selectedChoice  
     
     var heightOffset = padding;
@@ -31,16 +25,28 @@ if (stateName == "Finished") {
 
     var currentLH = Get(text, "lines list", choiceLine, "height");
     
-    gpu_set_blendmode_ext(bm_inv_dest_color, bm_zero)
+    draw_set_color(c_gray);
+    draw_set_alpha(0.2)
+    //gpu_set_blendmode_ext(bm_inv_dest_color, bm_zero)
+    gpu_set_blendmode_ext(bm_dest_color, bm_zero);
     draw_rectangle(s[TbySize.x], s[TbySize.y]+heightOffset+2,
                    s[TbySize.x]+s[TbySize.width]+padding-1, s[TbySize.y]+heightOffset+currentLH+2, false)
     gpu_set_blendmode_ext(bm_src_alpha, bm_inv_src_alpha)
+    draw_set_alpha(1)
 
 }
+
+scribble_draw(text, s[TbySize.x]+padding, s[TbySize.y]+padding);
 
 // Border
 //draw_set_color(c_white);
 //draw_rectangle( s.x, s.y, s.x+s.width-1, s.y+s.height-1, true );
+
+//Bubble
+if (instance_exists(inst) && !sizeClamped) {
+    var bubbleSprite = tby_array_get(tby_default_skin, TbySkin.Bubble)
+    tby_draw_sprite(bubbleSprite, s[TbySize.x]+s[TbySize.width]/2+padding/2, s[TbySize.y]+s[TbySize.height]+padding)
+}
 
 //inactive?
 if (ghostMode) {
