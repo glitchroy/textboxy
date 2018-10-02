@@ -1,23 +1,23 @@
-/// @param bx
-/// @param by
-/// @param bw
-/// @param bh
-//#args bx, by, bw, bh
-var bx = argument0, by = argument1, bw = argument2, bh = argument3;
+/// @param x1
+/// @param y1
+/// @param x2
+/// @param y2
+//#args x1, y1, x2, y2
+var x1 = argument0, y1 = argument1, x2 = argument2, y2 = argument3;
 
 var frame = tby_array_get(tby_default_skin, TbySkin.Frame);
 var ts = tby_tile_size
-var widthPercentage = (1/ts)*(bw-ts*2)
-var heightPercentage = (1/ts)*(bh-ts*2)
+var widthPercentage = (1/ts)*(x2-x1-ts*2)
+var heightPercentage = (1/ts)*(y2-y1-ts*2)
 
-tby_draw_sprite(frame, bx, by, TbyFrame.TopLeft)
-tby_draw_sprite(frame, bx+ts, by, TbyFrame.TopMid, widthPercentage)
-tby_draw_sprite(frame, bx+bw-ts, by, TbyFrame.TopRight)
+tby_draw_sprite(frame, x1, y1, TbyFrame.TopLeft)
+tby_draw_sprite(frame, x1+ts, y1, TbyFrame.TopMid, widthPercentage)
+tby_draw_sprite(frame, x2-ts, y1, TbyFrame.TopRight)
 
-tby_draw_sprite(frame, bx, by+ts, TbyFrame.MidLeft, 1, heightPercentage)
-tby_draw_sprite(frame, bx+ts, by+ts, TbyFrame.Mid, widthPercentage, heightPercentage)
-tby_draw_sprite(frame, bx+bw-ts, by+ts, TbyFrame.MidRight, 1, heightPercentage)
+tby_draw_sprite(frame, x1, y1+ts, TbyFrame.MidLeft, 1, heightPercentage)
+tby_draw_sprite(frame, x1+ts, y1+ts, TbyFrame.Mid, widthPercentage, heightPercentage)
+tby_draw_sprite(frame, x2-ts, y1+ts, TbyFrame.MidRight, 1, heightPercentage)
 
-tby_draw_sprite(frame, bx, by+bh-ts, TbyFrame.BotLeft)
-tby_draw_sprite(frame, bx+ts, by+bh-ts, TbyFrame.BotMid, widthPercentage)
-tby_draw_sprite(frame, bx+bw-ts, by+bh-ts, TbyFrame.BotRight)
+tby_draw_sprite(frame, x1, y2-ts, TbyFrame.BotLeft)
+tby_draw_sprite(frame, x1+ts, y2-ts, TbyFrame.BotMid, widthPercentage)
+tby_draw_sprite(frame, x2-ts, y2-ts, TbyFrame.BotRight)

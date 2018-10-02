@@ -11,5 +11,5 @@ if (global.tbyDebug) {
     draw_rectangle(0, 0, 115, 35, false)
     draw_set_alpha(1)
 
-    scribble_basic_draw_cached("sprTbyFontSmall", string_upper(str), 5, 5)
+    scribble_basic_draw_cached("sprTbyFontSmall", string_upper(str), 0, 0)
 }

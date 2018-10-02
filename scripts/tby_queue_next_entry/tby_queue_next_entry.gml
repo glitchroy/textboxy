@@ -37,6 +37,9 @@ if (ds_exists(q, ds_type_queue)) {
         case TbyType.Option:
             tby_set_option(tbData)
         break;
+        case TbyType.Wait:
+            with (tby_object_manager) alarm[0] = room_speed*tbData[1]
+        break;
     }
     
 }

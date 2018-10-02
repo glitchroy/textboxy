@@ -26,7 +26,8 @@ enum TbyType {
     Normal,
     Choice,
     //Condition
-    Option
+    Option,
+    Wait
 }
 
 enum TbySkin {

@@ -4,7 +4,7 @@ if (text == undefined) exit;
 var ghostMode = (stateName == "Inactive");
 
 var padding = tby_tile_size;
-var s/*:TbySize*/ = tby_array_clone(tbSize)
+var s/*:TbySize*/ = tby_array_clone(textSize)
 var box = scribble_get_box( text, s[TbySize.x], s[TbySize.y], padding, padding, padding, padding );
 
 if (s[TbySize.width] > tby_game_width) s[@TbySize.width] = box[2]-box[0] else s[@TbySize.width]+=padding
@@ -43,7 +43,7 @@ scribble_draw(text, s[TbySize.x]+padding, s[TbySize.y]+padding);
 //draw_rectangle( s.x, s.y, s.x+s.width-1, s.y+s.height-1, true );
 
 //Bubble
-if (instance_exists(inst) && !sizeClamped) {
+if (inst != undefined && instance_exists(inst) && !sizeClamped) {
     var bubbleSprite = tby_array_get(tby_default_skin, TbySkin.Bubble)
     tby_draw_sprite(bubbleSprite, s[TbySize.x]+s[TbySize.width]/2+padding/2, s[TbySize.y]+s[TbySize.height]+padding)
 }

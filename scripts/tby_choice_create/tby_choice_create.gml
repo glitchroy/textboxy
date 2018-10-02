@@ -12,7 +12,7 @@ with (tb) {
     // This is run before the INIT state, but after tby_object_textbox CREATE event
     
     selectable = true;
-    tbSize = tsize;
+    textSize = tsize;
 
     // TEXT
     // Replace text from string literals

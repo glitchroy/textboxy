@@ -15,7 +15,7 @@ if (stateNew) {
     stateVar[0] = 0 //timer;
 }
 
-if (instance_exists(inst)) {
+if (inst != undefined && instance_exists(inst)) {
     tby_tb_update_position(inst);
     tby_tb_clamp_position()
 }

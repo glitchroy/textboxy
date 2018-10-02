@@ -14,7 +14,8 @@
         "583b69b9-ec5e-4255-9865-a2202433cb71",
         "f89b9c1c-e14c-4a61-977b-aadc4d913aee",
         "40af14e2-6ee2-4312-a85b-aefd7713d6c2",
-        "d7f9ef21-b63c-4906-b0cb-957c0647e0d6"
+        "d7f9ef21-b63c-4906-b0cb-957c0647e0d6",
+        "e5051370-783d-42ba-ad33-6d858338e12d"
     ],
     "filterType": "GMScript",
     "folderName": "Queue",

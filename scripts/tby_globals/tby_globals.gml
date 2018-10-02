@@ -5,7 +5,7 @@ __scribble_init();
 
 global.tbyDebug = true;
 global.tbyChoiceResult = undefined;
-global.tbyCurrentOptionsMap = undefined;
+global.tbyCurrentOptionsMap = undefined; tby_reset_options();
 global.tbyQueueMap = undefined; //map of ds_queue ids <--> names
 global.tbyActiveQueueName = undefined; //ds_queue name
 global.tbySuspendedQueuesQueue = undefined; //queue of other queues to activate after ^ this ^

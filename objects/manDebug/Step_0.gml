@@ -6,18 +6,10 @@ if (keyboard_check_pressed(ord("R"))) {
     game_restart();
 }
 
-if (mouse_check_button_pressed(mb_right)) {
-    debugSequence = true;
-}
-
-if (debugSequence) {
+if (keyboard_check_pressed(ord("E"))) {
+    size = tby_size_create(100, 100)
+    tby_queue_create("queue1");
+    tby_queue_use("queue1");
+    tby_queue_add(TbyType.Normal, ["Desch is ja lollig#joa mey", true, size])
     tby_queue_run("queue1");
-}
-
-if (debugSequence && tby_queue_is_finished("queue1")) {
-    switch(global.tbyChoiceResult) {
-        case 0: tby_queue_run("queue2-0"); break;
-        case 1: tby_queue_run("queue2-1"); break;
-        case 2: tby_queue_run("queue2-2"); break;
-    }
 }

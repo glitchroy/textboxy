@@ -2,6 +2,8 @@
 
 scribble_font_char_set_width(   "sprTbyFontMain", " ", 3 );
 scribble_font_char_set_x_shift( "sprTbyFontMain", " ", 3 );
+scribble_font_char_set_width(   "sprTbyFontMain", "j", 4 );
+scribble_font_char_set_x_shift( "sprTbyFontMain", "j", 4 );
 
 scribble_font_char_set_width(   "sprTbyFontSmall", " ", 2 );
 scribble_font_char_set_x_shift( "sprTbyFontSmall", " ", 2 );
