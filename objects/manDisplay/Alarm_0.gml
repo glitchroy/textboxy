@@ -1,1 +1,0 @@
-allowResizing = true;

@@ -1,9 +1,11 @@
-if (global.tbyCurrentOptionsMap != undefined && ds_exists(global.tbyCurrentOptionsMap, ds_type_map)) {
-    ds_map_clear(global.tbyCurrentOptionsMap)
+if (global.tby_current_options_map != undefined && ds_exists(global.tby_current_options_map, ds_type_map)) {
+    ds_map_clear(global.tby_current_options_map)
 } else {
-    global.tbyCurrentOptionsMap = ds_map_create()
+    global.tby_current_options_map = ds_map_create()
 }
 
-global.tbyCurrentOptionsMap[? TbyOption.SetShake] = tby_default_shake_intensity
-global.tbyCurrentOptionsMap[? TbyOption.SetWave] = tby_default_wave_intensity
-global.tbyCurrentOptionsMap[? TbyOption.SetInstance] = noone
+global.tby_current_options_map[? TbyOption.SetShake] = tby_default_shake_intensity
+global.tby_current_options_map[? TbyOption.SetWave] = tby_default_wave_intensity
+global.tby_current_options_map[? TbyOption.SetInstance] = noone
+global.tby_current_options_map[? TbyOption.SetCallback] = -1
+global.tby_current_options_map[? TbyOption.SetPlacement] = TbyPlacement.Auto

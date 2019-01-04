@@ -1,15 +1,11 @@
-/// @param args
-var args = argument0;
+/// @param optionType
+/// @param value
+var optionType = argument0, value = argument1;
 
-if (global.tbyCurrentOptionsMap == undefined || !ds_exists(global.tbyCurrentOptionsMap, ds_type_map)) {
-    global.tbyCurrentOptionsMap = ds_map_create()
+if (global.tby_current_options_map == undefined || !ds_exists(global.tby_current_options_map, ds_type_map)) {
+    global.tby_current_options_map = ds_map_create()
 }
 
-//args[0] is always TbyType.Option
-switch (args[1]) {
-    case TbyOption.SetShake:    global.tbyCurrentOptionsMap[? TbyOption.SetShake]    = args[2]; break;
-    case TbyOption.SetWave:     global.tbyCurrentOptionsMap[? TbyOption.SetWave]     = args[2]; break;
-    case TbyOption.SetInstance: global.tbyCurrentOptionsMap[? TbyOption.SetInstance] = args[2]; break;
-}
+global.tby_current_options_map[? optionType]= value;
 
-tby_queue_next_entry()
+tby_branch_next_entry()

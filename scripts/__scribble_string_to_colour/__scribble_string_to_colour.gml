@@ -2,7 +2,7 @@
 /// @param name
 
 switch( string( argument0 ) ) {
-    case "c_thoughts": return make_colour_rgb( 120, 215, 255 ); break;
+    case "c_thought": return make_colour_rgb( 120, 215, 255 ); break;
 
     case "c_aqua":    return c_aqua;    break;
     case "c_black":   return c_black;   break;

@@ -4,7 +4,7 @@
     "mvc": "1.1",
     "name": "0983f652-6ae8-4dd0-b1df-11881acb290e",
     "children": [
-        "02c87faa-1876-4ab8-87ee-8fa023660655"
+        "c0d97feb-dc37-4d77-8ae6-ed2cbfc1ae3a"
     ],
     "filterType": "GMSound",
     "folderName": "sounds",

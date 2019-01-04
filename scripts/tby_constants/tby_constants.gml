@@ -1,39 +1,48 @@
-#macro tby_singleton if (instance_number(object_index)>1) {instance_destroy();}
-
 #macro tby_version "1.0.0-pre.1"
 
-#macro tby_game_width 640
-#macro tby_game_height 360
+#macro tby_game_width 480
+#macro tby_game_height 270
 
+/* Shortcut macros */
+#macro tby_singleton if (instance_number(object_index)>1) {instance_destroy();}
 #macro tby_tile_size sprite_get_width(tby_array_get(tby_default_skin, TbySkin.Frame))
-
 #macro tby_arrlen array_length_1d
 
+/* Internal objects */
 #macro tby_object_manager objTby
-#macro tby_object_textbox objTbyTb
+#macro tby_object_textbox_normal objTbyTbNormal
+#macro tby_object_textbox_bubble objTbyTbBubble
 #macro tby_object_choice objTbyChoice
 
-enum TbySize {
+#macro tby_box_lines_per_tb 2
+#macro tby_box_horz_padding floor(tby_game_width/8)
+
+enum TbyPos {
     x,
     y,
     width,
     height,
-    margin,
     sizeof
 }
 
 enum TbyType {
-    Normal,
-    Choice,
-    //Condition
-    Option,
-    Wait
+    Normal, //normal textbox
+    Bubble, //bubble textbox
+    Choice, //choice
+    ChoiceResult, // action only if choice matches
+    Option, //text options
+    Wait, //pause execution
+    Batch, //multiple input
+    Terminate, //force branch exit
+    Label, // denote jumping point
+    GoTo // jump to label
 }
 
 enum TbySkin {
     Frame,
     Bubble,
-    Pause
+    Pause,
+    Arrow
 }
 
 enum TbyFrame {
@@ -45,11 +54,20 @@ enum TbyFrame {
 enum TbyOption {
     SetShake,   // real
     SetWave,    // real
-    SetInstance // instance_id or noone
+    SetInstance, // instance_id or noone
+    SetCallback, // real
+    SetPlacement // enum (TbyPlacement)
 }
-/*
-enum TbyPosition {
-    Instance,
-    Custom
-    //TODO: Implement PRESET positions
-}*/
+
+enum TbyListMeta {
+    IdentifierString,
+    Pointer
+}
+
+// If no size is given, use global size (aka this)
+enum TbyPlacement {
+    Top,
+    Middle,
+    Bottom,
+    Auto
+}

@@ -3,14 +3,15 @@ gml_pragma("global", "tby_globals()")
 //this call is usually made in __scribble_init() itself per gml_pragma
 __scribble_init();
 
-global.tbyDebug = true;
-global.tbyChoiceResult = undefined;
-global.tbyCurrentOptionsMap = undefined; tby_reset_options();
-global.tbyQueueMap = undefined; //map of ds_queue ids <--> names
-global.tbyActiveQueueName = undefined; //ds_queue name
-global.tbySuspendedQueuesQueue = undefined; //queue of other queues to activate after ^ this ^
-global.tbyQueueKickoff = false
-global.tbyFinishedQueueList = undefined;
+global.tby_debug = false;
+global.tby_choice_result = undefined;
+global.tby_current_options_map = undefined; tby_reset_options();
+global.tby_current_labels_map = undefined;
+//TODO: Labels need to work even before they are registered not only after
+global.tby_list_map = undefined; //map of ds_list ids <--> names
+global.tby_active_list_name = undefined; //ds_list name
+global.tby_list_kickoff = false
+global.tby_finished_lists_list = undefined;
 
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)

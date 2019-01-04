@@ -1,8 +1,3 @@
-if (inst != undefined && instance_exists(inst)) {
-    tby_tb_update_position(inst);
-    tby_tb_clamp_position()
-}
-
 var choiceLength = tby_arrlen(choices)-1
 
 if (tby_input_choice_up) {
@@ -20,8 +15,8 @@ if (tby_input_choice_down) {
 }
 
 if (tby_input_confirm) {
-    global.tbyChoiceResult = selectedChoice;
-    instance_destroy();
+    global.tby_choice_result = selectedChoice;
+    tby_state_switch("Vanishing")
     
-    tby_queue_next_entry()
+    tby_branch_next_entry()
 }

@@ -1,6 +1,7 @@
+tby_singleton;
+
 #region Scribble
-if ( array_length_1d( SCRIBBLE_FONT_ARRAY ) ) scribble_load_fonts( SCRIBBLE_FONT_ARRAY );
-__scribble_additional_init_commands();
+__scribble_controller_object_create();
 #endregion
 
-global.tbyQueueMap = ds_map_create();
+global.tby_list_map = ds_map_create();
