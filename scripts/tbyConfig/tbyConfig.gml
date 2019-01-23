@@ -4,13 +4,13 @@
 // Options concerning sprites,
 // dimensions, animation speed and
 // fonts
-#macro tbyTextboxSprite         sprTbySkinA // Sprite needs to be square
+#macro tbyTextboxSprite         global.skin // Sprite needs to be square
 #macro tbyTileSize              8 // Same as width/height of textboxSprite
 #macro tbyDrawPauseSprite       true
-#macro tbyPauseSprite           sprTbySkinPauseA // Origin is the bottom edge of the textbox
+#macro tbyPauseSprite           global.skin_pause // Origin is the bottom edge of the textbox
 #macro tbyPauseSpriteSpeed      0.04 // Only applicable for pause sprites with multiple frames
 #macro tbyDrawBubbleSprite      true // Whether to draw the "speech indicator" at the bottom
-#macro tbyBubbleSprite          sprTbySkinBubbleA
+#macro tbyBubbleSprite          global.skin_bubble
 #macro tbyDefaultFont           fontTbyDefault
 
 /**** Technical ****/
@@ -72,7 +72,8 @@ enum TbyAction {
     SetSpeed    = tbyActionSetSpeed,
     SetPause    = tbyActionSetPause,
     SetFont     = tbyActionSetFont,
-	SetSound    = tbyActionSetSound
+	SetSound    = tbyActionSetSound,
+	ChangeBubble= tbyChangeBubble
 }
 
 /*
