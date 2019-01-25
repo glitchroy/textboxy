@@ -1,9 +1,6 @@
 gml_pragma("global", "tby_globals()")
 
-//this call is usually made in __scribble_init() itself per gml_pragma
-__scribble_init();
-
-global.tby_debug = false;
+global.tby_debug = true;
 global.tby_choice_result = undefined;
 global.tby_current_options_map = undefined; tby_reset_options();
 global.tby_current_labels_map = undefined;

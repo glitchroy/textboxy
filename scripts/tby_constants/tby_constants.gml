@@ -1,4 +1,4 @@
-#macro tby_version "1.0.0-pre.1"
+#macro tby_version "1.0.0-pre.2"
 
 #macro tby_game_width 480
 #macro tby_game_height 270

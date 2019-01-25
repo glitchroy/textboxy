@@ -28,9 +28,9 @@ if (global.tby_debug) {
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
     "| State: " + stateName;
-	scribble_basic_draw_cached("sprTbyFontSmall",
-							   string_upper(ds),
-							   boxDim[0],
-							   boxDim[1]-padding);
+	scribble_basic_draw("sprTbyFontSmall",
+						string_upper(ds),
+						boxDim[0],
+						boxDim[1]-padding);
 }
 #endregion
