@@ -1,8 +1,8 @@
 {
-    "id": "150989ab-10f5-43e0-8733-36b2111b9956",
+    "id": "86e5f4a9-1c6e-456f-b8a7-a735d8b27ba7",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scribble_font_char_add_y_offset",
+    "name": "__scribble_get_font_texture_size",
     "IsCompatibility": false,
     "IsDnD": false
 }

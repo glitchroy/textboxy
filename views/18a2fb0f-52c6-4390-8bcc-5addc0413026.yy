@@ -4,7 +4,7 @@
     "mvc": "1.1",
     "name": "18a2fb0f-52c6-4390-8bcc-5addc0413026",
     "children": [
-        "fa9240a0-bceb-4cbb-8d00-c9f11dc601d3"
+        "b90a36ad-06a9-4e54-adf6-1bfe15482f84"
     ],
     "filterType": "GMShader",
     "folderName": "textboxy",

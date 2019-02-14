@@ -1,7 +1,7 @@
-#macro tby_version "1.0.0-pre.2"
+/* Changes in these macros can occur at any update.
+   Only change if you know what you are doing. */
 
-#macro tby_game_width 480
-#macro tby_game_height 270
+#macro tby_version "1.0.0-pre.3"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) {instance_destroy();}

@@ -1,3 +1,9 @@
+/* This config file is meant to last through updates. */
+
+/* Basic game information */
+#macro tby_game_width 480
+#macro tby_game_height 270
+
 /* Basic text options */
 #macro tby_default_skin [sprTbySkinFrameD, sprTbySkinBubbleD, sprTbySkinPauseD, sprTbySkinArrowD]
 #macro tby_default_color c_white
@@ -28,3 +34,6 @@
 /* Bubble textbox options */
 #macro tby_max_width_bubble 120
 #macro tby_quick_mode_bubble_char "§"
+
+/* Technical */
+#macro tby_texture_page_size 2048
