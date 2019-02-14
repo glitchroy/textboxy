@@ -527,14 +527,6 @@
             }
         },
         {
-            "Key": "36282c7a-c183-463c-8708-fb0c72b01930",
-            "Value": {
-                "id": "13b50827-fcbd-4c92-80fb-c91a9a679c61",
-                "resourcePath": "extensions\\UniversalGetSet\\UniversalGetSet.yy",
-                "resourceType": "GMExtension"
-            }
-        },
-        {
             "Key": "3684863d-8aaa-45ae-9949-406b178a0b9b",
             "Value": {
                 "id": "7f77d6a6-d836-4f2a-b2ce-475e73a4ca23",
