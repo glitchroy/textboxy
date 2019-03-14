@@ -3,6 +3,8 @@
 //!#import tby_normal.* as TbyNormal
 //!#import tby_bubble.* as TbyBubble
 
+//!#import tby_tooltip.* as TbyTooltip
+
 //!#import tby_pos.* in TbyPos
 
 
