@@ -1,117 +1,201 @@
-/// @description Handles mouse clicks for a Scribble JSON
+/// @description Text typewriter-ing
+/// @param _json
+/// @param ...
 ///
-/// @param json
-/// @param x
-/// @param y
-/// @param mouse_x
-/// @param mouse_y
-/// @param [do_hyperlinks]
 
-var _json          = argument[0];
-var _x             = argument[1];
-var _y             = argument[2];
-var _mouse_x       = argument[3];
-var _mouse_y       = argument[4];
-var _do_hyperlinks = ((argument_count>5) && (argument[5]!=undefined))? argument[5] : true;
+var _json = argument[0];
+var _step_size = ((argument_count > 1) && (argument_count[1] != undefined))? argument[1] : 1;
 
-#region Clear Event State
-global.__scribble_host_destroyed = false;
-scribble_events_clear( _json );
-#endregion
+_json[| __E_SCRIBBLE.ANIMATION_TIME ] += _step_size;
 
-#region Animate Sprite Slots
-
-var _sprite_slot_list = _json[? "sprite slots" ];
-var _size = ds_list_size( _sprite_slot_list );
-for( var _i = 0; _i < _size; _i++ )
+var _typewriter_direction = _json[| __E_SCRIBBLE.TW_DIRECTION ];
+if ( _typewriter_direction != 0 )
 {
-    var _slot_map = _sprite_slot_list[| _i ];
-    var _number   = _slot_map[? "frames" ];
-    var _image    = _slot_map[? "image"  ];
+    var _do_event_scan = false;
     
-    _image += _slot_map[? "speed" ];
-    while ( _image <        0 ) _image += _number;
-    while ( _image >= _number ) _image -= _number;
+    #region Advance typewriter
     
-    _slot_map[? "image" ] = _image;
-}
-
-#endregion
-
-if ( _do_hyperlinks )
-{
-    #region Hyperlinks
-
-    var _json_lines         = _json[? "lines list" ];
-    var _hyperlinks         = _json[? "hyperlinks"              ];
-    var _hyperlink_regions  = _json[? "hyperlink regions"       ];
-    var _hyperlink_fade_in  = _json[? "hyperlink fade in rate"  ];
-    var _hyperlink_fade_out = _json[? "hyperlink fade out rate" ];
-
-    var _box_left = _json[? "left" ];
-    var _box_top  = _json[? "top"  ];
-
-    for( var _key = ds_map_find_first( _hyperlinks ); _key != undefined; _key = ds_map_find_next( _hyperlinks, _key ) )
+    var _tw_pos   = _json[| __E_SCRIBBLE.TW_POSITION ];
+    var _tw_speed = _json[| __E_SCRIBBLE.TW_SPEED    ];
+    _tw_speed *= _step_size;
+    
+    switch( _json[| __E_SCRIBBLE.TW_METHOD ] )
     {
-        var _map = _hyperlinks[? _key ];
-        _map[? "over" ] = false;
-        _map[? "clicked" ] = false;
-    }
-
-    var _regions = ds_list_size( _hyperlink_regions );
-    for( var _i = 0; _i < _regions; _i++ )
-    {
-        var _region_map    = _hyperlink_regions[| _i ];
-        var _hyperlink_map = _hyperlinks[? _region_map[? "hyperlink" ] ];
-        var _region_line   = _region_map[? "line" ];
-        var _region_word   = _region_map[? "word" ];
-    
-        var _line_array       = _json_lines[| _region_line ];
-        var _line_words_array = _line_array[ E_SCRIBBLE_LINE.WORDS ];
-        var _word_array       = _line_words_array[ _region_word ];
-    
-        var _region_x = _x + _line_array[ E_SCRIBBLE_LINE.X ] + _word_array[ E_SCRIBBLE_WORD.X ] + _box_left;
-        var _region_y = _y + _line_array[ E_SCRIBBLE_LINE.Y ] + _word_array[ E_SCRIBBLE_WORD.Y ] + _box_top;
-        if ( _hyperlink_map != undefined ) && ( point_in_rectangle( _mouse_x, _mouse_y,
-                                                                    _region_x, _region_y,
-                                                                    _region_x + _word_array[ E_SCRIBBLE_WORD.WIDTH  ],
-                                                                    _region_y + _word_array[ E_SCRIBBLE_WORD.HEIGHT ] ) )
-        {
-            _hyperlink_map[? "over" ] = true;
-        }
-    }
-
-    for( var _key = ds_map_find_first( _hyperlinks ); _key != undefined; _key = ds_map_find_next( _hyperlinks, _key ) )
-    {
-        var _map   = _hyperlinks[? _key ];
-        //var _index = _map[? "index" ];
-    
-        if ( _map[? "over" ] )
-        {
-            _map[? "mix" ] = min( _map[? "mix" ] + _hyperlink_fade_in, 1 );
-        
-            if ( mouse_check_button_pressed( mb_left ) )
+        case SCRIBBLE_TYPEWRITER_WHOLE:
+            _do_event_scan = false;
+            
+            if ( _typewriter_direction > 0 )
             {
-                _map[? "down" ] = true;
-            }
-            else if ( !mouse_check_button( mb_left ) && _map[? "down" ] )
-            {
-                _map[? "down" ] = false;
-                _map[? "clicked" ] = true;
-                if ( script_exists( _map[? "script" ] ) ) script_execute( _map[? "script" ] );
-                if ( global.__scribble_host_destroyed ) {
-                    global.__scribble_host_destroyed = false;
-                    return undefined;
+                if ( floor(_tw_pos) < floor(_tw_pos + _tw_speed) )
+                {
+                    var _scan_range_a = 0;
+                    var _scan_range_b = _json[| __E_SCRIBBLE.LENGTH ];
+                    _do_event_scan = true;
                 }
             }
-        }
-        else
-        {
-            _map[? "down" ] = false;
-            _map[? "mix"  ] = max( _map[? "mix" ] - _hyperlink_fade_out, 0 );
-        }
+            
+            _tw_pos += _tw_speed;
+            _tw_pos = clamp( _tw_pos, 0, 1 );
+            _json[| __E_SCRIBBLE.TW_POSITION ] = _tw_pos;
+        break;
+        
+        case SCRIBBLE_TYPEWRITER_PER_CHARACTER:
+            if ( _typewriter_direction > 0 )
+            {
+                _do_event_scan = true;
+                var _scan_range_a = _tw_pos;
+                var _scan_range_b = _tw_pos + _tw_speed;
+            }
+            
+            var _length = _json[| __E_SCRIBBLE.LENGTH ];
+            _tw_pos += _tw_speed;
+            _tw_pos = min( _tw_pos, _length );
+            
+            _json[| __E_SCRIBBLE.TW_POSITION ] = _tw_pos;
+            _json[| __E_SCRIBBLE.CHAR_FADE_T ] = ((_typewriter_direction < 0)? 1 : 0) + clamp( _tw_pos / _length, 0, 1 );
+        break;
+        
+        case SCRIBBLE_TYPEWRITER_PER_LINE:
+            var _lines = _json[| __E_SCRIBBLE.LINES ];
+            
+            if ( _typewriter_direction > 0 )
+            {
+                var _list = _json[| __E_SCRIBBLE.LINE_LIST ];
+                if ( floor(_tw_pos) > floor(_tw_pos - _tw_speed) )
+                {
+                    var _line_a = _list[| floor( _tw_pos ) ];
+                    var _line_b = _list[| min( floor( _tw_pos + _tw_speed ), _lines-1 ) ];
+                    var _scan_range_a = _line_a[ __E_SCRIBBLE_LINE.FIRST_CHAR ];
+                    var _scan_range_b = _line_b[ __E_SCRIBBLE_LINE.LAST_CHAR  ];
+                    _do_event_scan = true;
+                }
+            }
+            
+            _tw_pos += _tw_speed;
+            _tw_pos = min( _tw_pos, _lines );
+            
+            _json[| __E_SCRIBBLE.TW_POSITION ] = _tw_pos;
+            _json[| __E_SCRIBBLE.LINE_FADE_T ] = ((_typewriter_direction < 0)? 1 : 0) + clamp( _tw_pos / _lines, 0, 1 );
+        break;
+        
+        default:
+            show_error( "Typewriter method not recognised.\nPlease use SCRIBBLE_TYPEWRITER_PER_CHARACTER or SCRIBBLE_TYPEWRITER_PER_LINE.\n ", false );
+        break;
     }
+    
     #endregion
+    
+    if ( _do_event_scan )
+    {
+        #region Scan for new events
+        
+        var _events_char_list      = _json[| __E_SCRIBBLE.EV_CHARACTER_LIST ];
+        var _events_name_list      = _json[| __E_SCRIBBLE.EV_NAME_LIST      ];
+        var _events_data_list      = _json[| __E_SCRIBBLE.EV_DATA_LIST      ];
+        var _events_triggered_list = _json[| __E_SCRIBBLE.EV_TRIGGERED_LIST ];
+        var _events_triggered_map  = _json[| __E_SCRIBBLE.EV_TRIGGERED_MAP  ];
+        var _events_value_map      = _json[| __E_SCRIBBLE.EV_VALUE_MAP      ];
+        var _events_changed_map    = _json[| __E_SCRIBBLE.EV_CHANGED_MAP    ];
+        var _events_previous_map   = _json[| __E_SCRIBBLE.EV_PREVIOUS_MAP   ];
+        var _events_different_map  = _json[| __E_SCRIBBLE.EV_DIFFERENT_MAP  ];
+        
+        //Clear this JSON's events state
+        ds_list_clear( _events_triggered_list );
+        ds_map_clear(  _events_triggered_map  );
+        ds_map_clear(  _events_changed_map    );
+        ds_map_clear(  _events_different_map  );
+        
+        var _char_a = floor( _scan_range_a );
+        var _char_b = floor( _scan_range_b );
+        
+        var _event_count = ds_list_size( _events_char_list );
+        
+        #region Check the 0th character for events if we're starting at 0
+        if ( _char_a == 0 )
+        {
+            for( var _event = 0; _event < _event_count; _event++ )
+            {
+                if ( _events_char_list[| _event ] != _char_a ) continue;
+                
+                var _name      = _events_name_list[|   _event ];
+                var _data      = _events_data_list[|   _event ];
+                var _old_data  = _events_value_map[?    _name ];
+                var _old_event = _events_previous_map[? _name ];
+                
+                ds_list_add( _events_triggered_list, _name );
+                _events_value_map[?    _name ] = _data;
+                _events_previous_map[? _name ] = _event;
+                
+                //Record whether this particular trigger contains different data to the last time this same event type was triggered
+                _events_changed_map[? _name ] = (_old_data == undefined)? true : !array_equals( _data, _old_data );
+                
+                //Record whether this trigger is a different trigger to the last one (but may contain the same data)
+                _events_different_map[? _name ] = (_old_event == undefined)? true : (_old_event != _event);
+                
+                ++_event;
+            }
+        }
+        #endregion
+        
+        //Scan through all our events until we find an event at a text position we haven't met yet
+        var _event = 0;
+        while (_event < _event_count) && (_events_char_list[| _event ] <= _char_a) ++_event;
+        
+        //Now iterate from our current character position to the next character position
+        for( var _char = _char_a+1; _char <= _char_b; _char++ )
+        {
+            var _name = "";
+            
+            while (_event < _event_count) && (_events_char_list[| _event ] <= _char)
+            {
+                var _name      = _events_name_list[|   _event ];
+                var _data      = _events_data_list[|   _event ];
+                var _old_data  = _events_value_map[?    _name ];
+                var _old_event = _events_previous_map[? _name ];
+                
+                if ( !ds_map_exists( _events_triggered_map, _name ) )
+                {
+                    ds_list_add( _events_triggered_list, _name );
+                    _events_triggered_map[? _name ] = true;
+                }
+                
+                _events_value_map[?    _name ] = _data;
+                _events_previous_map[? _name ] = _event;
+                
+                //Record whether this particular trigger contains different data to the last time this same event type was triggered
+                _events_changed_map[? _name ] = (_old_data == undefined)? true : !array_equals( _data, _old_data );
+                
+                //Record whether this trigger is a different trigger to the last one (but may contain the same data)
+                _events_different_map[? _name ] = (_old_event == undefined)? true : (_old_event != _event);
+                
+                ++_event;
+                
+                //if ( _name == "break" ) || ( _name == "pause" ) break;
+            }
+            
+            //if ( _name == "break" ) || ( _name == "pause" )
+            //{
+            //    _char_end = _char;
+            //    break;
+            //}
+        }
+        
+        #region Iterate over the list of triggered events and perform callback
+        
+        var _triggered_count = ds_list_size( _events_triggered_list );
+        for( var _event = 0; _event < _triggered_count; _event++ )
+        {
+            var _event_name = _events_triggered_list[| _event ];
+            var _script = global.__scribble_events[? _event_name ];
+            if ( _script != undefined ) script_execute( _script,
+                                                        _json,
+                                                        _events_value_map[?     _event_name ],
+                                                        _events_changed_map[?   _event_name ],
+                                                        _events_different_map[? _event_name ] );
+        }
+        
+        #endregion
+        
+        #endregion
+    }
 }
-
-return _json;

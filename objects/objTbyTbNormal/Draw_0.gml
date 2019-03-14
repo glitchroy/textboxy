@@ -23,14 +23,15 @@ if (global.tby_debug) {
     draw_set_color(c_green); draw_rectangle(boxDim[0], boxDim[1], boxDim[2], boxDim[3], true); //outer
     draw_set_color(c_aqua);  draw_rectangle(textDim[TbyPos.x], textDim[TbyPos.y], textDim[TbyPos.x]+textDim[TbyPos.width], textDim[TbyPos.y]+textDim[TbyPos.height], true); //inner
     draw_set_alpha(1)
-    
+
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
     "| State: " + stateName;
+    /*
 	scribble_basic_draw("sprTbyFontSmall",
 						string_upper(ds),
 						boxDim[0],
-						boxDim[1]-padding);
+						boxDim[1]-padding);*/
 }
 #endregion

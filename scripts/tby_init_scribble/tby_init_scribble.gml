@@ -1,15 +1,24 @@
 //Start up Scribble and load some fonts
-scribble_init_start( tby_texture_page_size );
-scribble_init_add_spritefont("sprTbyFontMain",
-                             SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING + "«»",
-                             -2);
-scribble_init_add_spritefont("sprTbyFontSmall",
-                             "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,-;:_+-*/|#[]",
-                             -2);
+scribble_init_start( "Fonts", tby_texture_page_size );
+scribble_init_add_spritefont( "sprTbyFontMain", 3, SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING + "«»", -2); 
+scribble_init_add_spritefont("sprTbyFontSmall", 2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,-;:_+-*/|#[]", -2);
 scribble_init_end();
 
-//Modify the properties of some of the characters
+scribble_add_custom_colour( "c_thought", $78d7ff );
+scribble_add_custom_colour( "c_orange", $4080FF, true );
+scribble_add_custom_colour( "c_aqua", $FFA448, true );
 
+scribble_add_event( "wait", tby_tb_handle_wait );
+scribble_add_event( "speed", tby_tb_handle_speed );
+
+scribble_set_glyph_property( "sprTbyFontSmall", "T", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "I", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "1", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "M", SCRIBBLE_GLYPH_X_OFFSET, 1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "W", SCRIBBLE_GLYPH_X_OFFSET, 1, true );
+
+//Modify the properties of some of the characters
+/*
 scribble_font_char_set_width(   "sprTbyFontMain", " ", 3 );
 scribble_font_char_set_x_shift( "sprTbyFontMain", " ", 3 );
 

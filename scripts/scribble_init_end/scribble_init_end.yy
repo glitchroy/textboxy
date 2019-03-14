@@ -1,5 +1,5 @@
 {
-    "id": "3a184a7c-b4e5-457f-865c-aa18b0b9fcbf",
+    "id": "5bc1810d-5bb0-4aed-aff1-95a2a11cd4f2",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scribble_init_end",

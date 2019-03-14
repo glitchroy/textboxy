@@ -1,14 +1,37 @@
-/// @param spritefont
+/// @param fontName
+/// @param [spaceWidth]
 /// @param [mapString]
 /// @param [separation]
 
-if ( !variable_global_exists( "__scribble_init_font_array" ) ) || ( global.__scribble_init_font_array == undefined )
+if ( !variable_global_exists( "__scribble_default_font" ) )
 {
-    show_error( "scribble_init_add_spritefont() can only be used after scribble_init_start() and before scribble_init_end()\n ", true );
+    show_error( "scribble_init_add_spritefont() can only be called after scribble_init_start() and before scribble_init_end()\n ", true );
     exit;
 }
 
-var _font = argument[0];
+var _font        =                                                       argument[0];
+var _space_width =  (argument_count > 1)?                                argument[1] : undefined;
+var _mapstring   = ((argument_count > 2) && (argument[2] != undefined))? argument[2] : SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING;
+var _separation  = ((argument_count > 3) && (argument[3] != undefined))? argument[3] : 0;
+
+if ( ds_map_exists( global.__scribble_font_data, _font ) )
+{
+    show_error( "Font \"" + _font + "\" has already been defined\n ", false );
+    return undefined;
+}
+
+if ( !is_string( _font ) )
+{
+    if ( is_real( _font ) )
+    {
+        show_error( "Fonts should be initialised using their name as a string.\n(Input to script was \"" + string( _font ) + "\", which might be sprite \"" + sprite_get_name( _font ) + "\")\n ", false );
+    }
+    else
+    {
+        show_error( "Fonts should be initialised using their name as a string.\n(Input to script was an invalid datatype)\n ", false );
+    }
+    exit;
+}
 
 if ( asset_get_type( _font ) != asset_sprite )
 {
@@ -16,22 +39,21 @@ if ( asset_get_type( _font ) != asset_sprite )
     return scribble_init_add_font( _font );
 }
 
-if ( argument_count == 1 )
-{
-    global.__scribble_init_font_array[ array_length_1d( global.__scribble_init_font_array ) ] = [ _font, SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING, SCRIBBLE_DEFAULT_SPRITEFONT_SEPARATION ];
-    if ( global.__scribble_default_font == "" ) global.__scribble_default_font = _font;
-}
-else if ( argument_count == 2 )
-{
-    global.__scribble_init_font_array[ array_length_1d( global.__scribble_init_font_array ) ] = [ _font, argument[1], SCRIBBLE_DEFAULT_SPRITEFONT_SEPARATION ];
-    if ( global.__scribble_default_font == "" ) global.__scribble_default_font = _font;
-}
-else if ( argument_count == 3 )
-{
-    global.__scribble_init_font_array[ array_length_1d( global.__scribble_init_font_array ) ] = [ _font, argument[1], argument[2] ];
-    if ( global.__scribble_default_font == "" ) global.__scribble_default_font = _font;
-}
-else
-{
-    show_error( "Invalid number of arguments provided for a spritefont (" + string( argument_count ) + ", expecting 1, 2, or 3 arguments)\n ", true );
-}
+if ( global.__scribble_default_font == "" ) global.__scribble_default_font = _font;
+
+var _data;
+_data[ __E_SCRIBBLE_FONT.NAME           ] = _font;
+_data[ __E_SCRIBBLE_FONT.TYPE           ] = asset_sprite;
+_data[ __E_SCRIBBLE_FONT.GLYPHS_MAP     ] = undefined;
+_data[ __E_SCRIBBLE_FONT.GLYPHS_ARRAY   ] = undefined;
+_data[ __E_SCRIBBLE_FONT.GLYPH_MIN      ] = 32;
+_data[ __E_SCRIBBLE_FONT.GLYPH_MAX      ] = 32;
+_data[ __E_SCRIBBLE_FONT.TEXTURE_WIDTH  ] = undefined;
+_data[ __E_SCRIBBLE_FONT.TEXTURE_HEIGHT ] = undefined;
+_data[ __E_SCRIBBLE_FONT.SPACE_WIDTH    ] = _space_width;
+_data[ __E_SCRIBBLE_FONT.MAPSTRING      ] = _mapstring;
+_data[ __E_SCRIBBLE_FONT.SEPARATION     ] = _separation;
+_data[ __E_SCRIBBLE_FONT.SPRITE         ] = asset_get_index( _font );
+_data[ __E_SCRIBBLE_FONT.SPRITE_X       ] = undefined;
+_data[ __E_SCRIBBLE_FONT.SPRITE_Y       ] = undefined;
+global.__scribble_font_data[? _font ] = _data;

@@ -20,3 +20,5 @@ if (tby_input_confirm) {
     
     tby_branch_next_entry()
 }
+
+scribble_step(textScribble);

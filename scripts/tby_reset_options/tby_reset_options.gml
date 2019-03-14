@@ -4,8 +4,6 @@ if (global.tby_current_options_map != undefined && ds_exists(global.tby_current_
     global.tby_current_options_map = ds_map_create()
 }
 
-global.tby_current_options_map[? TbyOption.SetShake] = tby_default_shake_intensity
-global.tby_current_options_map[? TbyOption.SetWave] = tby_default_wave_intensity
 global.tby_current_options_map[? TbyOption.SetInstance] = noone
 global.tby_current_options_map[? TbyOption.SetCallback] = -1
 global.tby_current_options_map[? TbyOption.SetPlacement] = TbyPlacement.Auto

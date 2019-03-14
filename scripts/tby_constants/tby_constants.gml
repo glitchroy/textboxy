@@ -52,8 +52,6 @@ enum TbyFrame {
 }
 
 enum TbyOption {
-    SetShake,   // real
-    SetWave,    // real
     SetInstance, // instance_id or noone
     SetCallback, // real
     SetPlacement // enum (TbyPlacement)
