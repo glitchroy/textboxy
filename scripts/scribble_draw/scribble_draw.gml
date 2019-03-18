@@ -1,12 +1,19 @@
-/// @param json
-/// @param [x]
-/// @param [y]
-/// @param [xscale]
-/// @param [yscale]
-/// @param [angle]
-/// @param [colour]
-/// @param [alpha]
-/// @param [premultiplyAlpha]
+/// Draws a Scribble data structure created with scribble_create()
+///
+/// If compatibility mode is switched on (SCRIBBLE_COMPATIBILITY_DRAW), all dynamic effects will be inactive
+/// Compatibility mode is intended for debugging rendering glitches on platforms that may have vertex buffer bugs in GameMaker
+///
+/// @param json                 The Scribble data structure to be drawn. See scribble_create()
+/// @param [x]                  The x position in the room to draw at. Defaults to 0
+/// @param [y]                  The y position in the room to draw at. Defaults to 0
+/// @param [xscale]             The horizontal scaling of the text. Defaults to the value set in __scribble_config()
+/// @param [yscale]             The vertical scaling of the text. Defaults to the value set in __scribble_config()
+/// @param [angle]              The rotation of the text. Defaults to the value set in __scribble_config()
+/// @param [colour]             The blend colour for the text. Defaults to draw_get_colour()
+/// @param [alpha]              The alpha blend for the text. Defaults to draw_get_alpha()
+/// @param [premultiplyAlpha]   Whether to multiply the RGB channels by the resulting alpha value in the shader. Useful for fixing blending defects
+///
+/// All optional arguments accept <undefined> to indicate that the default value should be used.
 
 var _json   = argument[0];
 var _x      = ((argument_count > 1) && (argument[1] != undefined))? argument[1] : 0;
@@ -17,6 +24,12 @@ var _angle  = ((argument_count > 5) && (argument[5] != undefined))? argument[5] 
 var _colour = ((argument_count > 6) && (argument[6] != undefined))? argument[6] : draw_get_colour();
 var _alpha  = ((argument_count > 7) && (argument[7] != undefined))? argument[7] : draw_get_alpha();
 var _pma    = ((argument_count > 8) && (argument[8] != undefined))? argument[8] : SCRIBBLE_DEFAULT_PREMULTIPLY_ALPHA;
+
+if ( !is_real( _json ) || !ds_exists( _json, ds_type_list ) )
+{
+    show_error( "Scribble data structure \"" + string( _json ) + "\" doesn't exist!\n ", false );
+    exit;
+}
 
 var _old_matrix = matrix_get( matrix_world );
 
@@ -155,21 +168,21 @@ else
     }
     
     shader_set( shScribble );
-    shader_set_uniform_f( global.__scribble_uniform_pma            , _pma );
-    shader_set_uniform_f( global.__scribble_uniform_time           , _json[| __E_SCRIBBLE.ANIMATION_TIME ]*SCRIBBLE_ANIMATION_SPEED );
+    shader_set_uniform_f( global.__scribble_uniform_pma              , _pma );
+    shader_set_uniform_f( global.__scribble_uniform_time             , _json[| __E_SCRIBBLE.ANIMATION_TIME ]*SCRIBBLE_ANIMATION_SPEED );
     
-    shader_set_uniform_f( global.__scribble_uniform_char_t         , _char_t          );
-    shader_set_uniform_f( global.__scribble_uniform_char_smoothness, _char_smoothness );
+    shader_set_uniform_f( global.__scribble_uniform_char_t           , _char_t          );
+    shader_set_uniform_f( global.__scribble_uniform_char_smoothness  , _char_smoothness );
     
-    shader_set_uniform_f( global.__scribble_uniform_line_t         , _line_t          );
-    shader_set_uniform_f( global.__scribble_uniform_line_smoothness, _line_smoothness );
+    shader_set_uniform_f( global.__scribble_uniform_line_t           , _line_t          );
+    shader_set_uniform_f( global.__scribble_uniform_line_smoothness  , _line_smoothness );
     
-    shader_set_uniform_f( global.__scribble_uniform_colour_blend   , colour_get_red(   _colour )/255,
-                                                                     colour_get_green( _colour )/255,
-                                                                     colour_get_blue(  _colour )/255,
-                                                                     _alpha );
+    shader_set_uniform_f( global.__scribble_uniform_colour_blend     , colour_get_red(   _colour )/255,
+                                                                       colour_get_green( _colour )/255,
+                                                                       colour_get_blue(  _colour )/255,
+                                                                       _alpha );
     
-    shader_set_uniform_f_array( global.__scribble_uniform_flag_data, _json[| __E_SCRIBBLE.FLAG_DATA ] );
+    shader_set_uniform_f_array( global.__scribble_uniform_data_fields, _json[| __E_SCRIBBLE.DATA_FIELDS ] );
     
     for( var _i = 0; _i < _vbuff_count; _i++ )
     {

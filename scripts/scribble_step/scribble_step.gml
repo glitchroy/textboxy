@@ -1,10 +1,18 @@
-/// @description Text typewriter-ing
-/// @param _json
-/// @param ...
+/// Animates effects, advances the typewriter effect for a Scribble data structure, and executes events as they appear
 ///
+/// @param json         The Scribble data structure to manipulate
+/// @param [stepSize]   The step size e.g. a delta time coefficient. Defaults to 1
+///
+/// All optional arguments accept <undefined> to indicate that the default value should be used.
 
-var _json = argument[0];
+var _json      = argument[0];
 var _step_size = ((argument_count > 1) && (argument_count[1] != undefined))? argument[1] : 1;
+
+if ( !is_real( _json ) || !ds_exists( _json, ds_type_list ) )
+{
+    show_error( "Scribble data structure \"" + string( _json ) + "\" doesn't exist!\n ", false );
+    exit;
+}
 
 _json[| __E_SCRIBBLE.ANIMATION_TIME ] += _step_size;
 

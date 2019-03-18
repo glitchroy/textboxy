@@ -1,8 +1,18 @@
+/// Completes initialisation for Scribble
+/// This script should be called after scribble_init_start() and scribble_init_font() / scribble_init_spritefont()
+///
+/// This script achieves the following things:
+/// 1) Works out if we need GMS2.2.1+ fixes
+/// 2) Packs fonts onto surfaces so we can draw glyphs more easily and more efficiently
+/// 3) Process glyph data from .yy files and store it in lots of data structures
+///
+/// Once this script has been run, Scribble is ready for use!
+
 var _timer = get_timer();
 
-if ( !variable_global_exists( "__scribble_texture_page_size" ) )
+if ( !variable_global_exists( "__scribble_init_complete" ) )
 {
-    show_error( "scribble_init_end() can only be called after scribble_init_start()\n ", false );
+    show_error( "scribble_init_end() should be called after scribble_init_start()\n ", false );
     exit;
 }
 
@@ -39,8 +49,12 @@ var _patch = string_copy( _string, 1, string_pos( ".", _string )-1 );
 
 //var _rev = string_delete( _string, 1, string_pos( ".", _string ) );
 
-var _in_gms221 = ( (real( _major ) >= 2) && (real( _minor ) >= 2) && (real( _patch ) >= 1) );
-if ( _in_gms221 ) show_debug_message( "Scribble: Using legacy (GMS2.2.0 and prior) compatibility mode" );
+var _later_than_gms220 = (( (real(_major) > 2) || (real(_minor) > 2) ) || ( (real(_major) == 2) && (real(_minor) == 2) && (real(_patch) > 0) ));
+if ( _later_than_gms220 )
+{
+    show_debug_message( "Scribble: Legacy (GMS2.2.0 and prior) spritefont emulation available" );
+    if ( SCRIBBLE_EMULATE_LEGACY_SPRITEFONT_SPACING && _later_than_gms220 ) show_debug_message( "Scribble: Using legacy spritefont emulation" );
+}
 
 #endregion
 
@@ -107,6 +121,8 @@ repeat( _font_count )
 #endregion
 
 
+
+#region Figure out where to place the fonts
 
 show_debug_message( "Scribble: " + string( ds_priority_size( _priority_queue ) ) + " font(s) to pack" );
 
@@ -245,7 +261,11 @@ while( !ds_priority_empty( _priority_queue ) )
 
 ds_priority_destroy( _priority_queue );
 
+#endregion
 
+
+
+#region Actually draw the fonts to surfaces
 
 var _surface_count = array_length_1d( _surface_array );
 show_debug_message( "Scribble: " + string( _surface_count ) + " surface(s) needed" );
@@ -308,7 +328,11 @@ for( var _s = 0; _s < _surface_count; _s++ )
     
 show_debug_message( "Scribble: Surface rendering finished" );
 
+#endregion
 
+
+
+#region Process glyph data from .yy files
 
 for( var _font = 0; _font < _font_count; _font++ )
 {
@@ -337,7 +361,7 @@ for( var _font = 0; _font < _font_count; _font++ )
         var _font_glyphs_map = ds_map_create();
         _font_data[@ __E_SCRIBBLE_FONT.GLYPHS_MAP ] = _font_glyphs_map;
         
-        if ( SCRIBBLE_EMULATE_LEGACY_SPRITEFONT_SPACING && _in_gms221 ) _shift_constant -= 2;
+        if ( SCRIBBLE_EMULATE_LEGACY_SPRITEFONT_SPACING && _later_than_gms220 ) _shift_constant -= 2;
         if ( SCRIBBLE_COMPATIBILITY_DRAW ) global.__scribble_spritefont_map[? _name ] = font_add_sprite_ext( _sprite, _sprite_string, true, _shift_constant );
         
         sprite_index = _sprite;
@@ -392,7 +416,7 @@ for( var _font = 0; _font < _font_count; _font++ )
             }
             else
             {
-                if ( _in_gms221 )
+                if ( _later_than_gms220 )
                 {
                     //GMS2.2.1 does some weeeird things to sprite fonts
                     var _glyph_width  = 3 + _right - _left;
@@ -430,7 +454,7 @@ for( var _font = 0; _font < _font_count; _font++ )
         
         if ( !ds_map_exists( _font_glyphs_map, " " ) )
         {
-            if ( _in_gms221 )
+            if ( _later_than_gms220 )
             {
                 var _glyph_width  = sprite_get_width(  _sprite );
                 var _glyph_height = sprite_get_height( _sprite );
@@ -648,6 +672,8 @@ for( var _font = 0; _font < _font_count; _font++ )
     show_debug_message( "Scribble: \"" + _name + "\" finished" );
 }
 
+#endregion
+
 
 
 x = _old_x;
@@ -657,3 +683,6 @@ image_yscale = _old_image_yscale;
 mask_index = _old_mask_index;
 
 show_debug_message( "Scribble: Font initialisation complete, took " + string( (get_timer() - _timer)/1000 ) + "ms" );
+show_debug_message( "Scribble: Thanks for using Scribble! @jujuadams" );
+
+global.__scribble_init_complete = true;

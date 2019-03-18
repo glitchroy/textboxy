@@ -1,36 +1,53 @@
-/// @description Creates a Scribble data structure from a text string
-/// 
+/// Parses a string and turns it into a Scribble data structure that can be drawn with scribble_draw()
+///
+/// @param string              The string to be parsed. See below for the various in-line formatting commands
+/// @param [minLineHeight]     The minimum line height for each line of text. Defaults to the height of a space character of the default font
+/// @param [maxLineWidth]      The maximum line width for each line of text. Use a negative number for no limit. Defaults to no limit
+/// @param [startingColour]    The (initial) blend colour for the text. Defaults to white
+/// @param [startingFont]      The (initial) font for the text. The font name should be provided as a string. Defaults to Scribble's global default font (the first font added during initialisation)
+/// @param [startingHAlign]    The (initial) horizontal alignment for the test. Defaults to left justified
+/// @param [dataFieldsArray]   The data field array that'll be passed into the shader to control various effects. Defaults to values set in __scribble_config()
+///
+/// All optional arguments accept <undefined> to indicate that the default value should be used.
+///
 /// Formatting commands:
-/// []                              : Reset formatting to defaults
-/// [<name of colour>]              : Set colour
-/// [#<hex code>]                   : Set colour via a hexcode, using normal RGB values (#RRGGBB)
-/// [/colour]                       : Reset colour to the default
-/// [/c]                            : As above
-/// [<name of font>]                : Set font
-/// [/font]                         : Reset font to the default
-/// [/f]                            : As above
-/// [<name of sprite>,<image>]      : Insert a static sprite using the specified image index
-/// [fa_left]                       : Align horizontally to the left
-/// [fa_right]                      : Align horizontally to the right
-/// [fa_center]                     : Align centrally
-/// [fa_centre]                     : As above
-/// [wave]                          : Set text to wave up and down
-/// [/wave]                         : Unset wave animation
-/// [shake]                         : Set text to shake
-/// [/shake]                        : Unset shake animation
-/// [rainbow]                       : Set text to cycle through rainbow colours
-/// [/rainbow]                      : Unset rainbow animation
-/// [flag,<index>]                  : Set a formatting flag with the specified index N.B. flags 0,1,2 are reserved for wave/shake/rainbow effects respectively
-/// [/flag,<index>]                 : Unset a formatting flag with the specified index
-/// [event,<name>,<arg0>,<arg1>...] : Execute a script bound to an event name (previously defined using scribble_add_event()) with the specified arguments
-/// [ev,<name>,<arg0>,<arg1>...]    : As above
-/// 
-/// @param string
-/// @param [minLineHeight]
-/// @param [maxLineWidth]
-/// @param [startingColour]
-/// @param [startingFont]
-/// @param [startingHAlign]
+/// []                                Reset formatting to defaults
+/// [<name of colour>]                Set colour
+/// [#<hex code>]                     Set colour via a hexcode, using normal RGB values (#RRGGBB)
+/// [/colour]                         Reset colour to the default
+/// [/c]                              As above
+/// [<name of font>]                  Set font
+/// [/font]                           Reset font to the default
+/// [/f]                              As above
+/// [<name of sprite>,<image>]        Insert a static sprite using the specified image index
+/// [fa_left]                         Align horizontally to the left
+/// [fa_right]                        Align horizontally to the right
+/// [fa_center]                       Align centrally
+/// [fa_centre]                       As above
+/// [wave]                            Set text to wave up and down
+/// [/wave]                           Unset wave animation
+/// [shake]                           Set text to shake
+/// [/shake]                          Unset shake animation
+/// [rainbow]                         Set text to cycle through rainbow colours
+/// [/rainbow]                        Unset rainbow animation
+/// [<flag name>]                     Set a custom formatting flag
+/// [/<flag name>]                    Unset a custom formatting flag
+/// [event,<name>,<arg0>,<arg1>...]   Execute a script bound to an event name (previously defined using scribble_add_event()) with the specified arguments
+/// [ev,<name>,<arg0>,<arg1>...]      As above
+
+
+
+if ( !variable_global_exists( "__scribble_init_complete" ) )
+{
+    show_error( "scribble_create() should be called after initialising Scribble.\n ", false );
+    exit;
+}
+
+if ( !global.__scribble_init_complete )
+{
+    show_error( "scribble_create() should be called after initialising Scribble.\n ", false );
+    exit;
+}
 
 var _timer = get_timer();
 
@@ -40,6 +57,7 @@ var _width_limit      = ((argument_count > 2) && (argument[2] != undefined))? ar
 var _def_colour       = ((argument_count > 3) && (argument[3] != undefined))? argument[3] : c_white;
 var _def_font         = ((argument_count > 4) && (argument[4] != undefined))? argument[4] : global.__scribble_default_font;
 var _def_halign       = ((argument_count > 5) && (argument[5] != undefined))? argument[5] : fa_left;
+var _data_fields_in   = ((argument_count > 6) &&    is_array(argument[6])  )? argument[6] : undefined;
 
 
 
@@ -90,12 +108,35 @@ if ( _line_min_height < 0 ) _line_min_height = _array[ __E_SCRIBBLE_GLYPH.H ];
 //Try to use a custom colour if the "startingColour" parameter is a string
 if ( is_string( _def_colour ) )
 {
-    _def_colour = global.__scribble_colours[? _def_colour ];
-    if ( _def_colour == undefined )
+    var _value = global.__scribble_colours[? _def_colour ];
+    if ( _value == undefined )
     {
-        show_error( "The starting colour \"" + _def_colour + "\" has not been defined as a custom colour. Defaulting to c_white.\n ", false );
-        _def_colour = c_white;
+        show_error( "The starting colour (\"" + _def_colour + "\") has not been added as a custom colour. Defaulting to c_white.\n ", false );
+        _value = c_white;
     }
+    _def_colour = _value;
+}
+
+//Build an array that contains data that'll (eventually) get sent into the shader
+var _data_fields = array_create( SCRIBBLE_MAX_DATA_FIELDS );
+if ( is_array( _data_fields_in ) )
+{
+    var _length = array_length_1d( _data_fields_in );
+    if ( _length > SCRIBBLE_MAX_DATA_FIELDS )
+    {
+        show_error( "Length of custom data field array (" + string( _length ) + ") is greater than SCRIBBLE_MAX_DATA_FIELDS (" + string(SCRIBBLE_MAX_DATA_FIELDS) + ")\n ", false )
+        _length = SCRIBBLE_MAX_DATA_FIELDS;
+    }
+    array_copy( _data_fields, 0, _data_fields_in, 0, _length );
+}
+else
+{
+    _data_fields[0] = SCRIBBLE_DEFAULT_WAVE_SIZE;
+    _data_fields[1] = SCRIBBLE_DEFAULT_WAVE_FREQUENCY;
+    _data_fields[2] = SCRIBBLE_DEFAULT_WAVE_SPEED;
+    _data_fields[3] = SCRIBBLE_DEFAULT_SHAKE_SIZE;
+    _data_fields[4] = SCRIBBLE_DEFAULT_SHAKE_SPEED;
+    _data_fields[5] = SCRIBBLE_DEFAULT_RAINBOW_WEIGHT;
 }
 
 #endregion
@@ -174,8 +215,8 @@ _json[| __E_SCRIBBLE.WIDTH_LIMIT        ] = _width_limit;
 _json[| __E_SCRIBBLE.LINE_HEIGHT        ] = _line_min_height;
 
 _json[| __E_SCRIBBLE.__SECTION1         ] = "-- Statistics --";
-_json[| __E_SCRIBBLE.HALIGN             ] = fa_left;
-_json[| __E_SCRIBBLE.VALIGN             ] = fa_top;
+_json[| __E_SCRIBBLE.HALIGN             ] = SCRIBBLE_DEFAULT_BOX_HALIGN;
+_json[| __E_SCRIBBLE.VALIGN             ] = SCRIBBLE_DEFAULT_BOX_VALIGN;
 _json[| __E_SCRIBBLE.WIDTH              ] = 0;
 _json[| __E_SCRIBBLE.HEIGHT             ] = 0;
 _json[| __E_SCRIBBLE.LEFT               ] = 0;
@@ -195,12 +236,8 @@ _json[| __E_SCRIBBLE.TW_SMOOTHNESS      ] = SCRIBBLE_DEFAULT_TYPEWRITER_SMOOTHNE
 _json[| __E_SCRIBBLE.CHAR_FADE_T        ] = 1;
 _json[| __E_SCRIBBLE.LINE_FADE_T        ] = 1;
 
-var _flag_data = array_create( SCRIBBLE_MAX_FLAGS );
-_flag_data[0] = SCRIBBLE_DEFAULT_WAVE_SIZE;
-_flag_data[1] = SCRIBBLE_DEFAULT_SHAKE_SIZE;
-_flag_data[2] = SCRIBBLE_DEFAULT_RAINBOW_WEIGHT;
 _json[| __E_SCRIBBLE.__SECTION3         ] = "-- Animation --";
-_json[| __E_SCRIBBLE.FLAG_DATA          ] = _flag_data;
+_json[| __E_SCRIBBLE.DATA_FIELDS        ] = _data_fields;
 _json[| __E_SCRIBBLE.ANIMATION_TIME     ] = 0;
 
 _json[| __E_SCRIBBLE.__SECTION4         ] = "-- Lists --";
@@ -310,7 +347,6 @@ for( var _i = 0; _i < _separator_count; _i++ )
             switch( _parameters_list[| 0 ] )
             {
                 #region Reset formatting
-                
                 case "":
                     _text_font        = _def_font;
                     _text_colour      = _def_colour;
@@ -333,7 +369,6 @@ for( var _i = 0; _i < _separator_count; _i++ )
                     _text_colour = _def_colour;
                     _skip = true;
                 break;
-                
                 #endregion
                 
                 #region Events
@@ -358,58 +393,6 @@ for( var _i = 0; _i < _separator_count; _i++ )
                     
                     _skip = true;
                 break;
-                #endregion
-                
-                #region Flags
-                
-                case "flag":
-                    var _parameter_count = ds_list_size( _parameters_list );
-                    if ( _parameter_count == 2 )
-                    {
-                        _text_flags[ real( _parameters_list[| 1] ) ] = true;
-                    }
-                    _skip = true;
-                break;
-                
-                case "/flag":
-                    var _parameter_count = ds_list_size( _parameters_list );
-                    if ( _parameter_count == 2 )
-                    {
-                        _text_flags[ real( _parameters_list[| 1] ) ] = false;
-                    }
-                    _skip = true;
-                break;
-                
-                case "wave":
-                    _text_flags[0] = true;
-                    _skip = true;
-                break;
-                
-                case "/wave":
-                    _text_flags[0] = false;
-                    _skip = true;
-                break;
-                
-                case "shake":
-                    _text_flags[1] = true;
-                    _skip = true;
-                break;
-                
-                case "/shake":
-                    _text_flags[1] = false;
-                    _skip = true;
-                break;
-                
-                case "rainbow":
-                    _text_flags[2] = true;
-                    _skip = true;
-                break;
-                
-                case "/rainbow":
-                    _text_flags[2] = false;
-                    _skip = true;
-                break;
-                
                 #endregion
                 
                 #region Font Alignment
@@ -458,96 +441,119 @@ for( var _i = 0; _i < _separator_count; _i++ )
                 break;
                 #endregion
                 
+                #region Flags, fonts, sprites, and colours
                 default:
-                    var _font_data = global.__scribble_font_data[? _parameters_list[| 0] ];
-                    if ( _font_data != undefined )
+                    //Check if this is a flag name
+                    var _flag_index = global.__scribble_flags[? _parameters_list[| 0] ];
+                    if ( _flag_index != undefined )
                     {
-                        #region Change font
-                        
-                        _text_font = _parameters_list[| 0];
-                        
-                        var _font_glyphs_array = _font_data[ __E_SCRIBBLE_FONT.GLYPHS_ARRAY ];
-                        if ( _font_glyphs_array == undefined )
-                        {
-                            var _font_glyphs_map = _font_data[ __E_SCRIBBLE_FONT.GLYPHS_MAP ];
-                            var _array           = _font_glyphs_map[? " " ];
-                        }
-                        else
-                        {
-                            var _array = _font_glyphs_array[ 32 - _font_data[ __E_SCRIBBLE_FONT.GLYPH_MIN ] ];
-                        }
-                        
-                        _font_space_width = _array[ __E_SCRIBBLE_GLYPH.W ];
-                        _font_line_height = _array[ __E_SCRIBBLE_GLYPH.H ];
-                        
+                        _text_flags[ _flag_index ] = true;
                         _skip = true;
-                        
-                        #endregion
                     }
                     else
                     {
-                        var _asset = asset_get_index( _parameters_list[| 0] );
-                        if ( _asset >= 0 ) && ( asset_get_type( _parameters_list[| 0] ) == asset_sprite )
+                        //Check if this is a flag name, but with a forward slash at the front
+                        var _flag_index = undefined;
+                        if ( string_char_at( _parameters_list[| 0], 1 ) == "/" ) _flag_index = global.__scribble_flags[? string_delete( _parameters_list[| 0], 1, 1 ) ];
+                        if ( _flag_index != undefined )
                         {
-                            #region Sprites
-                            
-                            _substr_sprite = _asset;
-                            _substr_width  = sprite_get_width(  _substr_sprite );
-                            _substr_height = sprite_get_height( _substr_sprite );
-                            _substr_length = 1;
-                            
-                            if ( ds_list_size( _parameters_list ) <= 1 ) _parameters_list[| 1] = "0";
-                            
-                            _substr_image = real( _parameters_list[| 1] );
-                            
-                            #endregion
+                            _text_flags[ _flag_index ] = false;
+                            _skip = true;
                         }
                         else
                         {
-                            #region Colours
-                            var _colour = global.__scribble_colours[? _parameters_list[| 0] ]; //Test if it's a colour
-                            if ( _colour != undefined )
+                            var _font_data = global.__scribble_font_data[? _parameters_list[| 0] ];
+                            if ( _font_data != undefined )
                             {
-                                _text_colour = _colour;
-                            }
-                            else //Test if it's a hexcode
-                            {
-                                var _colour_string = _parameters_list[| 0];
-                                if ( string_length( _colour_string ) <= 7 ) && ( string_copy( _colour_string, 1, 1 ) == "$" )
+                                #region Change font
+                        
+                                _text_font = _parameters_list[| 0];
+                        
+                                var _font_glyphs_array = _font_data[ __E_SCRIBBLE_FONT.GLYPHS_ARRAY ];
+                                if ( _font_glyphs_array == undefined )
                                 {
-                                    #region Hex string decoding
-                                    
-                                    var _ord = ord( string_char_at( _colour_string, 3 ) );
-                                    var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    var _ord = ord( string_char_at( _colour_string, 2 ) );
-                                    var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    
-                                    var _red = _lsf + (_hsf << 4);
-                                    
-                                    var _ord = ord( string_char_at( _colour_string, 5 ) );
-                                    var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    var _ord = ord( string_char_at( _colour_string, 4 ) );
-                                    var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    
-                                    var _green = _lsf + (_hsf << 4);
-                                    
-                                    var _ord = ord( string_char_at( _colour_string, 7 ) );
-                                    var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    var _ord = ord( string_char_at( _colour_string, 6 ) );
-                                    var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
-                                    
-                                    var _blue = _lsf + (_hsf << 4);
-                                    
+                                    var _font_glyphs_map = _font_data[ __E_SCRIBBLE_FONT.GLYPHS_MAP ];
+                                    var _array           = _font_glyphs_map[? " " ];
+                                }
+                                else
+                                {
+                                    var _array = _font_glyphs_array[ 32 - _font_data[ __E_SCRIBBLE_FONT.GLYPH_MIN ] ];
+                                }
+                        
+                                _font_space_width = _array[ __E_SCRIBBLE_GLYPH.W ];
+                                _font_line_height = _array[ __E_SCRIBBLE_GLYPH.H ];
+                        
+                                _skip = true;
+                        
+                                #endregion
+                            }
+                            else
+                            {
+                                var _asset = asset_get_index( _parameters_list[| 0] );
+                                if ( _asset >= 0 ) && ( asset_get_type( _parameters_list[| 0] ) == asset_sprite )
+                                {
+                                    #region Sprites
+                            
+                                    _substr_sprite = _asset;
+                                    _substr_width  = sprite_get_width(  _substr_sprite );
+                                    _substr_height = sprite_get_height( _substr_sprite );
+                                    _substr_length = 1;
+                            
+                                    if ( ds_list_size( _parameters_list ) <= 1 ) _parameters_list[| 1] = "0";
+                            
+                                    _substr_image = real( _parameters_list[| 1] );
+                            
                                     #endregion
+                                }
+                                else
+                                {
+                                    #region Colours
+                                    var _colour = global.__scribble_colours[? _parameters_list[| 0] ]; //Test if it's a colour
+                                    if ( _colour != undefined )
+                                    {
+                                        _text_colour = _colour;
+                                    }
+                                    else //Test if it's a hexcode
+                                    {
+                                        var _colour_string = _parameters_list[| 0];
+                                        if ( string_length( _colour_string ) <= 7 ) && ( string_copy( _colour_string, 1, 1 ) == "$" )
+                                        {
+                                            #region Hex string decoding
                                     
-                                    _text_colour = make_colour_rgb( _red, _green, _blue );
+                                            var _ord = ord( string_char_at( _colour_string, 3 ) );
+                                            var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                            var _ord = ord( string_char_at( _colour_string, 2 ) );
+                                            var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                    
+                                            var _red = _lsf + (_hsf << 4);
+                                    
+                                            var _ord = ord( string_char_at( _colour_string, 5 ) );
+                                            var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                            var _ord = ord( string_char_at( _colour_string, 4 ) );
+                                            var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                    
+                                            var _green = _lsf + (_hsf << 4);
+                                    
+                                            var _ord = ord( string_char_at( _colour_string, 7 ) );
+                                            var _lsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                            var _ord = ord( string_char_at( _colour_string, 6 ) );
+                                            var _hsf = ( _ord >= global.__scribble_hex_min ) && ( _ord <= global.__scribble_hex_max )? global.__scribble_hex_array[ _ord - global.__scribble_hex_min ] : 0;
+                                    
+                                            var _blue = _lsf + (_hsf << 4);
+                                    
+                                            #endregion
+                                    
+                                            _text_colour = make_colour_rgb( _red, _green, _blue );
+                                        }
+                                    }
+                                    _skip = true;
+                                    #endregion
                                 }
                             }
-                            _skip = true;
-                            #endregion
                         }
                     }
                 break;
+                #endregion
             }
             
             ds_list_clear( _parameters_list );
@@ -705,7 +711,7 @@ for( var _i = 0; _i < _separator_count; _i++ )
         _word_array[ __E_SCRIBBLE_WORD.LENGTH         ] = _substr_length; //Include the separator character!
         _word_array[ __E_SCRIBBLE_WORD.FONT           ] = _text_font;
         _word_array[ __E_SCRIBBLE_WORD.COLOUR         ] = _text_colour;
-        _word_array[ __E_SCRIBBLE_WORD.FLAG_DATA      ] = _text_flags;
+        _word_array[ __E_SCRIBBLE_WORD.FLAGS          ] = _text_flags;
         _word_array[ __E_SCRIBBLE_WORD.NEXT_SEPARATOR ] = "";
         
         //Add the word to the line list
@@ -857,9 +863,9 @@ repeat( _lines_size )
             _previous_font = "";
             
             var _char_pc     = _text_char / _max_char;
-            var _colour      = _word_array[ __E_SCRIBBLE_WORD.COLOUR    ];
-            var _flag_data   = _word_array[ __E_SCRIBBLE_WORD.FLAG_DATA ];
-            var _image       = _word_array[ __E_SCRIBBLE_WORD.IMAGE     ];
+            var _colour      = _word_array[ __E_SCRIBBLE_WORD.COLOUR ];
+            var _flag_data   = _word_array[ __E_SCRIBBLE_WORD.FLAGS  ];
+            var _image       = _word_array[ __E_SCRIBBLE_WORD.IMAGE  ];
             
             var _flags  = 0;
             var _offset = 1;
@@ -958,8 +964,8 @@ repeat( _lines_size )
             
             #region Add vertex data for each character in the string
             
-            var _colour    = _word_array[ __E_SCRIBBLE_WORD.COLOUR    ];
-            var _flag_data = _word_array[ __E_SCRIBBLE_WORD.FLAG_DATA ];
+            var _colour    = _word_array[ __E_SCRIBBLE_WORD.COLOUR ];
+            var _flag_data = _word_array[ __E_SCRIBBLE_WORD.FLAGS  ];
             
             var _flags  = 0;
             var _offset = 1;

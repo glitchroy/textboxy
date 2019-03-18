@@ -1,12 +1,25 @@
-/// @param fontName
-/// @param [spaceWidth]
-/// @param [mapString]
-/// @param [separation]
+/// Adds a spritefont definition for Scribble
+///
+/// Scribble's spritefonts emulate GameMaker's native behaviour. Spritefonts otherwise behave indentically to standard fonts
+/// All Scribble spritefonts are proportional (see font_add_sprite() for more details).
+///
+/// @param fontName       String name of the spritefont to add
+/// @param [spaceWidth]   Pixel width of the space character. Defaults to emulating GameMaker's behaviour
+/// @param [mapString]    Same behaviour as GameMaker's native font_add_sprite(). Defaults to the value set in __scribble_config()
+/// @param [separation]   Same behaviour as GameMaker's native font_add_sprite(). Defaults to the value set in __scribble_config()
+///
+/// All optional arguments accept <undefined> to indicate that the default value should be used.
 
-if ( !variable_global_exists( "__scribble_default_font" ) )
+if ( !variable_global_exists( "__scribble_init_complete" ) )
 {
-    show_error( "scribble_init_add_spritefont() can only be called after scribble_init_start() and before scribble_init_end()\n ", true );
+    show_error( "scribble_init_add_spritefont() should be called after scribble_init_start() and before scribble_init_end()\n ", true );
     exit;
+}
+
+if ( global.__scribble_init_complete )
+{
+    show_error( "scribble_init_add_spritefont() should be called before scribble_init_end()\n ", true );
+    return undefined;
 }
 
 var _font        =                                                       argument[0];
