@@ -18,7 +18,6 @@ if (q != undefined && tby_list_exists(q)) {
         tby_list_add(global.tby_finished_lists_list, name);
         
         global.tby_active_list_name = undefined;
-        global.tby_list_kickoff = false
         
         // Execute callback if specified
         if (ds_exists(global.tby_current_options_map, ds_type_map)) {

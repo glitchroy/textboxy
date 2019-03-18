@@ -6,4 +6,3 @@ if (global.tby_active_list_name != name) {
     
     global.tby_active_list_name = name
 }
-global.tby_list_kickoff = false

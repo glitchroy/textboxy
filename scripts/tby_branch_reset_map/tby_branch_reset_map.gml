@@ -15,5 +15,3 @@ for (var i = 0; i < size; i++) {
     }
     key = ds_map_find_next(map, key);
 }
-
-global.tby_list_kickoff = false

@@ -68,7 +68,8 @@ enum TbyOption {
 
 enum TbyListMeta {
     IdentifierString,
-    Pointer
+    Pointer,
+    HasBeenAdvanced
 }
 
 // If no size is given, use global size (aka this)
