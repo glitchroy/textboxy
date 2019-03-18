@@ -22,7 +22,7 @@ if (q != undefined && tby_list_exists(q)) {
         
         // Execute callback if specified
         if (ds_exists(global.tby_current_options_map, ds_type_map)) {
-            var cb = global.tby_current_options_map[? TbyOption.SetCallback];
+            var cb = tby_get_option(TbyOption.SetCallback);
             if (cb != -1 && script_exists(cb)) {
                 script_execute(cb)
             }

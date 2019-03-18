@@ -8,6 +8,7 @@ scribble_add_colour( "c_thought", $78d7ff );
 
 scribble_add_event( "wait", tby_tb_handle_wait );
 scribble_add_event( "speed", tby_tb_handle_speed );
+scribble_add_event( "script", tby_tb_handle_script );
 
 scribble_set_glyph_property( "sprTbyFontSmall", "T", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
 scribble_set_glyph_property( "sprTbyFontSmall", "I", SCRIBBLE_GLYPH_X_OFFSET, -1, true );

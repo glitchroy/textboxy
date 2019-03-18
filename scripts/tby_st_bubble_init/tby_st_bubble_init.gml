@@ -1,14 +1,28 @@
 // Init basics
-typewriterPos = 0;
-textSpeed = tby_default_text_speed;
-smoothness = 0;
+textSpeed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
 waitTimer = 0;
 pos = 0;
 sizeClamped = false;
 
 // Calculate position
 var tbWidth = tby_max_width_bubble;
-textScribble = scribble_create(textRaw, -1, tbWidth, tby_default_color, tby_default_font, fa_left);
+var dataFields = [
+    tby_get_option(TbyOption.SetWaveSize),
+    tby_get_option(TbyOption.SetWaveFrequency),
+    tby_get_option(TbyOption.SetWaveSpeed),
+    tby_get_option(TbyOption.SetShakeSize),
+    tby_get_option(TbyOption.SetShakeSpeed),
+    tby_get_option(TbyOption.SetRainbowWeight),
+]
+
+textScribble = scribble_create(textRaw,
+                               -1,
+                               tbWidth,
+                               tby_default_color,
+                               tby_default_font,
+                               fa_left,
+                               dataFields);
+
 
 var padding = tby_tile_size;
 var box = scribble_get_box(textScribble, 0, 0); // just for relative width / height
@@ -31,7 +45,7 @@ image_speed = tby_confirmation_blink_speed;
 scribble_set_box_alignment(textScribble); 
 
 //set fade in to 0 to begin with
-scribble_typewriter_in(textScribble, textSpeed, SCRIBBLE_TYPEWRITER_PER_CHARACTER, smoothness);
+scribble_typewriter_in(textScribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, textSpeed);
 
 //Adjust position optionally
 if (inst != undefined && instance_exists(inst)) {

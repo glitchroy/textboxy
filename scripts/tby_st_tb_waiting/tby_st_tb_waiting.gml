@@ -6,8 +6,7 @@ if (waitTimer > 0) {
 
 // Skip to end of textbox
 if (tby_input_advance_textbox) {
-    /*
-    typewriterPos = scribble_get_length(textScribble)*/
+	scribble_typewriter_out(textScribble, SCRIBBLE_TYPEWRITER_WHOLE, 0)
     waitTimer = 0
     tby_state_switch_previous()
 }

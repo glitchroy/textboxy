@@ -8,7 +8,7 @@ scribble_step(textScribble);
 
 // Skip to end of textbox
 if (tby_input_advance_textbox) {
-    //typewriterPos = scribble_get_length(textScribble)
+	scribble_typewriter_out(textScribble, SCRIBBLE_TYPEWRITER_WHOLE, 0)
 }
 
 var currentState = scribble_typewriter_get_state(textScribble);

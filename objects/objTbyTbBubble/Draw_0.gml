@@ -9,6 +9,6 @@ var boxDim = [textDim[TbyPos.x]-padding, textDim[TbyPos.y]-padding, textDim[TbyP
 
 //Bubble
 if (inst != undefined && instance_exists(inst) && !sizeClamped) {
-    var bubbleSprite = tby_array_get(tby_default_skin, TbySkin.Bubble)
+    var bubbleSprite = tby_array_get(tby_get_option(TbyOption.SetSkin), TbySkin.Bubble)
     tby_draw_sprite(bubbleSprite, boxDim[0]+(boxDim[2]-boxDim[0])/2, textDim[TbyPos.y]+textDim[TbyPos.height]+padding)
 }

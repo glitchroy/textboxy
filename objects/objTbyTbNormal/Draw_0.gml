@@ -13,7 +13,7 @@ tby_draw_box(boxDim[0], boxDim[1], boxDim[2], boxDim[3]);
 scribble_draw(textScribble, textDim[TbyPos.x]-1, textDim[TbyPos.y]-1);
 
 // Finished circle
-var circleSprite = tby_array_get(tby_default_skin, TbySkin.Pause)
+var circleSprite = tby_array_get(tby_get_option(TbyOption.SetSkin), TbySkin.Pause)
 if (stateName == "Finished") draw_sprite(circleSprite, -1, textDim[TbyPos.x]+textDim[TbyPos.width]+padding,
                                                            textDim[TbyPos.y]+textDim[TbyPos.height]+padding)
 

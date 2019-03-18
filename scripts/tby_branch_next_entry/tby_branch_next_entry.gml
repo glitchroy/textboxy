@@ -84,7 +84,7 @@ if (tby_list_exists(q)) {
         case TbyType.Normal:
             //1: string
             //2: positional data
-            if (tby_arrlen(tbData) < 3) tbData[2] = global.tby_current_options_map[? TbyOption.SetPlacement]
+            if (tby_arrlen(tbData) < 3) tbData[2] = tby_get_option(TbyOption.SetPlacement)
             tby_normal_create(tbData[1], tbData[2]);
         break;
         case TbyType.Bubble:
@@ -92,7 +92,7 @@ if (tby_list_exists(q)) {
             //2: instance talking
             
             //use global instance if none is given
-            if (tby_arrlen(tbData) < 3) tbData[2] = global.tby_current_options_map[? TbyOption.SetInstance]
+            if (tby_arrlen(tbData) < 3) tbData[2] = tby_get_option(TbyOption.SetInstance)
             
             // check if its a string thats an object type (from json usually)
             if (is_string(tbData[2])) {

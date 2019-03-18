@@ -9,4 +9,5 @@ var json = argument0, data = argument1, changed = argument2, different = argumen
 
 if ( different ) {
     textSpeed = real(data[0]);
+    json[| __E_SCRIBBLE.TW_SPEED] = textSpeed
 }

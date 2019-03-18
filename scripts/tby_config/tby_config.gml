@@ -1,4 +1,5 @@
 /* This config file is meant to last through updates. */
+/* Also check */__scribble_config()/* for additional config options. */
 
 /* Basic game information */
 #macro tby_game_width 480
@@ -8,11 +9,6 @@
 #macro tby_default_skin [sprTbySkinFrameD, sprTbySkinBubbleD, sprTbySkinPauseD, sprTbySkinArrowD]
 #macro tby_default_color c_white
 #macro tby_default_font "sprTbyFontMain"
-#macro tby_default_text_speed 1
-
-/* Text effect options */
-#macro tby_default_shake_intensity 1.2
-#macro tby_default_wave_intensity 2.0
 
 /* Sound options */
 #macro tby_default_speech_sound sndTbySpeechDefault
