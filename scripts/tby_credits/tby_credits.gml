@@ -6,8 +6,6 @@ Credits:
 ---------------------
 Scribble by jujuadams
 https://github.com/GameMakerDiscord/scribble/
-forked and modified
-https://github.com/glitchroy/scribble-tby
 ---------------------
 Concat function by twisterghost
 https://github.com/gm-core/gdash/blob/master/src/scripts/_concat/_concat.gml
