@@ -37,3 +37,7 @@
 
 /* Technical */
 #macro tby_texture_page_size 2048
+
+/* External lang files */
+#macro tby_use_external_lang_file true
+#macro tby_default_external_lang_file "lang.json"

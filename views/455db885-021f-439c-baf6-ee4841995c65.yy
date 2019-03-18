@@ -13,7 +13,8 @@
         "73aec559-488a-4a0a-b13b-3a9a0cd74e39",
         "c8bd790d-fc2c-4dda-9591-53517b4b6a56",
         "bf525c81-e5e3-48d6-954a-c6acbe64123e",
-        "425f668a-3a7c-493e-bbd5-f07204ac2d70"
+        "425f668a-3a7c-493e-bbd5-f07204ac2d70",
+        "5f17bccc-494d-05bd-c409-d0db82a5d1f6"
     ],
     "filterType": "GMScript",
     "folderName": "Helper",

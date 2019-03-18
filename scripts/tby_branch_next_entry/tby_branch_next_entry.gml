@@ -93,8 +93,13 @@ if (tby_list_exists(q)) {
             
             //use global instance if none is given
             if (tby_arrlen(tbData) < 3) tbData[2] = global.tby_current_options_map[? TbyOption.SetInstance]
-            // sanity check
-            if (tbData[2] == undefined || !instance_exists(tbData[2])) {
+            
+            // check if its a string thats an object type (from json usually)
+            if (is_string(tbData[2])) {
+                var objectId = asset_get_index(tbData[2]);
+                if (objectId != -1) tbData[2] = objectId
+            } else if (tbData[2] == undefined || !instance_exists(tbData[2])) {
+                // sanity check
                 tby_log("No valid instance specified for bubble textbox, using ", id, "as substitute.")
                 tbData[2] = id //just use the calling instance
             }

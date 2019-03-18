@@ -10,15 +10,20 @@ global.tby_active_list_name = undefined; //ds_list name
 global.tby_list_kickoff = false
 global.tby_finished_lists_list = undefined;
 
+global.tby_external_strings_map = undefined;
+
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)
 if (!layer_exists(tby_layer_text)) {
 	layer_create(-1000, tby_layer_text);
 }
 layer_reset_target_room()
-	
 
 // From __scrible_init()
 if (!instance_exists(tby_object_manager)) {
 	room_instance_add(room_first, 0, 0, tby_object_manager);
+}
+
+if (tby_use_external_lang_file) {
+	tby_init_external_strings(tby_default_external_lang_file)
 }

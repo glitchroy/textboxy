@@ -12,7 +12,6 @@ if (tby_input_advance_textbox) {
 }
 
 var currentState = scribble_typewriter_get_state(textScribble);
-tby_log(currentState)
 
 // --> FINISHED
 if (currentState == 1) {
