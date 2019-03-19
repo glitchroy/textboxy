@@ -8,7 +8,7 @@ if (map != undefined && ds_exists(map, ds_type_map)) {
 	var list = ds_map_find_value(map, identifier);
 
 	if (list != undefined) {
-	    var arr = tby_list_to_array(list);
+	    var arr = tby_ds_list_to_array(list);
 	    tby_branch_create(identifier);
 	    tby_branch_use(identifier);
 		tby_branch_add(TbyType.Batch, arr);

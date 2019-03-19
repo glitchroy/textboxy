@@ -4,7 +4,6 @@ global.tby_debug = true;
 global.tby_choice_result = undefined;
 global.tby_current_options_map = undefined; tby_reset_options();
 global.tby_current_labels_map = undefined;
-//TODO: Labels need to work even before they are registered not only after
 global.tby_list_map = undefined; //map of ds_list ids <--> names
 global.tby_active_list_name = undefined; //ds_list name
 global.tby_finished_lists_list = undefined;
