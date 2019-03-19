@@ -131,12 +131,13 @@ switch (tbType) {
         tby_branch_next_entry();
     break;
     case TbyType.Label:
-        //1: label name
-        global.tby_current_labels_map[? tbArgs[0]] = tby_list_get_pointer(tby_branch_get_active_id());
+        //0: label name
+        // Because of pre-scan, this just does nothing
+        //global.tby_current_labels_map[? tbArgs[0]] = TbyList.get_pointer(TbyBranch.get_active_id());
         tby_branch_next_entry();
     break;
     case TbyType.GoTo:
-        //1: label name
+        //0: label name
         var label = global.tby_current_labels_map[? tbArgs[0]];
         if (label != undefined) {
             tby_list_set_pointer(tby_branch_get_active_id(), label)

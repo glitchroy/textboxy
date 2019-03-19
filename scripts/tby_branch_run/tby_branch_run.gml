@@ -3,6 +3,8 @@ var name = argument0;
 
 var currentListAdvanced = tby_list_get_has_been_advanced(tby_branch_get_active_id());
 if (global.tby_active_list_name == name && !currentListAdvanced) {
+    tby_branch_scan_labels();
+    
     tby_branch_next_entry();
     
     tby_hook_branch_start()
