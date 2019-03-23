@@ -7,12 +7,12 @@ sizeClamped = false;
 // Calculate position
 var tbWidth = tby_max_width_bubble;
 var dataFields = [
-    tby_get_option(TbyOption.SetWaveSize),
-    tby_get_option(TbyOption.SetWaveFrequency),
-    tby_get_option(TbyOption.SetWaveSpeed),
-    tby_get_option(TbyOption.SetShakeSize),
-    tby_get_option(TbyOption.SetShakeSpeed),
-    tby_get_option(TbyOption.SetRainbowWeight),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveSize),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveFrequency),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveSpeed),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetShakeSize),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetShakeSpeed),
+    tby_branch_get_option(global.tby_active_branch, TbyOption.SetRainbowWeight),
 ]
 
 textScribble = scribble_create(textRaw,

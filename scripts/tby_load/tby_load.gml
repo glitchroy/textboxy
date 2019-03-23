@@ -10,7 +10,6 @@ if (map != undefined && ds_exists(map, ds_type_map)) {
 	if (list != undefined) {
 	    var arr = tby_ds_list_to_array(list);
 	    tby_branch_create(identifier);
-	    tby_branch_use(identifier);
 		tby_branch_add(TbyType.Batch, arr);
 	    tby_branch_run(identifier);
 	}

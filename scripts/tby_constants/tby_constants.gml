@@ -69,7 +69,6 @@ enum TbyOption {
 enum TbyListMeta {
     IdentifierString,
     Pointer,
-    BranchName,
     HasBeenAdvanced
 }
 
@@ -79,4 +78,10 @@ enum TbyPlacement {
     Middle,
     Bottom,
     Auto
+}
+
+enum TbyBranch {
+    MessageList,
+    LabelMap,
+    OptionsMap
 }

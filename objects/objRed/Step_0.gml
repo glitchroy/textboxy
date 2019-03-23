@@ -37,6 +37,8 @@ if (keyboard_check_pressed(ord("M"))) {
 #region Command stuff
 if (keyboard_check_pressed(vk_escape)) game_end();
 
+//if (keyboard_check_pressed(ord("R"))) game_restart();
+
 if (keyboard_check_pressed(vk_f3)) {
 	global.tby_debug = !global.tby_debug
 }
@@ -54,7 +56,6 @@ if (global.inDialoguePause) {
 if (keyboard_check_pressed(ord("F"))) {
 	var s = choose("§[shake]I'm talking[]!", "§Hey there!", "§[wave]Woaoaahh[]!", "§I can't\nbelieve it!");
 	var playerTalking = tby_branch_create("player-talking");
-	tby_branch_use(playerTalking);
 	tby_branch_set(TbyOption.SetInstance, id)
 	tby_branch_add(s);
 	tby_branch_run(playerTalking);

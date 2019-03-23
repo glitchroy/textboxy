@@ -1,16 +1,16 @@
-var list = global.tby_active_list;
+var branchName = global.tby_active_branch;
 
 #region Exit Conditions
-if (list == undefined || list == -1) {
+if (tby_branch_exists(branchName) == false) {
     exit;
 }
 
-if (tby_list_exists(list) == false) exit;
+var list = tby_branch_get_message_list(branchName);
 
 if (tby_list_finished(list)) {
-    //current list is finished
+    //current branch is finished
     //destroy
-    tby_branch_destroy(global.tby_active_list)
+    tby_branch_destroy(branchName)
     
     tby_hook_branch_finished()
     
@@ -22,8 +22,8 @@ if (tby_list_finished(list)) {
 var tbData = tby_list_advance(list)
 
 if (tbData == undefined) {
-    tby_branch_destroy(list)
+    tby_branch_destroy(branchName)
 } else {
-    tby_branch_handle_new_textbox(tbData)
+    tby_branch_handle_new_textbox(branchName, tbData)
 }
 

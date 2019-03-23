@@ -6,17 +6,11 @@ global.tby_debug = true;
 // This int holds the result of the latest TbyChoice call
 global.tby_choice_result = undefined;
 
-/* This ds_map holds the defined options for the current TbyBranch. */
-global.tby_current_options_map = undefined; tby_reset_options();
+/* This ds_map holds all defined branch payloads and the respective branch name as keys. */
+global.tby_branches = undefined;
 
-/* This ds_map holds the defined label pointers for the current TbyBranch. */
-global.tby_current_labels_map = undefined;
-
-/* This ds_map holds all defined TbyLists and the respective branch name as keys. */
-global.tby_list_map = undefined;
-
-/* This int holds the current active TbyList index. */
-global.tby_active_list = undefined;
+/* This string holds the current active TbyBranch name. */
+global.tby_active_branch = undefined;
 
 /* This ds_map holds all the key and value pairs that are
    defined by an external file, using tby_init_external_strings.
@@ -24,7 +18,7 @@ global.tby_active_list = undefined;
 global.tby_external_strings_map = undefined;
 
 // So this doesn't get computed every time it is called
-global.tby_skin_tile_size = sprite_get_width(tby_array_get(tby_get_option(TbyOption.SetSkin), TbySkin.Frame))
+global.tby_skin_tile_size = sprite_get_width(tby_array_get(tby_default_skin, TbySkin.Frame))
 
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)

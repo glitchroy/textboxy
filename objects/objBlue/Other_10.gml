@@ -16,4 +16,4 @@ tby_branch_add("[c_aqua](You feel like you just made a [wave][rainbow]new friend
 var test = tby_branch_create();
 tby_branch_add(TbyType.Bubble, "testing!", id)
 
-tby_branch_run()
+tby_branch_run(blueDialogue)

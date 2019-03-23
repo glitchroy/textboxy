@@ -1,33 +1,29 @@
-/// @param ?tby_list_or_name = undefined
-var tby_list_or_name = argument_count > 0 ? argument[0] : undefined;
+/// @param ?branchName = undefined
+var branchName = argument_count > 0 ? argument[0] : undefined;
 
-// Assuming argument is the list id
-var tby_list = tby_list_or_name;
-
-if (tby_list_or_name == undefined) {
-    // If argument is not given, use the active list
-    tby_list = global.tby_active_list;
-} else if (is_string(tby_list_or_name)) {
-    // If the argument is string, try to use it as identifier
-    tby_list = tby_branch_get_id(tby_list_or_name);
+// If no branch name is given, assume the global active one
+if (branchName == undefined) {
+    branchName = global.tby_active_branch;
 }
 
-// Abort if list does not exist
-if (tby_list_exists(tby_list) == false) {
-    tby_log("Can't find TbyBranch \"" + string(tby_list) + "\" / \"" + string(tby_list_or_name) + "\".");
+// Abort if the branch does not exist
+if (tby_branch_exists(branchName) == false) {
+    tby_log("Can't find TbyBranch \"" + branchName + "\".");
     exit;
 }
 
-var currentListAdvanced = tby_list_get_has_been_advanced(tby_list);
+// Abort if the branch is already running
+var branchList = tby_branch_get_message_list(branchName);
+var currentListAdvanced = tby_list_get_has_been_advanced(branchList);
 
 if (currentListAdvanced) {
-    tby_log("Trying to run TbyBranch \"" + string(tby_list) + "\" / \"" + string(tby_list_or_name) + "\" while it is already running.")
+    tby_log("Trying to run TbyBranch \"" + string(branchName) + "\" while it is already running.")
     exit;
 }
 
 // Automatically use the given list if it is not the active one
-if (global.tby_active_list != tby_list) {
-    tby_branch_use(tby_list);
+if (global.tby_active_branch != branchName) {
+    tby_branch_use(branchName);
 }
 
 tby_branch_scan_labels();

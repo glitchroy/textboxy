@@ -1,8 +1,8 @@
 {
-    "id": "da3ccd29-941d-4a6c-8a7d-b87d4248925f",
+    "id": "a240add3-01ac-409a-9087-9507a622cd5b",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_set_option",
+    "name": "tby_msg",
     "IsCompatibility": false,
     "IsDnD": false
 }

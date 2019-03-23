@@ -1,4 +1,4 @@
-if (stateName == "Init") exit;
+if (stateName == "Init" || stateName == "Vanishing") exit;
 if (textScribble == undefined) exit;
 
 // Define variables to work with
@@ -13,7 +13,7 @@ tby_draw_box(boxDim[0], boxDim[1], boxDim[2], boxDim[3]);
 scribble_draw(textScribble, textDim[TbyPos.x]-1, textDim[TbyPos.y]-1);
 
 // Finished circle
-var circleSprite = tby_array_get(tby_get_option(TbyOption.SetSkin), TbySkin.Pause)
+var circleSprite = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Pause)
 if (stateName == "Finished") draw_sprite(circleSprite, -1, textDim[TbyPos.x]+textDim[TbyPos.width]+padding,
                                                            textDim[TbyPos.y]+textDim[TbyPos.height]+padding)
 

@@ -6,12 +6,12 @@ var type = argument[0];
 //Args Choice --> Text, ChoiceArray, Size
 //Args Option --> Type, Args
 
-if (tby_list_exists(global.tby_active_list)) {
+if (tby_branch_exists(global.tby_active_branch)) {
     //part of branch
     var args = []
     for (var i = 0; i < argument_count; i++) {
         args[i] = argument[i]
     }
     
-    tby_list_add(global.tby_active_list, args)
+    tby_branch_add_to_message_list(global.tby_active_branch, args)
 }

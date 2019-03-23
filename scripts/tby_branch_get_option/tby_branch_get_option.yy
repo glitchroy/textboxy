@@ -1,8 +1,8 @@
 {
-    "id": "b0fb917a-9c98-e876-45fe-fa73738e7503",
+    "id": "8482401a-f215-e325-8d84-c23370022e99",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_log",
+    "name": "tby_branch_get_option",
     "IsCompatibility": false,
     "IsDnD": false
 }

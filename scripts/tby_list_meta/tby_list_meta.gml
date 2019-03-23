@@ -1,1 +1,1 @@
-return ["TBY_LIST", 0, "name not set", false]
+return ["TBY_LIST", 0, false]

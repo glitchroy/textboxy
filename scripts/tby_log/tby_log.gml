@@ -4,4 +4,10 @@ for (var i = 0; i < argument_count; i++) {
 	s += string(argument[i]) + " | ";
 }
 
-show_debug_message("[TBY " + string(current_time) + "] " + s);
+var stack = debug_get_callstack();
+var script = "tby_script";
+if (is_array(stack) && tby_arrlen(stack) > 1) {
+    script = string_replace(stack[1], "gml_Script_", "");
+}
+
+show_debug_message("[" + string(script) + "] " + s);

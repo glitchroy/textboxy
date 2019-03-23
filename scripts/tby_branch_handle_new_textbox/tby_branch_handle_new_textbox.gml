@@ -1,5 +1,6 @@
+/// @param branchName
 /// @param tbData
-var tbData = argument0;
+var branchName = argument0, tbData = argument1;
 
 var tbType = tbData[0];
 var tbArgs = [];
@@ -81,7 +82,7 @@ switch (tbType) {
         //1: positional data
         
         // global position data if none given
-        if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_get_option(TbyOption.SetPlacement)
+        if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_branch_get_option(branchName, TbyOption.SetPlacement)
         
         tby_normal_create(tbArgs[0], tbArgs[1]);
     break;
@@ -90,7 +91,7 @@ switch (tbType) {
         //1: instance talking
         
         //use global instance if none is given
-        if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_get_option(TbyOption.SetInstance)
+        if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_branch_get_option(branchName, TbyOption.SetInstance)
         
         // check if its a string thats an object type (from json usually)
         if (is_string(tbArgs[1])) {
@@ -114,7 +115,8 @@ switch (tbType) {
     case TbyType.Option:
         //0: Option type
         //1: Option value
-        tby_set_option(tbArgs[0], tbArgs[1])
+        tby_branch_set_option(branchName, tbArgs[0], tbArgs[1])
+        tby_branch_next_entry()
     break;
     case TbyType.Wait:
         //wait time
@@ -127,21 +129,21 @@ switch (tbType) {
         }
     break;
     case TbyType.Terminate:
-        tby_list_clear(global.tby_active_list);
+        tby_list_clear(branchName);
         tby_branch_next_entry();
     break;
     case TbyType.Label:
         //0: label name
         // Because of pre-scan, this just does nothing
-        //global.tby_current_labels_map[? tbArgs[0]] = TbyList.get_pointer(TbyBranch.get_active_id());
+        //global.tby_curre?nt_labels_map[? tbArgs[0]] = TbyList.get_pointer(branchName);
         tby_branch_next_entry();
     break;
     case TbyType.GoTo:
         //0: label name
-        var label = global.tby_current_labels_map[? tbArgs[0]];
-        if (label != undefined) {
-            tby_list_set_pointer(global.tby_active_list, label)
-        }
-        tby_branch_next_entry();
+        //var label = global.tby_curre?nt_labels_map[? tbArgs[0]];
+        //if (label != undefined) {
+        //    TbyList.set_pointer(branchName, label)
+        //}
+        //TbyBranch.next_entry();
     break;
 }

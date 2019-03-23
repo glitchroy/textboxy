@@ -5,7 +5,7 @@
 //#args x1, y1, x2, y2
 var x1 = argument0, y1 = argument1, x2 = argument2, y2 = argument3;
 
-var frame = tby_array_get(tby_get_option(TbyOption.SetSkin), TbySkin.Frame);
+var frame = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Frame);
 var ts = tby_tile_size
 var widthPercentage = (1/ts)*(x2-x1-ts*2)
 var heightPercentage = (1/ts)*(y2-y1-ts*2)
