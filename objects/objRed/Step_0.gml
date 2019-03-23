@@ -53,11 +53,11 @@ if (global.inDialoguePause) {
 /* This is textboxy code */
 if (keyboard_check_pressed(ord("F"))) {
 	var s = choose("§[shake]I'm talking[]!", "§Hey there!", "§[wave]Woaoaahh[]!", "§I can't\nbelieve it!");
-	tby_branch_create("player-talking");
-	tby_branch_use("player-talking");
+	var playerTalking = tby_branch_create("player-talking");
+	tby_branch_use(playerTalking);
 	tby_branch_set(TbyOption.SetInstance, id)
 	tby_branch_add(s);
-	tby_branch_run("player-talking");
+	tby_branch_run(playerTalking);
 }
 #region Movement stuff
 //Very rudimentary

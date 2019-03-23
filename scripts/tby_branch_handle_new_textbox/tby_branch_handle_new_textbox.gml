@@ -140,7 +140,7 @@ switch (tbType) {
         //0: label name
         var label = global.tby_current_labels_map[? tbArgs[0]];
         if (label != undefined) {
-            tby_list_set_pointer(tby_branch_get_active_id(), label)
+            tby_list_set_pointer(global.tby_active_list, label)
         }
         tby_branch_next_entry();
     break;

@@ -1,5 +1,5 @@
 tby_branch_reset_map()
-global.tby_active_list_name = undefined;
+global.tby_active_list = undefined;
 tby_reset_options()
 
 if (global.tby_finished_lists_list == undefined) {

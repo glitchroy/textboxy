@@ -69,6 +69,7 @@ enum TbyOption {
 enum TbyListMeta {
     IdentifierString,
     Pointer,
+    BranchName,
     HasBeenAdvanced
 }
 

@@ -1,8 +1,8 @@
-/// @param name
-var name = argument0;
+/// @param tby_list
+var tby_list = argument0;
 
-if (global.tby_active_list_name != name) {
+if (global.tby_active_list != tby_list) {
     //new active branch
     
-    global.tby_active_list_name = name
+    global.tby_active_list = tby_list
 }

@@ -6,13 +6,12 @@ var type = argument[0];
 //Args Choice --> Text, ChoiceArray, Size
 //Args Option --> Type, Args
 
-if (tby_list_exists(tby_branch_get_active_id() )) {
+if (tby_list_exists(global.tby_active_list)) {
     //part of branch
     var args = []
     for (var i = 0; i < argument_count; i++) {
         args[i] = argument[i]
     }
     
-    tby_list_add(tby_branch_get_active_id(), args)
-    //queue = global.tby_active_list_name; --unused?
+    tby_list_add(global.tby_active_list, args)
 }
