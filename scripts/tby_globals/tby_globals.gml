@@ -1,6 +1,5 @@
 gml_pragma("global", "tby_globals()")
 
-
 // This bool holds if the debug mode for textboxy is active.
 global.tby_debug = true;
 

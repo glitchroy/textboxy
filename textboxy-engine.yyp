@@ -610,7 +610,7 @@
             "Key": "583b69b9-ec5e-4255-9865-a2202433cb71",
             "Value": {
                 "id": "aacf6f8d-bcaf-4274-a362-f4028dba0180",
-                "resourcePath": "scripts\\tby_branch_reset_map\\tby_branch_reset_map.yy",
+                "resourcePath": "scripts/tby_branch_clear_map/tby_branch_clear_map.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -698,7 +698,7 @@
             "Key": "5f17bccc-494d-05bd-c409-d0db82a5d1f6",
             "Value": {
                 "id": "f68780bb-1878-dfdb-d1c8-b357c981c19d",
-                "resourcePath": "scripts\/tby_ds_list_to_array\/tby_ds_list_to_array.yy",
+                "resourcePath": "scripts/tby_ds_list_to_array/tby_ds_list_to_array.yy",
                 "resourceType": "GMScript"
             }
         },

@@ -14,14 +14,14 @@ if (tby_list_or_name == undefined) {
 
 // Abort if list does not exist
 if (tby_list_exists(tby_list) == false) {
-    tby_log("Can't find TbyBranch " + string(tby_list) + " / " + string(tby_list_or_name) + ".");
+    tby_log("Can't find TbyBranch \"" + string(tby_list) + "\" / \"" + string(tby_list_or_name) + "\".");
     exit;
 }
 
 var currentListAdvanced = tby_list_get_has_been_advanced(tby_list);
 
 if (currentListAdvanced) {
-    tby_log("Trying to run TbyBranch \""+ name +"\" while it is already running.")
+    tby_log("Trying to run TbyBranch \"" + string(tby_list) + "\" / \"" + string(tby_list_or_name) + "\" while it is already running.")
     exit;
 }
 

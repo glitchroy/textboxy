@@ -127,7 +127,7 @@ switch (tbType) {
         }
     break;
     case TbyType.Terminate:
-        tby_list_clear(q);
+        tby_list_clear(global.tby_active_list);
         tby_branch_next_entry();
     break;
     case TbyType.Label:
