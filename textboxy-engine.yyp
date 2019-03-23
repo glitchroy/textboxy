@@ -1479,14 +1479,6 @@
             }
         },
         {
-            "Key": "d7f9ef21-b63c-4906-b0cb-957c0647e0d6",
-            "Value": {
-                "id": "beeb0a18-09c6-4c94-b1e3-c1f9c46bceb1",
-                "resourcePath": "scripts\\tby_branch_is_finished\\tby_branch_is_finished.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "d8577805-cb7b-4469-816e-5429c64d7637",
             "Value": {
                 "id": "18792c1a-d25a-4b4e-8944-4b4da70b9fca",
@@ -1854,7 +1846,6 @@
         "f89b9c1c-e14c-4a61-977b-aadc4d913aee",
         "40ac5380-2ba6-4620-b69b-2598f299a37c",
         "40af14e2-6ee2-4312-a85b-aefd7713d6c2",
-        "d7f9ef21-b63c-4906-b0cb-957c0647e0d6",
         "e5051370-783d-42ba-ad33-6d858338e12d",
         "e5447dbd-fed3-6ea3-b6fd-0dd4ebcc647b",
         "ae125a71-7429-5858-56d6-9f3439988db9",

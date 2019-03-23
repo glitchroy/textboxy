@@ -1,13 +1,27 @@
 gml_pragma("global", "tby_globals()")
 
-global.tby_debug = true;
-global.tby_choice_result = undefined;
-global.tby_current_options_map = undefined; tby_reset_options();
-global.tby_current_labels_map = undefined;
-global.tby_list_map = undefined; //map of ds_list ids <--> names
-global.tby_active_list = undefined; //ds_list name
-global.tby_finished_lists_list = undefined;
 
+// This bool holds if the debug mode for textboxy is active.
+global.tby_debug = true;
+
+// This int holds the result of the latest TbyChoice call
+global.tby_choice_result = undefined;
+
+/* This ds_map holds the defined options for the current TbyBranch. */
+global.tby_current_options_map = undefined; tby_reset_options();
+
+/* This ds_map holds the defined label pointers for the current TbyBranch. */
+global.tby_current_labels_map = undefined;
+
+/* This ds_map holds all defined TbyLists and the respective branch name as keys. */
+global.tby_list_map = undefined;
+
+/* This int holds the current active TbyList index. */
+global.tby_active_list = undefined;
+
+/* This ds_map holds all the key and value pairs that are
+   defined by an external file, using tby_init_external_strings.
+   Otherwise, it is undefined. */
 global.tby_external_strings_map = undefined;
 
 // So this doesn't get computed every time it is called

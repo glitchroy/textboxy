@@ -14,9 +14,6 @@ if (tby_list != undefined && tby_list_exists(tby_list)) {
     
     if (global.tby_active_list == tby_list) {
         
-        //add name to finished branch
-        tby_list_add(global.tby_finished_lists_list, name);
-        
         global.tby_active_list = undefined;
         
         // Execute callback if specified
