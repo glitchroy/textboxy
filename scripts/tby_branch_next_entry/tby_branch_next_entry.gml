@@ -1,4 +1,5 @@
-var branchName = global.tby_active_branch;
+/// @param branchName = global.tby_active_branch
+var branchName = argument_count > 0 ? argument[0] : global.tby_active_branch;
 
 #region Exit Conditions
 if (tby_branch_exists(branchName) == false) {

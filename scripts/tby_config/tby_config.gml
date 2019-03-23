@@ -29,7 +29,7 @@
 
 /* Bubble textbox options */
 #macro tby_max_width_bubble 120
-#macro tby_quick_mode_bubble_char "§"
+#macro tby_quick_mode_bubble_char ord("§")
 
 /* Technical */
 #macro tby_texture_page_size 2048

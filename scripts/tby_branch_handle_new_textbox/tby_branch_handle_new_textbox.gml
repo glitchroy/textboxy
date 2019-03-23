@@ -27,7 +27,7 @@ if (tbType == TbyType.ChoiceResult) {
         tbArgs = tempData;
     } else {
         // skip this entry
-        tby_branch_next_entry()
+        tby_branch_next_entry(branchName)
     }
 }
 #endregion
@@ -116,7 +116,7 @@ switch (tbType) {
         //0: Option type
         //1: Option value
         tby_branch_set_option(branchName, tbArgs[0], tbArgs[1])
-        tby_branch_next_entry()
+        tby_branch_next_entry(branchName)
     break;
     case TbyType.Wait:
         //wait time
@@ -130,13 +130,13 @@ switch (tbType) {
     break;
     case TbyType.Terminate:
         tby_list_clear(branchName);
-        tby_branch_next_entry();
+        tby_branch_next_entry(branchName);
     break;
     case TbyType.Label:
         //0: label name
         // Because of pre-scan, this just does nothing
         //global.tby_curre?nt_labels_map[? tbArgs[0]] = TbyList.get_pointer(branchName);
-        tby_branch_next_entry();
+        tby_branch_next_entry(branchName);
     break;
     case TbyType.GoTo:
         //0: label name
@@ -144,6 +144,6 @@ switch (tbType) {
         //if (label != undefined) {
         //    TbyList.set_pointer(branchName, label)
         //}
-        //TbyBranch.next_entry();
+        //TbyBranch.next_entry(branchName);
     break;
 }

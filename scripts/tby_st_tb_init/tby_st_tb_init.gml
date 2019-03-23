@@ -16,13 +16,14 @@ if (cam != -1) {
 //message confirmation dot speed
 image_speed = tby_confirmation_blink_speed;
 
+var branchName = global.tby_active_branch;
 var dataFields = [
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveSize),
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveFrequency),
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetWaveSpeed),
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetShakeSize),
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetShakeSpeed),
-    tby_branch_get_option(global.tby_active_branch, TbyOption.SetRainbowWeight),
+    tby_branch_get_option(branchName, TbyOption.SetWaveSize),
+    tby_branch_get_option(branchName, TbyOption.SetWaveFrequency),
+    tby_branch_get_option(branchName, TbyOption.SetWaveSpeed),
+    tby_branch_get_option(branchName, TbyOption.SetShakeSize),
+    tby_branch_get_option(branchName, TbyOption.SetShakeSpeed),
+    tby_branch_get_option(branchName, TbyOption.SetRainbowWeight),
 ]
 
 textScribble = scribble_create(textRaw,

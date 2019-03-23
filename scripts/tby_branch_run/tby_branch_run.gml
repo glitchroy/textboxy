@@ -27,5 +27,5 @@ if (global.tby_active_branch != branchName) {
 }
 
 tby_branch_scan_labels();
-tby_branch_next_entry();
+tby_branch_next_entry(branchName);
 tby_hook_branch_start()
