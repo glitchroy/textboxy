@@ -1,11 +1,10 @@
 /// @param placementEnum
-/// @param lineNumber = tby_box_lines_per_tb
-var placementEnum = argument[0];
-var lineNumber = argument_count > 1 ? argument[1] : tby_box_lines_per_tb;
+/// @param lineNumber 
+var placementEnum = argument0, lineNumber = argument1;
 
-var top = tby_pos_create_normal(0, lineNumber);
-var mid = tby_pos_create_normal(tby_game_height/2 - (tby_pos_height_from_lines(lineNumber)+tby_tile_size)/2, lineNumber);
-var bot = tby_pos_create_normal(tby_game_height - (tby_pos_height_from_lines(lineNumber)+tby_tile_size*2), lineNumber);
+var top = tby_pos_create_normal(tby_tile_size, lineNumber);
+var mid = tby_pos_create_normal(tby_game_height/2 - (tby_pos_height_from_lines(lineNumber))/2, lineNumber);
+var bot = tby_pos_create_normal(tby_game_height - (tby_pos_height_from_lines(lineNumber)+tby_tile_size), lineNumber);
 
 {/*!#lamdef __lf_tby_normal_get_placement_from_enum_calculate_auto_position*/}
 

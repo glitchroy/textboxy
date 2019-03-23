@@ -3,14 +3,13 @@ textSpeed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
 waitTimer = 0;
 var pos/*:TbyPos*/ = self.pos
 
-
 //Add camera offset
 //Calc max size (the custom box width if specified or the whole game screen)
 var cam = view_camera[0]
 if (cam != -1) {
     var padding = tby_tile_size;
-    pos[@TbyPos.x] = camera_get_view_x(cam) + pos[TbyPos.x] + padding;
-    pos[@TbyPos.y] = camera_get_view_y(cam) + pos[TbyPos.y] + padding;
+    pos[@TbyPos.x] += camera_get_view_x(cam);
+    pos[@TbyPos.y] += camera_get_view_y(cam);
 }
 
 //message confirmation dot speed

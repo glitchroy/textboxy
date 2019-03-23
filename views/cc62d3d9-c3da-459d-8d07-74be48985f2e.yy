@@ -18,7 +18,8 @@
         "f591c80b-7c2c-4049-8065-653d56adeed1",
         "1e4ce98a-98b9-46ff-985d-32a5fe436a6a",
         "2ba33bab-2cad-b27a-2999-4c56b66e5019",
-        "3cbfb386-1ac4-4d78-9772-fab371a9df6e"
+        "3625f61c-c6d9-4450-b708-3e7c843f9a5f",
+        "d7412edd-cb53-4db5-be88-7aac3d2acaf0"
     ],
     "filterType": "GMScript",
     "folderName": "TbyList",

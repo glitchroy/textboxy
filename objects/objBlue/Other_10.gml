@@ -4,6 +4,7 @@
 
 
 var blueDialogue = tby_branch_create();
+tby_branch_add("testing testing");
 tby_branch_add(TbyType.Bubble, "I like your color!", id)
 tby_branch_add(TbyType.Bubble,
 "It's very[ev,wait,0.2].[ev,wait,0.2].[ev,wait,0.2].[ev,wait,0.2] [c_red]red[].",

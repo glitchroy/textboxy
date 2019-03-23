@@ -5,8 +5,8 @@ if (textScribble == undefined) exit;
 var padding = tby_tile_size;
 var textDim/*:TbyPos*/ = tby_array_clone(pos)
 var boxDim = [textDim[TbyPos.x]-padding, textDim[TbyPos.y]-padding, textDim[TbyPos.x]+textDim[TbyPos.width]+padding, textDim[TbyPos.y]+textDim[TbyPos.height]+padding]
-//scribble_get_box(textScribble, textDim.x, textDim.y, padding, padding, padding, padding)
 
+//scribble_get_box(textScribble, textDim.x, textDim.y, padding, padding, padding, padding)
 // Background
 tby_draw_box(boxDim[0], boxDim[1], boxDim[2], boxDim[3]);
 
@@ -27,11 +27,8 @@ if (global.tby_debug) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
-    "| State: " + stateName;
-    /*
-	scribble_basic_draw("sprTbyFontSmall",
-						string_upper(ds),
-						boxDim[0],
-						boxDim[1]-padding);*/
+    " | State: " + stateName;
+    
+    tby_draw_debug(boxDim[0], boxDim[1]-padding-5, ds);
 }
 #endregion

@@ -9,6 +9,9 @@ global.tby_choice_result = undefined;
 /* This ds_map holds all defined branch payloads and the respective branch name as keys. */
 global.tby_branches = undefined;
 
+/* This ds_map holds all defined tooltips and their payloads. */
+global.tby_tooltips = undefined;
+
 /* This string holds the current active TbyBranch name. */
 global.tby_active_branch = undefined;
 

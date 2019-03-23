@@ -9,7 +9,7 @@
         "11a78d7b-14f3-4ca3-836e-7be2df86f1ff"
     ],
     "filterType": "GMScript",
-    "folderName": "Types",
+    "folderName": "Box Types",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

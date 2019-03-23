@@ -1,8 +1,8 @@
 {
-    "id": "a019f83b-01ef-4ccd-95f4-14f415b7f65c",
+    "id": "fb49dce1-d607-8be2-0cc8-94843b254d3b",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "a019f83b-01ef-4ccd-95f4-14f415b7f65c",
+    "name": "fb49dce1-d607-8be2-0cc8-94843b254d3b",
     "children": [
         "a71d8dd7-a364-4c31-a8cc-7c81b5feefbb",
         "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
@@ -11,7 +11,7 @@
         "6a1274cf-d9d6-44e3-b4de-40c803d753d3"
     ],
     "filterType": "GMScript",
-    "folderName": "Normal",
+    "folderName": "Normal States",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

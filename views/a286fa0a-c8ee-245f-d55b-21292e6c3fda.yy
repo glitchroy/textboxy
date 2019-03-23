@@ -1,13 +1,13 @@
 {
-    "id": "06c17762-8bc9-443e-9f27-30a5c62c0839",
+    "id": "a286fa0a-c8ee-245f-d55b-21292e6c3fda",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "06c17762-8bc9-443e-9f27-30a5c62c0839",
+    "name": "a286fa0a-c8ee-245f-d55b-21292e6c3fda",
     "children": [
         "ed2dd605-fbbb-4afa-9adf-73022d6be070"
     ],
     "filterType": "GMScript",
-    "folderName": "Choice",
+    "folderName": "Choice States",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
