@@ -1,8 +1,6 @@
 /// @description Message code
 //tby_load("custom.identifier.test")
 
-
-
 var blueDialogue = tby_branch_create();
 tby_branch_add("testing testing");
 tby_branch_add(TbyType.Bubble, "I like your color!", id)

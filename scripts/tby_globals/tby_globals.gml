@@ -30,7 +30,6 @@ if (!layer_exists(tby_layer_text)) {
 }
 layer_reset_target_room()
 
-// From __scrible_init()
 if (!instance_exists(tby_object_manager)) {
 	room_instance_add(room_first, 0, 0, tby_object_manager);
 }
