@@ -75,11 +75,10 @@ if (hasArgs && is_string(tbType)) {
 
 #endregion
 
-//0: is always the TbyType
 switch (tbType) {
     case TbyType.Normal:
-        //0: string
-        //1: positional data
+        // 0: string
+        // 1: positional data
         
         // global position data if none given
         if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_branch_get_option(branchName, TbyOption.SetPlacement)
@@ -87,8 +86,8 @@ switch (tbType) {
         tby_normal_create(tbArgs[0], tbArgs[1]);
     break;
     case TbyType.Bubble:
-        //0: string
-        //1: instance talking
+        // 0: string
+        // 1: instance talking
         
         //use global instance if none is given
         if (tby_arrlen(tbArgs) < 2) tbArgs[1] = tby_branch_get_option(branchName, TbyOption.SetInstance)
@@ -106,24 +105,24 @@ switch (tbType) {
         tby_bubble_create(tbArgs[0], tbArgs[1])
     break;
     case TbyType.Choice:
-        //0: string
-        //1: choiceArray
-        //2: positional data
+        // 0: string
+        // 1: choiceArray
+        // 2: positional data
         if (tby_arrlen(tbArgs) < 3) tbArgs[2] = TbyPlacement.Auto;
         tby_choice_create(tbArgs[0], tbArgs[1], tbArgs[2]);
     break;
     case TbyType.Option:
-        //0: Option type
-        //1: Option value
+        // 0: Option type
+        // 1: Option value
         tby_branch_set_option(branchName, tbArgs[0], tbArgs[1])
         tby_branch_next_entry(branchName)
     break;
     case TbyType.Wait:
-        //wait time
+        // wait time
         with (tby_object_manager) alarm[0] = room_speed*tbArgs[0]
     break;
     case TbyType.Batch:
-        //0: array of other textboxes
+        // 0: array of other textboxes
         if (is_array(tbArgs[0])) {
             tby_handle_batch_entry(tbArgs[0]);
         }
@@ -133,17 +132,17 @@ switch (tbType) {
         tby_branch_next_entry(branchName);
     break;
     case TbyType.Label:
-        //0: label name
-        // Because of pre-scan, this just does nothing
-        //global.tby_curre?nt_labels_map[? tbArgs[0]] = TbyList.get_pointer(branchName);
+        // 0: label name
+        // Because of pre-scan, this does nothing at runtime
         tby_branch_next_entry(branchName);
     break;
     case TbyType.GoTo:
-        //0: label name
-        //var label = global.tby_curre?nt_labels_map[? tbArgs[0]];
-        //if (label != undefined) {
-        //    TbyList.set_pointer(branchName, label)
-        //}
-        //TbyBranch.next_entry(branchName);
+        // 0: label name
+        var labelPointer = tby_branch_get_label(branchName, tbArgs[0])
+        if (labelPointer != undefined) {
+            var list = tby_branch_get_message_list(branchName);
+            tby_list_set_pointer(list, labelPointer);
+        }
+        tby_branch_next_entry(branchName);
     break;
 }
