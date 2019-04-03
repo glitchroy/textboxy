@@ -378,7 +378,7 @@
             "Key": "366b07e0-5c87-ccfb-80bc-9cb5648f6232",
             "Value": {
                 "id": "84108abd-683a-6270-5451-84445234d982",
-                "resourcePath": "scripts/tby_branch_set_option/tby_branch_set_option.yy",
+                "resourcePath": "scripts\/tby_branch_set_option\/tby_branch_set_option.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -530,7 +530,7 @@
             "Key": "4a7c2ca9-1001-4016-b367-2e64dfadca55",
             "Value": {
                 "id": "94f04c77-4c95-45ff-9287-2c07fafad725",
-                "resourcePath": "scripts/tby_branch_set_default_options/tby_branch_set_default_options.yy",
+                "resourcePath": "scripts\/tby_branch_set_default_options\/tby_branch_set_default_options.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -602,7 +602,7 @@
             "Key": "583b69b9-ec5e-4255-9865-a2202433cb71",
             "Value": {
                 "id": "aacf6f8d-bcaf-4274-a362-f4028dba0180",
-                "resourcePath": "scripts/tby_clear_all_branches/tby_clear_all_branches.yy",
+                "resourcePath": "scripts\/tby_clear_all_branches\/tby_clear_all_branches.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -690,7 +690,7 @@
             "Key": "5f17bccc-494d-05bd-c409-d0db82a5d1f6",
             "Value": {
                 "id": "f68780bb-1878-dfdb-d1c8-b357c981c19d",
-                "resourcePath": "scripts/tby_ds_list_to_array/tby_ds_list_to_array.yy",
+                "resourcePath": "scripts\/tby_ds_list_to_array\/tby_ds_list_to_array.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -930,7 +930,7 @@
             "Key": "8482401a-f215-e325-8d84-c23370022e99",
             "Value": {
                 "id": "fa1a6074-56ec-b307-be99-34405f8cb467",
-                "resourcePath": "scripts/tby_branch_get_option/tby_branch_get_option.yy",
+                "resourcePath": "scripts\/tby_branch_get_option\/tby_branch_get_option.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1146,7 +1146,7 @@
             "Key": "a240add3-01ac-409a-9087-9507a622cd5b",
             "Value": {
                 "id": "07b75a77-79ec-4a11-ab16-b7d9b6f20b42",
-                "resourcePath": "scripts/tby_msg/tby_msg.yy",
+                "resourcePath": "scripts\/tby_msg\/tby_msg.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1282,7 +1282,7 @@
             "Key": "b65fc317-1468-6a15-3102-31df4bc65071",
             "Value": {
                 "id": "e3413a95-35b3-ed81-b5f3-ca4ec840f817",
-                "resourcePath": "scripts/tby_branch_get_message_list/tby_branch_get_message_list.yy",
+                "resourcePath": "scripts\/tby_branch_get_message_list\/tby_branch_get_message_list.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1519,14 +1519,6 @@
             }
         },
         {
-            "Key": "d5c4691f-1d0d-4e29-a28c-bd015f8934ab",
-            "Value": {
-                "id": "4b3fbd4d-44bb-431f-a5cb-eaadde214eaa",
-                "resourcePath": "datafiles_yy\\Fonts\\dummy.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "d5d35785-e294-475c-a94a-ce0fd037fad2",
             "Value": {
                 "id": "852a5eeb-5647-4418-a22c-4512adace0e4",
@@ -1642,7 +1634,7 @@
             "Key": "e5447dbd-fed3-6ea3-b6fd-0dd4ebcc647b",
             "Value": {
                 "id": "5b66f12f-1d83-9afd-b639-c16947429a76",
-                "resourcePath": "scripts/tby_branch_handle_new_list_entry/tby_branch_handle_new_list_entry.yy",
+                "resourcePath": "scripts\/tby_branch_handle_new_list_entry\/tby_branch_handle_new_list_entry.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1666,7 +1658,7 @@
             "Key": "e7a13e7a-5dbb-482a-a400-745902c7ba00",
             "Value": {
                 "id": "6d50ae6e-7738-45c9-91f0-d4cc9d10ce22",
-                "resourcePath": "scripts/tby_tooltip_draw/tby_tooltip_draw.yy",
+                "resourcePath": "scripts\/tby_tooltip_draw\/tby_tooltip_draw.yy",
                 "resourceType": "GMScript"
             }
         },

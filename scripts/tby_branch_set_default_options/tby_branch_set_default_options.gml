@@ -11,3 +11,4 @@ tby_branch_set_option(branchName, TbyOption.SetWaveSpeed,     SCRIBBLE_DEFAULT_W
 tby_branch_set_option(branchName, TbyOption.SetShakeSize,     SCRIBBLE_DEFAULT_SHAKE_SIZE);
 tby_branch_set_option(branchName, TbyOption.SetShakeSpeed,    SCRIBBLE_DEFAULT_SHAKE_SPEED);
 tby_branch_set_option(branchName, TbyOption.SetRainbowWeight, SCRIBBLE_DEFAULT_RAINBOW_WEIGHT);
+tby_branch_set_option(branchName, TbyOption.SetRainbowSpeed, SCRIBBLE_DEFAULT_RAINBOW_SPEED);

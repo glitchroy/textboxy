@@ -47,7 +47,7 @@ image_speed = tby_confirmation_blink_speed;
 scribble_set_box_alignment(textScribble); 
 
 //set fade in to 0 to begin with
-scribble_typewriter_in(textScribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, textSpeed);
+scribble_typewriter_in(textScribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, textSpeed, 0);
 
 //Adjust position optionally
 if (inst != undefined && instance_exists(inst)) {

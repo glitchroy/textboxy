@@ -36,6 +36,6 @@ textScribble = scribble_create(textRaw,
 //set origin point of box to topleft
 scribble_set_box_alignment(textScribble); 
 
-scribble_typewriter_in(textScribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, textSpeed);
+scribble_typewriter_in(textScribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, textSpeed, 0);
 
 tby_state_switch("Writing")

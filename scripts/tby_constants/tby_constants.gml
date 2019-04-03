@@ -63,7 +63,8 @@ enum TbyOption {
     SetWaveSpeed,
     SetShakeSize,
     SetShakeSpeed,
-    SetRainbowWeight
+    SetRainbowWeight,
+    SetRainbowSpeed
 }
 
 enum TbyListMeta {

@@ -25,6 +25,6 @@ var tbData = tby_list_advance(list)
 if (tbData == undefined) {
     tby_branch_destroy(branchName)
 } else {
-    TbyBranch.handle_new_list_entry(branchName, tbData)
+    tby_branch_handle_new_list_entry(branchName, tbData)
 }
 
