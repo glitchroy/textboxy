@@ -23,6 +23,7 @@ var dataFields = [
     tby_branch_get_option(branchName, TbyOption.SetShakeSize),
     tby_branch_get_option(branchName, TbyOption.SetShakeSpeed),
     tby_branch_get_option(branchName, TbyOption.SetRainbowWeight),
+    tby_branch_get_option(branchName, TbyOption.SetRainbowSpeed)
 ]
 
 textScribble = scribble_create(textRaw,

@@ -34,7 +34,7 @@ with (tb) {
 
 	for (var i = 0; i < tby_arrlen(choices); i++) {
 	    choiceString += "    " + choices[i];
-	    if (i != tby_arrlen(choices)-1) choiceString += "[ev|wait|0.25]\n"
+	    if (i != tby_arrlen(choices)-1) choiceString += "[wait,0.25]\n"
 	}
 	
 	textRaw = tbText + choiceString;

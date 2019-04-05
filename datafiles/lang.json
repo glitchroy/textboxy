@@ -1,5 +1,5 @@
 {
-	"custom.identifier.test": [["this is a very long test, isn't it???[ev,wait,0.3] some more lines [ev,speed,0.1]if i may"], ["[fa_right][shake]hayayay"], ["§well this is awesome", "objBlue"]]
+	"custom.identifier.test": [["this is a very long test, isn't it???[wait,0.3] some more lines [speed,0.1]if i may"], ["[fa_right][shake]hayayay"], ["§well this is awesome", "objBlue"]]
 }
 
 
