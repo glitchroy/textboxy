@@ -61,8 +61,14 @@ if (keyboard_check_pressed(ord("F"))) {
 	tby_branch_run(playerTalking);
 }
 
+var cam = view_camera[0]
+var cx, cy = 0;
+if (cam != -1) {
+    cx = camera_get_view_x(cam);
+    cy = camera_get_view_y(cam);
+}
 // TODO: Replace these magic numbers with calculations
-tby_tooltip_show("tby-credits", 363, 40)
+tby_tooltip_show("tby-credits", cx+363, cy+40)
 
 #region Movement stuff
 //Very rudimentary
