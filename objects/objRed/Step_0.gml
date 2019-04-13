@@ -60,6 +60,10 @@ if (keyboard_check_pressed(ord("F"))) {
 	tby_branch_add(s);
 	tby_branch_run(playerTalking);
 }
+
+// TODO: Replace these magic numbers with calculations
+tby_tooltip_show("tby-credits", 363, 40)
+
 #region Movement stuff
 //Very rudimentary
 

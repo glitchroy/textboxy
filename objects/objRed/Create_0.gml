@@ -36,11 +36,9 @@ PRESS [c_orange]M[] TO RESIZE THE WINDOW
 PRESS [c_orange]F3[] TO TOGGLE DEBUG MODE
 PRESS [c_orange]ESC[] TO CLOSE";
 
-var s2 = "example for [c_orange]textboxy v" + tby_version + "[]"
+tby_tooltip_create("tby-credits", "example for [c_orange]textboxy v" + tby_version + "[]", -1, false);
 
 scrib1 = scribble_create(s, -1, tby_game_width, tby_default_color, "sprTbyFontSmall", fa_left);
-scrib2 = scribble_create(s2, -1, tby_game_width, tby_default_color, "sprTbyFontMain", fa_left);
 scribd = scribble_create("[c_ltgray]DEBUG MODE ON[]", -1, tby_game_width, tby_default_color, "sprTbyFontSmall")
 
 box1 = scribble_get_box(scrib1, 0, 0, 2, 2, 2, 2)
-box2 = scribble_get_box(scrib2, 0, 0, 2, 2, 2, 2)

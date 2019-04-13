@@ -2,12 +2,14 @@
 /* Also check */__scribble_config()/* for additional config options. */
 
 
+/* */
 #region Basic game information
 /* The width and height of the camera viewport. Used in calculating
      if a talking instance is outside of the camera. */
 #macro tby_game_width 480
 #macro tby_game_height 270
 #endregion
+
 
 /* Default and/or fallback options for various things, like
      skins, fonts and colors. */
@@ -17,6 +19,7 @@
 #macro tby_default_font "sprTbyFontMain"
 #endregion
 
+
 /* Options for text sounds. Very basic, and subject to be
      swapped out for sound options per-textbox. */
 #region Sound options
@@ -25,12 +28,14 @@
 #endregion
 
 
+/* */
 #region Room options
 /* The name of the layer where textboxy instances are created.
      Should be above all other visible elements. Will be created
      automatically if not present in the room. */
 #macro tby_layer_text "Text"
 #endregion
+
 
 /* Options for inputs, like navigating the choice textbox
      or confirming a dialogue. Expression should evaluate to a boolean. */
@@ -41,6 +46,7 @@
 #macro tby_input_advance_textbox (keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space))
 #endregion
 
+
 /* Options for the textbox bubble type. */
 #region Bubble textbox options
 /* The maximum width for a given text bubble. */
@@ -50,6 +56,11 @@
 #macro tby_quick_mode_bubble_char "§"
 #endregion
 
+/* Options for tooltips. */
+#region Tooltip options
+#macro tby_max_width_tooltip 120
+#endregion
+
 /* Options for handling external files. */
 #region External lang files
 #macro tby_use_external_lang_file true
@@ -57,6 +68,7 @@
    .json file added to the included files.*/
 #macro tby_default_external_lang_file "lang.json"
 #endregion
+
 
 /* Options with no clear category. */
 #region Misc textbox options

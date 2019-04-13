@@ -88,5 +88,6 @@ enum TbyBranch {
 }
 
 enum TbyTooltip {
-    Text
+    Text,
+    DrawBubbleSprite
 }

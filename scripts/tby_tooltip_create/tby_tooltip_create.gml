@@ -1,6 +1,10 @@
 /// @param tooltipName
 /// @param text
-var tooltipName = argument0, text = argument1;
+/// @param maxWidth = tby_max_width_tooltip
+/// @param drawBubbleSprite = true
+var tooltipName = argument[0], text = argument[1];
+var maxWidth = argument_count > 2 ? argument[2] : tby_max_width_tooltip;
+var drawBubbleSprite = argument_count > 3 ? argument[3] : true;
 
 // Abort if the name already exists
 if (tby_tooltip_exists(tooltipName)) {
@@ -8,7 +12,7 @@ if (tby_tooltip_exists(tooltipName)) {
     exit;
 }
 
-tby_tooltip_register(tooltipName, text)
+tby_tooltip_register(tooltipName, text, maxWidth, drawBubbleSprite)
 
 
 return tooltipName;

@@ -1,1 +1,1 @@
-tby_tooltip_create("blue-tip", "Press X to talk");
+tby_tooltip_create("blue-tip", "[]Press X to talk");
