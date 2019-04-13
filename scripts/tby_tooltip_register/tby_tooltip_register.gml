@@ -13,7 +13,7 @@ var scribble = scribble_create(text, -1, maxWidth, tby_default_color, tby_defaul
 
 // Overwrite typewriter smoothness to avoid
 // the first character being drawn transparent
-scribble[| __E_SCRIBBLE.TW_SMOOTHNESS] = 0;
+scribble[| __SCRIBBLE.TW_SMOOTHNESS] = 0;
 
 tooltipPayload[TbyTooltip.Text] = scribble
 tooltipPayload[TbyTooltip.DrawBubbleSprite] = showBubbleSprite

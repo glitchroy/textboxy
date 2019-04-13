@@ -10,11 +10,11 @@ scribble_add_event( "wait", tby_tb_handle_wait );
 scribble_add_event( "speed", tby_tb_handle_speed );
 scribble_add_event( "script", tby_tb_handle_script );
 
-scribble_set_glyph_property( "sprTbyFontSmall", "T", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
-scribble_set_glyph_property( "sprTbyFontSmall", "I", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
-scribble_set_glyph_property( "sprTbyFontSmall", "1", SCRIBBLE_GLYPH_X_OFFSET, -1, true );
-scribble_set_glyph_property( "sprTbyFontSmall", "M", SCRIBBLE_GLYPH_X_OFFSET, 1, true );
-scribble_set_glyph_property( "sprTbyFontSmall", "W", SCRIBBLE_GLYPH_X_OFFSET, 1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "T", SCRIBBLE_GLYPH.X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "I", SCRIBBLE_GLYPH.X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "1", SCRIBBLE_GLYPH.X_OFFSET, -1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "M", SCRIBBLE_GLYPH.X_OFFSET, 1, true );
+scribble_set_glyph_property( "sprTbyFontSmall", "W", SCRIBBLE_GLYPH.X_OFFSET, 1, true );
 
 //Modify the properties of some of the characters
 /*
