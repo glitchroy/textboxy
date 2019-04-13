@@ -18,13 +18,27 @@ if (tby_arrlen(tbData) > 1) {
 if (tbType == TbyType.ChoiceResult) {
     if (hasArgs && tbArgs[0] == global.tby_choice_result) {
         //0: Choice num to match
-        //1: ... usual payload
+        //1: New type (or quick mode string etc.)
+        //2: ... usual payload
         
-        // Strip first entry of args (the choice num) and overwrite them
-        var tempData = [];
-        array_copy(tempData, 0, tbArgs, 1, tby_arrlen(tbArgs)-1)
-        tbArgs = 0;
-        tbArgs = tempData;
+        var newType = tbArgs[1];
+        
+        if (tby_arrlen(tbArgs) > 2) {
+            // we have actual args and not only
+            // Type.ChoiceResult + Result number + "type"
+            
+            var newArgs = [];
+            array_copy(newArgs, 0, tbArgs, 2, tby_arrlen(tbArgs)-1);
+            
+            tbArgs = 0;
+            tbArgs = newArgs;
+        } else {
+            // We dont have any further args, probably quick mode
+            tbArgs = [];
+            hasArgs = false;
+        }
+        
+        tbType = newType;
     } else {
         // skip this entry
         tby_branch_next_entry(branchName)
@@ -128,7 +142,8 @@ switch (tbType) {
         }
     break;
     case TbyType.Terminate:
-        tby_list_clear(branchName);
+        var list = tby_branch_get_message_list(branchName);
+        tby_list_clear(list);
         tby_branch_next_entry(branchName);
     break;
     case TbyType.Label:
