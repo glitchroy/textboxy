@@ -16,7 +16,7 @@ if ( !variable_global_exists("__scribble_init_complete" ) )
     exit;
 }
 
-show_debug_message("\nScribble: Font initialisation started");
+if (SCRIBBLE_VERBOSE) show_debug_message("\nScribble: Font initialisation started");
 
 
 
@@ -25,6 +25,21 @@ var _old_y = y;
 var _old_mask_index = mask_index;
 x = 0;
 y = 0;
+
+
+
+//Make sure the default font is valid
+if (global.__scribble_default_font == "")
+{
+    global.__scribble_default_font = ds_map_find_first(global.__scribble_font_data);
+    if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: No default font provided, using \"" + string(global.__scribble_default_font) + "\" as the default font");
+}
+else if (!ds_map_exists(global.__scribble_font_data, global.__scribble_default_font))
+{
+    var _new_default_font = ds_map_find_first(global.__scribble_font_data);
+    show_error("Scribble:\nDefault font \"" + string(global.__scribble_default_font) + "\" was not added during initialisation.\nScribble will use \"" + string(_new_default_font) + "\" as the new default font.\n ", false);
+    global.__scribble_default_font = _new_default_font;
+}
 
 
 
@@ -39,7 +54,7 @@ repeat(_font_count)
         case __SCRIBBLE_FONT_TYPE.SPRITE:
         #region Spritefont
         
-        show_debug_message("Scribble:   Processing spritefont \"" + _name + "\"");
+        if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:   Processing spritefont \"" + _name + "\"");
         
         var _sprite = asset_get_index(_name);
         _font_data[@ __SCRIBBLE_FONT.TEXTURE ] = sprite_get_texture(_sprite, 0);
@@ -59,8 +74,6 @@ repeat(_font_count)
         var _font_glyphs_map = ds_map_create();
         _font_data[@ __SCRIBBLE_FONT.GLYPHS_MAP ] = _font_glyphs_map;
         
-        if (SCRIBBLE_COMPATIBILITY_DRAW) global.__scribble_spritefont_map[? _name ] = font_add_sprite_ext(_sprite, _sprite_string, true, _shift_constant);
-        
         sprite_index = _sprite;
         mask_index   = _sprite;
         x = -sprite_get_xoffset(_sprite);
@@ -68,7 +81,7 @@ repeat(_font_count)
         
         //Strip out a map of of glyphs
         var _length = string_length(_sprite_string);
-        show_debug_message("Scribble:     \"" + _name + "\" has " + string(_length) + " characters");
+        if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     \"" + _name + "\" has " + string(_length) + " characters");
         for(var _i = 0; _i < _length; _i++)
         {
             var _char = string_char_at(_sprite_string, _i+1);
@@ -163,20 +176,26 @@ repeat(_font_count)
         case __SCRIBBLE_FONT_TYPE.FONT:
         #region Font
         
-        show_debug_message("Scribble:   Processing font \"" + _name + "\"");
+        if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:   Processing font \"" + _name + "\"");
         
         var _asset = asset_get_index(_name);
         if (_asset < 0)
         {
-            show_error("Scribble:\nFont \"" + _name + "\" was not found in the project!\n ", true);
-            exit;
+            show_error("Scribble:\nFont \"" + _path + "\" was not found in the project.\nScribble font \"" + string(_name) + "\" will not be available.\n ", false);
+            var _new_name = ds_map_find_next(global.__scribble_font_data, _name);
+            ds_map_delete(global.__scribble_font_data, _name);
+            _name = _new_name;
+            continue;
         }
         
-        var _json_file  = global.__scribble_font_directory + _name + ".yy";
-        if ( !file_exists(_json_file) )
+        var _path = _font_data[ __SCRIBBLE_FONT.PATH ];
+        if ( !file_exists(_path) )
         {
-            show_error("Scribble:\nCould not find \"" + _json_file + "\" in Included Files.\nPlease add this file to your project.\n ", true);
-            exit;
+            show_error("Scribble:\nCould not find \"" + _path + "\" in Included Files. Please add this file to your project.\nScribble font \"" + string(_name) + "\" will not be available.\n ", false);
+            var _new_name = ds_map_find_next(global.__scribble_font_data, _name);
+            ds_map_delete(global.__scribble_font_data, _name);
+            _name = _new_name;
+            continue;
         }
         
         var _texture     = font_get_texture(_asset);
@@ -187,16 +206,19 @@ repeat(_font_count)
         var _texture_h   = texture_get_height(_texture);
         _font_data[@ __SCRIBBLE_FONT.TEXTURE ] = _texture;
         
-        show_debug_message("Scribble:     \"" + _name +"\""
-                         + ", texture= " + string(_texture)
-                         + ", size= " + string(_texture_w) + " x " + string(_texture_h)
-                         + ", texel= " + string_format(_texture_tw, 1, 10) + " x " + string_format(_texture_th, 1, 10)
-                         + ", uvs= " + string_format(_texture_uvs[0], 1, 10) + "," + string_format(_texture_uvs[1], 1, 10)
-                         + " -> " + string_format(_texture_uvs[2], 1, 10) + "," + string_format(_texture_uvs[3], 1, 10));
+        if (SCRIBBLE_VERBOSE)
+        {
+            show_debug_message("Scribble:     \"" + _name +"\""
+                             + ", texture= " + string(_texture)
+                             + ", size= " + string(_texture_w) + " x " + string(_texture_h)
+                             + ", texel= " + string_format(_texture_tw, 1, 10) + " x " + string_format(_texture_th, 1, 10)
+                             + ", uvs= " + string_format(_texture_uvs[0], 1, 10) + "," + string_format(_texture_uvs[1], 1, 10)
+                             + " -> " + string_format(_texture_uvs[2], 1, 10) + "," + string_format(_texture_uvs[3], 1, 10));
+        }
         
         
         
-        var _json_buffer = buffer_load(global.__scribble_font_directory + _name + ".yy");
+        var _json_buffer = buffer_load(_path);
         var _json_string = buffer_read(_json_buffer, buffer_text);
         buffer_delete(_json_buffer);
         var _json = json_decode(_json_string);
@@ -205,7 +227,7 @@ repeat(_font_count)
         
         var _yy_glyph_list = _json[? "glyphs" ];
         var _size = ds_list_size(_yy_glyph_list);
-        show_debug_message("Scribble:     \"" + _name + "\" has " + string(_size) + " characters");
+        if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     \"" + _name + "\" has " + string(_size) + " characters");
         
         
         
@@ -215,7 +237,7 @@ repeat(_font_count)
         {
             #region Sequential glyph index
             
-            show_debug_message("Scribble:     Trying sequential glyph index...");
+            if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     Trying sequential glyph index...");
             
             var _glyph_map = ds_map_create();
             
@@ -241,11 +263,11 @@ repeat(_font_count)
             _font_data[@ __SCRIBBLE_FONT.GLYPH_MAX ] = _glyph_max;
             
             var _glyph_count = 1 + _glyph_max - _glyph_min;
-            show_debug_message("Scribble:     Glyphs start at " + string(_glyph_min) + " and end at " + string(_glyph_max) + ". Range is " + string(_glyph_count-1));
+            if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     Glyphs start at " + string(_glyph_min) + " and end at " + string(_glyph_max) + ". Range is " + string(_glyph_count-1));
             
             if ((_glyph_count-1) > SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE)
             {
-                show_debug_message("Scribble:     Glyph range exceeds maximum (" + string(SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE) + ")!");
+                if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     Glyph range exceeds maximum (" + string(SCRIBBLE_SEQUENTIAL_GLYPH_MAX_RANGE) + ")!");
             }
             else
             {
@@ -254,15 +276,15 @@ repeat(_font_count)
                 ds_map_destroy(_glyph_map);
                 var _fraction = _holes / _glyph_count;
                 
-                show_debug_message("Scribble:     There are " + string(_holes) + " holes, " + string(_fraction*100) + "%");
+                if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     There are " + string(_holes) + " holes, " + string(_fraction*100) + "%");
                 
                 if (_fraction > SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES)
                 {
-                    show_debug_message("Scribble: Hole proportion exceeds maximum (" + string(SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES*100) + "%)!");
+                    if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: Hole proportion exceeds maximum (" + string(SCRIBBLE_SEQUENTIAL_GLYPH_MAX_HOLES*100) + "%)!");
                 }
                 else
                 {
-                    show_debug_message("Scribble:     Using an array to index glyphs");
+                    if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     Using an array to index glyphs");
                     _ds_map_fallback = false;
                     
                     var _font_glyphs_array = array_create(_glyph_count, undefined);
@@ -308,7 +330,7 @@ repeat(_font_count)
         
         if (_ds_map_fallback)
         {
-            show_debug_message("Scribble:     Using a ds_map to index glyphs");
+            if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:     Using a ds_map to index glyphs");
             
             var _font_glyphs_map = ds_map_create();
             _font_data[@ __SCRIBBLE_FONT.GLYPHS_MAP ] = _font_glyphs_map;
@@ -353,7 +375,7 @@ repeat(_font_count)
         break;
     }
     
-    //show_debug_message("Scribble: \"" + _name + "\" finished");
+    if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: \"" + _name + "\" finished");
     
     _name = ds_map_find_next(global.__scribble_font_data, _name);
 }
@@ -366,7 +388,7 @@ mask_index = _old_mask_index;
 
 
 
-show_debug_message("Scribble:   Font initialisation complete, took " + string((get_timer() - _timer)/1000) + "ms");
-show_debug_message("Scribble: Thanks for using Scribble!\n");
+if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:   Font initialisation complete, took " + string((get_timer() - _timer)/1000) + "ms");
+if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: Thanks for using Scribble!\n");
 
 global.__scribble_init_complete = true;

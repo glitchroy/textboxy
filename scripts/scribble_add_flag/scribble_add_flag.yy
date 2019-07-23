@@ -1,5 +1,5 @@
 {
-    "id": "97c3cf02-bb98-4ef3-969e-026ddbdba34b",
+    "id": "9a49f559-8522-4d86-96c9-6ebbc909f569",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scribble_add_flag",

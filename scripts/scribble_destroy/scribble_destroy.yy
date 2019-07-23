@@ -1,5 +1,5 @@
 {
-    "id": "d5c190af-5389-4bc3-b18c-51412b832c8a",
+    "id": "b7f3bf45-03ec-468e-8aa6-839054752bf4",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scribble_destroy",

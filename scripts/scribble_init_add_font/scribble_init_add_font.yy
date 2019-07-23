@@ -1,5 +1,5 @@
 {
-    "id": "42c5a838-4e24-4719-a797-c96bb8169289",
+    "id": "4c0c7399-574a-4ce9-b971-da78b5d6dfe4",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scribble_init_add_font",

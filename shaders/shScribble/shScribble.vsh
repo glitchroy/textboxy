@@ -1,6 +1,6 @@
 const int MAX_FLAGS = 4;       //Change SCRIBBLE_MAX_FLAGS in __scribble_config() if you change this value!
 //By default, the flags are:
-//0 = is a sprite
+//0 = is an animated sprite
 //1 = wave
 //2 = shake
 //3 = rainbow
@@ -24,10 +24,14 @@ varying vec4 v_vColour;
 
 uniform vec4  u_vColourBlend;
 uniform float u_fTime;
+
 uniform float u_fCharFadeT;
 uniform float u_fCharFadeSmoothness;
+uniform float u_fCharFadeCount;
+
 uniform float u_fLineFadeT;
 uniform float u_fLineFadeSmoothness;
+uniform float u_fLineFadeCount;
 
 uniform float u_aDataFields[MAX_DATA_FIELDS];
 
@@ -103,27 +107,17 @@ void applyColourBlend(vec4 colourInput, inout vec4 colourTarget)
     colourTarget *= colourInput;
 }
 
-void applyPerCharacterFade(float time, float smoothness, inout vec4 colour)
+void applyTypewriterFade(float time, float smoothness, float param, inout vec4 colour)
 {
-    if (time < (1.0 + smoothness))
+    if (time < 1.0)
     {
-         colour.a *= clamp((time - in_Normal.x) / smoothness, 0.0, 1.0);
+         float adjustedTime = time*(1.0 + smoothness);
+         colour.a *= clamp((adjustedTime - param)/smoothness, 0.0, 1.0);
     }
     else
     {
-         colour.a *= 1.0 - clamp((time - (1.0 + smoothness) - in_Normal.x) / smoothness, 0.0, 1.0);
-    }
-}
-
-void applyPerLineFade(float time, float smoothness, inout vec4 colour)
-{
-    if (time < (1.0 + smoothness))
-    {
-         colour.a *= clamp((time - in_Normal.y) / smoothness, 0.0, 1.0);
-    }
-    else
-    {
-         colour.a *= 1.0 - clamp((time - (1.0 + smoothness) - in_Normal.y) / smoothness, 0.0, 1.0);
+         float adjustedTime = (time - 1.0)*(1.0 + smoothness);
+         colour.a *= 1.0 - clamp((adjustedTime - param)/smoothness, 0.0, 1.0);
     }
 }
 
@@ -144,8 +138,8 @@ void main()
     applySprite(flagArray[0], v_vColour);
     applyRainbow(flagArray[3]*u_aDataFields[5], u_aDataFields[6], v_vColour);
     applyColourBlend(u_vColourBlend, v_vColour);
-    applyPerCharacterFade(u_fCharFadeT, u_fCharFadeSmoothness, v_vColour);
-    applyPerLineFade(u_fLineFadeT, u_fLineFadeSmoothness, v_vColour);
+    applyTypewriterFade(u_fCharFadeT, u_fCharFadeSmoothness, in_Normal.x/u_fCharFadeCount, v_vColour);
+    applyTypewriterFade(u_fLineFadeT, u_fLineFadeSmoothness, in_Normal.y/u_fLineFadeCount, v_vColour);
     
     //Texture
     v_vTexcoord = in_TextureCoord;

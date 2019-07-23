@@ -1,5 +1,5 @@
 //Start up Scribble and load some fonts
-scribble_init_start("Fonts");
+scribble_init_start("Fonts", "sprTbyFontMain", false);
 scribble_init_add_spritefont( "sprTbyFontMain", 3, SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING + "«»"); 
 scribble_init_add_spritefont("sprTbyFontSmall", 2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,-;:_+-*/|#[]");
 scribble_init_end();

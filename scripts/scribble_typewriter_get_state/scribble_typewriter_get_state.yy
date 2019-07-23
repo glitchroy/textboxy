@@ -1,5 +1,5 @@
 {
-    "id": "5de63a60-1215-4ae6-997b-cca19a6aa449",
+    "id": "b706e698-4aca-4f51-914c-552c6e4dbdaa",
     "modelName": "GMScript",
     "mvc": "1.0",
     "name": "scribble_typewriter_get_state",
