@@ -1,3 +1,4 @@
+/// @desc Returns the given option from the OptionsMap of a TbyBranch.
 /// @param branchName
 /// @param optionName
 var branchName = argument0, optionName = argument1;

@@ -1,3 +1,4 @@
+/// @desc Returns true if the HasBeenAdvanced meta flag is set.
 /// @param tby_list
 var tby_list = argument0;
 

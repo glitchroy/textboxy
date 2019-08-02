@@ -1,3 +1,5 @@
+/// @desc Destroys all TbyBranches. Run when exiting a room.
+
 var map = global.tby_branches;
 
 if (map == undefined || map == -1) exit;

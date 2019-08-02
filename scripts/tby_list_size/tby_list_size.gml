@@ -1,3 +1,4 @@
+/// @desc Returns the size of the TbyList, excluding the meta entry.
 /// @param tby_list
 var tby_list = argument0;
 

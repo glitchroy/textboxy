@@ -1,3 +1,4 @@
+/// @desc Creates and returns a new TbyType.Normal textbox.
 /// @param tbText = ""
 /// @param tbPlacement = TbyPlacement.Auto
 var tbText = argument_count > 0 ? argument[0] : "";

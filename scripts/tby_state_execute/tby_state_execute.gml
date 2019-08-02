@@ -1,4 +1,4 @@
-/// @function stateExecute()
+/// @function state_execute()
 /// @description [Step Event] Executes active state script.
 
 if (script_exists(state)) {

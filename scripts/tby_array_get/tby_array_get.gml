@@ -1,3 +1,4 @@
+/// @desc Gets a given index from an array.
 /// @param array
 /// @param index
 var array = argument0, index = argument1;

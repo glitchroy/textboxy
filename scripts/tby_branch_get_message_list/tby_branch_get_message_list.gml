@@ -1,3 +1,4 @@
+/// @desc Returns the associated MessageList from a TbyBranch name.
 /// @param branchName
 var branchName = argument0;
 

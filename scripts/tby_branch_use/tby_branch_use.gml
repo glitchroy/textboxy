@@ -1,3 +1,4 @@
+/// @desc Sets the active TbyBranch to the one specified.
 /// @param branchName
 var branchName = argument0;
 

@@ -1,4 +1,4 @@
-/// @function stateMachineInit()
+/// @function state_machine_init()
 /// @description [Create Event] Initilize the variables required for the state engine.
 
 state		= noone;

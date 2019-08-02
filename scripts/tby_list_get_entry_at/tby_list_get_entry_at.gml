@@ -1,3 +1,4 @@
+/// @desc Returns the list entry at the provided position.
 /// @param tby_list
 /// @param pos
 var tby_list = argument0, pos = argument1;

@@ -1,3 +1,4 @@
+/// @desc Returns true if the pointer is at the end of the TbyList.
 /// @param tby_list
 var tby_list = argument0;
 

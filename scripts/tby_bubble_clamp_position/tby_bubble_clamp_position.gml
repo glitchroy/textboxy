@@ -1,3 +1,4 @@
+/// @desc Returns the position of a TbyType.Bubble textbox, clamped to the screen view.
 // Called from textbox object only
 
 var pos/*:TbyPos*/ = self.pos;

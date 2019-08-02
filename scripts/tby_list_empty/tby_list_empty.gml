@@ -1,3 +1,4 @@
+/// @desc Returns true if the given TbyList is empty, e.g. only as meta information.
 /// @param tby_list
 var tby_list = argument0;
 

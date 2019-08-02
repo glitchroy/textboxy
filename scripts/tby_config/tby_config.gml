@@ -1,6 +1,13 @@
 /* This config file is meant to last through updates. */
 /* Also check */__scribble_config()/* for additional config options. */
 
+/* */
+#region Debugging options
+/* If textboxy should start up in debug mode. Useful for testing. */
+#macro tby_debug_on_startup true
+/* If textboxy should print debug output. Should be false in the final build.*/
+#macro tby_do_debug_output true
+#endregion
 
 /* */
 #region Basic game information

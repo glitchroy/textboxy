@@ -1,3 +1,4 @@
+/// @desc Shorthand to add a TbyType.Wait to the active TbyBranch.
 /// @param seconds
 var seconds = argument0;
 

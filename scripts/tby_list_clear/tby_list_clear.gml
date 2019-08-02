@@ -1,3 +1,4 @@
+/// @desc Clears the TbyList. Also resets the meta information.
 /// @param tby_list
 var tby_list = argument0;
 

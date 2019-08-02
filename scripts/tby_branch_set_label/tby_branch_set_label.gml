@@ -1,3 +1,4 @@
+/// @desc Sets a label in a TbyBranch's LabelMap.
 /// @param branchName
 /// @param labelName
 /// @param labelValue

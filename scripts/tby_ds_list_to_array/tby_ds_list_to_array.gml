@@ -1,3 +1,4 @@
+/// @desc Converts a ds_list to an array. Returns the array.
 /// @param list_id
 var list_id = argument0;
 

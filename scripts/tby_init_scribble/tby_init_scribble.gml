@@ -1,4 +1,4 @@
-//Start up Scribble and load some fonts
+/// @desc This script is used to load scribble and configure it.
 scribble_init_start("Fonts", "sprTbyFontMain", false);
 scribble_init_add_spritefont( "sprTbyFontMain", 3, SCRIBBLE_DEFAULT_SPRITEFONT_MAPSTRING + "«»"); 
 scribble_init_add_spritefont("sprTbyFontSmall", 2, "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,-;:_+-*/|#[]");
@@ -15,20 +15,3 @@ scribble_set_glyph_property( "sprTbyFontSmall", "I", SCRIBBLE_GLYPH.X_OFFSET, -1
 scribble_set_glyph_property( "sprTbyFontSmall", "1", SCRIBBLE_GLYPH.X_OFFSET, -1, true );
 scribble_set_glyph_property( "sprTbyFontSmall", "M", SCRIBBLE_GLYPH.X_OFFSET, 1, true );
 scribble_set_glyph_property( "sprTbyFontSmall", "W", SCRIBBLE_GLYPH.X_OFFSET, 1, true );
-
-//Modify the properties of some of the characters
-/*
-scribble_font_char_set_width(   "sprTbyFontMain", " ", 3 );
-scribble_font_char_set_x_shift( "sprTbyFontMain", " ", 3 );
-
-scribble_font_char_add_x_shift( "sprTbyFontMain", "j", -1 )
-
-scribble_font_char_set_width(   "sprTbyFontSmall", " ", 2 );
-scribble_font_char_set_x_shift( "sprTbyFontSmall", " ", 2 );
-
-scribble_font_char_set_x_offset( "sprTbyFontSmall", "I", 1 );
-scribble_font_char_set_x_offset( "sprTbyFontSmall", "T", 1 );
-scribble_font_char_set_x_offset( "sprTbyFontSmall", "Y", 1 );
-scribble_font_char_set_x_offset( "sprTbyFontSmall", "1", 1 );
-scribble_font_char_add_x_offset( "sprTbyFontSmall", "M", 1 );
-scribble_font_char_add_x_offset( "sprTbyFontSmall", "W", 1 );

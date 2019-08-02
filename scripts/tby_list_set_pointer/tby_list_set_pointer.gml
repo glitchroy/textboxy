@@ -1,3 +1,4 @@
+/// @desc Sets the pointer of the TbyList to the given value.
 /// @param tby_list
 /// @param pointer_value
 var tby_list = argument0, pointer_value = argument1;

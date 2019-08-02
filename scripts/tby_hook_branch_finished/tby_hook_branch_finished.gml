@@ -1,4 +1,4 @@
-// This hook gets executed when a branch is finished
+/// @desc This hook gets executed when a branch is finished.
 
 #region EXAMPLE CODE
 // This is part of the example:

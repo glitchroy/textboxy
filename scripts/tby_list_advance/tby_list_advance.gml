@@ -1,3 +1,4 @@
+/// @desc Advances the given TbyLists pointer by 1. Also sets the HasBeenAdvanced flag.
 /// @param tby_list
 var tby_list = argument0;
 

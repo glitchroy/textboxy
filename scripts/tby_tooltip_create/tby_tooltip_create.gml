@@ -1,3 +1,4 @@
+/// @desc Creates a new TbyTooltip. Returns the named indentifier.
 /// @param tooltipName
 /// @param text
 /// @param maxWidth = tby_max_width_tooltip

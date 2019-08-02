@@ -1,3 +1,4 @@
+/// @desc Creates and returns a new TbyType.Choice textbox.
 /// @param tbText = ""
 /// @param choices = []
 /// @param tbPlacement = TbyPlacement.Auto

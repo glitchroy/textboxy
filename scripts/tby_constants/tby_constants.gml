@@ -1,5 +1,9 @@
-/* Changes in these macros can occur at any update.
-   Only change if you know what you are doing. */
+/// @desc Describes internal macros and enums. Changes in these macros can occur at any update.
+
+/*
+    Changes in these macros can occur at any update.
+    Only change if you know what you are doing. 
+*/
 
 #macro tby_version "1.0.0-pre.8"
 

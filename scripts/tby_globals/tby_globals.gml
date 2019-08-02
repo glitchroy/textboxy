@@ -1,7 +1,9 @@
+/// @desc Defines globals for textboxy. Executes on boot via gml_pragma.
+
 gml_pragma("global", "tby_globals()")
 
 // This bool holds if the debug mode for textboxy is active.
-global.tby_debug = true;
+global.tby_debug = tby_debug_on_startup;
 
 // This int holds the result of the latest TbyChoice call
 global.tby_choice_result = undefined;

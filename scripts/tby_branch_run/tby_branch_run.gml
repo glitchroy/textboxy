@@ -1,3 +1,4 @@
+/// @desc Executes the specified TbyBranch. If no identifier is provided, it uses the active TbyBranch.
 /// @param ?branchName = undefined
 var branchName = argument_count > 0 ? argument[0] : undefined;
 

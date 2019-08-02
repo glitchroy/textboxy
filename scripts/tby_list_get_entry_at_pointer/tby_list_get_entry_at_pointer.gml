@@ -1,3 +1,4 @@
+/// @desc Returns the list entry at the pointers position.
 /// @param tby_list
 var tby_list = argument0;
 

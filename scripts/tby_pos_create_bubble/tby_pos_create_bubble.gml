@@ -1,3 +1,4 @@
+/// @desc Returns the coordinates of a TbyBubble, given the speaking instance and dimensions.
 /// @param inst
 /// @param wPos
 /// @param hPos

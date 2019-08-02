@@ -1,4 +1,4 @@
-/// @function stateCleanup()
+/// @function state_cleanup()
 /// @description [Clean Up Event] Destroys state data structures.
 
 if (ds_exists(stateMap, ds_type_map)) {

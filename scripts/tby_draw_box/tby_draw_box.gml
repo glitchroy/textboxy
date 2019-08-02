@@ -1,3 +1,4 @@
+/// @desc Draws a textboxy textbox, given the top left and bottom right corner. Uses the current active skin.
 /// @param x1
 /// @param y1
 /// @param x2

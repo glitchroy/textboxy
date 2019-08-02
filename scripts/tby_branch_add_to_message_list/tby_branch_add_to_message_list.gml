@@ -1,3 +1,4 @@
+/// @desc Adds an entry to the MessageList of a TbyBranch.
 /// @param branchName
 /// @param entry
 var branchName = argument0, entry = argument1;

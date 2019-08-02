@@ -1,3 +1,4 @@
+/// @desc Handles the given TbyBranch command and then calls the next entry.
 /// @param branchName
 /// @param tbData
 var branchName = argument0, tbData = argument1;

@@ -1,3 +1,4 @@
+/// @desc Return true if the given branch exists in the global branch map.
 /// @param branchName
 var branchName = argument0;
 

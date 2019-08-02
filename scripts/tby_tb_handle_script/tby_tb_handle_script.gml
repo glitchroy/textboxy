@@ -1,3 +1,4 @@
+/// @desc Scribble event. Handles the script command.
 /// @param json
 /// @param data array
 /// @param changed
@@ -7,6 +8,7 @@
 //ev|script|script_name
 var json = argument0, data = argument1, changed = argument2, different = argument3;
 
+// Handles a given script index with variable arguments
 if ( different ) {
     var script_index = asset_get_index(data[0])
     if (script_exists(script_index)) {

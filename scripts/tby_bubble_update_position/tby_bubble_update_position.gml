@@ -1,3 +1,4 @@
+/// @desc Update the position of a TbyType.Bubble based on an instance.
 /// @param inst
 var inst = argument0;
 

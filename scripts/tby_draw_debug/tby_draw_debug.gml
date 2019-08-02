@@ -1,3 +1,4 @@
+/// @desc Draws a debug string with a semi-transparent background box. Internal use only.
 /// @param tx
 /// @param ty
 /// @param text

@@ -1,3 +1,4 @@
+/// @desc Returns a random UUID.
 // https://forum.yoyogames.com/index.php?threads/generate-guid.17518/#post-112199
 var r = "";
 for (var i = 0; i < 32; i++) {

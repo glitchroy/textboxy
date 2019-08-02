@@ -1,3 +1,4 @@
+/// @desc Converts a given array with TbyType commands to a series of TbyBranch instructions and inserts them in the TbyBranch.
 /// @param tbArray
 var tbArray = argument0;
 

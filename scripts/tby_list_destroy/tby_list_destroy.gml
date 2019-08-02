@@ -1,3 +1,4 @@
+/// @desc Destroys the given TbyList.
 /// @param tby_list
 var tby_list = argument0;
 

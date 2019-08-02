@@ -1,3 +1,4 @@
+/// @desc Executes the SetCallback option if set. Called before the branch is destroyed.
 /// @param branchName
 var branchName = argument0;
 

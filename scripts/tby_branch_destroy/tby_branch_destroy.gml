@@ -1,3 +1,4 @@
+/// @desc Destroys a given branch and all associated data structures.
 /// @param branchName
 var branchName = argument0;
 

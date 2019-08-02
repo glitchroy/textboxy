@@ -1,3 +1,4 @@
+/// @desc Draws a sprite with position and scaling.
 /// @param sprite
 /// @param sx
 /// @param sy

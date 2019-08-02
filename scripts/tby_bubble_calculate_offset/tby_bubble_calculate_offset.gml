@@ -1,3 +1,4 @@
+/// @desc Returns the offset position on the top middle of an instance.
 /// @param inst
 /// @param width
 /// @param height

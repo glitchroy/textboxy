@@ -1,3 +1,4 @@
+/// @desc Calls the next entry on the TbyBranch or destroys it if finished.
 /// @param branchName = global.tby_active_branch
 var branchName = argument_count > 0 ? argument[0] : global.tby_active_branch;
 
@@ -23,6 +24,7 @@ if (tby_list_finished(list)) {
 var tbData = tby_list_advance(list)
 
 if (tbData == undefined) {
+    tby_log("Found undefined entry in TbyList. Destroying TbyBranch.")
     tby_branch_destroy(branchName)
 } else {
     tby_branch_handle_new_list_entry(branchName, tbData)

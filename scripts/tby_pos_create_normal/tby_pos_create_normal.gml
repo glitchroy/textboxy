@@ -1,3 +1,4 @@
+/// @desc Returns the coordinates of a TbyNormal textbox, given the line numbers and y-Position.
 /// @param yPos
 /// @param lineNumber = tby_box_lines_per_tb
 var yPos = argument[0];

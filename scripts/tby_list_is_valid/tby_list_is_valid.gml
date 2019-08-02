@@ -1,3 +1,4 @@
+/// @desc Returns true if the given index is of a valid TbyList. Checks for the IdentifierString meta tag.
 /// @param tby_list
 var tby_list = argument0;
 

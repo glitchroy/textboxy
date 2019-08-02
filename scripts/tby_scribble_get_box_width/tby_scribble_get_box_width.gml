@@ -1,3 +1,4 @@
+/// @desc Given a scribble_box array, returns the width.
 /// @param scribble_box
 
 var scribble_box = argument0;

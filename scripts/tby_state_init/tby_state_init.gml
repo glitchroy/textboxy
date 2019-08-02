@@ -1,4 +1,4 @@
-/// @function stateInit(state)
+/// @function state_init(state)
 /// @description [Create Event] Sets the default state for the object.
 
 /// @param {string} state The initial state identifier.

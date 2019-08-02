@@ -1,3 +1,4 @@
+/// @desc Adds a new TbyType to the active TbyBranch.
 /// @param type
 /// @param ...
 var type = argument[0];

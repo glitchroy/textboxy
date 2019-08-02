@@ -1,3 +1,4 @@
+/// @desc Sets the OptionsMap of a TbyBranch to all the default options.
 /// @param branchName
 var branchName = argument0;
 

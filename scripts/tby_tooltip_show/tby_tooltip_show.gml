@@ -1,3 +1,4 @@
+/// @desc Draws a TbyTooltip this step.
 /// @param tooltipName
 /// @param tx
 /// @param ty

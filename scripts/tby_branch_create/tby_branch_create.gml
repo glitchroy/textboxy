@@ -1,3 +1,4 @@
+/// @desc Creates a new TbyBranch. Returns the named identifier or a randomly generated one.
 /// @param ?branchName = undefined
 var branchName = argument_count > 0 ? argument[0] : undefined;
 

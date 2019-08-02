@@ -1,3 +1,4 @@
+/// @desc Reads value/string pairs from a json file into a global ds_map.
 /// @param lang_file = tby_default_external_lang_file
 var lang_file = argument_count > 0 ? argument[0] : tby_default_external_lang_file;
 

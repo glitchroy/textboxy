@@ -1,3 +1,4 @@
+/// @desc Returns a TbyPos object based on the given TbyPlacement enum. Also calculates auto position.
 /// @param placementEnum
 /// @param lineNumber 
 var placementEnum = argument0, lineNumber = argument1;

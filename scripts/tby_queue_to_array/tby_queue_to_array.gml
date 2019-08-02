@@ -1,3 +1,4 @@
+/// @desc Converts a ds_queue to an array.
 /// @param queue_id
 var queue_id = argument0;
 

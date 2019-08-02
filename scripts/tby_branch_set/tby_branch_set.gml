@@ -1,3 +1,4 @@
+/// @desc Sets a TbyOption for the active TbyBranch.
 /// @param option
 /// @param value
 var option = argument0, value = argument1;

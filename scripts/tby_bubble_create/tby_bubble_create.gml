@@ -1,3 +1,4 @@
+/// @desc Creates and returns a new TbyType.Bubble textbox.
 /// @param tbText 
 /// @param tbInstance
 var tbText = argument0, tbInstance = argument1;

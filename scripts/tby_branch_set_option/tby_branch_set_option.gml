@@ -1,3 +1,4 @@
+/// @desc Sets a value in the OptionsMap of a TbyBranch.
 /// @param branchName
 /// @param optionName
 /// @param optionValue

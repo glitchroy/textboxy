@@ -1,4 +1,4 @@
-/// @function stateCreate(name, script)
+/// @function state_create(name, script)
 /// @description [Any Event] Creates a state for an object.
 
 /// @param {string} name Identifier of the state.

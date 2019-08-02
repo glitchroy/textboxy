@@ -1,3 +1,4 @@
+/// @desc Scribble event. Handles the speed command.
 /// @param json
 /// @param data array
 /// @param changed
@@ -9,5 +10,6 @@ var json = argument0, data = argument1, changed = argument2, different = argumen
 
 if ( different ) {
     textSpeed = real(data[0]);
+    // TODO: Ugly access to typewriter speed property
     json[| __SCRIBBLE.TW_SPEED] = textSpeed
 }

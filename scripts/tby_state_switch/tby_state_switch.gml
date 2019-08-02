@@ -1,4 +1,4 @@
-/// @function stateSwitch(state, [pushToStack?])
+/// @function state_switch(state, [pushToStack?])
 /// @description [Any Event] Sets the active state of the object.
 
 /// @param {string|script} state The state to switch to by script or string identifier

@@ -1,3 +1,4 @@
+/// @desc Registers a branch to the global branch map.
 /// @param branchName
 var branchName = argument0;
 

@@ -1,4 +1,4 @@
-/// @function stateUpdate()
+/// @function state_update()
 /// @description [End Step Event] Handles state switching for an object.
 
 
