@@ -1,4 +1,4 @@
-if (stateNew) {
+if (state_new) {
 	textScribble[| __SCRIBBLE.TW_SPEED] = 0
 }
 

@@ -7,6 +7,6 @@ if (script_exists(state)) {
 	
 } else {
 	
-	tby_state_switch(ds_map_find_first(stateMap));
+	tby_state_switch(ds_map_find_first(state_map));
 	
 }

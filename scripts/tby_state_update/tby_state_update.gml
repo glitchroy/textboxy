@@ -2,11 +2,11 @@
 /// @description [End Step Event] Handles state switching for an object.
 
 
-if(stateNext != state) {
-	state = stateNext;
-	stateTimer = 0;
-	stateNew = true;
+if(state_next != state) {
+	state = state_next;
+	state_timer = 0;
+	state_new = true;
 } else {
-	stateTimer++;
-	stateNew = false;
+	state_timer++;
+	state_new = false;
 }

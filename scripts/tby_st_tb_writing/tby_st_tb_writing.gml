@@ -1,7 +1,7 @@
 if (textScribble == undefined) exit;
 
-if (stateNew) {
-    stateVar[0] = 0 //timer;
+if (state_new) {
+    state_var[0] = 0 //timer;
 }
 
 scribble_step(textScribble);
@@ -19,11 +19,11 @@ if (currentState == 1) {
 }
 
 //Do every X tick (speed)
-if (currentState > 0 && currentState < 1 && stateVar[0] mod textSpeed == 0) {
+if (currentState > 0 && currentState < 1 && state_var[0] mod textSpeed == 0) {
 	//Sound
     audio_stop_sound(tby_default_speech_sound)
 	var sound = audio_play_sound(tby_default_speech_sound, 1, false);
 	audio_sound_pitch(sound, tby_default_pitch_range);
 
 }
-stateVar[0]++;
+state_var[0]++;

@@ -1,6 +1,6 @@
 event_inherited();
 
-if (stateName == "Init" || stateName == "Vanishing") exit;
+if (state_name == "Init" || state_name == "Vanishing") exit;
 if (textScribble == undefined) exit;
 
 var padding = tby_tile_size;

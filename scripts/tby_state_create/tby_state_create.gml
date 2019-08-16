@@ -4,6 +4,6 @@
 /// @param {string} name Identifier of the state.
 /// @param {script} script Script linking to the state.
 
-ds_map_replace(stateMap, argument[0], argument[1]);
+ds_map_replace(state_map, argument[0], argument[1]);
 
-ds_map_replace(stateKeys, argument[1], argument[0]);
+ds_map_replace(state_keys, argument[1], argument[0]);

@@ -1,4 +1,4 @@
-if (stateName == "Init" || stateName == "Vanishing") exit;
+if (state_name == "Init" || state_name == "Vanishing") exit;
 if (textScribble == undefined) exit;
 
 // Define variables to work with
@@ -14,7 +14,7 @@ scribble_draw(textScribble, textDim[TbyPos.x]-1, textDim[TbyPos.y]-1);
 
 // Finished circle
 var circleSprite = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Pause)
-if (stateName == "Finished") draw_sprite(circleSprite, -1, textDim[TbyPos.x]+textDim[TbyPos.width]+padding,
+if (state_name == "Finished") draw_sprite(circleSprite, -1, textDim[TbyPos.x]+textDim[TbyPos.width]+padding,
                                                            textDim[TbyPos.y]+textDim[TbyPos.height]+padding)
 
 #region Debug
@@ -27,7 +27,7 @@ if (global.tby_debug) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
-    " | State: " + stateName +
+    " | State: " + state_name +
 	" | " + string(textScribble[| __SCRIBBLE.TW_SPEED]) +
 	" | " + string(textScribble[| __SCRIBBLE.TW_POSITION]);
     

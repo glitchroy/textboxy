@@ -3,7 +3,7 @@ event_inherited();
 var textDim/*:TbyPos*/ = tby_array_clone(pos)
 
 // Choices
-if (stateName == "Finished") {
+if (state_name == "Finished") {
     var arrow = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Arrow);
 
     var heightOffset = tby_pos_height_from_lines(choiceFirstLine + selectedChoice)
