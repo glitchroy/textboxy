@@ -1,8 +1,8 @@
 /// @desc Adds a value to the end of the TbyList.
-/// @param tby_list
-/// @param val
-var tby_list = argument0, val = argument1;
+/// @param _tby_list
+/// @param _val
+var _tby_list = argument0, _val = argument1;
 
-if (ds_exists(tby_list, ds_type_list)) {
-    ds_list_add(tby_list, val)
+if (ds_exists(_tby_list, ds_type_list)) {
+    ds_list_add(_tby_list, _val)
 }

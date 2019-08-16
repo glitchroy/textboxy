@@ -1,17 +1,17 @@
 /// @desc Sets a value in the OptionsMap of a TbyBranch.
-/// @param branchName
-/// @param optionName
-/// @param optionValue
-var branchName = argument0, optionName = argument1, optionValue = argument2;
+/// @param _branch_name
+/// @param _option_name
+/// @param _option_value
+var _branch_name = argument0, _option_name = argument1, _option_value = argument2;
 
-var branch = global.tby_branches[? branchName];
-var optionMap = branch[TbyBranch.OptionsMap];
+var _branch = global.tby_branches[? _branch_name];
+var _option_map = _branch[TbyBranch.OptionsMap];
 
-optionMap[? optionName] = optionValue;
+_option_map[? _option_name] = _option_value;
 
 // option specific actions
-switch (optionName) {
+switch (_option_name) {
     case TbyOption.SetSkin:
-        global.tby_skin_tile_size = sprite_get_width(tby_array_get(optionValue, TbySkin.Frame))
+        global.tby_skin_tile_size = sprite_get_width(tby_array_get(_option_value, TbySkin.Frame))
     break;
 }

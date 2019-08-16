@@ -1,6 +1,6 @@
 /// @desc Returns the associated MessageList from a TbyBranch name.
-/// @param branchName
-var branchName = argument0;
+/// @param _branch_name
+var _branch_name = argument0;
 
-var branch = global.tby_branches[? branchName];
-return branch[TbyBranch.MessageList]
+var _branch = global.tby_branches[? _branch_name];
+return _branch[TbyBranch.MessageList]

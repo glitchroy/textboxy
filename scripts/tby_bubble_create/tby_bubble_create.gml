@@ -1,20 +1,20 @@
 /// @desc Creates and returns a new TbyType.Bubble textbox.
-/// @param tbText 
-/// @param tbInstance
-var tbText = argument0, tbInstance = argument1;
+/// @param _tb_text 
+/// @param _tb_instance
+var _tb_text = argument0, _tb_instance = argument1;
 
 // Don't calc position yet, since we need text dimensions
 
-var tb = instance_create_layer(tbInstance.x, tbInstance.y, tby_layer_text, tby_object_textbox_bubble)
+var _tb = instance_create_layer(_tb_instance.x, _tb_instance.y, tby_layer_text, tby_object_textbox_bubble)
 
-with (tb) {
+with (_tb) {
     // This is run after tby_object_textbox_normal CREATE event, but before the INIT state
-    inst = tbInstance;
+    inst = _tb_instance;
     
     // Replace text from string literals
-	tbText = string_replace_all(tbText,"\r\n","\n")
-	tbText = string_replace_all(tbText, "\t", "");
-	textRaw = tbText;
+	_tb_text = string_replace_all(_tb_text,"\r\n","\n")
+	_tb_text = string_replace_all(_tb_text, "\t", "");
+	text_raw = _tb_text;
 }
 
-return tb
+return _tb

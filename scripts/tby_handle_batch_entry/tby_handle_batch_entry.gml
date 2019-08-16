@@ -1,21 +1,21 @@
 /// @desc Converts a given array with TbyType commands to a series of TbyBranch instructions and inserts them in the TbyBranch.
-/// @param tbArray
-var tbArray = argument0;
+/// @param _tb_array
+var _tb_array = argument0;
 
 // unfold array and call tby_branch_add accordingly
-if (is_array(tbArray) == false) {
+if (is_array(_tb_array) == false) {
     tby_log("Illegal batch entry, no array");
     exit;
 }
 
-for (var i = 0; i < tby_arrlen(tbArray); i++) {
-    var entry = tbArray[i];
+for (var i = 0; i < tby_arrlen(_tb_array); i++) {
+    var _entry = _tb_array[i];
     
-    var type = entry[0];
+    var _type = _entry[0];
     
-    if (type == TbyType.Batch) continue; //don't handle nested batch
+    if (_type == TbyType.Batch) continue; //don't handle nested batch
     
-    tby_spread(tby_branch_add, entry)
+    tby_spread(tby_branch_add, _entry)
 }
 
 tby_branch_next_entry()

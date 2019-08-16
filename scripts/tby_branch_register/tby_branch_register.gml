@@ -1,16 +1,16 @@
 /// @desc Registers a branch to the global branch map.
-/// @param branchName
-var branchName = argument0;
+/// @param _branch_name
+var _branch_name = argument0;
 
 // Register new branch to global map
 
-tby_log("Creating TbyBranch \"" + branchName + "\".")
+tby_log("Creating TbyBranch \"" + _branch_name + "\".")
 
-var branchPayload = [];
-branchPayload[TbyBranch.MessageList] = tby_list_create();
-branchPayload[TbyBranch.LabelMap] = ds_map_create();
-branchPayload[TbyBranch.OptionsMap] = ds_map_create();
+var _branch_payload = [];
+_branch_payload[TbyBranch.MessageList] = tby_list_create();
+_branch_payload[TbyBranch.LabelMap] = ds_map_create();
+_branch_payload[TbyBranch.OptionsMap] = ds_map_create();
 
-global.tby_branches[? branchName] = branchPayload;
+global.tby_branches[? _branch_name] = _branch_payload;
 
-tby_branch_set_default_options(branchName);
+tby_branch_set_default_options(_branch_name);

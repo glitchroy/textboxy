@@ -1,30 +1,30 @@
 /// @desc Returns the position of a TbyType.Bubble textbox, clamped to the screen view.
 // Called from textbox object only
 
-var pos/*:TbyPos*/ = self.pos;
-var padding = tby_tile_size;
-var box = scribble_get_box(textScribble, pos[TbyPos.x], pos[TbyPos.y], padding, padding, padding, padding); //box of textbox
+var _pos/*:TbyPos*/ = self.pos;
+var _padding = tby_tile_size;
+var _box = scribble_get_box(text_scribble, _pos[TbyPos.x], _pos[TbyPos.y], _padding, _padding, _padding, _padding); //box of textbox
 
-sizeClamped = false;
+size_clamped = false;
 
-var cx, cy, cw, ch;
-var cam = view_camera[0]
+var _cx, _cy, _cw, _ch;
+var _cam = view_camera[0]
 
-if (cam != -1) {
+if (_cam != -1) {
     // cam vars
-    cx = camera_get_view_x(cam);
-    cy = camera_get_view_y(cam);
-    cw = camera_get_view_width(cam);
-    ch = camera_get_view_height(cam);
+    _cx = camera_get_view_x(_cam);
+    _cy = camera_get_view_y(_cam);
+    _cw = camera_get_view_width(_cam);
+    _ch = camera_get_view_height(_cam);
 } else {
     // room vars if no cam was found
-    cx = 0;
-    cy = 0;
-    cw = tby_game_width;
-    ch = tby_game_height;
+    _cx = 0;
+    _cy = 0;
+    _cw = tby_game_width;
+    _ch = tby_game_height;
 }
 
-if (box[0] < cx) { pos[@TbyPos.x] = cx+padding; sizeClamped = true; }
-if (box[1] < cy) { pos[@TbyPos.y] = cy+padding; sizeClamped = true; }
-if (box[2] > cx+cw)  { pos[@TbyPos.x] = cx+cw  - (box[2]-box[0]-padding); sizeClamped = true; }
-if (box[3] > cy+ch) { pos[@TbyPos.y] = cy+ch - (box[3]-box[1]-padding); sizeClamped = true; }
+if (_box[0] < _cx) { _pos[@TbyPos.x] = _cx+_padding; size_clamped = true; }
+if (_box[1] < _cy) { _pos[@TbyPos.y] = _cy+_padding; size_clamped = true; }
+if (_box[2] > _cx+_cw)  { _pos[@TbyPos.x] = _cx+_cw  - (_box[2]-_box[0]-_padding); size_clamped = true; }
+if (_box[3] > _cy+_ch) { _pos[@TbyPos.y] = _cy+_ch - (_box[3]-_box[1]-_padding); size_clamped = true; }

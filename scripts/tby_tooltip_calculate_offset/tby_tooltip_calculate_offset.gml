@@ -1,11 +1,11 @@
-/// @param tx
-/// @param ty
-/// @param width
-/// @param height
-var tx = argument0, ty = argument1, width = argument2, height = argument3;
+/// @param _tx
+/// @param _ty
+/// @param _width
+/// @param _height
+var _tx = argument0, _ty = argument1, _width = argument2, _height = argument3;
 
-var offsetWidth  = width / 2
-var bubbleHeight = tby_tile_size;
-var offsetHeight = height + bubbleHeight + tby_tile_size
+var _offset_width  = _width / 2
+var _bubble_height = tby_tile_size;
+var _offset_height = _height + _bubble_height + tby_tile_size
 
-return [floor(tx - offsetWidth), floor(ty - offsetHeight)]
+return [floor(_tx - _offset_width), floor(_ty - _offset_height)]

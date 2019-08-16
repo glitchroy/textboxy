@@ -1,18 +1,18 @@
 /// @desc Calls the next entry on the TbyBranch or destroys it if finished.
-/// @param branchName = global.tby_active_branch
-var branchName = argument_count > 0 ? argument[0] : global.tby_active_branch;
+/// @param _branch_name = global.tby_active_branch
+var _branch_name = argument_count > 0 ? argument[0] : global.tby_active_branch;
 
 #region Exit Conditions
-if (tby_branch_exists(branchName) == false) {
+if (tby_branch_exists(_branch_name) == false) {
     exit;
 }
 
-var list = tby_branch_get_message_list(branchName);
+var _list = tby_branch_get_message_list(_branch_name);
 
-if (tby_list_finished(list)) {
+if (tby_list_finished(_list)) {
     //current branch is finished
     //destroy
-    tby_branch_destroy(branchName)
+    tby_branch_destroy(_branch_name)
     
     tby_hook_branch_finished()
     
@@ -21,12 +21,12 @@ if (tby_list_finished(list)) {
 #endregion
 
 //release and create new textbox
-var tbData = tby_list_advance(list)
+var _tb_data = tby_list_advance(_list)
 
-if (tbData == undefined) {
+if (_tb_data == undefined) {
     tby_log("Found undefined entry in TbyList. Destroying TbyBranch.")
-    tby_branch_destroy(branchName)
+    tby_branch_destroy(_branch_name)
 } else {
-    tby_branch_handle_new_list_entry(branchName, tbData)
+    tby_branch_handle_new_list_entry(_branch_name, _tb_data)
 }
 

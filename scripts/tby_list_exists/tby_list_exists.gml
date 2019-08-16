@@ -1,5 +1,5 @@
 /// @desc Checks if the given TbyList exists. Returns a bool.
-/// @param tby_list
-var tby_list = argument0;
+/// @param _tby_list
+var _tby_list = argument0;
 
-return ds_exists(tby_list, ds_type_list)
+return ds_exists(_tby_list, ds_type_list)

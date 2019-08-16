@@ -1,14 +1,14 @@
 /// @desc Converts a ds_queue to an array.
-/// @param queue_id
-var queue_id = argument0;
+/// @param _queue_id
+var _queue_id = argument0;
 
-if (ds_exists(queue_id, ds_type_queue) == false) exit;
+if (ds_exists(_queue_id, ds_type_queue) == false) exit;
 
-var arr = [];
+var _arr = [];
 
-var s = ds_queue_size(queue_id)
-for (var i = 0; i < s; i++) {
-    arr[i] = ds_queue_dequeue(queue_id);
+var _s = ds_queue_size(_queue_id)
+for (var i = 0; i < _s; i++) {
+    _arr[i] = ds_queue_dequeue(_queue_id);
 }
 
-return arr;
+return _arr;

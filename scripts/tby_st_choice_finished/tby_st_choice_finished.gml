@@ -1,24 +1,24 @@
-var choiceLength = tby_arrlen(choices)-1
+var choice_length = tby_arrlen(choices)-1
 
 if (tby_input_choice_up) {
-    selectedChoice--;
-    if (selectedChoice < 0) {
-        selectedChoice = choiceLength;
+    selected_choice--;
+    if (selected_choice < 0) {
+        selected_choice = choice_length;
     }
 }
 
 if (tby_input_choice_down) {
-    selectedChoice++;
-    if (selectedChoice > choiceLength) {
-        selectedChoice = 0;
+    selected_choice++;
+    if (selected_choice > choice_length) {
+        selected_choice = 0;
     }
 }
 
 if (tby_input_confirm) {
-    global.tby_choice_result = selectedChoice;
+    global.tby_choice_result = selected_choice;
     tby_state_switch("Vanishing")
     
     tby_branch_next_entry()
 }
 
-scribble_step(textScribble);
+scribble_step(text_scribble);

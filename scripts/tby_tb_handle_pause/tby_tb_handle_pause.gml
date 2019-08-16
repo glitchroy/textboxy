@@ -1,17 +1,16 @@
 /// @desc Scribble event. Handles the pause command.
-/// @param json
-/// @param data array
-/// @param changed
-/// @param different
+/// @param _json
+/// @param _data_array
+/// @param _changed
+/// @param _different
 
 //called from text event
-//ev|pause|1 (in seconds)
-var json = argument0, data = argument1, changed = argument2, different = argument3;
+//[pause,1.0] (in seconds)
+var _json = argument0, _data = argument1, _changed = argument2, _different = argument3;
 
-if ( different ) {
+if (_different) {
 	// Set waitTimer in current textbox instance and
 	// switch state to waiting
-	//tby_error(json[| __SCRIBBLE.TW_POSITION])
-	waitTimer = room_speed*real(data[0]);
+	wait_timer = room_speed * real(_data[0]);
 	tby_state_switch("Waiting")
 }

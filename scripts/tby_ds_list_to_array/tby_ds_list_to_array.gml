@@ -1,29 +1,29 @@
 /// @desc Converts a ds_list to an array. Returns the array.
-/// @param list_id
-var list_id = argument0;
+/// @param _list_id
+var _list_id = argument0;
 
-if (ds_exists(list_id, ds_type_list) == false) exit;
+if (ds_exists(_list_id, ds_type_list) == false) exit;
 
-var arr = [];
+var _arr = [];
 
-var s = ds_list_size(list_id)
-for (var i = 0; i < s; i++) {
-    var innerList = list_id[| i];
+var _s = ds_list_size(_list_id)
+for (var i = 0; i < _s; i++) {
+    var _inner_list = _list_id[| i];
     
-    if (ds_exists(innerList, ds_type_list)) {
+    if (ds_exists(_inner_list, ds_type_list)) {
         
-        var inner = [];
-        var s2 = ds_list_size(innerList)
-        for (var j = 0; j < s2; j++) {
-            inner[j] = innerList[| j];
+        var _inner = [];
+        var _s2 = ds_list_size(_inner_list)
+        for (var j = 0; j < _s2; j++) {
+            _inner[j] = _inner_list[| j];
         }
         
-        arr[i] = inner;
+        _arr[i] = _inner;
     } else {
-        arr[i] = innerList;
+        _arr[i] = _inner_list;
     }
     
    
 }
 
-return arr;
+return _arr;

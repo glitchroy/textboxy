@@ -1,44 +1,41 @@
 /// @desc Creates and returns a new TbyType.Choice textbox.
-/// @param tbText = ""
-/// @param choices = []
-/// @param tbPlacement = TbyPlacement.Auto
-var tbText = argument_count > 0 ? argument[0] : "";
-var choices = argument_count > 1 ? argument[1] : [];
-var tbPlacement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
+/// @param _tb_text = ""
+/// @param _choices = []
+/// @param _tb_placement = TbyPlacement.Auto
+var _tb_text = argument_count > 0 ? argument[0] : "";
+var _choices = argument_count > 1 ? argument[1] : [];
+var _tb_placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
 
-var position/*:TbyPos*/ = tby_normal_get_placement_from_enum(tbPlacement, 3);
+var _position/*:TbyPos*/ = tby_normal_get_placement_from_enum(_tb_placement, 3);
 
-var tb = instance_create_layer(position[TbyPos.x], position[TbyPos.y], tby_layer_text, tby_object_choice)
+var _tb = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, tby_object_choice)
 
-with (tb) {
+with (_tb) {
     // This is run before the INIT state, but after tby_object_textbox_normal CREATE event
     
-    //selectable = true;
-    //textSize = size;
-
-    pos = position;
+    pos = _position;
 
     // TEXT
     // Replace text from string literals
-	tbText = string_replace_all(tbText,"\r\n","\n")
-	tbText = string_replace_all(tbText, "\t", "");
+	_tb_text = string_replace_all(_tb_text,"\r\n","\n")
+	_tb_text = string_replace_all(_tb_text, "\t", "");
 	
-    self.choices = choices;
+    self.choices = _choices;
     //at which line should the selection start? 
-    choiceFirstLine = string_count("\n", tbText);
+    choice_first_line = string_count("\n", _tb_text);
     // if there preview text but no breaks in it, start at line 1 anyway
-	if (tbText != "" && choiceFirstLine == 0) choiceFirstLine = 1
+	if (_tb_text != "" && choice_first_line == 0) choice_first_line = 1
 	
-	selectedChoice = 0;
+	selected_choice = 0;
 	
-	var choiceString = tbText != "" ? "\n" : "";
+	var _choice_string = _tb_text != "" ? "\n" : "";
 
-	for (var i = 0; i < tby_arrlen(choices); i++) {
-	    choiceString += "    " + choices[i];
-	    if (i != tby_arrlen(choices)-1) choiceString += "[pause,0.25]\n"
+	for (var i = 0; i < tby_arrlen(_choices); i++) {
+	    _choice_string += "    " + _choices[i];
+	    if (i != tby_arrlen(_choices)-1) _choice_string += "[pause,0.25]\n"
 	}
 	
-	textRaw = tbText + choiceString;
+	text_raw = _tb_text + _choice_string;
 }
 
-return tb
+return _tb

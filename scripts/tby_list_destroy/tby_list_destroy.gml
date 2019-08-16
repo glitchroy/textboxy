@@ -1,7 +1,7 @@
 /// @desc Destroys the given TbyList.
-/// @param tby_list
-var tby_list = argument0;
+/// @param _tby_list
+var _tby_list = argument0;
 
-if (ds_exists(tby_list, ds_type_list)) {
-    ds_list_destroy(tby_list)
+if (ds_exists(_tby_list, ds_type_list)) {
+    ds_list_destroy(_tby_list)
 }

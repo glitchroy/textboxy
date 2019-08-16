@@ -1,9 +1,9 @@
 /// @desc Returns the given option from the OptionsMap of a TbyBranch.
-/// @param branchName
-/// @param optionName
-var branchName = argument0, optionName = argument1;
+/// @param _branch_name
+/// @param _option_name
+var _branch_name = argument0, _option_name = argument1;
 
-var branch = global.tby_branches[? branchName];
-var optionMap = branch[TbyBranch.OptionsMap];
+var _branch = global.tby_branches[? _branch_name];
+var _option_map = _branch[TbyBranch.OptionsMap];
 
-return optionMap[? optionName]
+return _option_map[? _option_name]

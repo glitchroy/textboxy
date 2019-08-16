@@ -1,5 +1,5 @@
-/// @param tooltipName
-var tooltipName = argument0;
+/// @param _tooltip_name
+var _tooltip_name = argument0;
 
-var tooltip = global.tby_tooltips[? tooltipName];
-return tooltip[TbyTooltip.Text]
+var _tooltip = global.tby_tooltips[? _tooltip_name];
+return _tooltip[TbyTooltip.Text]

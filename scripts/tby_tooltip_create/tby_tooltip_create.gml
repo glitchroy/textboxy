@@ -1,19 +1,19 @@
 /// @desc Creates a new TbyTooltip. Returns the named indentifier.
-/// @param tooltipName
+/// @param _tooltip_name
 /// @param text
-/// @param maxWidth = tby_max_width_tooltip
-/// @param drawBubbleSprite = true
-var tooltipName = argument[0], text = argument[1];
-var maxWidth = argument_count > 2 ? argument[2] : tby_max_width_tooltip;
-var drawBubbleSprite = argument_count > 3 ? argument[3] : true;
+/// @param _max_width = tby_max_width_tooltip
+/// @param _draw_bubble_sprite = true
+var _tooltip_name = argument[0], text = argument[1];
+var _max_width = argument_count > 2 ? argument[2] : tby_max_width_tooltip;
+var _draw_bubble_sprite = argument_count > 3 ? argument[3] : true;
 
 // Abort if the name already exists
-if (tby_tooltip_exists(tooltipName)) {
-    tby_log("Can't create TbyTooltip \""+ tooltipName +"\" because it already exists.")
+if (tby_tooltip_exists(_tooltip_name)) {
+    tby_log("Can't create TbyTooltip \""+ _tooltip_name +"\" because it already exists.")
     exit;
 }
 
-tby_tooltip_register(tooltipName, text, maxWidth, drawBubbleSprite)
+tby_tooltip_register(_tooltip_name, text, _max_width, _draw_bubble_sprite)
 
 
-return tooltipName;
+return _tooltip_name;

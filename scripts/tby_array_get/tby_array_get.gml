@@ -1,7 +1,7 @@
 /// @desc Gets a given index from an array.
 /// @param array
 /// @param index
-var array = argument0, index = argument1;
+var _array = argument0, _index = argument1;
 
-var a = array;
-return a[index];
+var _a = _array;
+return _a[_index];

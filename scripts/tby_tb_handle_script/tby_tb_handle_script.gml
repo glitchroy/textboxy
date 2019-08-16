@@ -1,23 +1,23 @@
 /// @desc Scribble event. Handles the script command.
-/// @param json
-/// @param data array
-/// @param changed
-/// @param different
+/// @param _json
+/// @param _data_array
+/// @param _changed
+/// @param _different
 
 //called from text event
 //ev|script|script_name
-var json = argument0, data = argument1, changed = argument2, different = argument3;
+var _json = argument0, _data = argument1, _changed = argument2, _different = argument3;
 
 // Handles a given script index with variable arguments
-if ( different ) {
-    var script_index = asset_get_index(data[0])
-    if (script_exists(script_index)) {
-        if (tby_arrlen(data) > 1) {
-            var args = []
-            array_copy(args, 0, data, 1, tby_arrlen(data)-1)
-            tby_spread(script_index, args)
+if (_different) {
+    var _script_index = asset_get_index(_data[0])
+    if (script_exists(_script_index)) {
+        if (tby_arrlen(_data) > 1) {
+            var _args = []
+            array_copy(_args, 0, _data, 1, tby_arrlen(_data)-1)
+            tby_spread(_script_index, _args)
         } else {
-            script_execute(script_index);
+            script_execute(_script_index);
         }
     }
 }

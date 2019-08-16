@@ -1,4 +1,4 @@
 tby_state_cleanup();
-if (textScribble != undefined && ds_exists(textScribble, ds_type_map)) {
-    scribble_destroy(textScribble);
+if (text_scribble != undefined && ds_exists(text_scribble, ds_type_map)) {
+    scribble_destroy(text_scribble);
 }

@@ -1,8 +1,8 @@
 /// @desc Returns true if the HasBeenAdvanced meta flag is set.
-/// @param tby_list
-var tby_list = argument0;
+/// @param _tby_list
+var _tby_list = argument0;
 
-if (tby_list_exists(tby_list)) {
-    var meta = tby_list[| 0];
-    return meta[TbyListMeta.HasBeenAdvanced]
+if (tby_list_exists(_tby_list)) {
+    var _meta = _tby_list[| 0];
+    return _meta[TbyListMeta.HasBeenAdvanced]
 }

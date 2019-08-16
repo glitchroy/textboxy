@@ -1,10 +1,10 @@
 /// @desc Sets the pointer of the TbyList to the given value.
-/// @param tby_list
-/// @param pointer_value
-var tby_list = argument0, pointer_value = argument1;
+/// @param _tby_list
+/// @param _pointer_value
+var _tby_list = argument0, _pointer_value = argument1;
 
-if (ds_exists(tby_list, ds_type_list)) {
-    var meta = tby_list[| 0];
-    meta[TbyListMeta.Pointer] = pointer_value;
-    ds_list_replace(tby_list, 0, meta);
+if (ds_exists(_tby_list, ds_type_list)) {
+    var _meta = _tby_list[| 0];
+    _meta[TbyListMeta.Pointer] = _pointer_value;
+    ds_list_replace(_tby_list, 0, _meta);
 }

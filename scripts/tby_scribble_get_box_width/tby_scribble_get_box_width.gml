@@ -1,6 +1,6 @@
 /// @desc Given a scribble_box array, returns the width.
-/// @param scribble_box
+/// @param _scribble_box
 
-var scribble_box = argument0;
+var _scribble_box = argument0;
 
-return scribble_box[SCRIBBLE_BOX.X1] - scribble_box[SCRIBBLE_BOX.X0]
+return _scribble_box[SCRIBBLE_BOX.X1] - _scribble_box[SCRIBBLE_BOX.X0]

@@ -1,5 +1,5 @@
 /// @desc Creates a new TbyListe object. Returns the identifier, which is a ds_list.
-var l = ds_list_create();
-l[| 0] = tby_list_meta(); // tby_list information
+var _l = ds_list_create();
+_l[| 0] = tby_list_meta(); // tby_list information
 
-return l;
+return _l;

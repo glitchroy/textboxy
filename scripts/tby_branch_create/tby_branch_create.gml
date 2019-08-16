@@ -1,21 +1,21 @@
 /// @desc Creates a new TbyBranch. Returns the named identifier or a randomly generated one.
-/// @param ?branchName = undefined
-var branchName = argument_count > 0 ? argument[0] : undefined;
+/// @param ?_branch_name = undefined
+var _branch_name = argument_count > 0 ? argument[0] : undefined;
 
 // If no name is given, use random string
-if (branchName == undefined) {
-    branchName = tby_uuid();
+if (_branch_name == undefined) {
+    _branch_name = tby_uuid();
 }
 
 // Abort if the name already exists
-if (tby_branch_exists(branchName)) {
-    tby_log("Can't create TbyBranch \""+ branchName +"\" because it already exists.")
+if (tby_branch_exists(_branch_name)) {
+    tby_log("Can't create TbyBranch \""+ _branch_name +"\" because it already exists.")
     exit;
 }
 
-tby_branch_register(branchName)
+tby_branch_register(_branch_name)
 
 // Automatically use the branch
-tby_branch_use(branchName)
+tby_branch_use(_branch_name)
 
-return branchName
+return _branch_name

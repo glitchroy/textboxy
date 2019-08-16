@@ -1,9 +1,9 @@
 /// @desc Returns the coordinates of a TbyBubble, given the speaking instance and dimensions.
-/// @param inst
-/// @param wPos
-/// @param hPos
-var inst = argument0, wPos = argument1, hPos = argument2;
+/// @param _inst
+/// @param _w_pos
+/// @param _h_pos
+var _inst = argument0, _w_pos = argument1, _h_pos = argument2;
 
-var offset = tby_bubble_calculate_offset(inst, wPos, hPos)
+var _offset = tby_bubble_calculate_offset(_inst, _w_pos, _h_pos)
 
-return [offset[0], offset[1], wPos, hPos]
+return [_offset[0], _offset[1], _w_pos, _h_pos]

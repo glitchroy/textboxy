@@ -1,24 +1,24 @@
 event_inherited();
 
-var textDim/*:TbyPos*/ = tby_array_clone(pos)
+var _text_dim/*:TbyPos*/ = tby_array_clone(pos)
 
 // Choices
 if (state_name == "Finished") {
-    var arrow = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Arrow);
+    var _arrow = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Arrow);
 
-    var heightOffset = tby_pos_height_from_lines(choiceFirstLine + selectedChoice)
+    var _height_offset = tby_pos_height_from_lines(choice_first_line + selected_choice)
     
-    draw_sprite(arrow, -1, textDim[TbyPos.x]+3, textDim[TbyPos.y]+heightOffset+2)
+    draw_sprite(_arrow, -1, _text_dim[TbyPos.x]+3, _text_dim[TbyPos.y]+_height_offset+2)
 
 }
 
 #region Debug
 if (global.tby_debug) {
-    var padding = tby_tile_size;
-    var boxDim = [textDim[TbyPos.x]-padding, textDim[TbyPos.y]-padding, textDim[TbyPos.x]+textDim[TbyPos.width]+padding, textDim[TbyPos.y]+textDim[TbyPos.height]+padding]
+    var _padding = tby_tile_size;
+    var _box_dim = [_text_dim[TbyPos.x]-_padding, _text_dim[TbyPos.y]-_padding, _text_dim[TbyPos.x]+_text_dim[TbyPos.width]+_padding, _text_dim[TbyPos.y]+_text_dim[TbyPos.height]+_padding]
 
-    var choice = -1;
-    if (variable_instance_exists(id, "selectedChoice")) choice = selectedChoice;
-    tby_draw_debug(boxDim[2]-80, boxDim[1]-padding-5, "Selected choice: " + string(choice));
+    var _choice = -1;
+    if (variable_instance_exists(id, "selected_choice")) _choice = selected_choice;
+    tby_draw_debug(_box_dim[2]-80, _box_dim[1]-_padding-5, "Selected choice: " + string(_choice));
 }
 #endregion

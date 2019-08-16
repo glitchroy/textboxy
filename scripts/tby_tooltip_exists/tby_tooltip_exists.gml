@@ -1,4 +1,4 @@
-/// @param tooltipName
-var tooltipName = argument0;
+/// @param _tooltip_name
+var _tooltip_name = argument0;
 
-return ds_map_exists(global.tby_tooltips, tooltipName)
+return ds_map_exists(global.tby_tooltips, _tooltip_name)

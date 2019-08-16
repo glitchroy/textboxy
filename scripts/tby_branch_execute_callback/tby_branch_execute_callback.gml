@@ -1,9 +1,9 @@
 /// @desc Executes the SetCallback option if set. Called before the branch is destroyed.
-/// @param branchName
-var branchName = argument0;
+/// @param _branch_name
+var _branch_name = argument0;
 
-var cb = tby_branch_get_option(branchName, TbyOption.SetCallback);
+var _cb = tby_branch_get_option(_branch_name, TbyOption.SetCallback);
 
-if (cb != -1 && script_exists(cb)) {
-    script_execute(cb)
+if (_cb != -1 && script_exists(_cb)) {
+    script_execute(_cb)
 }

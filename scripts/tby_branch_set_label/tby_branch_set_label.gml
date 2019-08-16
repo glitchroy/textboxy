@@ -1,10 +1,10 @@
 /// @desc Sets a label in a TbyBranch's LabelMap.
-/// @param branchName
-/// @param labelName
-/// @param labelValue
-var branchName = argument0, labelName = argument1, labelValue = argument2;
+/// @param _branch_name
+/// @param _label_name
+/// @param _label_value
+var _branch_name = argument0, _label_name = argument1, _label_value = argument2;
 
-var branch = global.tby_branches[? branchName];
-var labelMap = branch[TbyBranch.LabelMap];
+var _branch = global.tby_branches[? _branch_name];
+var _label_map = _branch[TbyBranch.LabelMap];
 
-labelMap[? labelName] = labelValue;
+_label_map[? _label_name] = _label_value;

@@ -2,17 +2,17 @@ draw_self()
 
 // Draws the info boxes
 
-var cx, cy, cw, ch;
-var cam = view_camera[0]
-cx = camera_get_view_x(cam);
-cy = camera_get_view_y(cam);
-cw = camera_get_view_width(cam);
-ch = camera_get_view_height(cam);
+var _cx, _cy, _cw, _ch;
+var _cam = view_camera[0]
+_cx = camera_get_view_x(_cam);
+_cy = camera_get_view_y(_cam);
+_cw = camera_get_view_width(_cam);
+_ch = camera_get_view_height(_cam);
 
-tby_draw_debug(cx, cy, debug_string)
+tby_draw_debug(_cx, _cy, debug_string)
 
 if (global.tby_debug) {
-	tby_draw_debug(cx,
-	               cy+string_height(debug_string),
+	tby_draw_debug(_cx,
+	               _cy+string_height(debug_string),
 	               "DEBUG MODE ON")
 }

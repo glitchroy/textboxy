@@ -11,11 +11,11 @@ _tby_concat([0, 1, 2], [3, 4, 5]);
 
 //by https://github.com/gm-core/gdash/blob/master/src/scripts/_concat/_concat.gml
 
-var n = array_length_1d(argument0);
-var arr = tby_array_clone(argument0);
+var _n = array_length_1d(argument0);
+var _arr = tby_array_clone(argument0);
 
 for (var i = array_length_1d(argument1) - 1; i >= 0; i--) {
-    arr[@ n+i] = argument1[@ i]; 
+    _arr[@ _n+i] = argument1[@ i]; 
 }
 
-return arr;
+return _arr;

@@ -9,4 +9,4 @@ if (inst != undefined && instance_exists(inst)) {
     tby_bubble_clamp_position()
 }
 
-scribble_step(textScribble);
+scribble_step(text_scribble);

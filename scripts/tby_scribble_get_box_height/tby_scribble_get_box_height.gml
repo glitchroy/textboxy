@@ -1,6 +1,6 @@
 /// @desc Given a scribble_box array, returns the height.
-/// @param scribble_box
+/// @param _scribble_box
 
-var scribble_box = argument0;
-                           
-return scribble_box[SCRIBBLE_BOX.Y2] - scribble_box[SCRIBBLE_BOX.Y0]
+var _scribble_box = argument0;
+
+return _scribble_box[SCRIBBLE_BOX.Y2] - _scribble_box[SCRIBBLE_BOX.Y0]

@@ -1,33 +1,33 @@
 #region This code is for handling window resize
 
-windowScale = 2;
-windowScaleMax = 4;
+window_scale = 2;
+window_scale_max = 4;
 
-var windowWidth = tby_game_width*windowScale;
-var windowHeight = tby_game_height*windowScale;
+var _window_width = tby_game_width*window_scale;
+var _window_height = tby_game_height*window_scale;
 
 //Change window size and center it
 window_set_rectangle(
-	(display_get_width() - windowWidth) * 0.5, 
-	(display_get_height() - windowHeight) * 0.5, 
-	windowWidth,
-	windowHeight
+	(display_get_width() - _window_width) * 0.5, 
+	(display_get_height() - _window_height) * 0.5, 
+	_window_width,
+	_window_height
 );
 //Set GUI to always be as big
-display_set_gui_size(windowWidth/windowScale,
-						windowHeight/windowScale);
+display_set_gui_size(_window_width/window_scale,
+						_window_height/window_scale);
 	
 //Set AppSurface to window size 1:1 for subpixels
 
 surface_resize(application_surface,
-		        windowWidth,
-				windowHeight);
+		        _window_width,
+				_window_height);
 
 #endregion
 
 locked = 0;
 dir = undefined;
-global.inDialoguePause = false
+global.in_dialogue_pause = false
 
 debug_string = 
 @"PRESS ENTER OR SPACE TO TALK TO SOMEONE

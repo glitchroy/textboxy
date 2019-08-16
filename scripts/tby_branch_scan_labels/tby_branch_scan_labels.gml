@@ -1,22 +1,22 @@
 /// @desc Scans the TbyBranch for TbyType.Label commands and stores them in the LabelMap.
-/// @param branchName = global.tby_active_branch
-var branchName = argument_count > 0 ? argument[0] : global.tby_active_branch;
+/// @param _branch_name = global.tby_active_branch
+var _branch_name = argument_count > 0 ? argument[0] : global.tby_active_branch;
 
-if (tby_branch_exists(branchName) == false) {
+if (tby_branch_exists(_branch_name) == false) {
     exit;
 }
 
-var list = tby_branch_get_message_list(branchName);
+var _list = tby_branch_get_message_list(_branch_name);
 
-if (tby_list_exists(list) == false) exit;
+if (tby_list_exists(_list) == false) exit;
 
-for (var i = 0; i < tby_list_size(list); i++) {
-    var entry = tby_list_get_entry_at(list, i);
-    if (is_array(entry) && entry[0] == TbyType.Label) {
+for (var i = 0; i < tby_list_size(_list); i++) {
+    var _entry = tby_list_get_entry_at(_list, i);
+    if (is_array(_entry) && _entry[0] == TbyType.Label) {
         // Found label in list
-        var labelName = entry[1];
-        var labelPosition = i;
+        var _label_name = _entry[1];
+        var _label_position = i;
         
-        tby_branch_set_label(branchName, labelName, labelPosition);
+        tby_branch_set_label(_branch_name, _label_name, _label_position);
     }
 }
