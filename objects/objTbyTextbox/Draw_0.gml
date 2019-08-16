@@ -16,6 +16,26 @@ var _circle_sprite = tby_array_get(tby_branch_get_option(global.tby_active_branc
 if (state_name == "Finished") draw_sprite(_circle_sprite, -1, _text_dim[TbyPos.x]+_text_dim[TbyPos.width]+_padding,
                                                            _text_dim[TbyPos.y]+_text_dim[TbyPos.height]+_padding)
 
+if (type == TbyType.Bubble) {
+    //Bubble sprite
+    if (inst != undefined && instance_exists(inst) && !size_clamped) {
+        var _bubble_sprite = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Bubble)
+        tby_draw_sprite(_bubble_sprite, _box_dim[0]+(_box_dim[2]-_box_dim[0])/2, _text_dim[TbyPos.y]+_text_dim[TbyPos.height]+_padding)
+    }
+}
+
+if (type == TbyType.Choice) {
+    // Choices
+    if (state_name == "Finished") {
+        var _arrow = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Arrow);
+    
+        var _height_offset = tby_pos_height_from_lines(choice_first_line + selected_choice)
+        
+        draw_sprite(_arrow, -1, _text_dim[TbyPos.x]+3, _text_dim[TbyPos.y]+_height_offset+2)
+    
+    }
+}
+
 #region Debug
 if (global.tby_debug) {
     draw_set_alpha(0.75)
@@ -29,6 +49,13 @@ if (global.tby_debug) {
     " | State: " + state_name +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_SPEED]) +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_POSITION]);
+    
+    // Choice addition
+    if (type == TbyType.Choice) {
+        var _choice = -1;
+        if (variable_instance_exists(id, "selected_choice")) _choice = selected_choice;
+        _ds += " | Selected choice: " + string(_choice)
+    }
     
     tby_draw_debug(_box_dim[0], _box_dim[1]-_padding-5, _ds);
 }

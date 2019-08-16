@@ -14,9 +14,7 @@
 
 /* Internal objects */
 #macro tby_object_manager objTby
-#macro tby_object_textbox_normal objTbyTbNormal
-#macro tby_object_textbox_bubble objTbyTbBubble
-#macro tby_object_choice objTbyChoice
+#macro tby_object_textbox objTbyTextbox
 
 #macro tby_box_lines_per_tb 2
 #macro tby_box_horz_padding floor(tby_game_width/8)

@@ -12,6 +12,7 @@ tby_branch_add(TbyType.Wait, 1) // time in seconds
 tby_branch_add(TbyType.Label, "label-2");
 tby_branch_add(TbyType.Bubble, "Thanks!", instance_find(objRed, 0));
 tby_branch_add(TbyType.Bubble, "Yep.[pause,0.2]\nThat's about it.", id)
+tby_branch_add(TbyType.Choice, "Test", ["yes", "no"])
 tby_branch_add("[c_aqua](You feel like you just made a [wave][rainbow]new friend[][c_aqua]!)");
 
 

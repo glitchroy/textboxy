@@ -8,13 +8,15 @@ var _placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
 
 var _position/*:TbyPos*/ = tby_normal_get_placement_from_enum(_placement, 3);
 
-var _textbox_inst = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, tby_object_choice)
+var _textbox_inst = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, objTbyTextbox)
 
 // Replace text from string literals
 _content = string_replace_all(_content,"\r\n","\n")
 _content = string_replace_all(_content, "\t", "");
 
 with (_textbox_inst) {
+	type = TbyType.Choice
+	
     pos = _position;
     choices = _choices;
     selected_choice = 0;
@@ -30,6 +32,8 @@ with (_textbox_inst) {
 	}
 	
 	text_raw = _content + _choice_string;
+	
+	event_user(0)
 }
 
 return _textbox_inst
