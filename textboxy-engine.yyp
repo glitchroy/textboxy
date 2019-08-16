@@ -1407,6 +1407,14 @@
             }
         },
         {
+            "Key": "c34b4704-b1e5-42da-86ac-b00607938e0d",
+            "Value": {
+                "id": "eb9e2ea4-6eda-476f-8099-385a5b82b467",
+                "resourcePath": "objects\\objTbyTextbox\\objTbyTextbox.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c420b082-a50f-4033-80b6-08226f98c71d",
             "Value": {
                 "id": "f281a39d-f0b1-4ce5-a6d3-a55ffeda3bf0",

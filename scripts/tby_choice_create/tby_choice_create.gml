@@ -1,41 +1,35 @@
 /// @desc Creates and returns a new TbyType.Choice textbox.
-/// @param _tb_text = ""
+/// @param _content = ""
 /// @param _choices = []
-/// @param _tb_placement = TbyPlacement.Auto
-var _tb_text = argument_count > 0 ? argument[0] : "";
+/// @param _placement = TbyPlacement.Auto
+var _content = argument_count > 0 ? argument[0] : "";
 var _choices = argument_count > 1 ? argument[1] : [];
-var _tb_placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
+var _placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
 
-var _position/*:TbyPos*/ = tby_normal_get_placement_from_enum(_tb_placement, 3);
+var _position/*:TbyPos*/ = tby_normal_get_placement_from_enum(_placement, 3);
 
-var _tb = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, tby_object_choice)
+var _textbox_inst = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, tby_object_choice)
 
-with (_tb) {
-    // This is run before the INIT state, but after tby_object_textbox_normal CREATE event
-    
+// Replace text from string literals
+_content = string_replace_all(_content,"\r\n","\n")
+_content = string_replace_all(_content, "\t", "");
+
+with (_textbox_inst) {
     pos = _position;
-
-    // TEXT
-    // Replace text from string literals
-	_tb_text = string_replace_all(_tb_text,"\r\n","\n")
-	_tb_text = string_replace_all(_tb_text, "\t", "");
-	
-    self.choices = _choices;
+    choices = _choices;
+    selected_choice = 0;
     //at which line should the selection start? 
-    choice_first_line = string_count("\n", _tb_text);
+    choice_first_line = string_count("\n", _content);
     // if there preview text but no breaks in it, start at line 1 anyway
-	if (_tb_text != "" && choice_first_line == 0) choice_first_line = 1
+	if (_content != "" && choice_first_line == 0) choice_first_line = 1
 	
-	selected_choice = 0;
-	
-	var _choice_string = _tb_text != "" ? "\n" : "";
-
+	var _choice_string = _content != "" ? "\n" : "";
 	for (var i = 0; i < tby_arrlen(_choices); i++) {
 	    _choice_string += "    " + _choices[i];
 	    if (i != tby_arrlen(_choices)-1) _choice_string += "[pause,0.25]\n"
 	}
 	
-	text_raw = _tb_text + _choice_string;
+	text_raw = _content + _choice_string;
 }
 
-return _tb
+return _textbox_inst

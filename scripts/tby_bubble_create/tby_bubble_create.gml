@@ -1,20 +1,21 @@
 /// @desc Creates and returns a new TbyType.Bubble textbox.
-/// @param _tb_text 
-/// @param _tb_instance
-var _tb_text = argument0, _tb_instance = argument1;
+/// @param _content = ""
+/// @param _instance = noone
+var _content = argument_count > 0 ? argument[0] : "";
+var _instance = argument_count > 1 ? argument[1] : noone;
 
 // Don't calc position yet, since we need text dimensions
 
-var _tb = instance_create_layer(_tb_instance.x, _tb_instance.y, tby_layer_text, tby_object_textbox_bubble)
 
-with (_tb) {
-    // This is run after tby_object_textbox_normal CREATE event, but before the INIT state
-    inst = _tb_instance;
-    
-    // Replace text from string literals
-	_tb_text = string_replace_all(_tb_text,"\r\n","\n")
-	_tb_text = string_replace_all(_tb_text, "\t", "");
-	text_raw = _tb_text;
+var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_layer_text, tby_object_textbox_bubble)
+
+// Replace text from string literals
+_content = string_replace_all(_content,"\r\n","\n")
+_content = string_replace_all(_content, "\t", "");
+
+with (_textbox_inst) {
+    inst = _instance;
+	text_raw = _content;
 }
 
-return _tb
+return _textbox_inst

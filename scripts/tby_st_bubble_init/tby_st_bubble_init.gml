@@ -1,6 +1,6 @@
 // Init basics
-text_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
-wait_timer = 0;
+typewriter_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
+pause_timer = 0;
 pos = 0;
 size_clamped = false;
 
@@ -48,7 +48,7 @@ image_speed = tby_confirmation_blink_speed;
 scribble_set_box_alignment(text_scribble); 
 
 //set fade in to 0 to begin with
-scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, text_speed, 0);
+scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, typewriter_speed, 0);
 
 //Adjust position optionally
 if (inst != undefined && instance_exists(inst)) {

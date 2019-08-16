@@ -19,7 +19,7 @@ if (_current_state == 1) {
 }
 
 //Do every X tick (speed)
-if (_current_state > 0 && _current_state < 1 && state_var[0] mod text_speed == 0) {
+if (_current_state > 0 && _current_state < 1 && state_var[0] mod typewriter_speed == 0) {
 	//Sound
     audio_stop_sound(tby_default_speech_sound)
 	var _sound = audio_play_sound(tby_default_speech_sound, 1, false);

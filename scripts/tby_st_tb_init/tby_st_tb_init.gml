@@ -1,6 +1,6 @@
 // Init basics
-text_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
-wait_timer = 0;
+typewriter_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
+pause_timer = 0;
 var _pos/*:TbyPos*/ = self.pos
 
 //Add camera offset
@@ -36,6 +36,6 @@ text_scribble = scribble_create(text_raw,
 //set origin point of box to topleft
 scribble_set_box_alignment(text_scribble); 
 
-scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, text_speed, 0);
+scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, typewriter_speed, 0);
 
 tby_state_switch("Writing")

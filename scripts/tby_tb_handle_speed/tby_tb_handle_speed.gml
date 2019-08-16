@@ -9,7 +9,7 @@
 var _json = argument0, _data = argument1, _changed = argument2, _different = argument3;
 
 if (_different) {
-    text_speed = real(data[0]);
+    typewriter_speed = real(data[0]);
     // TODO: Ugly access to typewriter speed property
-    _json[| __SCRIBBLE.TW_SPEED] = text_speed
+    _json[| __SCRIBBLE.TW_SPEED] = typewriter_speed
 }

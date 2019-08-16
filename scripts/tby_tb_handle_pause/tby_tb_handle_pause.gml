@@ -11,6 +11,6 @@ var _json = argument0, _data = argument1, _changed = argument2, _different = arg
 if (_different) {
 	// Set waitTimer in current textbox instance and
 	// switch state to waiting
-	wait_timer = room_speed * real(_data[0]);
+	pause_timer = room_speed * real(_data[0]);
 	tby_state_switch("Waiting")
 }
