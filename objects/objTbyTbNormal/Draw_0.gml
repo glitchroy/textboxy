@@ -27,7 +27,9 @@ if (global.tby_debug) {
     var ds;
     ds = string(id-100000) +
 	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
-    " | State: " + stateName;
+    " | State: " + stateName +
+	" | " + string(textScribble[| __SCRIBBLE.TW_SPEED]) +
+	" | " + string(textScribble[| __SCRIBBLE.TW_POSITION]);
     
     tby_draw_debug(boxDim[0], boxDim[1]-padding-5, ds);
 }

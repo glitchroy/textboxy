@@ -6,7 +6,7 @@ scribble_init_end();
 
 scribble_add_colour( "c_thought", $78d7ff );
 
-scribble_add_event( "wait", tby_tb_handle_wait );
+scribble_add_event( "pause", tby_tb_handle_pause );
 scribble_add_event( "speed", tby_tb_handle_speed );
 scribble_add_event( "script", tby_tb_handle_script );
 

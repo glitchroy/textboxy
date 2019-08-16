@@ -562,7 +562,7 @@
             "Key": "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
             "Value": {
                 "id": "9dafcfca-2998-4fca-a295-ee58de28cd9b",
-                "resourcePath": "scripts\\tby_tb_handle_wait\\tby_tb_handle_wait.yy",
+                "resourcePath": "scripts\\tby_tb_handle_pause\\tby_tb_handle_pause.yy",
                 "resourceType": "GMScript"
             }
         },
