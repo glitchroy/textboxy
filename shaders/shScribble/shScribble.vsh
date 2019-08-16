@@ -138,7 +138,7 @@ void main()
     applySprite(flagArray[0], v_vColour);
     applyRainbow(flagArray[3]*u_aDataFields[5], u_aDataFields[6], v_vColour);
     applyColourBlend(u_vColourBlend, v_vColour);
-    applyTypewriterFade(u_fCharFadeT, u_fCharFadeSmoothness, in_Normal.x/u_fCharFadeCount, v_vColour);
+    applyTypewriterFade(u_fCharFadeT, u_fCharFadeSmoothness, (in_Normal.x+1.0)/u_fCharFadeCount, v_vColour);
     applyTypewriterFade(u_fLineFadeT, u_fLineFadeSmoothness, in_Normal.y/u_fLineFadeCount, v_vColour);
     
     //Texture
