@@ -4,7 +4,7 @@
 
 //!#import tby_tooltip.* as TbyTooltip
 
-//!#import tby_pos.* in TbyPos
+//!#import tby_dim.* in TbyDim
 
 //!#import tby_branch.* as TbyBranch
 //!#import tby_list.* as TbyList

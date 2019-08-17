@@ -15,7 +15,7 @@ var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_layer_te
 with (_textbox_inst) {
 	type = TbyType.Bubble
 	
-    pos = undefined; // Don't calc position yet, since we need text dimensions
+    dimensions = undefined; // Don't calc position yet, since we need text dimensions
     instance = _instance;
 	text_raw = _content;
 }

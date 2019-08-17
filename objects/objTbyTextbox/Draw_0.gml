@@ -3,17 +3,17 @@ if (text_scribble == undefined) exit;
 
 // Define variables to work with
 var _padding = tby_tile_size;
-var _content_dim/*:TbyPos*/ = tby_array_clone(pos)
+var _content_dim/*:TbyDim*/ = tby_array_clone(dimensions)
 var _box_dim = [
-        _content_dim[TbyPos.x]-_padding,
-        _content_dim[TbyPos.y]-_padding,
-        _content_dim[TbyPos.x]+_content_dim[TbyPos.width]+_padding,
-        _content_dim[TbyPos.y]+_content_dim[TbyPos.height]+_padding
+        _content_dim[TbyDim.x]-_padding,
+        _content_dim[TbyDim.y]-_padding,
+        _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
+        _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding
     ]
 
 // Background and Content draw
 tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3]);
-scribble_draw(text_scribble, _content_dim[TbyPos.x]-1, _content_dim[TbyPos.y]-1);
+scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
 
 #region Finished circle
 if (state_name == "Finished") {
@@ -23,8 +23,8 @@ if (state_name == "Finished") {
                                  TbyOption.SetSkin),
                              TbySkin.Pause)
     draw_sprite(_circle_sprite, -1,
-                _content_dim[TbyPos.x]+_content_dim[TbyPos.width]+_padding,
-                _content_dim[TbyPos.y]+_content_dim[TbyPos.height]+_padding)
+                _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
+                _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
 }
 #endregion
 
@@ -39,7 +39,7 @@ if (type == TbyType.Bubble) {
                                  TbySkin.Bubble)
         tby_draw_sprite(_bubble_sprite,
                         _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
-                        _content_dim[TbyPos.y]+_content_dim[TbyPos.height]+_padding)
+                        _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
     }
 }
 #endregion
@@ -54,12 +54,12 @@ if (type == TbyType.Choice) {
                              TbyOption.SetSkin),
                          TbySkin.Arrow);
     
-        var _height_offset = tby_pos_height_from_lines(choice_first_line +
+        var _height_offset = tby_get_height_from_lines(choice_first_line +
                                                       selected_choice)
         
         draw_sprite(_arrow, -1,
-                    _content_dim[TbyPos.x]+3,
-                    _content_dim[TbyPos.y]+_height_offset+2)
+                    _content_dim[TbyDim.x]+3,
+                    _content_dim[TbyDim.y]+_height_offset+2)
     
     }
 }
@@ -72,15 +72,15 @@ if (global.tby_debug) {
     draw_rectangle(_box_dim[0], _box_dim[1],
                    _box_dim[2], _box_dim[3], true); //outer
     draw_set_color(c_aqua);
-    draw_rectangle(_content_dim[TbyPos.x], _content_dim[TbyPos.y],
-                   _content_dim[TbyPos.x]+_content_dim[TbyPos.width],
-                   _content_dim[TbyPos.y]+_content_dim[TbyPos.height],
+    draw_rectangle(_content_dim[TbyDim.x], _content_dim[TbyDim.y],
+                   _content_dim[TbyDim.x]+_content_dim[TbyDim.width],
+                   _content_dim[TbyDim.y]+_content_dim[TbyDim.height],
                    true); //inner
     draw_set_alpha(1)
 
     var _ds;
     _ds = string(id-100000) +
-	//"| Pos: " + string(position) + "/" + string(scribble_get_length(text)) +
+	//"| P: " + string(position) + "/" + string(scribble_get_length(text)) +
     " | State: " + state_name +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_SPEED]) +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_POSITION]);

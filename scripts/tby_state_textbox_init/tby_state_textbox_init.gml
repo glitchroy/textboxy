@@ -16,7 +16,7 @@ var _data_fields = [
     tby_branch_get_option(_branch_name, TbyOption.SetRainbowSpeed)
 ]
 
-var _tb_width = type == TbyType.Bubble ? tby_max_width_bubble : pos[@TbyPos.width]
+var _tb_width = type == TbyType.Bubble ? tby_max_width_bubble : dimensions[@TbyDim.width]
 text_scribble = scribble_create(text_raw,
                                -1,
                                _tb_width,
@@ -30,9 +30,9 @@ text_scribble = scribble_create(text_raw,
 switch (type) {
     case TbyType.Bubble:
         size_clamped = false;
-        // Calculate pos now when in bubble
+        // Calculate dimensions now when in bubble
         var _box = scribble_get_box(text_scribble, 0, 0); // just for relative width / height
-        pos = tby_pos_create_bubble(instance, tby_scribble_get_box_width(_box), tby_scribble_get_box_height(_box))
+        dimensions = TbyDim.bubble(instance, tby_scribble_get_box_width(_box), tby_scribble_get_box_height(_box))
         
         //Adjust position optionally
         if (instance != undefined && instance_exists(instance)) {
@@ -46,8 +46,8 @@ switch (type) {
 #region Add camera offset
 var _cam = view_camera[0]
 if (_cam != -1) {
-    pos[@TbyPos.x] += camera_get_view_x(_cam);
-    pos[@TbyPos.y] += camera_get_view_y(_cam);
+    dimensions[@TbyDim.x] += camera_get_view_x(_cam);
+    dimensions[@TbyDim.y] += camera_get_view_y(_cam);
 }
 #endregion
 

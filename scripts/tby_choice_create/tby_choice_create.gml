@@ -6,17 +6,17 @@ var _content = argument_count > 0 ? argument[0] : "";
 var _choices = argument_count > 1 ? argument[1] : [];
 var _placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
 
-var _position/*:TbyPos*/ = tby_normal_calculate_pos_from_placement(_placement, 3);
+var _dim/*:TbyDim*/ = tby_normal_dimensions_from_placement(_placement, 3);
 
 // Replace text from string literals
 _content = string_replace_all(_content,"\r\n","\n")
 _content = string_replace_all(_content, "\t", "");
 
-var _textbox_inst = instance_create_layer(_position[TbyPos.x], _position[TbyPos.y], tby_layer_text, objTbyTextbox)
+var _textbox_inst = instance_create_layer(_dim[TbyDim.x], _dim[TbyDim.y], tby_layer_text, objTbyTextbox)
 with (_textbox_inst) {
 	type = TbyType.Choice
 	
-    pos = _position;
+    dimensions = _dim;
     choices = _choices;
     selected_choice = 0;
     //at which line should the selection start? 

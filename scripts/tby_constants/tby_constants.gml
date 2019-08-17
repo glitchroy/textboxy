@@ -19,7 +19,7 @@
 #macro tby_box_lines_per_tb 2
 #macro tby_box_horz_padding floor(tby_game_width/8)
 
-enum TbyPos {
+enum TbyDim {
     x,
     y,
     width,
