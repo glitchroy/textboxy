@@ -32,7 +32,7 @@ switch (type) {
         size_clamped = false;
         // Calculate dimensions now when in bubble
         var _box = scribble_get_box(text_scribble, 0, 0); // just for relative width / height
-        dimensions = TbyDim.bubble(instance, tby_scribble_get_box_width(_box), tby_scribble_get_box_height(_box))
+        dimensions = tby_dim_bubble(instance, tby_scribble_get_box_width(_box), tby_scribble_get_box_height(_box))
         
         //Adjust position optionally
         if (instance != undefined && instance_exists(instance)) {
