@@ -1,8 +1,8 @@
 {
-    "id": "8a21e1f6-f4cc-4205-9ac5-ce97f911bd08",
+    "id": "cd73f9ad-15a5-4572-8017-f4131adad830",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_st_bubble_waiting",
+    "name": "tby_state_textbox_waiting",
     "IsCompatibility": false,
     "IsDnD": false
 }

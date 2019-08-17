@@ -1,19 +1,10 @@
 // Init basics
 typewriter_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
 pause_timer = 0;
-var _pos/*:TbyPos*/ = self.pos
-
-//Add camera offset
-//Calc max size (the custom box width if specified or the whole game screen)
-var _cam = view_camera[0]
-if (_cam != -1) {
-    _pos[@TbyPos.x] += camera_get_view_x(_cam);
-    _pos[@TbyPos.y] += camera_get_view_y(_cam);
-}
-
 //message confirmation dot speed
 image_speed = tby_confirmation_blink_speed;
 
+#region Create scribble structure
 var _branch_name = global.tby_active_branch;
 var _data_fields = [
     tby_branch_get_option(_branch_name, TbyOption.SetWaveSize),
@@ -25,17 +16,43 @@ var _data_fields = [
     tby_branch_get_option(_branch_name, TbyOption.SetRainbowSpeed)
 ]
 
+var _tb_width = type == TbyType.Bubble ? tby_max_width_bubble : pos[@TbyPos.width]
 text_scribble = scribble_create(text_raw,
                                -1,
-                               _pos[TbyPos.width],
+                               _tb_width,
                                tby_default_color,
                                tby_default_font,
                                fa_left,
                                _data_fields);
+#endregion
+
+#region Bubble specific setup
+switch (type) {
+    case TbyType.Bubble:
+        size_clamped = false;
+        // Calculate pos now when in bubble
+        var _box = scribble_get_box(text_scribble, 0, 0); // just for relative width / height
+        pos = tby_pos_create_bubble(instance, tby_scribble_get_box_width(_box), tby_scribble_get_box_height(_box))
+        
+        //Adjust position optionally
+        if (instance != undefined && instance_exists(instance)) {
+            tby_bubble_update_position(instance);
+            tby_bubble_clamp_position()
+        }
+    break;
+}
+#endregion
+
+#region Add camera offset
+var _cam = view_camera[0]
+if (_cam != -1) {
+    pos[@TbyPos.x] += camera_get_view_x(_cam);
+    pos[@TbyPos.y] += camera_get_view_y(_cam);
+}
+#endregion
 
 //set origin point of box to topleft
 scribble_set_box_alignment(text_scribble); 
-
 scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, typewriter_speed, 0);
 
 tby_state_switch("Writing")

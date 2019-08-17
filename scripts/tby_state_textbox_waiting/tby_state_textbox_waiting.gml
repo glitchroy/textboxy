@@ -17,3 +17,11 @@ if (tby_input_advance_textbox) {
     pause_timer = 0
     tby_state_switch_previous()
 }
+
+if (type == TbyType.Bubble) {
+    // Check instance position
+    if (instance != undefined && instance_exists(instance)) {
+        tby_bubble_update_position(instance);
+        tby_bubble_clamp_position()
+    }
+}

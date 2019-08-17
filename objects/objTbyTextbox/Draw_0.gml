@@ -31,7 +31,7 @@ if (state_name == "Finished") {
 #region Bubble type
 if (type == TbyType.Bubble) {
     //Bubble sprite
-    if (inst != undefined && instance_exists(inst) && !size_clamped) {
+    if (instance != undefined && instance_exists(instance) && !size_clamped) {
         var _bubble_sprite = tby_array_get(
                                  tby_branch_get_option(
                                      global.tby_active_branch,

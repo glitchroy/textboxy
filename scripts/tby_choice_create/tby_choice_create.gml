@@ -6,7 +6,7 @@ var _content = argument_count > 0 ? argument[0] : "";
 var _choices = argument_count > 1 ? argument[1] : [];
 var _placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
 
-var _position/*:TbyPos*/ = tby_normal_get_placement_from_enum(_placement, 3);
+var _position/*:TbyPos*/ = tby_normal_calculate_pos_from_placement(_placement, 3);
 
 // Replace text from string literals
 _content = string_replace_all(_content,"\r\n","\n")
@@ -31,7 +31,5 @@ with (_textbox_inst) {
 	}
 	
 	text_raw = _content + _choice_string;
-	
-	event_user(0)
 }
 return _textbox_inst

@@ -1,8 +1,8 @@
 {
-    "id": "2a854bf6-3577-4f4c-a226-b3fffae25ce6",
+    "id": "0c58f40f-6670-4250-9481-ec2394bfb6cb",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_st_bubble_finished",
+    "name": "tby_state_textbox_vanishing",
     "IsCompatibility": false,
     "IsDnD": false
 }
