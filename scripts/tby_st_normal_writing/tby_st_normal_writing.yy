@@ -1,8 +1,8 @@
 {
-    "id": "ee687aed-3a23-4510-bfe5-f532658d36cd",
+    "id": "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_tb_handle_speed",
+    "name": "tby_st_normal_writing",
     "IsCompatibility": false,
     "IsDnD": false
 }

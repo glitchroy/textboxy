@@ -7,12 +7,11 @@ var _instance = argument_count > 1 ? argument[1] : noone;
 // Don't calc position yet, since we need text dimensions
 
 
-var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_layer_text, objTbyTextbox)
-
 // Replace text from string literals
 _content = string_replace_all(_content,"\r\n","\n")
 _content = string_replace_all(_content, "\t", "");
 
+var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_layer_text, objTbyTextbox)
 with (_textbox_inst) {
 	type = TbyType.Bubble
 	
@@ -21,5 +20,4 @@ with (_textbox_inst) {
 	
 	event_user(0)
 }
-
 return _textbox_inst

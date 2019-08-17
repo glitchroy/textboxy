@@ -1,4 +1,4 @@
-script_execute(tby_st_tb_waiting)
+script_execute(tby_st_normal_waiting)
 
 if (inst != undefined && instance_exists(inst)) {
     tby_bubble_update_position(inst);

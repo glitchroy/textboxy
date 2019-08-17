@@ -1,6 +1,6 @@
 /// @desc Handles the given TbyBranch command and then calls the next entry.
-/// @param _branch_name
-/// @param _tb_data
+/// @param _branch_name Name of currently active branch
+/// @param _tb_data Array with textbox information
 var _branch_name = argument0, _tb_data = argument1;
 
 var _tb_type = _tb_data[0];

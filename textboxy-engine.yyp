@@ -258,7 +258,7 @@
             "Key": "206269d1-a69e-4e4f-9a26-1ef11b01e919",
             "Value": {
                 "id": "84c4a0f0-8810-434c-b23f-ba36f1f4ecc4",
-                "resourcePath": "scripts\\tby_st_tb_waiting\\tby_st_tb_waiting.yy",
+                "resourcePath": "scripts\\tby_st_normal_waiting\\tby_st_normal_waiting.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -370,7 +370,7 @@
             "Key": "35835d72-bf5c-4ffc-a052-bb2110245853",
             "Value": {
                 "id": "923af4fd-bab1-4d54-883b-892aa6bb124a",
-                "resourcePath": "scripts\\tby_st_tb_finished\\tby_st_tb_finished.yy",
+                "resourcePath": "scripts\\tby_st_normal_finished\\tby_st_normal_finished.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -562,7 +562,7 @@
             "Key": "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
             "Value": {
                 "id": "9dafcfca-2998-4fca-a295-ee58de28cd9b",
-                "resourcePath": "scripts\\tby_tb_handle_pause\\tby_tb_handle_pause.yy",
+                "resourcePath": "scripts\\tby_event_handle_pause\\tby_event_handle_pause.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -722,7 +722,7 @@
             "Key": "6a1274cf-d9d6-44e3-b4de-40c803d753d3",
             "Value": {
                 "id": "c6aeaf5f-92af-4d65-b0b2-1f0666306d43",
-                "resourcePath": "scripts\\tby_st_tb_vanishing\\tby_st_tb_vanishing.yy",
+                "resourcePath": "scripts\\tby_st_normal_vanishing\\tby_st_normal_vanishing.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -786,7 +786,7 @@
             "Key": "71e7772f-aa65-45f5-9957-671930496fb9",
             "Value": {
                 "id": "3c59ee9e-7fc3-436b-8043-b8bbe640802c",
-                "resourcePath": "scripts\\tby_tb_handle_script\\tby_tb_handle_script.yy",
+                "resourcePath": "scripts\\tby_event_handle_script\\tby_event_handle_script.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1194,7 +1194,7 @@
             "Key": "a71d8dd7-a364-4c31-a8cc-7c81b5feefbb",
             "Value": {
                 "id": "4115701b-eef9-459a-ad93-fd3ec444acdf",
-                "resourcePath": "scripts\\tby_st_tb_init\\tby_st_tb_init.yy",
+                "resourcePath": "scripts\\tby_st_normal_init\\tby_st_normal_init.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1362,7 +1362,7 @@
             "Key": "bb250046-f31d-41f0-8f4b-a1b3bec0bf92",
             "Value": {
                 "id": "e7836389-6cfe-430e-8397-da3d1f59b48d",
-                "resourcePath": "scripts\\tby_st_tb_writing\\tby_st_tb_writing.yy",
+                "resourcePath": "scripts\\tby_st_normal_writing\\tby_st_normal_writing.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1746,7 +1746,7 @@
             "Key": "ee687aed-3a23-4510-bfe5-f532658d36cd",
             "Value": {
                 "id": "c43014db-3494-4c8f-a51c-7405777ef442",
-                "resourcePath": "scripts\\tby_tb_handle_speed\\tby_tb_handle_speed.yy",
+                "resourcePath": "scripts\\tby_event_handle_speed\\tby_event_handle_speed.yy",
                 "resourceType": "GMScript"
             }
         },
