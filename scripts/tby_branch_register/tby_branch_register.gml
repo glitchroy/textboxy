@@ -9,8 +9,8 @@ tby_log("Creating TbyBranch \"" + _branch_name + "\".")
 var _branch_payload = [];
 _branch_payload[TbyBranch.MessageList] = tby_list_create();
 _branch_payload[TbyBranch.LabelMap] = ds_map_create();
-_branch_payload[TbyBranch.OptionsMap] = ds_map_create();
+_branch_payload[TbyBranch.ConfigMap] = ds_map_create();
 
 global.tby_branches[? _branch_name] = _branch_payload;
 
-tby_branch_set_default_options(_branch_name);
+tby_branch_set_default_configs(_branch_name);

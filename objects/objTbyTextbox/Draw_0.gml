@@ -18,9 +18,9 @@ scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1)
 #region Finished circle
 if (state_name == "Finished") {
     var _circle_sprite = tby_array_get(
-                             tby_branch_get_option(
+                             tby_branch_get_config(
                                  global.tby_active_branch,
-                                 TbyOption.SetSkin),
+                                 TbyConfig.SetSkin),
                              TbySkin.Pause)
     draw_sprite(_circle_sprite, -1,
                 _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
@@ -33,9 +33,9 @@ if (type == TbyType.Bubble) {
     //Bubble sprite
     if (instance != undefined && instance_exists(instance) && !size_clamped) {
         var _bubble_sprite = tby_array_get(
-                                 tby_branch_get_option(
+                                 tby_branch_get_config(
                                      global.tby_active_branch,
-                                     TbyOption.SetSkin),
+                                     TbyConfig.SetSkin),
                                  TbySkin.Bubble)
         tby_draw_sprite(_bubble_sprite,
                         _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
@@ -49,9 +49,9 @@ if (type == TbyType.Choice) {
     // Choices
     if (state_name == "Finished") {
         var _arrow = tby_array_get(
-                         tby_branch_get_option(
+                         tby_branch_get_config(
                              global.tby_active_branch,
-                             TbyOption.SetSkin),
+                             TbyConfig.SetSkin),
                          TbySkin.Arrow);
     
         var _height_offset = tby_get_height_from_lines(choice_first_line +

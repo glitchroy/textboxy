@@ -1,8 +1,8 @@
-/// @desc Sets a TbyOption for the active TbyBranch.
-/// @param option
-/// @param value
-var _option = argument0, _value = argument1;
+/// @desc Sets a TbyConfig for the active TbyBranch.
+/// @param _config
+/// @param _value
+var _config = argument0, _value = argument1;
 
-// Wrapper for branch_add that already specifies TbyType.Option
+// Wrapper for branch_add that already specifies TbyType.Config
 
-tby_branch_add(TbyType.Option, _option, _value)
+tby_branch_add(TbyType.Config, _config, _value)

@@ -8,7 +8,7 @@ var _x1 = argument0, _y1 = argument1, _x2 = argument2, _y2 = argument3;
 var _frame;
 var _branch = global.tby_active_branch;
 if (tby_branch_exists(_branch)) {
-    _frame = tby_array_get(tby_branch_get_option(global.tby_active_branch, TbyOption.SetSkin), TbySkin.Frame);
+    _frame = tby_array_get(tby_branch_get_config(global.tby_active_branch, TbyConfig.SetSkin), TbySkin.Frame);
 } else {
     _frame = tby_array_get(tby_default_skin, TbySkin.Frame);
 }

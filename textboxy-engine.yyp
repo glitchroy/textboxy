@@ -370,7 +370,7 @@
             "Key": "366b07e0-5c87-ccfb-80bc-9cb5648f6232",
             "Value": {
                 "id": "84108abd-683a-6270-5451-84445234d982",
-                "resourcePath": "scripts\/tby_branch_set_option\/tby_branch_set_option.yy",
+                "resourcePath": "scripts\\tby_branch_set_config\\tby_branch_set_config.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -498,7 +498,7 @@
             "Key": "4a7c2ca9-1001-4016-b367-2e64dfadca55",
             "Value": {
                 "id": "94f04c77-4c95-45ff-9287-2c07fafad725",
-                "resourcePath": "scripts\/tby_branch_set_default_options\/tby_branch_set_default_options.yy",
+                "resourcePath": "scripts\\tby_branch_set_default_configs\\tby_branch_set_default_configs.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -882,7 +882,7 @@
             "Key": "8482401a-f215-e325-8d84-c23370022e99",
             "Value": {
                 "id": "fa1a6074-56ec-b307-be99-34405f8cb467",
-                "resourcePath": "scripts\/tby_branch_get_option\/tby_branch_get_option.yy",
+                "resourcePath": "scripts\\tby_branch_get_config\\tby_branch_get_config.yy",
                 "resourceType": "GMScript"
             }
         },

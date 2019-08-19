@@ -7,13 +7,13 @@ image_speed = tby_confirmation_blink_speed;
 #region Create scribble structure
 var _branch_name = global.tby_active_branch;
 var _data_fields = [
-    tby_branch_get_option(_branch_name, TbyOption.SetWaveSize),
-    tby_branch_get_option(_branch_name, TbyOption.SetWaveFrequency),
-    tby_branch_get_option(_branch_name, TbyOption.SetWaveSpeed),
-    tby_branch_get_option(_branch_name, TbyOption.SetShakeSize),
-    tby_branch_get_option(_branch_name, TbyOption.SetShakeSpeed),
-    tby_branch_get_option(_branch_name, TbyOption.SetRainbowWeight),
-    tby_branch_get_option(_branch_name, TbyOption.SetRainbowSpeed)
+    tby_branch_get_config(_branch_name, TbyConfig.SetWaveSize),
+    tby_branch_get_config(_branch_name, TbyConfig.SetWaveFrequency),
+    tby_branch_get_config(_branch_name, TbyConfig.SetWaveSpeed),
+    tby_branch_get_config(_branch_name, TbyConfig.SetShakeSize),
+    tby_branch_get_config(_branch_name, TbyConfig.SetShakeSpeed),
+    tby_branch_get_config(_branch_name, TbyConfig.SetRainbowWeight),
+    tby_branch_get_config(_branch_name, TbyConfig.SetRainbowSpeed)
 ]
 
 var _tb_width = type == TbyType.Bubble ? tby_max_width_bubble : dimensions[@TbyDim.width]

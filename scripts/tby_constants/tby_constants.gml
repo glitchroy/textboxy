@@ -32,7 +32,7 @@ enum TbyType {
     Bubble, //bubble textbox
     Choice, //choice
     ChoiceResult, // action only if choice matches
-    Option, //text options
+    Config, //branch options
     Wait, //pause execution
     Batch, //multiple input
     Terminate, //force branch exit
@@ -53,7 +53,7 @@ enum TbyFrame {
     BotLeft, BotMid, BotRight
 }
 
-enum TbyOption {
+enum TbyConfig {
     SetSkin, // array
     SetInstance, // instance_id or noone
     SetCallback, // real
@@ -86,7 +86,7 @@ enum TbyPlacement {
 enum TbyBranch {
     MessageList,
     LabelMap,
-    OptionsMap
+    ConfigMap
 }
 
 enum TbyTooltip {

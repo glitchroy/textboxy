@@ -4,7 +4,7 @@
 
 //Args Normal --> Text, Size
 //Args Choice --> Text, ChoiceArray, Size
-//Args Option --> Type, Args
+//Args Config --> Type, Args
 
 if (tby_branch_exists(global.tby_active_branch)) {
     //part of branch

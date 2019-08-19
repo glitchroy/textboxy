@@ -16,7 +16,7 @@ for (var i = 0; i < _size; i++) {
     // Per payload array
     ds_list_destroy(_branch_payload[TbyBranch.MessageList]);
     ds_map_destroy(_branch_payload[TbyBranch.LabelMap]);
-    ds_map_destroy(_branch_payload[TbyBranch.OptionsMap]);
+    ds_map_destroy(_branch_payload[TbyBranch.ConfigMap]);
     _branch_payload = 0;
     //
     
