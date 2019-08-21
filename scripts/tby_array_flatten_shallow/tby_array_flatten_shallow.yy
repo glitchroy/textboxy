@@ -1,8 +1,8 @@
 {
-    "id": "5fdf1653-94ba-4903-b471-008b11d4de8f",
+    "id": "8391ddbf-1397-42d2-83c2-cbcf41499df7",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_handle_batch_entry",
+    "name": "tby_array_flatten_shallow",
     "IsCompatibility": false,
     "IsDnD": false
 }

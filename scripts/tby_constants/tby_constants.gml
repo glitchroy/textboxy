@@ -34,7 +34,6 @@ enum TbyType {
     ChoiceResult, // action only if choice matches
     Config, //branch options
     Wait, //pause execution
-    Batch, //multiple input
     Terminate, //force branch exit
     Label, // denote jumping point
     GoTo // jump to label
@@ -47,6 +46,13 @@ enum TbySkin {
     Arrow
 }
 
+enum TbyCondition {
+    Equals,
+    BiggerThan,
+    SmallerThan,
+    NotEquals
+}
+
 enum TbyFrame {
     TopLeft, TopMid, TopRight,
     MidLeft, Mid, MidRight,
@@ -54,19 +60,19 @@ enum TbyFrame {
 }
 
 enum TbyConfig {
-    SetSkin, // array
-    SetInstance, // instance_id or noone
-    SetCallback, // real
-    SetPlacement, // enum (TbyPlacement)
+    Skin, // array
+    Instance, // instance_id or noone
+    Callback, // real
+    Placement, // enum (TbyPlacement)
     
     // Scribble options
-    SetWaveSize,
-    SetWaveFrequency,
-    SetWaveSpeed,
-    SetShakeSize,
-    SetShakeSpeed,
-    SetRainbowWeight,
-    SetRainbowSpeed
+    WaveSize,
+    WaveFrequency,
+    WaveSpeed,
+    ShakeSize,
+    ShakeSpeed,
+    RainbowWeight,
+    RainbowSpeed
 }
 
 enum TbyListMeta {

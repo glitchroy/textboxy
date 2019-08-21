@@ -8,20 +8,20 @@ var _arr = [];
 
 var _s = ds_list_size(_list_id)
 for (var i = 0; i < _s; i++) {
-    var _inner_list = _list_id[| i];
+    var _inner_value = _list_id[| i];
     
-    if (ds_exists(_inner_list, ds_type_list)) {
+    /*if (ds_exists(_inner_value, ds_type_list)) {
         
         var _inner = [];
-        var _s2 = ds_list_size(_inner_list)
+        var _s2 = ds_list_size(_inner_value)
         for (var j = 0; j < _s2; j++) {
-            _inner[j] = _inner_list[| j];
+            _inner[j] = _inner_value[| j];
         }
         
         _arr[i] = _inner;
-    } else {
-        _arr[i] = _inner_list;
-    }
+    } else {*/
+        _arr[i] = _inner_value;
+    //}
     
    
 }

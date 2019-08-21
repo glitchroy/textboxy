@@ -12,15 +12,16 @@ var _box_dim = [
     ]
 
 // Background and Content draw
-tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3]);
+var _frame = tby_array_get(tby_branch_get_config(branch, TbyConfig.Skin), TbySkin.Frame);
+tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], _frame);
 scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
 
 #region Finished circle
 if (state_name == "Finished") {
     var _circle_sprite = tby_array_get(
                              tby_branch_get_config(
-                                 global.tby_active_branch,
-                                 TbyConfig.SetSkin),
+                                 branch,
+                                 TbyConfig.Skin),
                              TbySkin.Pause)
     draw_sprite(_circle_sprite, -1,
                 _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
@@ -34,8 +35,8 @@ if (type == TbyType.Bubble) {
     if (instance != undefined && instance_exists(instance) && !size_clamped) {
         var _bubble_sprite = tby_array_get(
                                  tby_branch_get_config(
-                                     global.tby_active_branch,
-                                     TbyConfig.SetSkin),
+                                     branch,
+                                     TbyConfig.Skin),
                                  TbySkin.Bubble)
         tby_draw_sprite(_bubble_sprite,
                         _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
@@ -50,8 +51,8 @@ if (type == TbyType.Choice) {
     if (state_name == "Finished") {
         var _arrow = tby_array_get(
                          tby_branch_get_config(
-                             global.tby_active_branch,
-                             TbyConfig.SetSkin),
+                             branch,
+                             TbyConfig.Skin),
                          TbySkin.Arrow);
     
         var _height_offset = tby_get_height_from_lines(choice_first_line +
@@ -81,6 +82,7 @@ if (global.tby_debug) {
     var _ds;
     _ds = string(id-100000) +
 	//"| P: " + string(position) + "/" + string(scribble_get_length(text)) +
+	" | Branch: " + string_copy(branch, 1, 8) + 
     " | State: " + state_name +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_SPEED]) +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_POSITION]);

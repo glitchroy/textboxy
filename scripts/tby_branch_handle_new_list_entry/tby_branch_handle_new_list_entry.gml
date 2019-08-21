@@ -3,6 +3,10 @@
 /// @param _tb_data Array with textbox information
 var _branch_name = argument0, _tb_data = argument1;
 
+if (_tb_data == undefined) {
+    tby_branch_next_entry(_branch_name)
+}
+
 var _tb_type = _tb_data[0];
 var _tb_args = [];
 var _has_args = false;
@@ -96,16 +100,16 @@ switch (_tb_type) {
         // 1: positional data
         
         // global position data if none given
-        if (tby_arrlen(_tb_args) < 2) _tb_args[1] = tby_branch_get_config(_branch_name, TbyConfig.SetPlacement)
+        if (tby_arrlen(_tb_args) < 2) _tb_args[1] = tby_branch_get_config(_branch_name, TbyConfig.Placement)
         
-        tby_normal_create(_tb_args[0], _tb_args[1]);
+        tby_normal_create(_branch_name, _tb_args[0], _tb_args[1]);
     break;
     case TbyType.Bubble:
         // 0: string
         // 1: instance talking
         
         //use global instance if none is given
-        if (tby_arrlen(_tb_args) < 2) _tb_args[1] = tby_branch_get_config(_branch_name, TbyConfig.SetInstance)
+        if (tby_arrlen(_tb_args) < 2) _tb_args[1] = tby_branch_get_config(_branch_name, TbyConfig.Instance)
         
         // check if its a string thats an object type (from json usually)
         if (is_string(_tb_args[1])) {
@@ -117,14 +121,14 @@ switch (_tb_type) {
             _tb_args[1] = id //just use the calling instance
         }
         
-        tby_bubble_create(_tb_args[0], _tb_args[1])
+        tby_bubble_create(_branch_name, _tb_args[0], _tb_args[1])
     break;
     case TbyType.Choice:
         // 0: string
         // 1: choiceArray
         // 2: positional data
         if (tby_arrlen(_tb_args) < 3) _tb_args[2] = TbyPlacement.Auto;
-        tby_choice_create(_tb_args[0], _tb_args[1], _tb_args[2]);
+        tby_choice_create(_branch_name, _tb_args[0], _tb_args[1], _tb_args[2]);
     break;
     case TbyType.Config:
         // 0: Config type
@@ -134,12 +138,9 @@ switch (_tb_type) {
     break;
     case TbyType.Wait:
         // wait time
-        with (tby_object_manager) alarm[0] = room_speed*_tb_args[0]
-    break;
-    case TbyType.Batch:
-        // 0: array of other textboxes
-        if (is_array(_tb_args[0])) {
-            tby_handle_batch_entry(_tb_args[0]);
+        with (tby_object_manager) {
+            branch_to_continue = _branch_name
+            alarm[0] = room_speed*_tb_args[0]
         }
     break;
     case TbyType.Terminate:

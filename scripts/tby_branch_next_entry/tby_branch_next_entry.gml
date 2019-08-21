@@ -1,6 +1,6 @@
 /// @desc Calls the next entry on the TbyBranch or destroys it if finished.
-/// @param _branch_name = global.tby_active_branch
-var _branch_name = argument_count > 0 ? argument[0] : global.tby_active_branch;
+/// @param _branch_name 
+var _branch_name = argument0;
 
 #region Exit Conditions
 if (tby_branch_exists(_branch_name) == false) {

@@ -14,9 +14,6 @@ global.tby_branches = undefined;
 /* This ds_map holds all defined tooltips and their payloads. */
 global.tby_tooltips = undefined;
 
-/* This string holds the current active TbyBranch name. */
-global.tby_active_branch = undefined;
-
 /* This ds_map holds all the key and value pairs that are
    defined by an external file, using tby_init_external_strings.
    Otherwise, it is undefined. */

@@ -1,6 +1,6 @@
 /// @desc Scans the TbyBranch for TbyType.Label commands and stores them in the LabelMap.
-/// @param _branch_name = global.tby_active_branch
-var _branch_name = argument_count > 0 ? argument[0] : global.tby_active_branch;
+/// @param _branch_name 
+var _branch_name = argument0;
 
 if (tby_branch_exists(_branch_name) == false) {
     exit;

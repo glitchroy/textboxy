@@ -11,7 +11,7 @@ _config_map[? _config_name] = _config_value;
 
 // config specific actions
 switch (_config_name) {
-    case TbyConfig.SetSkin:
+    case TbyConfig.Skin:
         global.tby_skin_tile_size = sprite_get_width(tby_array_get(_config_value, TbySkin.Frame))
     break;
 }

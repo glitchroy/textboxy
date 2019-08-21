@@ -1,10 +1,12 @@
 /// @desc Creates and returns a new TbyType.Choice textbox.
+/// @param _branch
 /// @param _content = ""
 /// @param _choices = []
 /// @param _placement = TbyPlacement.Auto
-var _content = argument_count > 0 ? argument[0] : "";
-var _choices = argument_count > 1 ? argument[1] : [];
-var _placement = argument_count > 2 ? argument[2] : TbyPlacement.Auto;
+var _branch = argument[0];
+var _content = argument_count > 1 ? argument[1] : "";
+var _choices = argument_count > 2 ? argument[2] : [];
+var _placement = argument_count > 3 ? argument[3] : TbyPlacement.Auto;
 
 var _dim/*:TbyDim*/ = tby_normal_dimensions_from_placement(_placement, 3);
 
@@ -15,6 +17,7 @@ _content = string_replace_all(_content, "\t", "");
 var _textbox_inst = instance_create_layer(_dim[TbyDim.x], _dim[TbyDim.y], tby_layer_text, objTbyTextbox)
 with (_textbox_inst) {
 	type = TbyType.Choice
+	branch = _branch
 	
     dimensions = _dim;
     choices = _choices;
