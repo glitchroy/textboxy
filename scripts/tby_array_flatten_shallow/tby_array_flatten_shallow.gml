@@ -8,28 +8,33 @@ var _array = argument0;
 
 var _flat_array = [];
 
+if (!is_array(_array)) return [_array]
+
 for (var i = 0; i < tby_arrlen(_array); i++) {
-    var _element = _array[i]
-    if (is_array(_element)) {
-        // Scan if the array only contains arrays, not further nested ones
-        if (tby_array_is_shallow(_element)) {
-            _flat_array[tby_arrlen(_flat_array)] = _element
+    var _array_entry = _array[i]
+    
+    if (is_array(_array_entry)) {
+        // Entry is an array
+        
+        // Scan if the array contains further arrays
+        if (tby_array_is_shallow(_array_entry)) {
+            // Array does not contain arrays
+
+            // Append as is
+            _flat_array[tby_arrlen(_flat_array)] = _array_entry
+            
         } else {
-            // Is nested array
-            var _recursion_result = tby_array_flatten_shallow(_element);
+            // Array does contain other arrays
+            // Work down the tree
+            var _recursion_result = tby_array_flatten_shallow(_array_entry);
             for (var j = 0; j < tby_arrlen(_recursion_result); j++) {
                 _flat_array[tby_arrlen(_flat_array)] = _recursion_result[j];
             }
         }
+        
     } else {
-        // Raw value, just append as array
-        
-        // Add to array if single raw value
-        if (tby_arrlen(_array) <= 1) {
-            _element = [_element]
-        }
-        
-        _flat_array[tby_arrlen(_flat_array)] = _element
+        // Entry is bare
+        _flat_array[tby_arrlen(_flat_array)] = [_array_entry]
     }
 }
 

@@ -4,7 +4,10 @@ if (!tby_do_debug_output) exit;
 var _s = "";
 
 for (var i = 0; i < argument_count; i++) {
-	_s += string(argument[i]) + " | ";
+	var _arg = argument[i];
+	if (is_array(_arg)) _arg = tby_print_array(_arg);
+	
+	_s += string(_arg) + "\n";
 }
 
 show_message(_s);

@@ -2,7 +2,7 @@ if (tby_input_confirm) {
     if (type == TbyType.Choice) global.tby_choice_result = selected_choice;
     tby_state_switch("Vanishing")
     
-    tby_branch_next_entry(branch)
+    tby_branch_next(branch)
 }
 
 scribble_step(text_scribble);

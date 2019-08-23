@@ -1,6 +1,6 @@
-/// @desc Executes the specified TbyBranch. If no identifier is provided, it uses the active TbyBranch.
-/// @param ?_branch_name = undefined
-var _branch_name = argument_count > 0 ? argument[0] : undefined;
+/// @desc Executes the specified TbyBranch.
+/// @param _branch_name
+var _branch_name = argument0;
 
 // Abort if the branch does not exist
 if (_branch_name == undefined || tby_branch_exists(_branch_name) == false) {
@@ -18,5 +18,7 @@ if (_current_list_advanced) {
 }
 
 tby_branch_scan_labels(_branch_name);
-tby_branch_next_entry(_branch_name);
+
+tby_branch_next(_branch_name);
+
 tby_hook_branch_start()

@@ -3,6 +3,4 @@
 /// @param _value
 var _config = argument0, _value = argument1;
 
-// Wrapper for branch_add that already specifies TbyType.Config
-
-return [TbyType.Config, _config, _value]
+return [TbyCmd.Config, _config, _value]

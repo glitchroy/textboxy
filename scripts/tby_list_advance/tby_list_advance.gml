@@ -8,7 +8,9 @@ tby_list_set_pointer(_tby_list, tby_list_get_pointer(_tby_list)+1)
 
 // Set has been advanced in meta
 var _meta = _tby_list[| 0];
-_meta[TbyListMeta.HasBeenAdvanced] = true
-ds_list_replace(_tby_list, 0, _meta);
+if (_meta[TbyListMeta.HasBeenAdvanced] == false) {
+    _meta[TbyListMeta.HasBeenAdvanced] = true
+    ds_list_replace(_tby_list, 0, _meta);
+}
 
 return _entry

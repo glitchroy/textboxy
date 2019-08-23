@@ -14,6 +14,9 @@ global.tby_branches = undefined;
 /* This ds_map holds all defined tooltips and their payloads. */
 global.tby_tooltips = undefined;
 
+/* This ds_map holds conditions defined in TbyBranches for live comparison. */
+global.tby_conditions = undefined;
+
 /* This ds_map holds all the key and value pairs that are
    defined by an external file, using tby_init_external_strings.
    Otherwise, it is undefined. */

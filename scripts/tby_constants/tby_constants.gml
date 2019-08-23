@@ -5,7 +5,7 @@
     Only change if you know what you are doing. 
 */
 
-#macro tby_version "1.0.0-pre.9"
+#macro tby_version "1.0.0-pre.11"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) {instance_destroy();}
@@ -28,15 +28,22 @@ enum TbyDim {
 }
 
 enum TbyType {
-    Normal, //normal textbox
-    Bubble, //bubble textbox
-    Choice, //choice
-    ChoiceResult, // action only if choice matches
-    Config, //branch options
-    Wait, //pause execution
-    Terminate, //force branch exit
-    Label, // denote jumping point
-    GoTo // jump to label
+    Normal = 100,
+    Bubble = 200,
+    Choice = 300
+}
+
+// Internal commands typically wrapped in a TbyBranch script
+enum TbyCmd {
+    Config    = 400,
+    Wait      = 500,
+    Exit      = 600,
+    Label     = 700,
+    GoTo      = 800,
+    SetVar    = 900,
+    SetGlobal = 1000,
+    Conditional = 1100
+    //TODO: Add conditional to branch_handle_entry to compute on runtime
 }
 
 enum TbySkin {
@@ -79,6 +86,12 @@ enum TbyListMeta {
     IdentifierString,
     Pointer,
     HasBeenAdvanced
+}
+
+enum TbyPointerMeta {
+    IdentifierString,
+    Scope,
+    VariableName
 }
 
 // If no size is given, use global size (aka this)

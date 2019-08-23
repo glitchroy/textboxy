@@ -27,6 +27,6 @@ if (_tb_data == undefined) {
     tby_log("Found undefined entry in TbyList. Destroying TbyBranch.")
     tby_branch_destroy(_branch_name)
 } else {
-    tby_branch_handle_new_list_entry(_branch_name, _tb_data)
+    tby_branch_handle_entry(_branch_name, _tb_data)
 }
 

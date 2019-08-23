@@ -6,22 +6,11 @@
 var _compare_a = argument[0], _comparison = argument[1], _compare_b = argument[2], _if_true = argument[3];
 var _if_false = argument_count > 4 ? argument[4] : undefined;
 
-var _result = false;
 
-switch (_comparison) {
-    case TbyCondition.Equals:
-        _result = _compare_a == _compare_b;
-    break;
-    case TbyCondition.BiggerThan:
-        _result = _compare_a > _compare_b;
-    break;
-    case TbyCondition.SmallerThan:
-        _result = _compare_a < _compare_b;
-    break;
-    case TbyCondition.NotEquals:
-        _result = _compare_a != _compare_b;
-    break;
-}
+var _key = tby_branch_register_conditional(
+    _compare_a, _comparison, _compare_b,
+    _if_true,
+    _if_false
+)
 
-if (_result) return _if_true
-return _if_false
+return [TbyCmd.Conditional, _key]
