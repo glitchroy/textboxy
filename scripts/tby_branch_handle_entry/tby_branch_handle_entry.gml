@@ -27,7 +27,7 @@ if (!_has_args && is_string(_tb_type)) {
     _tb_type = 0;
     _tb_args = 0;
     
-    if (string_char_at(_s, 1) == tby_quick_mode_bubble_char) {
+    if (string_char_at(_s, 1) == tby_bubble_quick_mode_char) {
         // Bubble Mode
         _tb_type = TbyType.Bubble
         // Strip the extra character
@@ -43,7 +43,7 @@ if (!_has_args && is_string(_tb_type)) {
 // quick modes
 if (_has_args && is_string(_tb_type)) {
     var _is_bubble;
-    _is_bubble = string_char_at(_tb_type, 1) == tby_quick_mode_bubble_char
+    _is_bubble = string_char_at(_tb_type, 1) == tby_bubble_quick_mode_char
 
     // prepend type (= string) to args
     var _new_args = tby_concat([_tb_type], _tb_args);

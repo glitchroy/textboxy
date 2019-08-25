@@ -13,7 +13,7 @@ var _instance = argument_count > 2 ? argument[2] : noone;
 _content = string_replace_all(_content,"\r\n","\n")
 _content = string_replace_all(_content, "\t", "");
 
-var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_layer_text, objTbyTextbox)
+var _textbox_inst = instance_create_layer(_instance.x, _instance.y, tby_room_layer_name, objTbyTextbox)
 with (_textbox_inst) {
 	type = TbyType.Bubble
 	branch = _branch

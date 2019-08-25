@@ -1,6 +1,6 @@
 /// @desc Reads value/string pairs from a json file into a global ds_map.
-/// @param _lang_file = tby_default_external_lang_file
-var _lang_file = argument_count > 0 ? argument[0] : tby_default_external_lang_file;
+/// @param _lang_file = tby_lang_file_default_external
+var _lang_file = argument_count > 0 ? argument[0] : tby_lang_file_default_external;
 
 var _file = file_text_open_read(_lang_file);
 var _json_string = "";

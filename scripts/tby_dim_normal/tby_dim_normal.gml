@@ -1,8 +1,8 @@
 /// @desc Returns the dimensions of a TbyNormal textbox, given the line numbers and y-_dim.
 /// @param _y_pos
-/// @param _line_number = tby_box_lines_per_tb
+/// @param _line_number = tby_normal_lines_per_box
 var _y_pos = argument[0];
-var _line_number = argument_count > 1 ? argument[1] : tby_box_lines_per_tb;
+var _line_number = argument_count > 1 ? argument[1] : tby_normal_lines_per_box;
 
 var _x_pos = tby_box_horz_padding
 

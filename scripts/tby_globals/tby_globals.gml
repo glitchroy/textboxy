@@ -27,8 +27,8 @@ global.tby_skin_tile_size = sprite_get_width(tby_array_get(tby_default_skin, Tby
 
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)
-if (!layer_exists(tby_layer_text)) {
-	layer_create(-1000, tby_layer_text);
+if (!layer_exists(tby_room_layer_name)) {
+	layer_create(-1000, tby_room_layer_name);
 }
 layer_reset_target_room()
 
@@ -36,6 +36,6 @@ if (!instance_exists(tby_object_manager)) {
 	room_instance_add(room_first, 0, 0, tby_object_manager);
 }
 
-if (tby_use_external_lang_file) {
-	tby_init_external_strings(tby_default_external_lang_file)
+if (tby_lang_file_use_external) {
+	tby_init_external_strings(tby_lang_file_default_external)
 }

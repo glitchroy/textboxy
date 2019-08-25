@@ -1,5 +1,3 @@
-/// @desc Describes internal macros and enums. Changes in these macros can occur at any update.
-
 /*
     Changes in these macros can occur at any update.
     Only change if you know what you are doing. 
@@ -8,7 +6,8 @@
 #macro tby_version "1.0.0-pre.11"
 
 /* Shortcut macros */
-#macro tby_singleton if (instance_number(object_index)>1) {instance_destroy();}
+#macro tby_singleton if (instance_number(object_index)>1) \
+                        {instance_destroy();}
 #macro tby_tile_size global.tby_skin_tile_size
 #macro tby_arrlen array_length_1d
 
@@ -16,7 +15,6 @@
 #macro tby_object_manager objTby
 #macro tby_object_textbox objTbyTextbox
 
-#macro tby_box_lines_per_tb 2
 #macro tby_box_horz_padding floor(tby_game_width/8)
 
 enum TbyDim {
@@ -43,7 +41,8 @@ enum TbyCmd {
     SetVar    = 900,
     SetGlobal = 1000,
     Conditional = 1100
-    //TODO: Add conditional to branch_handle_entry to compute on runtime
+    // TODO: Add conditional to branch_handle_entry
+	// to compute on runtime
 }
 
 enum TbySkin {

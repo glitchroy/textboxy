@@ -2,7 +2,7 @@
 typewriter_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
 pause_timer = 0;
 //message confirmation dot speed
-image_speed = tby_confirmation_blink_speed;
+image_speed = tby_generic_blink_speed;
 
 #region Create scribble structure
 var _data_fields = [
@@ -15,7 +15,7 @@ var _data_fields = [
     tby_branch_get_config(branch, TbyConfig.RainbowSpeed)
 ]
 
-var _tb_width = type == TbyType.Bubble ? tby_max_width_bubble : dimensions[@TbyDim.width]
+var _tb_width = type == TbyType.Bubble ? tby_bubble_max_width : dimensions[@TbyDim.width]
 text_scribble = scribble_create(text_raw,
                                -1,
                                _tb_width,

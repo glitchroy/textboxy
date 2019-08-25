@@ -14,7 +14,7 @@ var _dim/*:TbyDim*/ = tby_normal_dimensions_from_placement(_placement, 3);
 _content = string_replace_all(_content,"\r\n","\n")
 _content = string_replace_all(_content, "\t", "");
 
-var _textbox_inst = instance_create_layer(_dim[TbyDim.x], _dim[TbyDim.y], tby_layer_text, objTbyTextbox)
+var _textbox_inst = instance_create_layer(_dim[TbyDim.x], _dim[TbyDim.y], tby_room_layer_name, objTbyTextbox)
 with (_textbox_inst) {
 	type = TbyType.Choice
 	branch = _branch

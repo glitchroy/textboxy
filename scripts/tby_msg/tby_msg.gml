@@ -1,5 +1,5 @@
 /// @desc Prints the given string(s) into the debug console, with current_time prefixed.
-if (!tby_do_debug_output) exit;
+if (!tby_debug_do_output) exit;
 
 var _s = "";
 
