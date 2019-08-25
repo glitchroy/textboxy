@@ -18,7 +18,7 @@ global.tby_tooltips = undefined;
 global.tby_conditions = undefined;
 
 /* This ds_map holds all the key and value pairs that are
-   defined by an external file, using tby_init_external_strings.
+   defined by an external file, using tby_external_strings_init.
    Otherwise, it is undefined. */
 global.tby_external_strings_map = undefined;
 
@@ -37,5 +37,5 @@ if (!instance_exists(tby_object_manager)) {
 }
 
 if (tby_lang_file_use_external) {
-	tby_init_external_strings(tby_lang_file_default_external)
+	tby_external_strings_init(tby_lang_file_default_external)
 }

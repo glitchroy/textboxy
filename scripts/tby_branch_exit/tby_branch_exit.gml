@@ -1,4 +1,3 @@
-/// @desc Shorthand to add a TbyCmd.GoTo to the active TbyBranch.
-/// @param _label_name
-
+/// @desc Shorthand to add a TbyCmd.Exit to the active TbyBranch.
+gml_pragma("forceinline");
 return [TbyCmd.Exit]

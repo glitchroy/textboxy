@@ -7,7 +7,7 @@ if (tby_branch_exists(_branch_name) == false) {
     exit;
 }
 
-var _list = tby_branch_get_message_list(_branch_name);
+var _list = tby_branch_message_list_get(_branch_name);
 
 if (tby_list_finished(_list)) {
     //current branch is finished
@@ -27,6 +27,6 @@ if (_tb_data == undefined) {
     tby_log("Found undefined entry in TbyList. Destroying TbyBranch.")
     tby_branch_destroy(_branch_name)
 } else {
-    tby_branch_handle_entry(_branch_name, _tb_data)
+    tby_branch_entry_handle(_branch_name, _tb_data)
 }
 

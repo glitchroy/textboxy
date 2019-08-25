@@ -10,8 +10,8 @@ scribble_step(text_scribble);
 if (type == TbyType.Bubble) {
     // Check instance position
     if (instance != undefined && instance_exists(instance)) {
-        tby_bubble_update_position(instance);
-        tby_bubble_clamp_position()
+        tby_bubble_position_update(instance);
+        tby_bubble_position_clamp()
     }
 }
 

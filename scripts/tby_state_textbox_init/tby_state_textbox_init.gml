@@ -6,13 +6,13 @@ image_speed = tby_generic_blink_speed;
 
 #region Create scribble structure
 var _data_fields = [
-    tby_branch_get_config(branch, TbyConfig.WaveSize),
-    tby_branch_get_config(branch, TbyConfig.WaveFrequency),
-    tby_branch_get_config(branch, TbyConfig.WaveSpeed),
-    tby_branch_get_config(branch, TbyConfig.ShakeSize),
-    tby_branch_get_config(branch, TbyConfig.ShakeSpeed),
-    tby_branch_get_config(branch, TbyConfig.RainbowWeight),
-    tby_branch_get_config(branch, TbyConfig.RainbowSpeed)
+    tby_branch_config_get(branch, TbyConfig.WaveSize),
+    tby_branch_config_get(branch, TbyConfig.WaveFrequency),
+    tby_branch_config_get(branch, TbyConfig.WaveSpeed),
+    tby_branch_config_get(branch, TbyConfig.ShakeSize),
+    tby_branch_config_get(branch, TbyConfig.ShakeSpeed),
+    tby_branch_config_get(branch, TbyConfig.RainbowWeight),
+    tby_branch_config_get(branch, TbyConfig.RainbowSpeed)
 ]
 
 var _tb_width = type == TbyType.Bubble ? tby_bubble_max_width : dimensions[@TbyDim.width]
@@ -35,8 +35,8 @@ switch (type) {
         
         //Adjust position optionally
         if (instance != undefined && instance_exists(instance)) {
-            tby_bubble_update_position(instance);
-            tby_bubble_clamp_position()
+            tby_bubble_position_update(instance);
+            tby_bubble_position_clamp()
         }
     break;
 }

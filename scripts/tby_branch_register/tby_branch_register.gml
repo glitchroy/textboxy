@@ -13,4 +13,4 @@ _branch_payload[TbyBranch.ConfigMap] = ds_map_create();
 
 global.tby_branches[? _branch_name] = _branch_payload;
 
-tby_branch_set_default_configs(_branch_name);
+tby_branch_config_set_defaults(_branch_name);

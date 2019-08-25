@@ -7,7 +7,7 @@ var _compare_a = argument[0], _comparison = argument[1], _compare_b = argument[2
 var _if_false = argument_count > 4 ? argument[4] : undefined;
 
 
-var _key = tby_branch_register_conditional(
+var _key = tby_branch_conditional_register(
     _compare_a, _comparison, _compare_b,
     _if_true,
     _if_false

@@ -9,7 +9,7 @@ if (_branch_name == undefined || tby_branch_exists(_branch_name) == false) {
 }
 
 // Abort if the branch is already running
-var _branch_list = tby_branch_get_message_list(_branch_name);
+var _branch_list = tby_branch_message_list_get(_branch_name);
 var _current_list_advanced = tby_list_get_has_been_advanced(_branch_list);
 
 if (_current_list_advanced) {
@@ -17,7 +17,7 @@ if (_current_list_advanced) {
     exit;
 }
 
-tby_branch_scan_labels(_branch_name);
+tby_branch_label_scan(_branch_name);
 
 tby_branch_next(_branch_name);
 

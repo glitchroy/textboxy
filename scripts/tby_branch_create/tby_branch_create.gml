@@ -27,6 +27,6 @@ if (tby_branch_exists(_branch_name)) {
 tby_branch_register(_branch_name)
 
 // Add commands
-tby_branch_add_nested_array(_branch_name, _commands)
+tby_branch_nested_array_add(_branch_name, _commands)
 
 return _branch_name

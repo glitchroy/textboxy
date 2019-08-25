@@ -93,7 +93,8 @@ enum TbyPointerMeta {
     VariableName
 }
 
-// If no size is given, use global size (aka this)
+// If no placement is given,
+// use global placement (aka this)
 enum TbyPlacement {
     Top,
     Middle,

@@ -12,14 +12,14 @@ var _box_dim = [
     ]
 
 // Background and Content draw
-var _frame = tby_array_get(tby_branch_get_config(branch, TbyConfig.Skin), TbySkin.Frame);
+var _frame = tby_array_get(tby_branch_config_get(branch, TbyConfig.Skin), TbySkin.Frame);
 tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], _frame);
 scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
 
 #region Finished circle
 if (state_name == "Finished") {
     var _circle_sprite = tby_array_get(
-                             tby_branch_get_config(
+                             tby_branch_config_get(
                                  branch,
                                  TbyConfig.Skin),
                              TbySkin.Pause)
@@ -34,7 +34,7 @@ if (type == TbyType.Bubble) {
     //Bubble sprite
     if (instance != undefined && instance_exists(instance) && !size_clamped) {
         var _bubble_sprite = tby_array_get(
-                                 tby_branch_get_config(
+                                 tby_branch_config_get(
                                      branch,
                                      TbyConfig.Skin),
                                  TbySkin.Bubble)
@@ -50,7 +50,7 @@ if (type == TbyType.Choice) {
     // Choices
     if (state_name == "Finished") {
         var _arrow = tby_array_get(
-                         tby_branch_get_config(
+                         tby_branch_config_get(
                              branch,
                              TbyConfig.Skin),
                          TbySkin.Arrow);

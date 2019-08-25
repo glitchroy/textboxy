@@ -12,7 +12,7 @@ tby_list_destroy(_branch_payload[TbyBranch.MessageList]);
 ds_map_destroy(_branch_payload[TbyBranch.LabelMap]);
 
 // Delete ConfigMap
-tby_branch_execute_callback(_branch_name)
+tby_branch_callback_execute(_branch_name)
 ds_map_destroy(_branch_payload[TbyBranch.ConfigMap]);
 
 // Delete the branch from the global map
