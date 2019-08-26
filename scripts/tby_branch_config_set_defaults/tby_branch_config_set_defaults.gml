@@ -6,6 +6,9 @@ tby_branch_config_set(_branch_name, TbyConfig.Skin,          tby_default_skin);
 tby_branch_config_set(_branch_name, TbyConfig.Instance,      noone);
 tby_branch_config_set(_branch_name, TbyConfig.Callback,      -1);
 tby_branch_config_set(_branch_name, TbyConfig.Placement,     TbyPlacement.Auto);
+tby_branch_config_set(_branch_name, TbyConfig.Sound,         tby_sound_default_speech);
+tby_branch_config_set(_branch_name, TbyConfig.SoundPitch,    tby_sound_default_pitch_range);
+
 tby_branch_config_set(_branch_name, TbyConfig.WaveSize,      SCRIBBLE_DEFAULT_WAVE_SIZE);
 tby_branch_config_set(_branch_name, TbyConfig.WaveFrequency, SCRIBBLE_DEFAULT_WAVE_FREQUENCY);
 tby_branch_config_set(_branch_name, TbyConfig.WaveSpeed,     SCRIBBLE_DEFAULT_WAVE_SPEED);

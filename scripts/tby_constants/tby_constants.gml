@@ -3,7 +3,7 @@
     Only change if you know what you are doing. 
 */
 
-#macro tby_version "1.0.0-pre.11"
+#macro tby_version "1.0.0-pre.12"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \
@@ -70,6 +70,8 @@ enum TbyConfig {
     Instance, // instance_id or noone
     Callback, // real
     Placement, // enum (TbyPlacement)
+    Sound, // number (sound asset)
+    SoundPitch, // real
     
     // Scribble options
     WaveSize,

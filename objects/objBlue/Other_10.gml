@@ -43,17 +43,3 @@ var _blue_dialogue = tby_branch_create([
     ]);
 
 tby_branch_run(_blue_dialogue)
-/*
-TbyBranch.add("[pause,0.5]testing test[pause,0.5]ing");
-TbyBranch.add(TbyCmd.GoTo, "label-2");
-TbyBranch.add(TbyType.Bubble, "I like your color!", id)
-TbyBranch.add(TbyType.Bubble,
-"It's very[pause,0.2].[pause,0.2].[pause,0.2].[pause,0.2] [c_red]red[].",
-id)
-TbyBranch.add(TbyCmd.Wait, 1) // time in seconds
-TbyBranch.add(TbyCmd.Label, "label-2");
-TbyBranch.add(TbyType.Bubble, "Thanks!", instance_find(objRed, 0));
-TbyBranch.add(TbyType.Bubble, "Yep.[pause,0.2]\nThat's about it.", id)
-TbyBranch.add(TbyType.Choice, "Test", ["yes", "no"])
-*/
-//TbyBranch.add("[c_aqua](You feel like you just made a [wave][rainbow]new friend[][c_aqua]!)");

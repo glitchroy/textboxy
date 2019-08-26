@@ -21,10 +21,23 @@ if (_current_state == 1) {
 //Do every X tick (speed)
 if (_current_state > 0 && _current_state < 1 && state_var[0] mod typewriter_speed == 0) {
 	//Sound
-    audio_stop_sound(tby_sound_default_speech)
-	var _sound = audio_play_sound(tby_sound_default_speech, 1, false);
-	audio_sound_pitch(_sound, tby_sound_default_pitch_range);
-
+	var _sound = tby_branch_config_get(branch, TbyConfig.Sound)
+	if (audio_exists(_sound)) {
+	    audio_stop_sound(_sound)
+		var _audio = audio_play_sound(_sound, 1, false);
+		var _pitch_bounds = tby_branch_config_get(branch, TbyConfig.SoundPitch)
+		var _pitch = 1
+		
+		if (is_array(_pitch_bounds)) {
+			if (tby_arrlen(_pitch_bounds) > 1) {
+				_pitch = tby_arrlen(_pitch_bounds) > 1 ?
+				random_range(_pitch_bounds[0], _pitch_bounds[1]) :
+				_pitch_bounds[0]
+			}
+		}
+		
+		audio_sound_pitch(_audio, _pitch);
+	}
 }
 state_var[0]++;
 

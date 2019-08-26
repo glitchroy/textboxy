@@ -3,21 +3,20 @@
    config options. */
 
 
-/* Debugging options */
-#region Debugging options
+#region DEBUGGING OPTIONS
 
 /* If textboxy should start up in debug mode. Useful for
    testing. */
 #macro tby_debug_on_startup true
 /* If textboxy should print debug output. Should be false
-   in the final build.*/
+   in the final build. */
 #macro tby_debug_do_output  true
 
 #endregion
 
 
-/* Basic game information */
-#region Basic game information
+
+#region BASIC GAME INFORMATION
 
 /* The width and height of the camera viewport.
    Used in calculating if a talking instance is
@@ -28,10 +27,11 @@
 #endregion
 
 
+
+#region GENERIC TEXT DEFAULTS
+
 /* Default and/or fallback options for various things,
    like skins, fonts and colors. */
-#region Basic text defaults
-
 #macro tby_default_skin  [sprTbySkinFrameD, \
                           sprTbySkinBubbleD, \
                           sprTbySkinPauseD, \
@@ -42,18 +42,20 @@
 #endregion
 
 
+
+#region SOUND OPTIONS
+
 /* Options for text sounds. Very basic, and subject to be
    swapped out for sound options per-textbox. */
-#region Sound options
-
 #macro tby_sound_default_speech       sndTbySpeechDefault
-#macro tby_sound_default_pitch_range  random_range(0.8, 1.2)
+/* The upper and lower bounds for the random pitch. */
+#macro tby_sound_default_pitch_range  [0.8, 1.2]
 
 #endregion
 
 
-/* Room options */
-#region Room options
+
+#region ROOM OPTIONS
 
 /* The name of the layer where textboxy instances are created.
    Should be above all other visible elements.
@@ -63,11 +65,12 @@
 #endregion
 
 
+
+#region INPUT OPTIONS
+
 /* Options for inputs, like navigating the choice textbox
    or confirming a dialogue.
    Expressions should evaluate to a boolean. */
-#region Input options
-
 #macro tby_input_confirm         (keyboard_check_pressed(\
                                   vk_enter) || \
                                   keyboard_check_pressed(\
@@ -88,8 +91,8 @@
 #endregion
 
 
-/* Options for all textboxes. */
-#region Generic textbox options
+
+#region GENERIC TEXTBOX OPTIONS
 
 /* Image_speed for the textbox confirmation dot. */
 #macro tby_generic_blink_speed 1/20
@@ -97,8 +100,8 @@
 #endregion
 
 
-/* Options for the normal textbox type. */
-#region Normal textbox options
+
+#region NORMAL TEXTBOX OPTIONS
 
 /* The height of a normal textbox in lines. */
 #macro tby_normal_lines_per_box        2
@@ -110,8 +113,8 @@
 #endregion
 
 
-/* Options for the textbox bubble type. */
-#region Bubble textbox options
+
+#region BUBBLE TEXTBOX OPTIONS
 
 /* The maximum width for a given text bubble,
    before a line break is inserted.
@@ -125,8 +128,8 @@
 #endregion
 
 
-/* Options for tooltips. */
-#region Tooltip options
+
+#region TOOLTIP OPTIONS
 
 /* The maximum width for a given tooltip,
    before a line break is inserted.
@@ -136,8 +139,8 @@
 #endregion
 
 
-/* Options for handling external files. */
-#region External lang files
+
+#region HANDLING EXTERNAL FILES
 
 #macro tby_lang_file_use_external     true
 /* What external file to use for loading dialogue.
