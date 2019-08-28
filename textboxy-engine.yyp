@@ -735,6 +735,14 @@
             }
         },
         {
+            "Key": "641498f9-1546-4cc9-bfe5-76bb841eea25",
+            "Value": {
+                "id": "78f1dea6-d837-48b3-b88c-ee1344eda44b",
+                "resourcePath": "scripts\\tby_event_handle_wait\\tby_event_handle_wait.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "65beaec9-ecce-4abc-b3c8-90b017d1c365",
             "Value": {
                 "id": "e0330bdc-6680-4839-ac17-231582c83040",
@@ -1578,7 +1586,7 @@
             "Key": "cd73f9ad-15a5-4572-8017-f4131adad830",
             "Value": {
                 "id": "d428cd11-a0e6-4448-88ad-7cf25ce540e0",
-                "resourcePath": "scripts\\tby_state_textbox_waiting\\tby_state_textbox_waiting.yy",
+                "resourcePath": "scripts\\tby_state_textbox_pausing\\tby_state_textbox_pausing.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1707,6 +1715,14 @@
             "Value": {
                 "id": "785f60d1-0b91-420b-8bf0-25c129042fc1",
                 "resourcePath": "scripts\\tby_hook_branch_start\\tby_hook_branch_start.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "dd18024e-749f-42f7-b0d3-2c99d19a4bb5",
+            "Value": {
+                "id": "0ad33459-ab7b-4bb7-bff3-2fd73db9a3bd",
+                "resourcePath": "scripts\\tby_state_textbox_waiting_for_input\\tby_state_textbox_waiting_for_input.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -2015,6 +2031,14 @@
             }
         },
         {
+            "Key": "fb1b3401-127f-4e05-9787-87da7ca9fceb",
+            "Value": {
+                "id": "ec7db7e2-f8e3-4435-8d44-2d41de03539a",
+                "resourcePath": "scripts\\tby_list_reset\\tby_list_reset.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "fbe30dd7-f91b-482b-baaf-ff0ff526220b",
             "Value": {
                 "id": "ed0116a6-c611-42d6-86b8-5479f6573fcd",
@@ -2127,6 +2151,7 @@
         "cd73f9ad-15a5-4572-8017-f4131adad830",
         "ff69cb70-444d-454b-a2d1-f3ac1e75b468",
         "0c58f40f-6670-4250-9481-ec2394bfb6cb",
+        "dd18024e-749f-42f7-b0d3-2c99d19a4bb5",
         "ba9e79fd-cb0e-491c-9246-fc445d97185e",
         "f9e7d7ff-6841-487a-ac8c-2c79d12765ce",
         "583b69b9-ec5e-4255-9865-a2202433cb71",
@@ -2136,6 +2161,7 @@
         "54fb8a8a-4dc4-4e8d-9138-ab397c336b01",
         "ee687aed-3a23-4510-bfe5-f532658d36cd",
         "71e7772f-aa65-45f5-9957-671930496fb9",
+        "641498f9-1546-4cc9-bfe5-76bb841eea25",
         "597b1aab-40fe-4679-9dc4-628ab054c338",
         "71541187-7040-4eda-8bfe-1ccd0ebded54",
         "47e7e48e-79f1-483f-97cc-e711aefd5e36",
@@ -2154,6 +2180,7 @@
         "3625f61c-c6d9-4450-b708-3e7c843f9a5f",
         "d7412edd-cb53-4db5-be88-7aac3d2acaf0",
         "2fc7b215-194a-4db3-9f34-45a27d7083d2",
+        "fb1b3401-127f-4e05-9787-87da7ca9fceb",
         "c4f9c4e0-04e9-4689-9a5e-b88d93549b50",
         "01f9b268-ec50-482c-8411-19fb152c51c2",
         "5705e481-ddd8-4254-a383-af4be78cc0f1",

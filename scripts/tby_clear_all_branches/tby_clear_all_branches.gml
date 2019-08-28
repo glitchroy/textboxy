@@ -13,12 +13,10 @@ var _key = ds_map_find_first(_map);
 for (var i = 0; i < _size; i++) {
     var _branch_payload = _map[? _key]
     
-    // Per payload array
-    ds_list_destroy(_branch_payload[TbyBranch.MessageList]);
-    ds_map_destroy(_branch_payload[TbyBranch.LabelMap]);
-    ds_map_destroy(_branch_payload[TbyBranch.ConfigMap]);
-    _branch_payload = 0;
-    //
-    
+    // Per branch
+    tby_branch_destroy(_key)
+
     _key = ds_map_find_next(_map, _key);
 }
+
+ds_map_clear(_map)

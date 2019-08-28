@@ -11,9 +11,10 @@ var _list = tby_branch_message_list_get(_branch_name);
 
 if (tby_list_finished(_list)) {
     //current branch is finished
-    //destroy
-    tby_branch_destroy(_branch_name)
     
+    // Reset branch
+    tby_list_reset(_list)
+
     tby_hook_branch_finished()
     
     exit;

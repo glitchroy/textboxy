@@ -17,7 +17,7 @@ tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], _frame);
 scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
 
 #region Finished circle
-if (state_name == "Finished") {
+if (state_name == "Finished" || state_name == "WaitingForInput") {
     var _circle_sprite = tby_array_get(
                              tby_branch_config_get(
                                  branch,
