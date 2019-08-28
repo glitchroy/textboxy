@@ -1,13 +1,12 @@
 /// @desc Scribble event. Handles the wait command.
-/// @param _json
-/// @param _data
-/// @param _changed
-/// @param _different
+/// @param json
+/// @param data(array)
+/// @param character
 
-//called from text event
-//[pause]
-var _json = argument0, _data = argument1, _changed = argument2, _different = argument3;
+// [wait]
 
-if (_different) {
-	tby_state_switch("WaitingForInput")
-}
+var _json = argument0;
+var _data = argument1;
+var _char = argument2;
+
+tby_state_switch("WaitingForInput")

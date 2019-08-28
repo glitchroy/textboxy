@@ -1,15 +1,13 @@
 /// @desc Scribble event. Handles the speed command.
-/// @param _json
-/// @param _data
-/// @param _changed
-/// @param _different
+/// @param json
+/// @param data(array)
+/// @param character
 
-//called from text event
-//[speed,1] (bigger -> slower)
-var _json = argument0, _data = argument1, _changed = argument2, _different = argument3;
+// [speed,1] (bigger -> slower)
 
-if (_different) {
-    typewriter_speed = real(_data[0]);
-    // TODO: Ugly access to typewriter speed property
-    _json[| __SCRIBBLE.TW_SPEED] = typewriter_speed
-}
+var _json = argument0;
+var _data = argument1;
+var _char = argument2;
+
+typewriter_speed = real(_data[0]);
+scribble_typewriter_set_speed(_json, real(_data[0])); 

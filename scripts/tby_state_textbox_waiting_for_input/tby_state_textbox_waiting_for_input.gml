@@ -1,9 +1,9 @@
 if (state_new) {
-	text_scribble[| __SCRIBBLE.TW_SPEED] = 0
+	scribble_typewriter_set_speed(text_scribble, 0)
 }
 
 if (tby_input_confirm) {
-	text_scribble[| __SCRIBBLE.TW_SPEED] = typewriter_speed
+	scribble_typewriter_set_speed(text_scribble, typewriter_speed)
     tby_state_switch_previous()
 }
 

@@ -1215,6 +1215,14 @@
             }
         },
         {
+            "Key": "a089cd14-d2ad-482c-b48f-2e95eccc672c",
+            "Value": {
+                "id": "e0b0689d-a5ca-4fc3-a6b3-705c98813e44",
+                "resourcePath": "scripts\\scribble_typewriter_set_speed\\scribble_typewriter_set_speed.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a0a7a583-8122-f73a-81d0-7c2482950f50",
             "Value": {
                 "id": "12f4c18d-6136-0b19-5839-df9a9452905c",
@@ -2225,6 +2233,7 @@
         "375d5531-bf53-4c3e-96ef-1ff1bf450315",
         "ff36e2aa-ba29-46f8-bb17-35f700edc37e",
         "b706e698-4aca-4f51-914c-552c6e4dbdaa",
+        "a089cd14-d2ad-482c-b48f-2e95eccc672c",
         "d8fc1f49-4e2b-45a7-a3f9-fd3d8e193c52",
         "e72153f0-f381-4821-8619-aa114642d489",
         "dbb30ff1-f8ed-4b91-b47e-f94766f2a4d6",

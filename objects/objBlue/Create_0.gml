@@ -3,7 +3,7 @@ tby_tooltip_create("blue-tip", "[]Press X to talk");
 var _test_var = ["haha", TbyPlacement.Top]
 
 _blue_dialogue = tby_branch_create([
-        tby_branch_normal("HAha"),
+        tby_branch_normal("HAha.[pause,1]test"),
         _test_var, // Declared array
         tby_branch_choice("choice 1 or 2", "Choice 1", "Choice 2",
             [
@@ -42,5 +42,5 @@ _blue_dialogue = tby_branch_create([
     ]);
 
 _speed_test = tby_branch_create("speed-test", [
-    "[shake]Normal speed[]. [wait][speed,1]This is speed 1. [wait][speed,2]This is speed 2. [wait][speed,0.5]This is speed 0.5. [wait][speed,0.1]This is speed 0.1."
+    "[shake]Normal speed[]. [pause,1][speed,1]This is speed 1. [pause,1][speed,2]This is speed 2. [pause,1][speed,3]This is speed 3. [pause,1][speed,1]Back to normal."
 ])
