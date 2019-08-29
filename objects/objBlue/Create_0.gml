@@ -42,5 +42,5 @@ _blue_dialogue = tby_branch_create([
     ]);
 
 _speed_test = tby_branch_create("speed-test", [
-    "[shake]Normal speed[]. [pause,1][speed,1]This is speed 1. [pause,1][speed,2]This is speed 2. [pause,1][speed,3]This is speed 3. [pause,1][speed,1]Back to normal."
+    "[shake]Normal speed[]. [pause,1][speed,0.05]This is speed slow. [pause,1][speed,2]This is speed 2. [pause,1][speed,10]This is speed 10. [wait][speed,0.3]Back to normal."
 ])

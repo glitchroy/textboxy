@@ -9,10 +9,10 @@ tby_branch_config_set(_branch_name, TbyConfig.Placement,     TbyPlacement.Auto);
 tby_branch_config_set(_branch_name, TbyConfig.Sound,         tby_sound_default_speech);
 tby_branch_config_set(_branch_name, TbyConfig.SoundPitch,    tby_sound_default_pitch_range);
 
-tby_branch_config_set(_branch_name, TbyConfig.WaveSize,      SCRIBBLE_DEFAULT_WAVE_SIZE);
-tby_branch_config_set(_branch_name, TbyConfig.WaveFrequency, SCRIBBLE_DEFAULT_WAVE_FREQUENCY);
-tby_branch_config_set(_branch_name, TbyConfig.WaveSpeed,     SCRIBBLE_DEFAULT_WAVE_SPEED);
-tby_branch_config_set(_branch_name, TbyConfig.ShakeSize,     SCRIBBLE_DEFAULT_SHAKE_SIZE);
-tby_branch_config_set(_branch_name, TbyConfig.ShakeSpeed,    SCRIBBLE_DEFAULT_SHAKE_SPEED);
-tby_branch_config_set(_branch_name, TbyConfig.RainbowWeight, SCRIBBLE_DEFAULT_RAINBOW_WEIGHT);
-tby_branch_config_set(_branch_name, TbyConfig.RainbowSpeed,  SCRIBBLE_DEFAULT_RAINBOW_SPEED);
+tby_branch_config_set(_branch_name, TbyConfig.WaveSize,      tby_default_wave_size);
+tby_branch_config_set(_branch_name, TbyConfig.WaveFrequency, tby_default_wave_frequency);
+tby_branch_config_set(_branch_name, TbyConfig.WaveSpeed,     tby_default_wave_speed);
+tby_branch_config_set(_branch_name, TbyConfig.ShakeSize,     tby_default_shake_size);
+tby_branch_config_set(_branch_name, TbyConfig.ShakeSpeed,    tby_default_shake_speed);
+tby_branch_config_set(_branch_name, TbyConfig.RainbowWeight, tby_default_rainbow_weight);
+tby_branch_config_set(_branch_name, TbyConfig.RainbowSpeed,  tby_default_rainbow_speed);

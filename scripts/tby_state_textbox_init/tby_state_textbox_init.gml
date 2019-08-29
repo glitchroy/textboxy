@@ -1,6 +1,8 @@
 // Init basics
-typewriter_speed = SCRIBBLE_DEFAULT_TYPEWRITER_SPEED;
+typewriter_speed = tby_default_speed;
 pause_timer = 0;
+typewriter_position = 0;
+
 //message confirmation dot speed
 image_speed = tby_generic_blink_speed;
 
@@ -54,4 +56,4 @@ if (_cam != -1) {
 scribble_set_box_alignment(text_scribble); 
 scribble_typewriter_in(text_scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, typewriter_speed, 0);
 
-tby_state_switch("Writing")
+tby_state_switch("Active")

@@ -84,6 +84,7 @@ if (global.tby_debug) {
 	//"| P: " + string(position) + "/" + string(scribble_get_length(text)) +
 	" | Branch: " + string_copy(branch, 1, 8) + 
     " | State: " + state_name +
+    (pause_timer > 0 ? " (" + string(pause_timer) + ")" : "") +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_SPEED]) +
 	" | " + string(text_scribble[| __SCRIBBLE.TW_POSITION]);
     

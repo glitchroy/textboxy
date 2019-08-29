@@ -32,12 +32,22 @@
 
 /* Default and/or fallback options for various things,
    like skins, fonts and colors. */
-#macro tby_default_skin  [sprTbySkinFrameD, \
-                          sprTbySkinBubbleD, \
-                          sprTbySkinPauseD, \
-                          sprTbySkinArrowD]
-#macro tby_default_color c_white
-#macro tby_default_font  "sprTbyFontMain"
+#macro tby_default_skin           [sprTbySkinFrameD, \
+                                   sprTbySkinBubbleD, \
+                                   sprTbySkinPauseD, \
+                                   sprTbySkinArrowD]
+#macro tby_default_color          c_white
+#macro tby_default_font           "sprTbyFontMain"
+#macro tby_default_speed          0.3
+
+/* Defaults for scribble text effects. */
+#macro tby_default_wave_size      SCRIBBLE_DEFAULT_WAVE_SIZE // 4
+#macro tby_default_wave_frequency SCRIBBLE_DEFAULT_WAVE_FREQUENCY // 50
+#macro tby_default_wave_speed     SCRIBBLE_DEFAULT_WAVE_SPEED // 0.2
+#macro tby_default_shake_size     SCRIBBLE_DEFAULT_SHAKE_SIZE // 4
+#macro tby_default_shake_speed    SCRIBBLE_DEFAULT_SHAKE_SPEED // 0.4
+#macro tby_default_rainbow_weight SCRIBBLE_DEFAULT_RAINBOW_WEIGHT // 0.5
+#macro tby_default_rainbow_speed  SCRIBBLE_DEFAULT_RAINBOW_SPEED // 0.01
 
 #endregion
 

@@ -41,8 +41,6 @@ enum TbyCmd {
     SetVar    = 900,
     SetGlobal = 1000,
     Conditional = 1100
-    // TODO: Add conditional to branch_handle_entry
-	// to compute on runtime
 }
 
 enum TbySkin {

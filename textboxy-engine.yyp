@@ -194,7 +194,7 @@
             "Key": "0db145cc-b271-4a7b-91a7-9c311ed8e49f",
             "Value": {
                 "id": "e25eb911-24fd-4520-b42b-1ccf29a92ed9",
-                "resourcePath": "scripts\\tby_state_textbox_writing\\tby_state_textbox_writing.yy",
+                "resourcePath": "scripts\\tby_state_textbox_active\\tby_state_textbox_active.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1591,14 +1591,6 @@
             }
         },
         {
-            "Key": "cd73f9ad-15a5-4572-8017-f4131adad830",
-            "Value": {
-                "id": "d428cd11-a0e6-4448-88ad-7cf25ce540e0",
-                "resourcePath": "scripts\\tby_state_textbox_pausing\\tby_state_textbox_pausing.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "d162fb93-9dcb-4228-b11f-a0b346c03c13",
             "Value": {
                 "id": "a5108716-3318-41bc-b6ba-9ea395065e2e",
@@ -2156,7 +2148,6 @@
         "d5075f10-75c2-4db4-85dd-95a5cf33765d",
         "9b1ec27c-8a35-46cf-a869-63714f2db272",
         "0db145cc-b271-4a7b-91a7-9c311ed8e49f",
-        "cd73f9ad-15a5-4572-8017-f4131adad830",
         "ff69cb70-444d-454b-a2d1-f3ac1e75b468",
         "0c58f40f-6670-4250-9481-ec2394bfb6cb",
         "dd18024e-749f-42f7-b0d3-2c99d19a4bb5",
