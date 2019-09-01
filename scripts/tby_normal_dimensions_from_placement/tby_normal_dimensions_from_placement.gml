@@ -9,11 +9,11 @@ var _bot = tby_dim_normal(tby_game_height - (tby_get_height_from_lines(_line_num
 
 // Calculate auto position
 if (_placement_enum == TbyPlacement.Auto) {
-    var _player_inst = instance_find(tby_normal_object_respect_auto, 0);
+    var _player_inst = instance_find(tby_game_object_respect_auto, 0);
     if (_player_inst == noone) return _bot;
     
     var _cam_y = 0;
-    var _cam = view_camera[0];
+    var _cam = tby_game_camera;
     if (_cam != -1) {
         _cam_y = camera_get_view_y(_cam)
     }

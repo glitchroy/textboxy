@@ -8,7 +8,7 @@ var _box = scribble_get_box(text_scribble, _dim[TbyDim.x], _dim[TbyDim.y], _padd
 size_clamped = false;
 
 var _cx, _cy, _cw, _ch;
-var _cam = view_camera[0]
+var _cam = tby_game_camera
 
 if (_cam != -1) {
     // cam vars

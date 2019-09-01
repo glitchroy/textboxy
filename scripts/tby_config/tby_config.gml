@@ -21,8 +21,15 @@
 /* The width and height of the camera viewport.
    Used in calculating if a talking instance is
    outside of the camera. */
-#macro tby_game_width  480
-#macro tby_game_height 270
+#macro tby_game_width               480
+#macro tby_game_height              270
+/* The view camera. Can be -1 if you don't use
+   a camera. */
+#macro tby_game_camera              view_camera[0]
+/* Which instance should be respected when using
+   textbox auto placement. Usually the player.
+   Can also be set to noone. */
+#macro tby_game_object_respect_auto objRed
 
 #endregion
 
@@ -115,10 +122,6 @@
 
 /* The height of a normal textbox in lines. */
 #macro tby_normal_lines_per_box        2
-/* Which instance should be respected when using
-   textbox auto placement. Usually the player.
-   Can also be set to noone. */
-#macro tby_normal_object_respect_auto objRed
 
 #endregion
 

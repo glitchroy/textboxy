@@ -3,7 +3,7 @@
 /// @param _label_name
 var _branch_name = argument0, _label_name = argument1;
 
-var _branch = global.tby_branches[? _branch_name];
+var _branch = tby_branch_get(_branch_name);
 var _label_map = _branch[TbyBranch.LabelMap];
 
 return _label_map[? _label_name]

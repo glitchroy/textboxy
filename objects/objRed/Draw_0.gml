@@ -3,7 +3,7 @@ draw_self()
 // Draws the info boxes
 
 var _cx, _cy, _cw, _ch;
-var _cam = view_camera[0]
+var _cam = tby_game_camera
 _cx = camera_get_view_x(_cam);
 _cy = camera_get_view_y(_cam);
 _cw = camera_get_view_width(_cam);

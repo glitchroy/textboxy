@@ -12,8 +12,15 @@ var _list = tby_branch_message_list_get(_branch_name);
 if (tby_list_finished(_list)) {
     //current branch is finished
     
-    // Reset branch
-    tby_list_reset(_list)
+    var _branch = tby_branch_get(_branch_name);
+    var _destroy_on_finish = _branch[TbyBranch.DestroyOnFinish];
+    
+    if (_destroy_on_finish) {
+        tby_branch_destroy(_branch_name);
+    } else {
+        // Reset branch
+        tby_list_reset(_list)
+    }
 
     tby_hook_branch_finished()
     

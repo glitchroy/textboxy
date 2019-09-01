@@ -45,7 +45,7 @@ switch (type) {
 #endregion
 
 #region Add camera offset
-var _cam = view_camera[0]
+var _cam = tby_game_camera
 if (_cam != -1) {
     dimensions[@TbyDim.x] += camera_get_view_x(_cam);
     dimensions[@TbyDim.y] += camera_get_view_y(_cam);

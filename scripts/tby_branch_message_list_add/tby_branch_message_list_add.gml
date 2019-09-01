@@ -3,7 +3,7 @@
 /// @param _entry
 var _branch_name = argument0, _entry = argument1;
 
-var _branch = global.tby_branches[? _branch_name];
+var _branch = tby_branch_get(_branch_name);
 var _list = _branch[TbyBranch.MessageList]
 
 tby_list_add(_list, _entry)

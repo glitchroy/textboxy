@@ -4,7 +4,7 @@
 /// @param _config_value
 var _branch_name = argument0, _config_name = argument1, _config_value = argument2;
 
-var _branch = global.tby_branches[? _branch_name];
+var _branch = tby_branch_get(_branch_name);
 var _config_map = _branch[TbyBranch.ConfigMap];
 
 _config_map[? _config_name] = _config_value;

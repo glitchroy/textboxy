@@ -10,6 +10,7 @@ var _branch_payload = [];
 _branch_payload[TbyBranch.MessageList] = tby_list_create();
 _branch_payload[TbyBranch.LabelMap] = ds_map_create();
 _branch_payload[TbyBranch.ConfigMap] = ds_map_create();
+_branch_payload[TbyBranch.DestroyOnFinish] = false;
 
 global.tby_branches[? _branch_name] = _branch_payload;
 

@@ -59,10 +59,10 @@ if (keyboard_check_pressed(ord("F"))) {
 		tby_branch_config(TbyConfig.Instance, id),
 		_s
 	]);
-	tby_branch_run(_player_talking);
+	tby_branch_run(_player_talking, true);
 }
 
-var _cam = view_camera[0]
+var _cam = tby_game_camera
 var _cx, _cy = 0;
 if (_cam != -1) {
     _cx = camera_get_view_x(_cam);

@@ -105,7 +105,8 @@ enum TbyPlacement {
 enum TbyBranch {
     MessageList,
     LabelMap,
-    ConfigMap
+    ConfigMap,
+    DestroyOnFinish
 }
 
 enum TbyTooltip {

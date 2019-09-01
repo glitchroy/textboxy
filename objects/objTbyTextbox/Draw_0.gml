@@ -95,6 +95,10 @@ if (global.tby_debug) {
         _ds += " | Selected choice: " + string(_choice)
     }
     
-    tby_draw_debug(_box_dim[0], _box_dim[1]-_padding-5, _ds);
+    var _cam = tby_game_camera
+    var _cw = _cam != -1 ? camera_get_view_width(_cam) : tby_game_width;
+    
+    var _debug_width = _cw - _box_dim[0]
+    tby_draw_debug(_box_dim[0], _box_dim[1]-string_height_ext(_ds, -1, _debug_width), _ds, _debug_width);
 }
 #endregion
