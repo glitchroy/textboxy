@@ -105,7 +105,7 @@ switch (_tb_type) {
         tby_branch_next(_branch_name)
     break;
     /******************************/
-    case TbyCmd.Wait:
+    case TbyCmd.Pause:
         var _wait_seconds = _tb_args[0];
 
         with (tby_object_manager) {

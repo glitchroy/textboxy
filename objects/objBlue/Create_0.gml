@@ -8,7 +8,7 @@ _blue_dialogue = tby_branch_create([
         tby_branch_choice("choice 1 or 2", "Choice 1", "Choice 2",
             [
                 "You chose choice 1",
-                tby_branch_wait(1),
+                tby_branch_pause(1),
                 "Wise."
             ],
             [
@@ -25,7 +25,7 @@ _blue_dialogue = tby_branch_create([
             5, TbyCondition.Equals, 5, 
             [
                 ["haha its true", TbyPlacement.Middle],
-                [TbyCmd.Wait, 1], // alternative for TbyBranch.wait()
+                [TbyCmd.Pause, 1], // alternative for TbyBranch.wait()
                 "no way lol",
                 tby_branch_if(
                     tby_pointer("x", objRed), TbyCondition.SmallerThan, tby_pointer("x", objBlue),

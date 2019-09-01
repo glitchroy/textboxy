@@ -33,13 +33,13 @@ enum TbyType {
 
 // Internal commands typically wrapped in a TbyBranch script
 enum TbyCmd {
-    Config    = 400,
-    Wait      = 500,
-    Exit      = 600,
-    Label     = 700,
-    GoTo      = 800,
-    SetVar    = 900,
-    SetGlobal = 1000,
+    Config      = 400,
+    Pause       = 500,
+    Exit        = 600,
+    Label       = 700,
+    GoTo        = 800,
+    SetVar      = 900,
+    SetGlobal   = 1000,
     Conditional = 1100
 }
 

@@ -1794,7 +1794,7 @@
             "Key": "e5051370-783d-42ba-ad33-6d858338e12d",
             "Value": {
                 "id": "1c9c9cf4-3a55-4470-9946-c643642453ac",
-                "resourcePath": "scripts\\tby_branch_wait\\tby_branch_wait.yy",
+                "resourcePath": "scripts\\tby_branch_pause\\tby_branch_pause.yy",
                 "resourceType": "GMScript"
             }
         },
