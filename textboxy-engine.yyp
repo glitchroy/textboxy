@@ -63,14 +63,6 @@
             }
         },
         {
-            "Key": "01f9b268-ec50-482c-8411-19fb152c51c2",
-            "Value": {
-                "id": "86a0e308-d457-4648-9a91-caf378b6a451",
-                "resourcePath": "scripts\\tby_draw_sprite\\tby_draw_sprite.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "02c87faa-1876-4ab8-87ee-8fa023660655",
             "Value": {
                 "id": "d37dc84c-655e-4df2-b7e1-84e07a99c493",
@@ -2190,7 +2182,6 @@
         "2fc7b215-194a-4db3-9f34-45a27d7083d2",
         "fb1b3401-127f-4e05-9787-87da7ca9fceb",
         "c4f9c4e0-04e9-4689-9a5e-b88d93549b50",
-        "01f9b268-ec50-482c-8411-19fb152c51c2",
         "5705e481-ddd8-4254-a383-af4be78cc0f1",
         "a240add3-01ac-409a-9087-9507a622cd5b",
         "b0fb917a-9c98-e876-45fe-fa73738e7503",

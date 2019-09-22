@@ -25,7 +25,7 @@ scribble_draw(_text, _dim[TbyDim.x]-1, _dim[TbyDim.y]-1);
 //Bubble
 if (tby_tooltip_get_draw_bubble_sprite(_tooltip_name)) {
     var _bubble_sprite = tby_array_get(tby_default_skin, TbySkin.Bubble)
-    tby_draw_sprite(_bubble_sprite,
-	                _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
-					_dim[TbyDim.y]+_dim[TbyDim.height]+_padding)
+    draw_sprite(_bubble_sprite, -1,
+	            _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
+				_dim[TbyDim.y]+_dim[TbyDim.height]+_padding)
 }

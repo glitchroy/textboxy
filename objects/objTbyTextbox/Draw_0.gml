@@ -38,9 +38,9 @@ if (type == TbyType.Bubble) {
                                      branch,
                                      TbyConfig.Skin),
                                  TbySkin.Bubble)
-        tby_draw_sprite(_bubble_sprite,
-                        _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
-                        _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
+        draw_sprite(_bubble_sprite, -1,
+                    _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
+                    _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
     }
 }
 #endregion

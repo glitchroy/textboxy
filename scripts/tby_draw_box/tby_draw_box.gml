@@ -3,21 +3,33 @@
 /// @param _y1
 /// @param _x2
 /// @param _y2
-/// @param _skin_frame = tby_array_get(tby_default_skin, TbySkin.Frame)
+/// @param _sprite = tby_array_get(tby_default_skin, TbySkin.Frame)
 var _x1 = argument[0], _y1 = argument[1], _x2 = argument[2], _y2 = argument[3];
-var _skin_frame = argument_count > 4 ? argument[4] : tby_array_get(tby_default_skin, TbySkin.Frame);
-var _ts = tby_tile_size
-var _width_percentage = (1/_ts)*(_x2-_x1-_ts*2)
-var _height_percentage = (1/_ts)*(_y2-_y1-_ts*2)
+var _sprite = argument_count > 4 ? argument[4] : tby_array_get(tby_default_skin, TbySkin.Frame);
+var _size = tby_tile_size
+var _width  = (_x2 - _x1) / _size
+var _height = (_y2 - _y1) / _size
 
-tby_draw_sprite(_skin_frame, _x1, _y1, TbyFrame.TopLeft)
-tby_draw_sprite(_skin_frame, _x1+_ts, _y1, TbyFrame.TopMid, _width_percentage)
-tby_draw_sprite(_skin_frame, _x2-_ts, _y1, TbyFrame.TopRight)
+// One tile scale unit
+var _u = 2;
 
-tby_draw_sprite(_skin_frame, _x1, _y1+_ts, TbyFrame.MidLeft, 1, _height_percentage)
-tby_draw_sprite(_skin_frame, _x1+_ts, _y1+_ts, TbyFrame.Mid, _width_percentage, _height_percentage)
-tby_draw_sprite(_skin_frame, _x2-_ts, _y1+_ts, TbyFrame.MidRight, 1, _height_percentage)
+// Middle
+draw_sprite_part_ext(_sprite, -1, _size*1, _size*1, _size, _size, _x1+_size, _y1+_size, _width-_u, _height-_u, c_white, 1)
 
-tby_draw_sprite(_skin_frame, _x1, _y2-_ts, TbyFrame.BotLeft)
-tby_draw_sprite(_skin_frame, _x1+_ts, _y2-_ts, TbyFrame.BotMid, _width_percentage)
-tby_draw_sprite(_skin_frame, _x2-_ts, _y2-_ts, TbyFrame.BotRight)
+// Row Top
+draw_sprite_part_ext(_sprite, -1, _size*1, 0,       _size, _size, _x1+_size, _y1,       _width-_u, 1,          c_white, 1)
+// Row Left
+draw_sprite_part_ext(_sprite, -1, 0,       _size*1, _size, _size, _x1,       _y1+_size, 1,         _height-_u, c_white, 1)
+// Row Right
+draw_sprite_part_ext(_sprite, -1, _size*2, _size*1, _size, _size, _x2-_size, _y1+_size, 1,         _height-_u, c_white, 1)
+// Row Bottom
+draw_sprite_part_ext(_sprite, -1, _size*1, _size*2, _size, _size, _x1+_size, _y2-_size, _width-_u, 1,          c_white, 1)
+
+// Top Left
+draw_sprite_part(_sprite, -1, 0,       0,       _size, _size, _x1,       _y1)
+// Top Right
+draw_sprite_part(_sprite, -1, _size*2, 0,       _size, _size, _x2-_size, _y1)
+// Bottom Left
+draw_sprite_part(_sprite, -1, 0,       _size*2, _size, _size, _x1,       _y2-_size)
+// Bottom Right
+draw_sprite_part(_sprite, -1, _size*2, _size*2, _size, _size, _x2-_size, _y2-_size);
