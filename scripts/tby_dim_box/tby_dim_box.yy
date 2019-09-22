@@ -1,8 +1,8 @@
 {
-    "id": "c4f9c4e0-04e9-4689-9a5e-b88d93549b50",
+    "id": "ba9e79fd-cb0e-491c-9246-fc445d97185e",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_draw_box",
+    "name": "tby_dim_box",
     "IsCompatibility": false,
     "IsDnD": false
 }

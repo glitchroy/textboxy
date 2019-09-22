@@ -8,7 +8,7 @@
         "f9e7d7ff-6841-487a-ac8c-2c79d12765ce"
     ],
     "filterType": "GMScript",
-    "folderName": "Box Dimensions",
+    "folderName": "Dimensions",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

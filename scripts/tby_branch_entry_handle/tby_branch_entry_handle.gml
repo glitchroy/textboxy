@@ -21,7 +21,7 @@ if (tby_arrlen(_tb_data) > 1) {
 if (!_has_args && is_string(_tb_type)) {
     // just a string, imply simple text box
     // If bubble char is first char, use TbyType.Bubble
-    // Otherwise, use TbyType.Normal
+    // Otherwise, use TbyType.Box
     
     var _s = _tb_type;
     _tb_type = 0;
@@ -34,7 +34,7 @@ if (!_has_args && is_string(_tb_type)) {
         _tb_args[0] = string_delete(_s, 1, 1)
     } else {
         // Normal Mode
-        _tb_type = TbyType.Normal
+        _tb_type = TbyType.Box
         _tb_args[0] = _s
     }
 }
@@ -51,7 +51,7 @@ if (_has_args && is_string(_tb_type)) {
     _tb_args = _new_args;
     
     // then overwrite type with new type
-    _tb_type = _is_bubble ? TbyType.Bubble : TbyType.Normal;
+    _tb_type = _is_bubble ? TbyType.Bubble : TbyType.Box;
     
     
     // Delete bubble char
@@ -65,12 +65,12 @@ var _current_skin = tby_branch_config_get(_branch_name, TbyConfig.Skin)
 
 switch (_tb_type) {
     /******************************/
-    case TbyType.Normal:
+    case TbyType.Box:
         var _text = _tb_args[0];
         var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_branch_name, TbyConfig.Placement);
         if (_placement == undefined) tby_branch_config_get(_branch_name, TbyConfig.Placement);
 
-        tby_normal_create(_branch_name, _current_skin, _text, _placement);
+        tby_box_create(_branch_name, _current_skin, _text, _placement);
     break;
     /******************************/
     case TbyType.Bubble:

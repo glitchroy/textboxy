@@ -3,7 +3,7 @@ tby_tooltip_create("blue-tip", "[]Press X to talk");
 var _test_var = ["haha", TbyPlacement.Top]
 
 _blue_dialogue = tby_branch_create([
-        tby_branch_normal("HAha.[pause,1]test"),
+        tby_branch_box("HAha.[pause,1]test"),
         _test_var, // Declared array
         tby_branch_choice("choice 1 or 2", "Choice 1", "Choice 2",
             [

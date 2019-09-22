@@ -538,7 +538,7 @@
             "Key": "495dd65b-3213-4aae-8125-fe06c827abab",
             "Value": {
                 "id": "26faf6cb-d201-4e95-a520-0df9a7d799e7",
-                "resourcePath": "scripts\\tby_normal_create\\tby_normal_create.yy",
+                "resourcePath": "scripts\\tby_box_create\\tby_box_create.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -698,7 +698,7 @@
             "Key": "5f1afeb4-790c-4ecd-881c-03433314048d",
             "Value": {
                 "id": "7a87f364-c353-4c2b-9243-b66915b74e34",
-                "resourcePath": "scripts\\tby_normal_dimensions_from_placement\\tby_normal_dimensions_from_placement.yy",
+                "resourcePath": "scripts\\tby_box_dimensions_from_placement\\tby_box_dimensions_from_placement.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -914,7 +914,7 @@
             "Key": "778223f8-6d07-439e-b89c-cacb01156b4c",
             "Value": {
                 "id": "aa190ce9-86c5-4066-b626-6e408a387401",
-                "resourcePath": "scripts\\tby_branch_normal\\tby_branch_normal.yy",
+                "resourcePath": "scripts\\tby_branch_box\\tby_branch_box.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1466,7 +1466,7 @@
             "Key": "ba9e79fd-cb0e-491c-9246-fc445d97185e",
             "Value": {
                 "id": "b2beaffe-6ef5-44d6-b887-9209f7ce8966",
-                "resourcePath": "scripts\\tby_dim_normal\\tby_dim_normal.yy",
+                "resourcePath": "scripts\\tby_dim_box\\tby_dim_box.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1538,7 +1538,7 @@
             "Key": "c4f9c4e0-04e9-4689-9a5e-b88d93549b50",
             "Value": {
                 "id": "c8ba6793-7e6e-469d-9c27-99eccc98844b",
-                "resourcePath": "scripts\\tby_draw_box\\tby_draw_box.yy",
+                "resourcePath": "scripts\\tby_draw_frame\\tby_draw_frame.yy",
                 "resourceType": "GMScript"
             }
         },

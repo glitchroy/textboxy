@@ -9,7 +9,7 @@
         "320af40a-50e7-49fe-9f4f-f216240fee41"
     ],
     "filterType": "GMScript",
-    "folderName": "Box Helper Scripts",
+    "folderName": "Creation and Helper",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

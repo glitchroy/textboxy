@@ -114,18 +114,10 @@
 
 /* Image_speed for the textbox confirmation dot. */
 #macro tby_generic_blink_speed 1/20
+/* The default height in lines for a standard textbox. */
+#macro tby_box_lines_per_box        2
 
 #endregion
-
-
-
-#region NORMAL TEXTBOX OPTIONS
-
-/* The height of a normal textbox in lines. */
-#macro tby_normal_lines_per_box        2
-
-#endregion
-
 
 
 #region BUBBLE TEXTBOX OPTIONS

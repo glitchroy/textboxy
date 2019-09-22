@@ -22,7 +22,7 @@ var _box_dim = [_dim[TbyDim.x]-_padding,
 				]
 //TODO: Allow tooltip skins
 //TODO: Remove hard coded tile size
-tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], 8);
+tby_draw_frame(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], 8);
 scribble_draw(_text, _dim[TbyDim.x]-1, _dim[TbyDim.y]-1);
 
 //Bubble

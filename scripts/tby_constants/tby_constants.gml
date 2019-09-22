@@ -25,7 +25,7 @@ enum TbyDim {
 }
 
 enum TbyType {
-    Normal = 100,
+    Box    = 100,
     Bubble = 200,
     Choice = 300
 }

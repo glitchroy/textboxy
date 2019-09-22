@@ -9,7 +9,7 @@ var _content = argument_count > 2 ? argument[2] : "";
 var _choices = argument_count > 3 ? argument[3] : [];
 var _placement = argument_count > 4 ? argument[4] : TbyPlacement.Auto;
 
-var _dim/*:TbyDim*/ = tby_normal_dimensions_from_placement(_placement, 3, _skin[TbySkin.TileSize]);
+var _dim/*:TbyDim*/ = tby_box_dimensions_from_placement(_placement, 3, _skin[TbySkin.TileSize]);
 
 // Replace text from string literals
 _content = string_replace_all(_content,"\r\n","\n")

@@ -8,7 +8,7 @@
         "5f1afeb4-790c-4ecd-881c-03433314048d"
     ],
     "filterType": "GMScript",
-    "folderName": "Normal",
+    "folderName": "Box",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
