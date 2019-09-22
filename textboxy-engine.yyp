@@ -279,6 +279,14 @@
             }
         },
         {
+            "Key": "2418c3f7-8665-4131-9cee-417459769975",
+            "Value": {
+                "id": "7fbf62f9-e3b1-4898-853d-596f1756ec6e",
+                "resourcePath": "views\\2418c3f7-8665-4131-9cee-417459769975.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "24d06646-c05a-42d3-a01e-7587820a134a",
             "Value": {
                 "id": "b5356e92-c32e-4625-916d-f2c2146f9692",
@@ -524,14 +532,6 @@
                 "id": "876abc4b-f92b-4131-9201-7692d151df54",
                 "resourcePath": "scripts\\tby_list_exists\\tby_list_exists.yy",
                 "resourceType": "GMScript"
-            }
-        },
-        {
-            "Key": "488e1510-6f47-4826-9fa6-770f77dfff96",
-            "Value": {
-                "id": "ed30de3e-f806-44e0-bb06-32c1acd1574b",
-                "resourcePath": "objects\\objGame\\objGame.yy",
-                "resourceType": "GMObject"
             }
         },
         {
@@ -1091,6 +1091,14 @@
             "Value": {
                 "id": "7ef562c4-a593-46cb-a261-f108601b091f",
                 "resourcePath": "scripts\\tby_array_flatten\\tby_array_flatten.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "8fd99032-b652-434f-87b8-3cb026e8d359",
+            "Value": {
+                "id": "d4b9db1d-195d-4880-98d1-b04011e390f9",
+                "resourcePath": "scripts\\example_hook_branch_finished\\example_hook_branch_finished.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1863,6 +1871,14 @@
             }
         },
         {
+            "Key": "ecedf98b-1efd-4b34-b560-85d1afbbb495",
+            "Value": {
+                "id": "cc483fc6-0117-4abe-bd75-bbdbdda26bbb",
+                "resourcePath": "scripts\\example_hook_branch_start\\example_hook_branch_start.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ee4c9c7f-36b0-4ebd-882a-7cd86cf740cf",
             "Value": {
                 "id": "547b9d3d-abba-4034-80af-0ae01f75da22",
@@ -2229,7 +2245,9 @@
         "e72153f0-f381-4821-8619-aa114642d489",
         "dbb30ff1-f8ed-4b91-b47e-f94766f2a4d6",
         "9a49f559-8522-4d86-96c9-6ebbc909f569",
-        "5eb1db85-3025-48c0-acc4-c1228e552ff6"
+        "5eb1db85-3025-48c0-acc4-c1228e552ff6",
+        "ecedf98b-1efd-4b34-b560-85d1afbbb495",
+        "8fd99032-b652-434f-87b8-3cb026e8d359"
     ],
     "tutorial": ""
 }
