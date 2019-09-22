@@ -2,7 +2,7 @@
 // Called from textbox object only
 
 var _dim/*:TbyDim*/ = self.dimensions;
-var _padding = tby_tile_size;
+var _padding = self.skin[TbySkin.TileSize];
 var _box = scribble_get_box(text_scribble, _dim[TbyDim.x], _dim[TbyDim.y], _padding, _padding, _padding, _padding); //box of textbox
 
 size_clamped = false;

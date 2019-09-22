@@ -1343,6 +1343,14 @@
             }
         },
         {
+            "Key": "acb8600e-6338-42db-84d0-665730f20402",
+            "Value": {
+                "id": "16b6f4a8-0a11-4b39-8316-715525897b5f",
+                "resourcePath": "scripts\\tby_tooltip_get_skin\\tby_tooltip_get_skin.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "ad7860e4-8244-496c-a1cc-a9fbf7ce1d49",
             "Value": {
                 "id": "a920e269-9708-458b-9083-e39fd9c89044",
@@ -2151,6 +2159,7 @@
         "ac8f80c1-06e9-fae8-6365-1d3d29c66269",
         "a0a7a583-8122-f73a-81d0-7c2482950f50",
         "21f012a7-1d46-3120-cdda-42a0e2ebb8d6",
+        "acb8600e-6338-42db-84d0-665730f20402",
         "f945f096-cd6c-58e4-a79e-68238197d5a6",
         "d3a039be-aea7-4794-b3ac-38f63558cfc3",
         "97cb4641-0ff6-4cb4-890b-a8b5ca546fd3",

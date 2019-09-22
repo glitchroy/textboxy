@@ -5,7 +5,6 @@ var _inst = argument0;
 // Called from textbox object only
 
 var _dim/*:TbyDim*/ = self.dimensions;
-var _padding = tby_tile_size;
 
 var _offset = tby_bubble_offset_calculate(_inst, _dim[TbyDim.width], _dim[TbyDim.height])
 

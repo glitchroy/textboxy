@@ -22,9 +22,6 @@ global.tby_conditions = undefined;
    Otherwise, it is undefined. */
 global.tby_external_strings_map = undefined;
 
-// So this doesn't get computed every time it is called
-global.tby_skin_tile_size = sprite_get_width(tby_array_get(tby_default_skin, TbySkin.Frame)) / 3
-
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first)
 if (!layer_exists(tby_room_layer_name)) {

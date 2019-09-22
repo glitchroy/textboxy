@@ -2,7 +2,7 @@ if (state_name == "Init" || state_name == "Vanishing") exit;
 if (text_scribble == undefined) exit;
 
 // Define variables to work with
-var _padding = tby_tile_size;
+var _padding = skin[TbySkin.TileSize];
 var _content_dim/*:TbyDim*/ = tby_array_clone(dimensions)
 var _box_dim = [
         _content_dim[TbyDim.x]-_padding,
@@ -12,17 +12,13 @@ var _box_dim = [
     ]
 
 // Background and Content draw
-var _frame = tby_array_get(tby_branch_config_get(branch, TbyConfig.Skin), TbySkin.Frame);
-tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], _frame);
+var _frame = skin[TbySkin.Frame];
+tby_draw_box(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], skin[TbySkin.TileSize], _frame);
 scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
 
 #region Finished circle
 if (state_name == "Finished" || state_name == "WaitingForInput") {
-    var _circle_sprite = tby_array_get(
-                             tby_branch_config_get(
-                                 branch,
-                                 TbyConfig.Skin),
-                             TbySkin.Pause)
+    var _circle_sprite = skin[TbySkin.Pause];
     draw_sprite(_circle_sprite, -1,
                 _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
                 _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
@@ -33,11 +29,7 @@ if (state_name == "Finished" || state_name == "WaitingForInput") {
 if (type == TbyType.Bubble) {
     //Bubble sprite
     if (instance != undefined && instance_exists(instance) && !size_clamped) {
-        var _bubble_sprite = tby_array_get(
-                                 tby_branch_config_get(
-                                     branch,
-                                     TbyConfig.Skin),
-                                 TbySkin.Bubble)
+        var _bubble_sprite = skin[TbySkin.Bubble]
         draw_sprite(_bubble_sprite, -1,
                     _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
                     _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
@@ -49,11 +41,7 @@ if (type == TbyType.Bubble) {
 if (type == TbyType.Choice) {
     // Choices
     if (state_name == "Finished") {
-        var _arrow = tby_array_get(
-                         tby_branch_config_get(
-                             branch,
-                             TbyConfig.Skin),
-                         TbySkin.Arrow);
+        var _arrow = skin[TbySkin.Arrow];
     
         var _height_offset = tby_get_height_from_lines(choice_first_line +
                                                       selected_choice)

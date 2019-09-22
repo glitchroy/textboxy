@@ -60,6 +60,9 @@ if (_has_args && is_string(_tb_type)) {
 
 #endregion
 
+// Get the current skin
+var _current_skin = tby_branch_config_get(_branch_name, TbyConfig.Skin)
+
 switch (_tb_type) {
     /******************************/
     case TbyType.Normal:
@@ -67,7 +70,7 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_branch_name, TbyConfig.Placement);
         if (_placement == undefined) tby_branch_config_get(_branch_name, TbyConfig.Placement);
 
-        tby_normal_create(_branch_name, _text, _placement);
+        tby_normal_create(_branch_name, _current_skin, _text, _placement);
     break;
     /******************************/
     case TbyType.Bubble:
@@ -85,7 +88,7 @@ switch (_tb_type) {
             _instance = id //just use the calling instance
         }
         
-        tby_bubble_create(_branch_name, _text, _instance)
+        tby_bubble_create(_branch_name, _current_skin, _text, _instance)
     break;
     /******************************/
     case TbyType.Choice:
@@ -94,7 +97,7 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 3 ? _tb_args[3] : tby_branch_config_get(_branch_name, TbyConfig.Instance);
         if (_placement == undefined) tby_branch_config_get(_branch_name, TbyConfig.Placement);
 
-        tby_choice_create(_branch_name, _text, _choice_array, _placement);
+        tby_choice_create(_branch_name, _current_skin, _text, _choice_array, _placement);
     break;
     /******************************/
     case TbyCmd.Config:

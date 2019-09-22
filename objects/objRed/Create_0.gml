@@ -38,5 +38,5 @@ PRESS ESC TO CLOSE";
 
 tby_tooltip_create("tby-credits",
                    "example for [c_orange]textboxy v" + tby_version + "[]",
-				   -1,
-				   false);
+				   false,
+				   -1);

@@ -8,7 +8,6 @@
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \
                         {instance_destroy();}
-#macro tby_tile_size global.tby_skin_tile_size
 #macro tby_arrlen array_length_1d
 
 /* Internal objects */
@@ -47,7 +46,8 @@ enum TbySkin {
     Frame,
     Bubble,
     Pause,
-    Arrow
+    Arrow,
+    TileSize
 }
 
 enum TbyCondition {
@@ -111,5 +111,6 @@ enum TbyBranch {
 
 enum TbyTooltip {
     Text,
+    Skin,
     DrawBubbleSprite
 }

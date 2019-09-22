@@ -1,11 +1,12 @@
 /// @desc Returns a TbyDim object based on the given TbyPlacement enum. Also calculates auto position.
 /// @param _placement_enum
 /// @param _line_number 
-var _placement_enum = argument0, _line_number = argument1;
+/// @param _tile_size
+var _placement_enum = argument0, _line_number = argument1, _tile_size = argument2;
 
-var _top = tby_dim_normal(tby_tile_size, _line_number);
+var _top = tby_dim_normal(_tile_size, _line_number);
 var _mid = tby_dim_normal(tby_game_height/2 - (tby_get_height_from_lines(_line_number))/2, _line_number);
-var _bot = tby_dim_normal(tby_game_height - (tby_get_height_from_lines(_line_number)+tby_tile_size), _line_number);
+var _bot = tby_dim_normal(tby_game_height - (tby_get_height_from_lines(_line_number)+_tile_size), _line_number);
 
 // Calculate auto position
 if (_placement_enum == TbyPlacement.Auto) {

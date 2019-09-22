@@ -10,7 +10,7 @@ var _ix = _inst.x - sprite_get_xoffset(_spr) + sprite_get_width(_spr)/2
 var _iy = _inst.y - sprite_get_yoffset(_spr)
 
 var _offset_width  = _width / 2
-var _bubble_height = tby_tile_size;
-var _offset_height = _height + _bubble_height + tby_tile_size
+var _bubble_height = sprite_get_height(self.skin[TbySkin.Bubble]);
+var _offset_height = _height + _bubble_height*2
 
 return [floor(_ix - _offset_width), floor(_iy - _offset_height)]

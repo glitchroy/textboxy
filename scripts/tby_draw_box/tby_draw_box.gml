@@ -3,10 +3,10 @@
 /// @param _y1
 /// @param _x2
 /// @param _y2
+/// @param _size
 /// @param _sprite = tby_array_get(tby_default_skin, TbySkin.Frame)
-var _x1 = argument[0], _y1 = argument[1], _x2 = argument[2], _y2 = argument[3];
-var _sprite = argument_count > 4 ? argument[4] : tby_array_get(tby_default_skin, TbySkin.Frame);
-var _size = tby_tile_size
+var _x1 = argument[0], _y1 = argument[1], _x2 = argument[2], _y2 = argument[3], _size = argument[4];
+var _sprite = argument_count > 5 ? argument[5] : tby_array_get(tby_default_skin, TbySkin.Frame);
 var _width  = (_x2 - _x1) / _size
 var _height = (_y2 - _y1) / _size
 

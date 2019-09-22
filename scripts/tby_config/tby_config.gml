@@ -42,7 +42,8 @@
 #macro tby_default_skin           [sprTbySkinFrameD, \
                                    sprTbySkinBubbleD, \
                                    sprTbySkinPauseD, \
-                                   sprTbySkinArrowD]
+                                   sprTbySkinArrowD, \
+                                   8]
 #macro tby_default_color          c_white
 #macro tby_default_font           "sprTbyFontMain"
 #macro tby_default_speed          0.3
