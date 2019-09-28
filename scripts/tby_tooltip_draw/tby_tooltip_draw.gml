@@ -1,12 +1,14 @@
-/// @param _tooltip_name
+/// @param _tooltip
 /// @param _tx
 /// @param _ty
-var _tooltip_name = argument0, _tx = argument1, _ty = argument2;
+var _tooltip = argument0, _tx = argument1, _ty = argument2;
 
-var _text = tby_tooltip_get_text(_tooltip_name);
+var _t/*:TbyTooltip*/ = _tooltip;
+
+var _text = _t[TbyTooltip.text];
 var _box = scribble_get_box(_text, 0, 0); // just for relative width / height
 
-var _skin = tby_tooltip_get_skin(_tooltip_name);
+var _skin = _t[TbyTooltip.skin];
 var _padding = _skin[TbySkin.TileSize]
 
 var _tw = tby_scribble_get_box_width(_box)
@@ -26,7 +28,7 @@ tby_draw_frame(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], 8);
 scribble_draw(_text, _dim[TbyDim.x]-1, _dim[TbyDim.y]-1);
 
 //Bubble
-if (tby_tooltip_get_draw_bubble_sprite(_tooltip_name)) {
+if (_t[TbyTooltip.draw_bubble_sprite]) {
     var _bubble_sprite = tby_array_get(tby_default_skin, TbySkin.Bubble)
     draw_sprite(_bubble_sprite, -1,
 	            _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,

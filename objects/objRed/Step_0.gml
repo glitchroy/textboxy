@@ -55,7 +55,7 @@ if (global.in_dialogue_pause) {
 /* This is textboxy code */
 if (keyboard_check_pressed(ord("F"))) {
 	var _s = choose("§[shake]I'm talking[]!", "§Hey there!", "§[wave]Woaoaahh[]!", "§I can't\nbelieve it!");
-	var _player_talking = tby_branch_create("player-talking",[
+	var _player_talking = tby_branch_create([
 		tby_branch_config(TbyConfig.Instance, id),
 		_s
 	]);
@@ -69,7 +69,7 @@ if (_cam != -1) {
     _cy = camera_get_view_y(_cam);
 }
 // TODO: Replace these magic numbers with calculations
-tby_tooltip_show("tby-credits", _cx+363, _cy+40)
+tby_tooltip_show(tooltip_credits, _cx+363, _cy+40)
 
 #region Movement stuff
 //Very rudimentary

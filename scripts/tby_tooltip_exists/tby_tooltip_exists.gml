@@ -1,3 +1,5 @@
-/// @param _tooltip_name
+/// @param _tooltip
+var _tooltip = argument0;
+
 gml_pragma("forceinline");
-return ds_map_exists(global.tby_tooltips, argument0)
+return is_array(_tooltip)

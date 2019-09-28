@@ -10,7 +10,7 @@ if (_map != undefined && ds_exists(_map, ds_type_map)) {
 
 	if (_list != undefined) {
 	    var _arr = tby_ds_list_to_array(_list);
-	    tby_branch_create(_identifier, [_arr]);
+	    tby_branch_create([_arr]);
 	    tby_branch_run(_identifier);
 	}
 

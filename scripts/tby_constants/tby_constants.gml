@@ -3,7 +3,7 @@
     Only change if you know what you are doing. 
 */
 
-#macro tby_version "1.0.0-pre.12"
+#macro tby_version "1.0.0-pre.13"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \
@@ -103,14 +103,16 @@ enum TbyPlacement {
 }
 
 enum TbyBranch {
-    MessageList,
-    LabelMap,
-    ConfigMap,
-    DestroyOnFinish
+    message_list,
+    label_map,
+    config_map,
+    destroy_on_finish,
+    sizeof
 }
 
 enum TbyTooltip {
-    Text,
-    Skin,
-    DrawBubbleSprite
+    text,
+    skin,
+    draw_bubble_sprite,
+    sizeof
 }

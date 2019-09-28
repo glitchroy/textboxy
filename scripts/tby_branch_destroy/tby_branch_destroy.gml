@@ -1,19 +1,18 @@
 /// @desc Destroys a given branch and all associated data structures.
-/// @param _branch_name
-var _branch_name = argument0;
+/// @param _branch
+var _branch = argument0;
 
-if (_branch_name == undefined) exit;
+var _b/*:TbyBranch*/ = _branch;
 
-var _branch = tby_branch_get(_branch_name);
-// Delete MessageList
-tby_list_destroy(_branch[TbyBranch.MessageList]);
+if (tby_branch_exists(_b) == false) exit;
 
-// Delete LabelMap
-ds_map_destroy(_branch[TbyBranch.LabelMap]);
+// Delete message_list
+var _list/*:TbyList*/ = _b[TbyBranch.message_list];
+tby_list_destroy(_list);
 
-// Delete ConfigMap
-tby_branch_callback_execute(_branch_name)
-ds_map_destroy(_branch[TbyBranch.ConfigMap]);
+// Delete label_map
+ds_map_destroy(_b[TbyBranch.label_map]);
 
-// Delete the branch from the global map
-ds_map_delete(global.tby_branches, _branch_name)
+// Delete config_map
+tby_branch_callback_execute(_b)
+ds_map_destroy(_b[TbyBranch.config_map]);

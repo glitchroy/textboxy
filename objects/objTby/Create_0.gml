@@ -2,7 +2,6 @@ tby_singleton;
 
 tby_scribble_init();
 
-global.tby_branches = ds_map_create();
 global.tby_tooltips = ds_map_create();
 global.tby_conditions  = ds_map_create();
 

@@ -1,4 +1,4 @@
-//!#import tby_normal.* as TbyNormal
+//!#import tby_box.* as TbyBox
 //!#import tby_bubble.* as TbyBubble
 //!#import tby_choice.* as TbyChoice
 

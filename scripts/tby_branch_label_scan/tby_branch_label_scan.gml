@@ -1,12 +1,12 @@
-/// @desc Scans the TbyBranch for TbyCmd.Label commands and stores them in the LabelMap.
-/// @param _branch_name 
-var _branch_name = argument0;
+/// @desc Scans the TbyBranch for TbyCmd.Label commands and stores them in the label_map.
+/// @param _branch
+var _branch = argument0;
 
-if (tby_branch_exists(_branch_name) == false) {
-    exit;
-}
+var _b/*:TbyBranch*/ = _branch;
 
-var _list = tby_branch_message_list_get(_branch_name);
+if (tby_branch_exists(_b) == false) exit;
+
+var _list/*:TbyList*/ = _b[TbyBranch.message_list];
 
 if (tby_list_exists(_list) == false) exit;
 
@@ -17,6 +17,6 @@ for (var i = 0; i < tby_list_size(_list); i++) {
         var _label_name = _entry[1];
         var _label_position = i;
         
-        tby_branch_label_set(_branch_name, _label_name, _label_position);
+        tby_branch_label_set(_b, _label_name, _label_position);
     }
 }

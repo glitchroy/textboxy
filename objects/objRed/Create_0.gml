@@ -36,7 +36,7 @@ PRESS M TO RESIZE THE WINDOW
 PRESS F3 TO TOGGLE DEBUG MODE
 PRESS ESC TO CLOSE";
 
-tby_tooltip_create("tby-credits",
-                   "example for [c_orange]textboxy v" + tby_version + "[]",
-				   false,
-				   -1);
+tooltip_credits = tby_tooltip_create(
+	"example for [c_orange]textboxy v" + tby_version + "[]",
+	false,
+	-1);

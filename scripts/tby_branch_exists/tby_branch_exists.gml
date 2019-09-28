@@ -1,4 +1,5 @@
 /// @desc Return true if the given branch exists in the global branch map.
-/// @param _branch_name
+/// @param _branch
+var _branch = argument0;
 gml_pragma("forceinline");
-return ds_map_exists(global.tby_branches, argument0);
+return is_array(_branch)

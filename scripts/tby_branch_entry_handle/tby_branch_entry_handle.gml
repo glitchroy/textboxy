@@ -1,10 +1,12 @@
 /// @desc Handles the given TbyBranch command and then calls the next entry.
-/// @param _branch_name Name of currently active branch
+/// @param _branch
 /// @param _tb_data Array with textbox information
-var _branch_name = argument0, _tb_data = argument1;
+var _branch = argument0, _tb_data = argument1;
+
+var _b/*:TbyBranch*/ = _branch;
 
 if (_tb_data == undefined) {
-    tby_branch_next(_branch_name)
+    tby_branch_next(_b)
 }
 
 var _tb_type = _tb_data[0];
@@ -61,22 +63,22 @@ if (_has_args && is_string(_tb_type)) {
 #endregion
 
 // Get the current skin
-var _current_skin = tby_branch_config_get(_branch_name, TbyConfig.Skin)
+var _current_skin = tby_branch_config_get(_b, TbyConfig.Skin)
 
 switch (_tb_type) {
     /******************************/
     case TbyType.Box:
         var _text = _tb_args[0];
-        var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_branch_name, TbyConfig.Placement);
-        if (_placement == undefined) tby_branch_config_get(_branch_name, TbyConfig.Placement);
+        var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_b, TbyConfig.Placement);
+        if (_placement == undefined) tby_branch_config_get(_b, TbyConfig.Placement);
 
-        tby_box_create(_branch_name, _current_skin, _text, _placement);
+        tby_box_create(_b, _current_skin, _text, _placement);
     break;
     /******************************/
     case TbyType.Bubble:
         var _text = _tb_args[0];
-        var _instance = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_branch_name, TbyConfig.Instance);
-        if (_instance == noone) tby_branch_config_get(_branch_name, TbyConfig.Instance);
+        var _instance = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : tby_branch_config_get(_b, TbyConfig.Instance);
+        if (_instance == noone) tby_branch_config_get(_b, TbyConfig.Instance);
         
         // check if its a string thats an object type (from json usually)
         if (is_string(_instance)) {
@@ -88,55 +90,55 @@ switch (_tb_type) {
             _instance = id //just use the calling instance
         }
         
-        tby_bubble_create(_branch_name, _current_skin, _text, _instance)
+        tby_bubble_create(_b, _current_skin, _text, _instance)
     break;
     /******************************/
     case TbyType.Choice:
         var _text = _tb_args[0];
         var _choice_array = [ _tb_args[1], _tb_args[2] ]
-        var _placement = tby_arrlen(_tb_args) > 3 ? _tb_args[3] : tby_branch_config_get(_branch_name, TbyConfig.Instance);
-        if (_placement == undefined) tby_branch_config_get(_branch_name, TbyConfig.Placement);
+        var _placement = tby_arrlen(_tb_args) > 3 ? _tb_args[3] : tby_branch_config_get(_b, TbyConfig.Instance);
+        if (_placement == undefined) tby_branch_config_get(_b, TbyConfig.Placement);
 
-        tby_choice_create(_branch_name, _current_skin, _text, _choice_array, _placement);
+        tby_choice_create(_b, _current_skin, _text, _choice_array, _placement);
     break;
     /******************************/
     case TbyCmd.Config:
         var _config_name = _tb_args[0];
         var _config_value = _tb_args[1];
 
-        tby_branch_config_set(_branch_name, _config_name, _config_value)
-        tby_branch_next(_branch_name)
+        tby_branch_config_set(_b, _config_name, _config_value)
+        tby_branch_next(_b)
     break;
     /******************************/
     case TbyCmd.Pause:
         var _wait_seconds = _tb_args[0];
 
         with (tby_object_manager) {
-            branch_to_continue = _branch_name
-            alarm[0] = room_speed*_wait_seconds
+            branch_to_continue = _b;
+            alarm[0] = room_speed*_wait_seconds;
         }
     break;
     /******************************/
     case TbyCmd.Exit:
-        var _list = tby_branch_message_list_get(_branch_name);
+        var _list/*:TbyList*/ = _b[TbyBranch.message_list];
         tby_list_clear(_list);
-        tby_branch_next(_branch_name);
+        tby_branch_next(_b);
     break;
     /******************************/
     case TbyCmd.Label:
         // Because of pre-scan, this does nothing at runtime
-        tby_branch_next(_branch_name);
+        tby_branch_next(_b);
     break;
     /******************************/
     case TbyCmd.GoTo:
         var _label_name = _tb_args[0];
 
-        var _label_pointer = tby_branch_label_get(_branch_name, _label_name)
+        var _label_pointer = tby_branch_label_get(_b, _label_name)
         if (_label_pointer != undefined) {
-            var _list = tby_branch_message_list_get(_branch_name);
+            var _list/*:TbyList*/ = _b[TbyBranch.message_list];
             tby_list_set_pointer(_list, _label_pointer);
         }
-        tby_branch_next(_branch_name);
+        tby_branch_next(_b);
     break;
     /******************************/
     case TbyCmd.SetVar:
@@ -159,16 +161,16 @@ switch (_tb_type) {
     case TbyCmd.Conditional:
         var _conditional_key = _tb_args[0];
 
-        var _list = tby_branch_message_list_get(_branch_name);
+        var _list/*:TbyList*/ = _b[TbyBranch.message_list];
         var _pointer = tby_list_get_pointer(_list);
     
         var _result = tby_branch_conditional_evaluate(_conditional_key)
         if (_result != undefined) {
             var _shallow_result = tby_array_flatten_shallow(_result)
-            tby_branch_conditional_insert(_branch_name, _pointer, _shallow_result);
+            tby_branch_conditional_insert(_b, _pointer, _shallow_result);
         }
         
         // After inserting conditional, skip this instruction
-        tby_branch_next(_branch_name)
+        tby_branch_next(_b)
     break;
 }

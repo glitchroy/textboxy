@@ -1,29 +1,24 @@
 /// @desc Calls the next entry on the TbyBranch or destroys it if finished.
-/// @param _branch_name 
-var _branch_name = argument0;
+/// @param _branch
+var _branch = argument0;
+
+var _b/*:TbyBranch*/ = _branch
 
 #region Exit Conditions
-if (tby_branch_exists(_branch_name) == false) {
-    exit;
-}
+if (tby_branch_exists(_b) == false) exit;
 
-var _list = tby_branch_message_list_get(_branch_name);
+var _list/*:TbyList*/ = _b[TbyBranch.message_list];
 
 if (tby_list_finished(_list)) {
     //current branch is finished
-    
-    var _branch = tby_branch_get(_branch_name);
-    var _destroy_on_finish = _branch[TbyBranch.DestroyOnFinish];
-    
-    if (_destroy_on_finish) {
-        tby_branch_destroy(_branch_name);
+    if (_b[TbyBranch.destroy_on_finish]) {
+        tby_branch_destroy(_b);
     } else {
         // Reset branch
         tby_list_reset(_list)
     }
 
     tby_hook_branch_finished()
-    
     exit;
 }
 #endregion
@@ -33,8 +28,8 @@ var _tb_data = tby_list_advance(_list)
 
 if (_tb_data == undefined) {
     tby_log("Found undefined entry in TbyList. Destroying TbyBranch.")
-    tby_branch_destroy(_branch_name)
+    tby_branch_destroy(_b)
 } else {
-    tby_branch_entry_handle(_branch_name, _tb_data)
+    tby_branch_entry_handle(_b, _tb_data)
 }
 
