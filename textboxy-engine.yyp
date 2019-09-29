@@ -223,14 +223,6 @@
             }
         },
         {
-            "Key": "12478635-b3fd-2b29-b502-eaee3bca49c6",
-            "Value": {
-                "id": "df70d9c0-2b58-08f4-effd-dd363aa7484c",
-                "resourcePath": "scripts\\tby_uuid\\tby_uuid.yy",
-                "resourceType": "GMScript"
-            }
-        },
-        {
             "Key": "18853c11-249e-435e-bc9d-ff1d50e936d8",
             "Value": {
                 "id": "94accaef-0fc9-4ad1-9f0a-f8bbf2a3eeb9",
@@ -2122,7 +2114,6 @@
         "bf525c81-e5e3-48d6-954a-c6acbe64123e",
         "73aec559-488a-4a0a-b13b-3a9a0cd74e39",
         "09d15875-1e0a-461f-b889-8de5f2754f4e",
-        "12478635-b3fd-2b29-b502-eaee3bca49c6",
         "8ee1f6dd-1185-4e60-a8fa-b18bfe0badf6",
         "8391ddbf-1397-42d2-83c2-cbcf41499df7",
         "c7702a57-68b3-46fe-b451-a19d546b1204",

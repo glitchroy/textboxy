@@ -57,12 +57,6 @@ enum TbyCondition {
     NotEquals
 }
 
-enum TbyFrame {
-    TopLeft, TopMid, TopRight,
-    MidLeft, Mid, MidRight,
-    BotLeft, BotMid, BotRight
-}
-
 enum TbyConfig {
     Skin, // array
     Instance, // instance_id or noone
@@ -102,6 +96,8 @@ enum TbyPlacement {
     Auto
 }
 
+
+// Types
 enum TbyBranch {
     message_list,
     label_map,
