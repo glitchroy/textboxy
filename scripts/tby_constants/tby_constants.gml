@@ -110,13 +110,6 @@ enum TbyBranch {
     sizeof
 }
 
-enum TbyTooltip {
-    text,
-    skin,
-    draw_bubble_sprite,
-    sizeof
-}
-
 /*
 enum TbyInstance {
     type,

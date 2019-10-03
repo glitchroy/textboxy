@@ -27,7 +27,7 @@ surface_resize(application_surface,
 
 locked = 0;
 dir = undefined;
-global.in_dialogue_pause = false
+global.in_dialogue_pause = false;
 
 debug_string = 
 @"PRESS ENTER OR SPACE TO TALK TO SOMEONE
@@ -36,7 +36,4 @@ PRESS M TO RESIZE THE WINDOW
 PRESS F3 TO TOGGLE DEBUG MODE
 PRESS ESC TO CLOSE";
 
-tooltip_credits = tby_tooltip_create(
-	"example for [c_orange]textboxy v" + tby_version + "[]",
-	false,
-	-1);
+version_string = "example for textboxy v" + tby_version;

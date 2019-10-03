@@ -3,6 +3,7 @@
    config options. */
 
 
+
 #region DEBUGGING OPTIONS
 
 /* If textboxy should start up in debug mode. Useful for
@@ -123,6 +124,7 @@
 #endregion
 
 
+
 #region BUBBLE TEXTBOX OPTIONS
 
 /* The maximum width for a given text bubble,
@@ -133,17 +135,6 @@
    to trigger the bubble type automatically.
    Only one character. */
 #macro tby_bubble_quick_mode_char "§"
-
-#endregion
-
-
-
-#region TOOLTIP OPTIONS
-
-/* The maximum width for a given tooltip,
-   before a line break is inserted.
-   Set to negative for no limit. */
-#macro tby_tooltip_max_width 120
 
 #endregion
 

@@ -40,7 +40,7 @@ if (keyboard_check_pressed(vk_escape)) game_end();
 //if (keyboard_check_pressed(ord("R"))) game_restart();
 
 if (keyboard_check_pressed(vk_f3)) {
-	global.tby_debug = !global.tby_debug
+	global.tby_debug = !global.tby_debug;
 }
 #endregion
 
@@ -62,14 +62,12 @@ if (keyboard_check_pressed(ord("F"))) {
 	tby_branch_run(_player_talking, true);
 }
 
-var _cam = tby_game_camera
+var _cam = tby_game_camera;
 var _cx, _cy = 0;
 if (_cam != -1) {
     _cx = camera_get_view_x(_cam);
     _cy = camera_get_view_y(_cam);
 }
-// TODO: Replace these magic numbers with calculations
-tby_tooltip_show(tooltip_credits, _cx+363, _cy+40)
 
 #region Movement stuff
 //Very rudimentary
@@ -77,12 +75,12 @@ tby_tooltip_show(tooltip_credits, _cx+363, _cy+40)
 if (!variable_global_exists("pause")) global.pause = false;
 if (global.pause) exit;
 
-var _key_l = (keyboard_check(ord("A")) || keyboard_check(vk_left))
-var _key_r = (keyboard_check(ord("D")) || keyboard_check(vk_right))
-var _key_u = (keyboard_check(ord("W")) || keyboard_check(vk_up))
-var _key_d = (keyboard_check(ord("S")) || keyboard_check(vk_down))
+var _key_l = (keyboard_check(ord("A")) || keyboard_check(vk_left));
+var _key_r = (keyboard_check(ord("D")) || keyboard_check(vk_right));
+var _key_u = (keyboard_check(ord("W")) || keyboard_check(vk_up));
+var _key_d = (keyboard_check(ord("S")) || keyboard_check(vk_down));
 var _key_c = (keyboard_check_pressed(vk_space) ||
-            keyboard_check_pressed(vk_enter))
+            keyboard_check_pressed(vk_enter));
 
 var _movement_h = _key_r - _key_l;
 var _movement_v = _key_d - _key_u;
@@ -93,9 +91,9 @@ enum Dir {
 	Left = 180,
 	Right = 0
 }
-if (_key_l) dir = Dir.Left else
-if (_key_r) dir = Dir.Right else
-if (_key_u) dir = Dir.Up else
+if (_key_l) dir = Dir.Left; else
+if (_key_r) dir = Dir.Right; else
+if (_key_u) dir = Dir.Up; else
 if (_key_d) dir = Dir.Down;
 
 if (dir != undefined && _key_c) {
