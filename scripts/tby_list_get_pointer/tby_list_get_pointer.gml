@@ -1,8 +1,6 @@
 /// @desc Return the current TbyList pointer.
 /// @param _tby_list
-var _tby_list = argument0;
+var _tby_list/*:TbyList*/ = argument0;
 
-if (ds_exists(_tby_list, ds_type_list)) {
-    var _meta = _tby_list[| 0];
-    return _meta[TbyListMeta.Pointer]
-}
+var _meta/*:TbyListMeta*/ = tby_list_meta(_tby_list);
+return _meta[TbyListMeta.Pointer];

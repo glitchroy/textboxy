@@ -3,25 +3,25 @@ if (text_scribble == undefined) exit;
 
 // Define variables to work with
 var _padding = skin[TbySkin.TileSize];
-var _content_dim/*:TbyDim*/ = tby_array_clone(dimensions)
+var _content_dim/*:TbyDimOld*/ = tby_array_clone(dimensions)
 var _box_dim = [
-        _content_dim[TbyDim.x]-_padding,
-        _content_dim[TbyDim.y]-_padding,
-        _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
-        _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding
+        _content_dim[TbyDimOld.x]-_padding,
+        _content_dim[TbyDimOld.y]-_padding,
+        _content_dim[TbyDimOld.x]+_content_dim[TbyDimOld.width]+_padding,
+        _content_dim[TbyDimOld.y]+_content_dim[TbyDimOld.height]+_padding
     ]
 
 // Background and Content draw
 var _frame = skin[TbySkin.Frame];
 tby_draw_frame(_box_dim[0], _box_dim[1], _box_dim[2], _box_dim[3], skin[TbySkin.TileSize], _frame);
-scribble_draw(text_scribble, _content_dim[TbyDim.x]-1, _content_dim[TbyDim.y]-1);
+scribble_draw(text_scribble, _content_dim[TbyDimOld.x]-1, _content_dim[TbyDimOld.y]-1);
 
 #region Finished circle
 if (state_name == "Finished" || state_name == "WaitingForInput") {
     var _circle_sprite = skin[TbySkin.Pause];
     draw_sprite(_circle_sprite, -1,
-                _content_dim[TbyDim.x]+_content_dim[TbyDim.width]+_padding,
-                _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
+                _content_dim[TbyDimOld.x]+_content_dim[TbyDimOld.width]+_padding,
+                _content_dim[TbyDimOld.y]+_content_dim[TbyDimOld.height]+_padding)
 }
 #endregion
 
@@ -32,7 +32,7 @@ if (type == TbyType.Bubble) {
         var _bubble_sprite = skin[TbySkin.Bubble]
         draw_sprite(_bubble_sprite, -1,
                     _box_dim[0]+(_box_dim[2]-_box_dim[0])/2,
-                    _content_dim[TbyDim.y]+_content_dim[TbyDim.height]+_padding)
+                    _content_dim[TbyDimOld.y]+_content_dim[TbyDimOld.height]+_padding)
     }
 }
 #endregion
@@ -47,8 +47,8 @@ if (type == TbyType.Choice) {
                                                       selected_choice)
         
         draw_sprite(_arrow, -1,
-                    _content_dim[TbyDim.x]+3,
-                    _content_dim[TbyDim.y]+_height_offset+2)
+                    _content_dim[TbyDimOld.x]+3,
+                    _content_dim[TbyDimOld.y]+_height_offset+2)
     
     }
 }
@@ -61,9 +61,9 @@ if (global.tby_debug) {
     draw_rectangle(_box_dim[0], _box_dim[1],
                    _box_dim[2], _box_dim[3], true); //outer
     draw_set_color(c_aqua);
-    draw_rectangle(_content_dim[TbyDim.x], _content_dim[TbyDim.y],
-                   _content_dim[TbyDim.x]+_content_dim[TbyDim.width],
-                   _content_dim[TbyDim.y]+_content_dim[TbyDim.height],
+    draw_rectangle(_content_dim[TbyDimOld.x], _content_dim[TbyDimOld.y],
+                   _content_dim[TbyDimOld.x]+_content_dim[TbyDimOld.width],
+                   _content_dim[TbyDimOld.y]+_content_dim[TbyDimOld.height],
                    true); //inner
     draw_set_alpha(1)
 

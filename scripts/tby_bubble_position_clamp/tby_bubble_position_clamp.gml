@@ -1,9 +1,9 @@
 /// @desc Returns the position of a TbyType.Bubble textbox, clamped to the screen view.
 // Called from textbox object only
 
-var _dim/*:TbyDim*/ = self.dimensions;
+var _dim/*:TbyDimOld*/ = self.dimensions;
 var _padding = self.skin[TbySkin.TileSize];
-var _box = scribble_get_box(text_scribble, _dim[TbyDim.x], _dim[TbyDim.y], _padding, _padding, _padding, _padding); //box of textbox
+var _box = scribble_get_box(text_scribble, _dim[TbyDimOld.x], _dim[TbyDimOld.y], _padding, _padding, _padding, _padding); //box of textbox
 
 size_clamped = false;
 
@@ -24,7 +24,7 @@ if (_cam != -1) {
     _ch = tby_game_height;
 }
 
-if (_box[0] < _cx) { _dim[@TbyDim.x] = _cx+_padding; size_clamped = true; }
-if (_box[1] < _cy) { _dim[@TbyDim.y] = _cy+_padding; size_clamped = true; }
-if (_box[2] > _cx+_cw)  { _dim[@TbyDim.x] = _cx+_cw  - (_box[2]-_box[0]-_padding); size_clamped = true; }
-if (_box[3] > _cy+_ch) { _dim[@TbyDim.y] = _cy+_ch - (_box[3]-_box[1]-_padding); size_clamped = true; }
+if (_box[0] < _cx) { _dim[@TbyDimOld.x] = _cx+_padding; size_clamped = true; }
+if (_box[1] < _cy) { _dim[@TbyDimOld.y] = _cy+_padding; size_clamped = true; }
+if (_box[2] > _cx+_cw)  { _dim[@TbyDimOld.x] = _cx+_cw  - (_box[2]-_box[0]-_padding); size_clamped = true; }
+if (_box[3] > _cy+_ch) { _dim[@TbyDimOld.y] = _cy+_ch - (_box[3]-_box[1]-_padding); size_clamped = true; }

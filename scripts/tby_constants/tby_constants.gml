@@ -16,13 +16,24 @@
 
 #macro tby_box_horz_padding floor(tby_game_width/8)
 
-enum TbyDim {
+enum TbyDimOld {
     x,
     y,
     width,
     height,
     sizeof
 }
+
+enum TbyDim {
+    x_content,
+    y_content,
+    x1,
+    y1,
+    x2,
+    y2,
+    sizeof
+}
+
 
 enum TbyType {
     Box    = 100,
@@ -72,7 +83,8 @@ enum TbyConfig {
     ShakeSize,
     ShakeSpeed,
     RainbowWeight,
-    RainbowSpeed
+    RainbowSpeed,
+    sizeof
 }
 
 enum TbyListMeta {
@@ -101,7 +113,7 @@ enum TbyPlacement {
 enum TbyBranch {
     message_list,
     label_map,
-    config_map,
+    config_array,
     destroy_on_finish,
     sizeof
 }
@@ -112,6 +124,7 @@ enum TbyTooltip {
     draw_bubble_sprite,
     sizeof
 }
+
 /*
 enum TbyInstance {
     type,

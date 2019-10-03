@@ -28,8 +28,9 @@
 #macro tby_game_camera              view_camera[0]
 /* Which instance should be respected when using
    textbox auto placement. Usually the player.
+   Do not use a object reference, only an instance!
    Can also be set to noone. */
-#macro tby_game_object_respect_auto objRed
+#macro tby_game_object_respect_auto instance_find(objRed, 0)
 
 #endregion
 
@@ -114,8 +115,10 @@
 
 /* Image_speed for the textbox confirmation dot. */
 #macro tby_generic_blink_speed 1/20
+/* The default width for a standard textbox. */
+#macro tby_box_width           (tby_game_width - (tby_game_width/8)*2)	
 /* The default height in lines for a standard textbox. */
-#macro tby_box_lines_per_box        2
+#macro tby_box_lines_per_box    2
 
 #endregion
 

@@ -1,4 +1,4 @@
-/// @desc Returns a TbyDim object based on the given TbyPlacement enum. Also calculates auto position.
+/// @desc Returns a TbyDimOld object based on the given TbyPlacement enum. Also calculates auto position.
 /// @param _placement_enum
 /// @param _line_number 
 /// @param _tile_size

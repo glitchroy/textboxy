@@ -17,7 +17,7 @@ var _data_fields = [
     tby_branch_config_get(branch, TbyConfig.RainbowSpeed)
 ]
 
-var _tb_width = type == TbyType.Bubble ? tby_bubble_max_width : dimensions[@TbyDim.width]
+var _tb_width = type == TbyType.Bubble ? tby_bubble_max_width : dimensions[@TbyDimOld.width]
 text_scribble = scribble_create(text_raw,
                                -1,
                                _tb_width,
@@ -47,8 +47,8 @@ switch (type) {
 #region Add camera offset
 var _cam = tby_game_camera
 if (_cam != -1) {
-    dimensions[@TbyDim.x] += camera_get_view_x(_cam);
-    dimensions[@TbyDim.y] += camera_get_view_y(_cam);
+    dimensions[@TbyDimOld.x] += camera_get_view_x(_cam);
+    dimensions[@TbyDimOld.y] += camera_get_view_y(_cam);
 }
 #endregion
 

@@ -1,7 +1,8 @@
 tooltip_talk = tby_tooltip_create("[]Press X to talk");
 
 blue_dialogue = tby_branch_create([
-        tby_branch_bubble("HAha.[pause,1]test", id),
+        tby_branch_bubble("Haha.test", id),
+        tby_branch_box("lol"),
         tby_branch_choice("choice 1 or 2", "Choice 1", "Choice 2",
             [
                 "You chose choice 1",
@@ -40,4 +41,4 @@ blue_dialogue = tby_branch_create([
 
 _speed_test = tby_branch_create([
     "[shake]Normal speed[]. [pause,1][speed,0.05]This is speed slow. [pause,1][speed,2]This is speed 2. [pause,1][speed,10]This is speed 10. [wait][speed,0.3]Back to normal."
-])
+]);

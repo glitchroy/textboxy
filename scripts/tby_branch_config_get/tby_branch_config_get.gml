@@ -5,6 +5,6 @@ var _branch = argument0, _config_name = argument1;
 
 var _b/*:TbyBranch*/ = _branch;
 
-var _config_map = _b[TbyBranch.config_map]
+var _config_map = _b[TbyBranch.config_array];
 
-return _config_map[? _config_name]
+return _config_map[? _config_name];

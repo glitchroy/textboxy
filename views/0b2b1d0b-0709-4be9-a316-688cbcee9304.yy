@@ -7,14 +7,12 @@
         "3e5357db-c997-476d-b197-82260cd05788",
         "85e646c0-60cc-46fa-a73a-b65ffe9a0250",
         "7ad40886-8b05-4b88-830d-f58b254f5da5",
+        "9418ffee-1114-4c34-b098-856770b4ab86",
+        "19513e70-880d-4d81-8bd2-604688150e5a",
         "eb470468-4218-44a2-c067-ba0748aaea0d",
         "18a5d287-354b-4bdf-99b8-aabf48e7c79d",
         "0f27675a-52d7-454e-8739-752ddcd08a16",
-        "ddfcef2c-f8a0-4fca-a523-053d0b8f1dde",
-        "b6953470-e2bc-49fb-ad29-7d0436041229",
-        "38cf9920-fde2-49d6-b0e0-2986f9529060",
-        "6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190",
-        "aeee024e-5ea2-4cc2-9db3-dbd837ef5d82"
+        "5978472f-814d-448e-a538-b71972f0961e"
     ],
     "filterType": "GMScript",
     "folderName": "textboxy",
