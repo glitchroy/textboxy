@@ -6,7 +6,7 @@ if (ds_exists(_list_id, ds_type_list) == false) exit;
 
 var _arr = [];
 
-var _s = ds_list_size(_list_id)
+var _s = ds_list_size(_list_id);
 for (var i = 0; i < _s; i++) {
     var _inner_value = _list_id[| i];
     

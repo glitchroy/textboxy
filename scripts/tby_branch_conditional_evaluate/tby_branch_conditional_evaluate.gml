@@ -12,10 +12,10 @@ var _if_false   = _conditional[4];
 
 // Check for pointers
 if (is_array(_compare_a) && _compare_a[TbyPointerMeta.IdentifierString] == "TBY_POINTER") {
-    _compare_a = tby_pointer_apply(_compare_a)
+    _compare_a = tby_pointer_apply(_compare_a);
 }
 if (is_array(_compare_b) && _compare_b[TbyPointerMeta.IdentifierString] == "TBY_POINTER") {
-    _compare_b = tby_pointer_apply(_compare_b)
+    _compare_b = tby_pointer_apply(_compare_b);
 }
 
 var _result = false;
@@ -36,6 +36,6 @@ switch (_comparison) {
 }
 
 if (_result) {
-    return _if_true
+    return _if_true;
 }
-return _if_false
+return _if_false;

@@ -2,4 +2,4 @@
 /// @param _identifier
 /// @param _value
 gml_pragma("forceinline");
-return [TbyCmd.SetGlobal, argument0, argument1]
+return [TbyCmd.SetGlobal, argument0, argument1];

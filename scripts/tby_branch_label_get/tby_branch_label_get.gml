@@ -7,4 +7,4 @@ var _b/*:TbyBranch*/ = _branch;
 
 var _label_map = _b[TbyBranch.label_map];
 
-return _label_map[? _label_name]
+return _label_map[? _label_name];

@@ -10,4 +10,4 @@ var _data = argument1;
 var _char = argument2;
 
 pause_timer = room_speed * real(_data[0]);
-scribble_typewriter_set_speed(_json, 0)
+scribble_typewriter_set_speed(_json, 0);

@@ -72,10 +72,7 @@ assets:
                       - "?tby_branch_entry_handle | GMScript | e5447dbd-fed3-6ea3-b6fd-0dd4ebcc647b | 5b66f12f-1d83-9afd-b639-c16947429a76"
                       - "?tby_branch_callback_execute | GMScript | b90dd7fa-979e-8328-c78b-8f33c2ad1e47 | fd1a428d-307f-0274-1183-5be827fd2d0a"
                       - "?tby_branch_nested_array_add | GMScript | 1feb0446-cd3e-41e1-a6f7-74acd2d982eb | 63206b93-f9ee-48f0-a17b-8d58bb17ace0"
-                      - "Branch Config | GMScript | bcfe0b8c-92e1-45ac-aa19-1b713f010757 | 42fb4238-ece0-4c8c-a245-4be482ac6820": 
-                          - "?tby_branch_config_get | GMScript | 8482401a-f215-e325-8d84-c23370022e99 | fa1a6074-56ec-b307-be99-34405f8cb467"
-                          - "?tby_branch_config_set_defaults | GMScript | 4a7c2ca9-1001-4016-b367-2e64dfadca55 | 94f04c77-4c95-45ff-9287-2c07fafad725"
-                          - "?tby_branch_config_set | GMScript | 366b07e0-5c87-ccfb-80bc-9cb5648f6232 | 84108abd-683a-6270-5451-84445234d982"
+                      - "?tby_branch_config_set_defaults | GMScript | 4a7c2ca9-1001-4016-b367-2e64dfadca55 | 94f04c77-4c95-45ff-9287-2c07fafad725"
                       - "Branch Label | GMScript | b3f97291-4caa-42b1-868a-0704d6668b4e | 3c61cb88-f918-4251-a04f-03ebccd37a6c": 
                           - "?tby_branch_label_scan | GMScript | ae125a71-7429-5858-56d6-9f3439988db9 | 8a3adb3e-dbf2-f7dd-24c3-375b0dec7692"
                           - "?tby_branch_label_get | GMScript | 75a9fd71-3723-d935-c0b4-4cb6a8d241a3 | 6cd347ac-ecf4-c3d7-e8a7-56a8f23c5d67"
@@ -84,13 +81,6 @@ assets:
                           - "?tby_branch_conditional_register | GMScript | 4dad64c1-b903-49a9-a386-44826b328568 | c8da8ed5-d9e2-4e71-bb23-7da431adc8bb"
                           - "?tby_branch_conditional_evaluate | GMScript | 0b38ad75-b683-4998-9218-49a07718a6ca | ff1455e8-ba17-4e9c-8644-e109ec37f284"
                           - "?tby_branch_conditional_insert | GMScript | f81024a1-33ee-4692-be44-f18a637307ad | 7554f555-d87a-40b6-a0c1-2029f7eb4a90"
-              - "Tooltip | GMScript | 7ad40886-8b05-4b88-830d-f58b254f5da5 | d4537f39-0924-4c1c-a5b0-6eed466dae6c": 
-                  - "?tby_tooltip_create | GMScript | 0b1e599b-e6c2-4092-8b7c-dccfd9c0bdf0 | 9de31981-8e37-470a-af5f-233f3840b181"
-                  - "?tby_tooltip_show | GMScript | 8721a3f8-0a45-dcc8-2834-dd9fe6a6d240 | ea465e6d-2f37-bbfa-47a7-2654f1da2a2c"
-                  - "Internal | GMScript | 6d7724a4-ffde-7318-6285-d8c56f0bcbc3 | e90994a3-076c-f143-19df-9b66fcad9332": 
-                      - "?tby_tooltip_draw | GMScript | e7a13e7a-5dbb-482a-a400-745902c7ba00 | 6d50ae6e-7738-45c9-91f0-d4cc9d10ce22"
-                      - "?tby_tooltip_exists | GMScript | f3a62abe-68c0-2e20-86ed-0ef8c5af3282 | b0468636-e44c-c0c7-fa31-85eb12331898"
-                      - "?tby_tooltip_calculate_offset | GMScript | a0a7a583-8122-f73a-81d0-7c2482950f50 | 12f4c18d-6136-0b19-5839-df9a9452905c"
               - "External Strings | GMScript | eb470468-4218-44a2-c067-ba0748aaea0d | bb810491-6434-bd84-73f5-aa97ea5e2e88": 
                   - "?tby_load | GMScript | d3a039be-aea7-4794-b3ac-38f63558cfc3 | 8437c86e-4d9d-4f5f-8a9d-7381da4d5567"
                   - "Internal | GMScript | 25d977e8-ade6-ed43-6a17-14df5e9d4153 | 579f7bfe-5f0a-14dc-e84f-067b19c41bca": 
@@ -99,28 +89,18 @@ assets:
                   - "Internal Docs | GMScript | f765c118-4ca3-473a-8e24-885dddf957b7 | 3f14194c-41ca-4c20-9634-ced4aa96f67c": 
                       - "?tby_constants | GMScript | 257ab514-7a98-485e-b98a-9b329d12b22f | 19c7c820-e100-4af0-944d-77cb9ed4f8d1"
                       - "?tby_globals | GMScript | d4851883-2f1c-4246-bdfe-cf58b268a32c | a0746a4d-c84d-459c-af46-a9bc7593d4ab"
-                  - "Creation and Helper | GMScript | ffa978e8-afae-489d-8217-9aa1f41fa2a3 | ff61be71-9a10-46b8-81f4-72e8d6eb74cd": 
-                      - "Box | GMScript | 0a41fee0-6d52-46a7-8ae5-1c208ef1b245 | 253e7ac1-60b4-46f9-9e09-c21ba215512a": 
-                          - "?tby_box_create | GMScript | 495dd65b-3213-4aae-8125-fe06c827abab | 26faf6cb-d201-4e95-a520-0df9a7d799e7"
-                          - "?tby_box_dimensions_from_placement | GMScript | 5f1afeb4-790c-4ecd-881c-03433314048d | 7a87f364-c353-4c2b-9243-b66915b74e34"
-                      - "Bubble | GMScript | 11a78d7b-14f3-4ca3-836e-7be2df86f1ff | 9f50eb9d-4583-4ad8-a9f2-9463f51777f8": 
-                          - "?tby_bubble_create | GMScript | 5ea43145-5618-43eb-bb7e-b9198b69f136 | 7a206c13-052c-49d9-ae4f-d1d8cf8388dd"
-                          - "?tby_bubble_position_update | GMScript | 6ad29609-1b78-4ac1-ad9e-66b136580143 | 0c8020f2-e9d4-4756-80cb-d02b5dffc950"
-                          - "?tby_bubble_position_clamp | GMScript | baa66f5f-816c-4317-afc7-477c36bf0093 | 8d8b02e4-e5a2-4ca9-b3c5-2f175bf6bd56"
-                          - "?tby_bubble_offset_calculate | GMScript | ef3283a2-1b7e-4ef6-bc7a-01d100c1ca63 | ff518076-600e-4072-af4f-b2d0707987fc"
-                      - "Choice | GMScript | 320af40a-50e7-49fe-9f4f-f216240fee41 | 37f3da1a-2b02-4d53-9bea-cf847ff62d09": 
-                          - "?tby_choice_create | GMScript | d5075f10-75c2-4db4-85dd-95a5cf33765d | 7f34fc4a-4095-47df-b405-bbf913f1f5da"
-                  - "States | GMScript | 002c6cd9-0646-495c-b1cf-971acc856c88 | d9503ea5-3bed-4a50-9ce6-f4d867debc6e": 
-                      - "?tby_state_textbox_init | GMScript | 9b1ec27c-8a35-46cf-a869-63714f2db272 | 3487d984-2fc3-4e6d-ba6b-3a9062aa3530"
-                      - "?tby_state_textbox_active | GMScript | 0db145cc-b271-4a7b-91a7-9c311ed8e49f | e25eb911-24fd-4520-b42b-1ccf29a92ed9"
-                      - "?tby_state_textbox_finished | GMScript | ff69cb70-444d-454b-a2d1-f3ac1e75b468 | 7c46a05c-6456-44c7-83cc-175ba65f5a68"
-                      - "?tby_state_textbox_vanishing | GMScript | 0c58f40f-6670-4250-9481-ec2394bfb6cb | 0b1171e0-90d0-47cd-9f7b-24fadc7717b3"
-                      - "?tby_state_textbox_waiting_for_input | GMScript | dd18024e-749f-42f7-b0d3-2c99d19a4bb5 | 0ad33459-ab7b-4bb7-bff3-2fd73db9a3bd"
-                  - "Dimensions | GMScript | 7a121b1c-bc19-4452-bd50-98560cff2714 | 1e893527-2c14-42c2-a70c-661a4fcb7a45": 
-                      - "?tby_dim_box | GMScript | ba9e79fd-cb0e-491c-9246-fc445d97185e | b2beaffe-6ef5-44d6-b887-9209f7ce8966"
-                      - "?tby_dim_bubble | GMScript | f9e7d7ff-6841-487a-ac8c-2c79d12765ce | 111d8b18-c028-420e-b886-ca593a644626"
-                  - "General | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
-                      - "?tby_get_height_from_lines | GMScript | f9a918ae-f74e-4d35-8df8-f5f9a079e0f5 | c05db514-a907-4391-8a3f-e6b766687a62"
+                  - "Instance | GMScript | 9418ffee-1114-4c34-b098-856770b4ab86 | dcda3831-a623-4950-9ad2-aea15f666ba0": 
+                      - "?tby_instance_create | GMScript | ddfcef2c-f8a0-4fca-a523-053d0b8f1dde | f8e1d895-ff3b-4726-80a0-f16afd03f0ad"
+                      - "?tby_state_instance_active | GMScript | b6953470-e2bc-49fb-ad29-7d0436041229 | 923ce6fa-7088-4a21-b4a9-2bd8468d3445"
+                      - "?tby_state_instance_waiting | GMScript | 38cf9920-fde2-49d6-b0e0-2986f9529060 | d94d7893-4a5e-4454-8919-152068f5487c"
+                      - "?tby_state_instance_finished | GMScript | 6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190 | 22769027-c481-412f-ab85-44eec6dfbf4c"
+                      - "?tby_state_instance_vanishing | GMScript | aeee024e-5ea2-4cc2-9db3-dbd837ef5d82 | cc8d3368-3791-4c7a-9c13-c452898ac8bf"
+                  - "Dimensions | GMScript | 19513e70-880d-4d81-8bd2-604688150e5a | 4eeeb439-76b7-4b28-b770-a110d5087695": 
+                      - "?tby_dim_create | GMScript | 03c3570c-aa70-40c4-acde-03ef69de04ad | 357c3cea-b554-4c86-a5a9-f26c00cf775d"
+                      - "?tby_dim_position_update | GMScript | 54303934-ab61-4ca8-8bb3-eb1bd80e20a3 | 32c6ca71-047a-41c2-a056-84fe8e883151"
+                      - "?tby_dim_position_clamp | GMScript | 9e40a517-ad7a-4920-b3fc-4b4698c7d788 | 7935ad15-cfe5-4077-9212-34d64882c25d"
+                      - "?tby_dim_line_height | GMScript | 8174fad1-3176-4f1f-b21a-436f164d528a | bb51e25c-2c05-4b5d-b82c-60cbd4c196a2"
+                  - "Pointer | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
                       - "?tby_pointer | GMScript | e20285d2-d93d-4a4d-96fe-e24be56828a8 | e5666713-67f1-4940-aeed-504b7a1d6353"
                       - "?tby_pointer_apply | GMScript | 29dca9be-5658-4e0c-9ac9-a09c8b3af839 | d7b84ef5-a4ac-4c4b-ab42-71f56bf5fe37"
                   - "Events | GMScript | 920db9e1-299f-6696-f2d5-e0383062f18c | fcb25d4d-48a0-8d1b-15f6-cb37a6f0f8ba": 
@@ -136,18 +116,16 @@ assets:
                       - "?tby_list_finished | GMScript | 516b92bd-5954-4791-842c-374b93b09804 | 80ddb2e0-5314-4d97-b2fa-e1c202b5a8da"
                       - "?tby_list_set_pointer | GMScript | e80a7344-99bc-4d91-ab26-62af0244a6d4 | 7e5e8311-70fd-463e-bb45-8d1092791094"
                       - "?tby_list_clear | GMScript | 8ddab704-bfa0-425a-a67c-788e598ab93a | bd8c3d25-abca-4496-8e9f-6bf3b4bf9d46"
-                      - "?tby_list_empty | GMScript | ad7860e4-8244-496c-a1cc-a9fbf7ce1d49 | a920e269-9708-458b-9083-e39fd9c89044"
                       - "?tby_list_size | GMScript | e70ddf0a-8115-4b58-a835-4e2735c7ff94 | 3141ac41-bf92-4c86-bcd7-9ff2a9b573d4"
                       - "?tby_list_get_entry_at | GMScript | 8da13f35-1b5d-4939-a2cc-325e26b3beac | 43242231-8fc2-4410-8ad1-6d57bbfa5f3a"
                       - "?tby_list_get_entry_at_pointer | GMScript | d2e2524f-d9f1-47e4-9a9f-d6dbbdb480e6 | 2b2df10d-f8b2-4fdb-bb70-b7a82199f34f"
                       - "?tby_list_advance | GMScript | f591c80b-7c2c-4049-8065-653d56adeed1 | 4fbd0bdf-9561-4223-9a1a-f38c4182d1d5"
                       - "?tby_list_add | GMScript | 1e4ce98a-98b9-46ff-985d-32a5fe436a6a | 9c38bca3-f6a3-496c-b833-468c153cc621"
-                      - "?tby_list_replace | GMScript | d7fb7201-33d9-4564-b969-6119d883a6e2 | b0d8a3bb-971a-485f-82fe-2facd6ba0e14"
-                      - "?tby_list_get_has_been_advanced | GMScript | 2ba33bab-2cad-b27a-2999-4c56b66e5019 | a2d8301b-b3e7-fdfd-789b-1f5e736d0a14"
                       - "?tby_list_is_valid | GMScript | 3625f61c-c6d9-4450-b708-3e7c843f9a5f | 4feebc64-accc-43dd-8bb8-8c43e1b692c7"
                       - "?tby_list_meta | GMScript | d7412edd-cb53-4db5-be88-7aac3d2acaf0 | 4bea3405-57a9-488a-a61e-d533cd0037d1"
                       - "?tby_list_insert | GMScript | 2fc7b215-194a-4db3-9f34-45a27d7083d2 | 642813f6-d1db-48f3-9487-7599003327e3"
                       - "?tby_list_reset | GMScript | fb1b3401-127f-4e05-9787-87da7ca9fceb | ec7db7e2-f8e3-4435-8d44-2d41de03539a"
+                      - "?tby_list_create_meta | GMScript | 1a74f3aa-f89d-44f8-9d85-300e98905a24 | 500ff8bb-f4a5-4875-8e46-548030d35389"
                   - "Drawing | GMScript | 753f7246-aa5e-4621-b42d-d668e52cb254 | cdf3e17f-216d-4d56-b022-5558b5aceed4": 
                       - "?tby_draw_frame | GMScript | c4f9c4e0-04e9-4689-9a5e-b88d93549b50 | c8ba6793-7e6e-469d-9c27-99eccc98844b"
                   - "Debug | GMScript | c2f73e49-e30b-4d78-a7df-252fbfe28c73 | 5c9e4fc8-eb77-43cb-9993-ed0a4ef192e6": 
@@ -162,11 +140,8 @@ assets:
                       - "?tby_concat | GMScript | 18853c11-249e-435e-bc9d-ff1d50e936d8 | 94accaef-0fc9-4ad1-9f0a-f8bbf2a3eeb9"
                       - "?tby_ds_list_to_array | GMScript | 5f17bccc-494d-05bd-c409-d0db82a5d1f6 | f68780bb-1878-dfdb-d1c8-b357c981c19d"
                       - "?tby_queue_to_array | GMScript | c8bd790d-fc2c-4dda-9591-53517b4b6a56 | 1d673ef4-2a70-4878-a31a-bbc458d3788c"
-                      - "?tby_scribble_get_box_height | GMScript | 425f668a-3a7c-493e-bbd5-f07204ac2d70 | 31de1cbc-0742-41e8-8063-53dac50717f1"
-                      - "?tby_scribble_get_box_width | GMScript | bf525c81-e5e3-48d6-954a-c6acbe64123e | d3ef04b2-f6ca-4306-a074-5ee1b385c123"
                       - "?tby_spread | GMScript | 73aec559-488a-4a0a-b13b-3a9a0cd74e39 | 6ec07869-7b09-4a3b-8f9b-c5e6ab649456"
                       - "?tby_string_bool | GMScript | 09d15875-1e0a-461f-b889-8de5f2754f4e | f6c3ce44-4568-40bd-9e54-d8d7d82c78b2"
-                      - "?tby_uuid | GMScript | 12478635-b3fd-2b29-b502-eaee3bca49c6 | df70d9c0-2b58-08f4-effd-dd363aa7484c"
                       - "?tby_array_flatten | GMScript | 8ee1f6dd-1185-4e60-a8fa-b18bfe0badf6 | 7ef562c4-a593-46cb-a261-f108601b091f"
                       - "?tby_array_flatten_shallow | GMScript | 8391ddbf-1397-42d2-83c2-cbcf41499df7 | cc472d66-5ad8-4811-9117-e21b08da4a4c"
                       - "?tby_array_is_shallow | GMScript | c7702a57-68b3-46fe-b451-a19d546b1204 | ff7be5a7-461c-47a5-971c-143a87a0dc47"
@@ -225,7 +200,7 @@ assets:
       - "Lib | GMObject | 0852564a-66d0-4da1-8c69-dd9be9913c9e | cb08e433-94ca-48ba-a3bf-7ea215bc5558": 
           - "textboxy | GMObject | c991b869-28ba-4186-865e-4587275e51f7 | 36417e85-4b9f-4cea-9f95-18a2869dd875": 
               - "?objTby | GMObject | a7f14741-32df-436c-bdd6-bf28e6c92a13 | 25ffd523-6638-4454-aa95-e7d3ae3ba4aa"
-              - "?objTbyTextbox | GMObject | c34b4704-b1e5-42da-86ac-b00607938e0d | eb9e2ea4-6eda-476f-8099-385a5b82b467"
+              - "?objTbyInstance | GMObject | fab8c8d3-55fe-498a-939a-13e315987df3 | ede223e1-0764-441c-94b4-ded6a12a2cb4"
       - "Example | GMObject | 04ca4371-50d8-40e8-8c88-8235608621fc | d24bc0c8-ce09-401a-b1ad-2c0c972ab220": 
           - "?objRed | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"
           - "?objBlue | GMObject | f209f919-2974-455b-a74f-6f2a15149232 | b49e0c5a-5c46-4ec7-97d2-2043a3dbbb4c"

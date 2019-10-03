@@ -12,17 +12,8 @@
 
 /* Internal objects */
 #macro tby_object_manager objTby
-#macro tby_object_textbox objTbyTextbox
 
 #macro tby_box_horz_padding floor(tby_game_width/8)
-
-enum TbyDim {
-    x,
-    y,
-    width,
-    height,
-    sizeof
-}
 
 enum TbyType {
     Box    = 100,
@@ -57,12 +48,6 @@ enum TbyCondition {
     NotEquals
 }
 
-enum TbyFrame {
-    TopLeft, TopMid, TopRight,
-    MidLeft, Mid, MidRight,
-    BotLeft, BotMid, BotRight
-}
-
 enum TbyConfig {
     Skin, // array
     Instance, // instance_id or noone
@@ -78,7 +63,8 @@ enum TbyConfig {
     ShakeSize,
     ShakeSpeed,
     RainbowWeight,
-    RainbowSpeed
+    RainbowSpeed,
+    sizeof
 }
 
 enum TbyListMeta {
@@ -93,8 +79,6 @@ enum TbyPointerMeta {
     VariableName
 }
 
-// If no placement is given,
-// use global placement (aka this)
 enum TbyPlacement {
     Top,
     Middle,
@@ -102,17 +86,23 @@ enum TbyPlacement {
     Auto
 }
 
+
+/* Types */
+
 enum TbyBranch {
     message_list,
     label_map,
-    config_map,
+    config_array,
     destroy_on_finish,
     sizeof
 }
 
-enum TbyTooltip {
-    text,
-    skin,
-    draw_bubble_sprite,
+enum TbyDim {
+    x_content,
+    y_content,
+    x1,
+    y1,
+    x2,
+    y2,
     sizeof
 }
