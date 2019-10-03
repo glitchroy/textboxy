@@ -62,7 +62,6 @@ if (_has_args && is_string(_tb_type)) {
 
 // Get the current skin
 var _config/*:TbyConfig*/ = _branch[TbyBranch.config_array];
-var _current_skin = _config[TbyConfig.Skin];
 
 switch (_tb_type) {
     /******************************/
@@ -71,8 +70,7 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : _config[TbyConfig.Placement];
         if (_placement == undefined) _placement = _config[TbyConfig.Placement];
 
-        //new TbyBox(_branch, _current_skin, _text, _placement);
-        tby_instance_create(TbyType.Box, _text, _current_skin, _branch[TbyBranch.config_array], _placement);
+        tby_instance_create(TbyType.Box, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], _placement);
     break;
     /******************************/
     case TbyType.Bubble:
@@ -90,8 +88,7 @@ switch (_tb_type) {
             _instance = id; //just use the calling instance
         }
         
-        //new TbyBubble(_branch, _current_skin, _text, _instance)
-        tby_instance_create(TbyType.Bubble, _text, _current_skin, _branch[TbyBranch.config_array], undefined, _instance);
+        tby_instance_create(TbyType.Bubble, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], undefined, _instance);
     break;
     /******************************/
     case TbyType.Choice:
@@ -100,8 +97,7 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 3 ? _tb_args[3] : _config[TbyConfig.Placement];
         if (_placement == undefined) _placement = _config[TbyConfig.Placement];
 
-        //new TbyChoice(_branch, _current_skin, _text, _choice_array, _placement);
-        tby_instance_create(TbyType.Choice, _text, _current_skin, _branch[TbyBranch.config_array], _placement, undefined, _choice_array);
+        tby_instance_create(TbyType.Choice, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], _placement, undefined, _choice_array);
     break;
     /******************************/
     case TbyCmd.Config:

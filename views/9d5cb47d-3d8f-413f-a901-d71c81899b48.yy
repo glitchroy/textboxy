@@ -8,7 +8,7 @@
         "29dca9be-5658-4e0c-9ac9-a09c8b3af839"
     ],
     "filterType": "GMScript",
-    "folderName": "General",
+    "folderName": "Pointer",
     "isDefaultView": false,
     "localisedFolderName": ""
 }

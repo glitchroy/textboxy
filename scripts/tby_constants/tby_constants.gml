@@ -16,14 +16,6 @@
 
 #macro tby_box_horz_padding floor(tby_game_width/8)
 
-enum TbyDimOld {
-    x,
-    y,
-    width,
-    height,
-    sizeof
-}
-
 enum TbyDim {
     x_content,
     y_content,

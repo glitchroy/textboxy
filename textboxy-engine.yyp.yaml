@@ -89,17 +89,6 @@ assets:
                       - "?tby_tooltip_draw | GMScript | e7a13e7a-5dbb-482a-a400-745902c7ba00 | 6d50ae6e-7738-45c9-91f0-d4cc9d10ce22"
                       - "?tby_tooltip_exists | GMScript | f3a62abe-68c0-2e20-86ed-0ef8c5af3282 | b0468636-e44c-c0c7-fa31-85eb12331898"
                       - "?tby_tooltip_calculate_offset | GMScript | a0a7a583-8122-f73a-81d0-7c2482950f50 | 12f4c18d-6136-0b19-5839-df9a9452905c"
-              - "Instance | GMScript | 9418ffee-1114-4c34-b098-856770b4ab86 | dcda3831-a623-4950-9ad2-aea15f666ba0": 
-                  - "?tby_instance_create | GMScript | ddfcef2c-f8a0-4fca-a523-053d0b8f1dde | f8e1d895-ff3b-4726-80a0-f16afd03f0ad"
-                  - "?tby_state_instance_active | GMScript | b6953470-e2bc-49fb-ad29-7d0436041229 | 923ce6fa-7088-4a21-b4a9-2bd8468d3445"
-                  - "?tby_state_instance_waiting | GMScript | 38cf9920-fde2-49d6-b0e0-2986f9529060 | d94d7893-4a5e-4454-8919-152068f5487c"
-                  - "?tby_state_instance_finished | GMScript | 6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190 | 22769027-c481-412f-ab85-44eec6dfbf4c"
-                  - "?tby_state_instance_vanishing | GMScript | aeee024e-5ea2-4cc2-9db3-dbd837ef5d82 | cc8d3368-3791-4c7a-9c13-c452898ac8bf"
-              - "Dimensions | GMScript | 19513e70-880d-4d81-8bd2-604688150e5a | 4eeeb439-76b7-4b28-b770-a110d5087695": 
-                  - "?tby_dim_create | GMScript | 03c3570c-aa70-40c4-acde-03ef69de04ad | 357c3cea-b554-4c86-a5a9-f26c00cf775d"
-                  - "?tby_dim_position_update | GMScript | 54303934-ab61-4ca8-8bb3-eb1bd80e20a3 | 32c6ca71-047a-41c2-a056-84fe8e883151"
-                  - "?tby_dim_position_clamp | GMScript | 9e40a517-ad7a-4920-b3fc-4b4698c7d788 | 7935ad15-cfe5-4077-9212-34d64882c25d"
-                  - "?tby_dim_line_height | GMScript | 8174fad1-3176-4f1f-b21a-436f164d528a | bb51e25c-2c05-4b5d-b82c-60cbd4c196a2"
               - "External Strings | GMScript | eb470468-4218-44a2-c067-ba0748aaea0d | bb810491-6434-bd84-73f5-aa97ea5e2e88": 
                   - "?tby_load | GMScript | d3a039be-aea7-4794-b3ac-38f63558cfc3 | 8437c86e-4d9d-4f5f-8a9d-7381da4d5567"
                   - "Internal | GMScript | 25d977e8-ade6-ed43-6a17-14df5e9d4153 | 579f7bfe-5f0a-14dc-e84f-067b19c41bca": 
@@ -108,11 +97,18 @@ assets:
                   - "Internal Docs | GMScript | f765c118-4ca3-473a-8e24-885dddf957b7 | 3f14194c-41ca-4c20-9634-ced4aa96f67c": 
                       - "?tby_constants | GMScript | 257ab514-7a98-485e-b98a-9b329d12b22f | 19c7c820-e100-4af0-944d-77cb9ed4f8d1"
                       - "?tby_globals | GMScript | d4851883-2f1c-4246-bdfe-cf58b268a32c | a0746a4d-c84d-459c-af46-a9bc7593d4ab"
-                  - "Creation | GMScript | ffa978e8-afae-489d-8217-9aa1f41fa2a3 | ff61be71-9a10-46b8-81f4-72e8d6eb74cd": 
-                      - "?tby_box_create | GMScript | 495dd65b-3213-4aae-8125-fe06c827abab | 26faf6cb-d201-4e95-a520-0df9a7d799e7"
-                      - "?tby_bubble_create | GMScript | 5ea43145-5618-43eb-bb7e-b9198b69f136 | 7a206c13-052c-49d9-ae4f-d1d8cf8388dd"
-                      - "?tby_choice_create | GMScript | d5075f10-75c2-4db4-85dd-95a5cf33765d | 7f34fc4a-4095-47df-b405-bbf913f1f5da"
-                  - "General | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
+                  - "Instance | GMScript | 9418ffee-1114-4c34-b098-856770b4ab86 | dcda3831-a623-4950-9ad2-aea15f666ba0": 
+                      - "?tby_instance_create | GMScript | ddfcef2c-f8a0-4fca-a523-053d0b8f1dde | f8e1d895-ff3b-4726-80a0-f16afd03f0ad"
+                      - "?tby_state_instance_active | GMScript | b6953470-e2bc-49fb-ad29-7d0436041229 | 923ce6fa-7088-4a21-b4a9-2bd8468d3445"
+                      - "?tby_state_instance_waiting | GMScript | 38cf9920-fde2-49d6-b0e0-2986f9529060 | d94d7893-4a5e-4454-8919-152068f5487c"
+                      - "?tby_state_instance_finished | GMScript | 6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190 | 22769027-c481-412f-ab85-44eec6dfbf4c"
+                      - "?tby_state_instance_vanishing | GMScript | aeee024e-5ea2-4cc2-9db3-dbd837ef5d82 | cc8d3368-3791-4c7a-9c13-c452898ac8bf"
+                  - "Dimensions | GMScript | 19513e70-880d-4d81-8bd2-604688150e5a | 4eeeb439-76b7-4b28-b770-a110d5087695": 
+                      - "?tby_dim_create | GMScript | 03c3570c-aa70-40c4-acde-03ef69de04ad | 357c3cea-b554-4c86-a5a9-f26c00cf775d"
+                      - "?tby_dim_position_update | GMScript | 54303934-ab61-4ca8-8bb3-eb1bd80e20a3 | 32c6ca71-047a-41c2-a056-84fe8e883151"
+                      - "?tby_dim_position_clamp | GMScript | 9e40a517-ad7a-4920-b3fc-4b4698c7d788 | 7935ad15-cfe5-4077-9212-34d64882c25d"
+                      - "?tby_dim_line_height | GMScript | 8174fad1-3176-4f1f-b21a-436f164d528a | bb51e25c-2c05-4b5d-b82c-60cbd4c196a2"
+                  - "Pointer | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
                       - "?tby_pointer | GMScript | e20285d2-d93d-4a4d-96fe-e24be56828a8 | e5666713-67f1-4940-aeed-504b7a1d6353"
                       - "?tby_pointer_apply | GMScript | 29dca9be-5658-4e0c-9ac9-a09c8b3af839 | d7b84ef5-a4ac-4c4b-ab42-71f56bf5fe37"
                   - "Events | GMScript | 920db9e1-299f-6696-f2d5-e0383062f18c | fcb25d4d-48a0-8d1b-15f6-cb37a6f0f8ba": 
@@ -196,24 +192,6 @@ assets:
                               - "?scribble_add_event | GMScript | dbb30ff1-f8ed-4b91-b47e-f94766f2a4d6 | 6537857b-6d48-43ab-bb79-e4295bb0a35a"
                               - "?scribble_add_flag | GMScript | 9a49f559-8522-4d86-96c9-6ebbc909f569 | 6f86bad4-a5d6-4675-961b-565a3abb8483"
                               - "?scribble_replace_tag | GMScript | 5eb1db85-3025-48c0-acc4-c1228e552ff6 | 9b7bded6-c0a1-4b51-9a27-6a28c0dcab04"
-              - "old | GMScript | 5978472f-814d-448e-a538-b71972f0961e | 9741cb4c-9f25-4182-8bad-27f4d7a1ff11": 
-                  - "?tby_branch_config_get | GMScript | 8482401a-f215-e325-8d84-c23370022e99 | fa1a6074-56ec-b307-be99-34405f8cb467"
-                  - "?tby_branch_config_set | GMScript | 366b07e0-5c87-ccfb-80bc-9cb5648f6232 | 84108abd-683a-6270-5451-84445234d982"
-                  - "?tby_state_textbox_init | GMScript | 9b1ec27c-8a35-46cf-a869-63714f2db272 | 3487d984-2fc3-4e6d-ba6b-3a9062aa3530"
-                  - "?tby_get_height_from_lines | GMScript | f9a918ae-f74e-4d35-8df8-f5f9a079e0f5 | c05db514-a907-4391-8a3f-e6b766687a62"
-                  - "?tby_state_textbox_active | GMScript | 0db145cc-b271-4a7b-91a7-9c311ed8e49f | e25eb911-24fd-4520-b42b-1ccf29a92ed9"
-                  - "?tby_state_textbox_finished | GMScript | ff69cb70-444d-454b-a2d1-f3ac1e75b468 | 7c46a05c-6456-44c7-83cc-175ba65f5a68"
-                  - "?tby_state_textbox_vanishing | GMScript | 0c58f40f-6670-4250-9481-ec2394bfb6cb | 0b1171e0-90d0-47cd-9f7b-24fadc7717b3"
-                  - "?tby_state_textbox_waiting_for_input | GMScript | dd18024e-749f-42f7-b0d3-2c99d19a4bb5 | 0ad33459-ab7b-4bb7-bff3-2fd73db9a3bd"
-                  - "?tby_bubble_position_update | GMScript | 6ad29609-1b78-4ac1-ad9e-66b136580143 | 0c8020f2-e9d4-4756-80cb-d02b5dffc950"
-                  - "?tby_bubble_offset_calculate | GMScript | ef3283a2-1b7e-4ef6-bc7a-01d100c1ca63 | ff518076-600e-4072-af4f-b2d0707987fc"
-                  - "?tby_bubble_position_clamp | GMScript | baa66f5f-816c-4317-afc7-477c36bf0093 | 8d8b02e4-e5a2-4ca9-b3c5-2f175bf6bd56"
-                  - "?tby_scribble_get_box_height | GMScript | 425f668a-3a7c-493e-bbd5-f07204ac2d70 | 31de1cbc-0742-41e8-8063-53dac50717f1"
-                  - "?tby_scribble_get_box_width | GMScript | bf525c81-e5e3-48d6-954a-c6acbe64123e | d3ef04b2-f6ca-4306-a074-5ee1b385c123"
-                  - "?tby_dim_box | GMScript | ba9e79fd-cb0e-491c-9246-fc445d97185e | b2beaffe-6ef5-44d6-b887-9209f7ce8966"
-                  - "?tby_dim_bubble | GMScript | f9e7d7ff-6841-487a-ac8c-2c79d12765ce | 111d8b18-c028-420e-b886-ca593a644626"
-                  - "?tby_box_dimensions_from_placement | GMScript | 5f1afeb4-790c-4ecd-881c-03433314048d | 7a87f364-c353-4c2b-9243-b66915b74e34"
-                  - "?tby_list_get_has_been_advanced | GMScript | 2ba33bab-2cad-b27a-2999-4c56b66e5019 | a2d8301b-b3e7-fdfd-789b-1f5e736d0a14"
       - "Example | GMScript | 2418c3f7-8665-4131-9cee-417459769975 | 7fbf62f9-e3b1-4898-853d-596f1756ec6e": 
           - "?example_hook_branch_start | GMScript | ecedf98b-1efd-4b34-b560-85d1afbbb495 | cc483fc6-0117-4abe-bd75-bbdbdda26bbb"
           - "?example_hook_branch_finished | GMScript | 8fd99032-b652-434f-87b8-3cb026e8d359 | d4b9db1d-195d-4880-98d1-b04011e390f9"
@@ -232,7 +210,6 @@ assets:
       - "Lib | GMObject | 0852564a-66d0-4da1-8c69-dd9be9913c9e | cb08e433-94ca-48ba-a3bf-7ea215bc5558": 
           - "textboxy | GMObject | c991b869-28ba-4186-865e-4587275e51f7 | 36417e85-4b9f-4cea-9f95-18a2869dd875": 
               - "?objTby | GMObject | a7f14741-32df-436c-bdd6-bf28e6c92a13 | 25ffd523-6638-4454-aa95-e7d3ae3ba4aa"
-              - "?objTbyTextbox | GMObject | c34b4704-b1e5-42da-86ac-b00607938e0d | eb9e2ea4-6eda-476f-8099-385a5b82b467"
               - "?objTbyInstance | GMObject | fab8c8d3-55fe-498a-939a-13e315987df3 | ede223e1-0764-441c-94b4-ded6a12a2cb4"
       - "Example | GMObject | 04ca4371-50d8-40e8-8c88-8235608621fc | d24bc0c8-ce09-401a-b1ad-2c0c972ab220": 
           - "?objRed | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"

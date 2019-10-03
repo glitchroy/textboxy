@@ -69,15 +69,6 @@ with (_inst) {
     scribble_typewriter_in(scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0);
 
     dimensions = tby_dim_create(type, scribble, _skin[TbySkin.TileSize], _placement, instance, sprite_get_height(_skin[TbySkin.Bubble]));
-    
-    /*
-    #region Add camera offset
-    var _cam = tby_game_camera
-    if (_cam != -1) {
-        dimensions[@TbyDimOld.x] += camera_get_view_x(_cam);
-        dimensions[@TbyDimOld.y] += camera_get_view_y(_cam);
-    }
-    #endregion*/
 }
 
 return _inst;
