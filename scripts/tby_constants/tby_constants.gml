@@ -112,3 +112,14 @@ enum TbyTooltip {
     draw_bubble_sprite,
     sizeof
 }
+/*
+enum TbyInstance {
+    type,
+    content,
+    skin,
+    placement,
+    instance,
+    dimensions,
+    choices,
+    sizeof
+}*/

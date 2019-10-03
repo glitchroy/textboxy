@@ -1,13 +1,9 @@
 /// @function state_switch(state, [pushToStack?])
 /// @description [Any Event] Sets the active state of the object.
-
-/// @param {string|script} state The state to switch to by script or string identifier
-/// @param {bool} push_to_stack? [Default: true] Wether to push the state to the state_stack
-
-var _push_state = true;
-if (argument_count > 1) {
-	_push_state = argument[1];
-}
+/// @param state The state to switch to by script or string identifier
+/// @param push_to_stack [Default: true] Wether to push the state to the state_stack
+var state = argument[0];
+var push_to_stack = argument_count > 1 ? argument[1] : true;
 
 if (is_real(argument[0])) {
 	//you passed a specific script, set it as our next state.

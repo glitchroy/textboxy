@@ -166,7 +166,6 @@ assets:
                       - "?tby_scribble_get_box_width | GMScript | bf525c81-e5e3-48d6-954a-c6acbe64123e | d3ef04b2-f6ca-4306-a074-5ee1b385c123"
                       - "?tby_spread | GMScript | 73aec559-488a-4a0a-b13b-3a9a0cd74e39 | 6ec07869-7b09-4a3b-8f9b-c5e6ab649456"
                       - "?tby_string_bool | GMScript | 09d15875-1e0a-461f-b889-8de5f2754f4e | f6c3ce44-4568-40bd-9e54-d8d7d82c78b2"
-                      - "?tby_uuid | GMScript | 12478635-b3fd-2b29-b502-eaee3bca49c6 | df70d9c0-2b58-08f4-effd-dd363aa7484c"
                       - "?tby_array_flatten | GMScript | 8ee1f6dd-1185-4e60-a8fa-b18bfe0badf6 | 7ef562c4-a593-46cb-a261-f108601b091f"
                       - "?tby_array_flatten_shallow | GMScript | 8391ddbf-1397-42d2-83c2-cbcf41499df7 | cc472d66-5ad8-4811-9117-e21b08da4a4c"
                       - "?tby_array_is_shallow | GMScript | c7702a57-68b3-46fe-b451-a19d546b1204 | ff7be5a7-461c-47a5-971c-143a87a0dc47"
@@ -207,6 +206,11 @@ assets:
                               - "?scribble_add_event | GMScript | dbb30ff1-f8ed-4b91-b47e-f94766f2a4d6 | 6537857b-6d48-43ab-bb79-e4295bb0a35a"
                               - "?scribble_add_flag | GMScript | 9a49f559-8522-4d86-96c9-6ebbc909f569 | 6f86bad4-a5d6-4675-961b-565a3abb8483"
                               - "?scribble_replace_tag | GMScript | 5eb1db85-3025-48c0-acc4-c1228e552ff6 | 9b7bded6-c0a1-4b51-9a27-6a28c0dcab04"
+              - "?tby_instance_create | GMScript | ddfcef2c-f8a0-4fca-a523-053d0b8f1dde | f8e1d895-ff3b-4726-80a0-f16afd03f0ad"
+              - "?tby_state_instance_active | GMScript | b6953470-e2bc-49fb-ad29-7d0436041229 | 923ce6fa-7088-4a21-b4a9-2bd8468d3445"
+              - "?tby_state_instance_waiting | GMScript | 38cf9920-fde2-49d6-b0e0-2986f9529060 | d94d7893-4a5e-4454-8919-152068f5487c"
+              - "?tby_state_instance_finished | GMScript | 6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190 | 22769027-c481-412f-ab85-44eec6dfbf4c"
+              - "?tby_state_instance_vanishing | GMScript | aeee024e-5ea2-4cc2-9db3-dbd837ef5d82 | cc8d3368-3791-4c7a-9c13-c452898ac8bf"
       - "Example | GMScript | 2418c3f7-8665-4131-9cee-417459769975 | 7fbf62f9-e3b1-4898-853d-596f1756ec6e": 
           - "?example_hook_branch_start | GMScript | ecedf98b-1efd-4b34-b560-85d1afbbb495 | cc483fc6-0117-4abe-bd75-bbdbdda26bbb"
           - "?example_hook_branch_finished | GMScript | 8fd99032-b652-434f-87b8-3cb026e8d359 | d4b9db1d-195d-4880-98d1-b04011e390f9"
@@ -226,6 +230,7 @@ assets:
           - "textboxy | GMObject | c991b869-28ba-4186-865e-4587275e51f7 | 36417e85-4b9f-4cea-9f95-18a2869dd875": 
               - "?objTby | GMObject | a7f14741-32df-436c-bdd6-bf28e6c92a13 | 25ffd523-6638-4454-aa95-e7d3ae3ba4aa"
               - "?objTbyTextbox | GMObject | c34b4704-b1e5-42da-86ac-b00607938e0d | eb9e2ea4-6eda-476f-8099-385a5b82b467"
+              - "?objTbyInstance | GMObject | fab8c8d3-55fe-498a-939a-13e315987df3 | ede223e1-0764-441c-94b4-ded6a12a2cb4"
       - "Example | GMObject | 04ca4371-50d8-40e8-8c88-8235608621fc | d24bc0c8-ce09-401a-b1ad-2c0c972ab220": 
           - "?objRed | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"
           - "?objBlue | GMObject | f209f919-2974-455b-a74f-6f2a15149232 | b49e0c5a-5c46-4ec7-97d2-2043a3dbbb4c"
