@@ -20,29 +20,7 @@ switch (_type) {
         _height = tby_dim_line_height(_lines) + _padding*2;
         
         _x = (tby_game_width - _width) / 2;
-        
-        switch (_placement) {
-            case TbyPlacement.Top: _y = 0; break;
-            case TbyPlacement.Middle: _y = tby_game_height/2 - _height/2; break;
-            case TbyPlacement.Bottom: _y = tby_game_height - _height; break;
-            case TbyPlacement.Auto:
-                // Figure out placement
-                var _i = tby_game_object_respect_auto;
-                if (_i == noone) { 
-                    _y = 0;
-                    break;
-                }
-                var _cam_y = 0;
-                var _cam = tby_game_camera;
-                if (_cam != -1) {
-                    _cam_y = camera_get_view_y(_cam);
-                }
-                var _iy = _i.y - _cam_y;
-                
-                // Assign Top or Bot
-                _y = (_iy > tby_game_height/2) ? 0 : tby_game_height - _height;
-            break;
-        }
+        _y = __lf_tby_dim_create_(_placement, _height);
     break;
     case TbyType.Bubble:
         // Box at 0/0 with padding

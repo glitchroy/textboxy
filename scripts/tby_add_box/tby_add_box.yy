@@ -1,8 +1,8 @@
 {
-    "id": "3e90aee7-c89d-4ac7-bb3e-f3d9e0cbfe70",
+    "id": "778223f8-6d07-439e-b89c-cacb01156b4c",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "tby_branch_if",
+    "name": "tby_add_box",
     "IsCompatibility": false,
     "IsDnD": false
 }
