@@ -7,4 +7,4 @@ return [
     "TBY_POINTER",
     _instance_scope,
     _variable_string
-]
+];

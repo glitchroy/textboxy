@@ -72,8 +72,7 @@ assets:
                       - "?tby_branch_entry_handle | GMScript | e5447dbd-fed3-6ea3-b6fd-0dd4ebcc647b | 5b66f12f-1d83-9afd-b639-c16947429a76"
                       - "?tby_branch_callback_execute | GMScript | b90dd7fa-979e-8328-c78b-8f33c2ad1e47 | fd1a428d-307f-0274-1183-5be827fd2d0a"
                       - "?tby_branch_nested_array_add | GMScript | 1feb0446-cd3e-41e1-a6f7-74acd2d982eb | 63206b93-f9ee-48f0-a17b-8d58bb17ace0"
-                      - "Branch Config | GMScript | bcfe0b8c-92e1-45ac-aa19-1b713f010757 | 42fb4238-ece0-4c8c-a245-4be482ac6820": 
-                          - "?tby_branch_config_set_defaults | GMScript | 4a7c2ca9-1001-4016-b367-2e64dfadca55 | 94f04c77-4c95-45ff-9287-2c07fafad725"
+                      - "?tby_branch_config_set_defaults | GMScript | 4a7c2ca9-1001-4016-b367-2e64dfadca55 | 94f04c77-4c95-45ff-9287-2c07fafad725"
                       - "Branch Label | GMScript | b3f97291-4caa-42b1-868a-0704d6668b4e | 3c61cb88-f918-4251-a04f-03ebccd37a6c": 
                           - "?tby_branch_label_scan | GMScript | ae125a71-7429-5858-56d6-9f3439988db9 | 8a3adb3e-dbf2-f7dd-24c3-375b0dec7692"
                           - "?tby_branch_label_get | GMScript | 75a9fd71-3723-d935-c0b4-4cb6a8d241a3 | 6cd347ac-ecf4-c3d7-e8a7-56a8f23c5d67"
@@ -117,13 +116,11 @@ assets:
                       - "?tby_list_finished | GMScript | 516b92bd-5954-4791-842c-374b93b09804 | 80ddb2e0-5314-4d97-b2fa-e1c202b5a8da"
                       - "?tby_list_set_pointer | GMScript | e80a7344-99bc-4d91-ab26-62af0244a6d4 | 7e5e8311-70fd-463e-bb45-8d1092791094"
                       - "?tby_list_clear | GMScript | 8ddab704-bfa0-425a-a67c-788e598ab93a | bd8c3d25-abca-4496-8e9f-6bf3b4bf9d46"
-                      - "?tby_list_empty | GMScript | ad7860e4-8244-496c-a1cc-a9fbf7ce1d49 | a920e269-9708-458b-9083-e39fd9c89044"
                       - "?tby_list_size | GMScript | e70ddf0a-8115-4b58-a835-4e2735c7ff94 | 3141ac41-bf92-4c86-bcd7-9ff2a9b573d4"
                       - "?tby_list_get_entry_at | GMScript | 8da13f35-1b5d-4939-a2cc-325e26b3beac | 43242231-8fc2-4410-8ad1-6d57bbfa5f3a"
                       - "?tby_list_get_entry_at_pointer | GMScript | d2e2524f-d9f1-47e4-9a9f-d6dbbdb480e6 | 2b2df10d-f8b2-4fdb-bb70-b7a82199f34f"
                       - "?tby_list_advance | GMScript | f591c80b-7c2c-4049-8065-653d56adeed1 | 4fbd0bdf-9561-4223-9a1a-f38c4182d1d5"
                       - "?tby_list_add | GMScript | 1e4ce98a-98b9-46ff-985d-32a5fe436a6a | 9c38bca3-f6a3-496c-b833-468c153cc621"
-                      - "?tby_list_replace | GMScript | d7fb7201-33d9-4564-b969-6119d883a6e2 | b0d8a3bb-971a-485f-82fe-2facd6ba0e14"
                       - "?tby_list_is_valid | GMScript | 3625f61c-c6d9-4450-b708-3e7c843f9a5f | 4feebc64-accc-43dd-8bb8-8c43e1b692c7"
                       - "?tby_list_meta | GMScript | d7412edd-cb53-4db5-be88-7aac3d2acaf0 | 4bea3405-57a9-488a-a61e-d533cd0037d1"
                       - "?tby_list_insert | GMScript | 2fc7b215-194a-4db3-9f34-45a27d7083d2 | 642813f6-d1db-48f3-9487-7599003327e3"

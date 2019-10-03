@@ -16,8 +16,8 @@ for (var i = 0; i < tby_arrlen(_array); i++) {
         }
     } else {
         // Not a nested array, just append
-        _flat_array[tby_arrlen(_flat_array)] = _array[i]
+        _flat_array[tby_arrlen(_flat_array)] = _array[i];
     }
 }
 
-return _flat_array
+return _flat_array;

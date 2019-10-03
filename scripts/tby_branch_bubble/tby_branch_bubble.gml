@@ -4,4 +4,4 @@
 var _text = argument[0];
 var _instance = argument_count > 1 ? argument[1] : undefined;
 
-return [TbyType.Bubble, _text, _instance]
+return [TbyType.Bubble, _text, _instance];

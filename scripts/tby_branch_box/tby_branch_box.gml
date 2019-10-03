@@ -4,4 +4,4 @@
 var _text = argument[0];
 var _placement = argument_count > 1 ? argument[1] : undefined;
 
-return [TbyType.Box, _text, _placement]
+return [TbyType.Box, _text, _placement];

@@ -19,7 +19,7 @@ var _current_state = scribble_typewriter_get_state(scribble);
 
 // --> FINISHED
 if (_current_state == 1) {
-    tby_state_switch("Finished", true);
+    tby_state_switch("Finished");
 }
 
 // Play audio

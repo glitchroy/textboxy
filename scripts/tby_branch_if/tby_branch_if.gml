@@ -11,6 +11,6 @@ var _key = tby_branch_conditional_register(
     _compare_a, _comparison, _compare_b,
     _if_true,
     _if_false
-)
+);
 
-return [TbyCmd.Conditional, _key]
+return [TbyCmd.Conditional, _key];

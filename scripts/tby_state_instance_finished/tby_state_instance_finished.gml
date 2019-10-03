@@ -4,7 +4,7 @@ if (state_new) {
 
 if (tby_input_confirm) {
     if (type == TbyType.Choice) global.tby_choice_result = choice_selected;
-    tby_state_switch("Vanishing", true);
+    tby_state_switch("Vanishing");
     
     // Callback to next textbox
     with (tby_object_manager) {

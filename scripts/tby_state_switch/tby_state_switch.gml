@@ -1,7 +1,7 @@
 /// @function state_switch(state, [pushToStack?])
 /// @description [Any Event] Sets the active state of the object.
 /// @param _state The state to switch to by script or string identifier
-/// @param _push_state [Default: true] Wether to push the state to the state_stack
+/// @param _push_state = true
 var _state = argument[0];
 var _push_state = argument_count > 1 ? argument[1] : true;
 

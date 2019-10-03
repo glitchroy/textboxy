@@ -12,20 +12,8 @@
 
 /* Internal objects */
 #macro tby_object_manager objTby
-#macro tby_object_textbox objTbyTextbox
 
 #macro tby_box_horz_padding floor(tby_game_width/8)
-
-enum TbyDim {
-    x_content,
-    y_content,
-    x1,
-    y1,
-    x2,
-    y2,
-    sizeof
-}
-
 
 enum TbyType {
     Box    = 100,
@@ -91,8 +79,6 @@ enum TbyPointerMeta {
     VariableName
 }
 
-// If no placement is given,
-// use global placement (aka this)
 enum TbyPlacement {
     Top,
     Middle,
@@ -101,7 +87,8 @@ enum TbyPlacement {
 }
 
 
-// Types
+/* Types */
+
 enum TbyBranch {
     message_list,
     label_map,
@@ -110,14 +97,12 @@ enum TbyBranch {
     sizeof
 }
 
-/*
-enum TbyInstance {
-    type,
-    content,
-    skin,
-    placement,
-    instance,
-    dimensions,
-    choices,
+enum TbyDim {
+    x_content,
+    y_content,
+    x1,
+    y1,
+    x2,
+    y2,
     sizeof
-}*/
+}

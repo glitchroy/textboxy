@@ -10,4 +10,4 @@ var _placement = argument_count > 5 ? argument[5] : undefined;
 return [
         [TbyType.Choice, _text, _choice_a, _choice_b, _placement],
         tby_branch_if(tby_pointer("tby_choice_result"), TbyCondition.Equals, 0, _option_a, _option_b)
-    ]
+    ];

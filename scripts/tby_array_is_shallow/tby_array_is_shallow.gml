@@ -9,4 +9,4 @@ for (var i = 0; i < tby_arrlen(_array); i++) {
     }
 }
 
-return _is_shallow_array
+return _is_shallow_array;
