@@ -3,7 +3,7 @@
     Only change if you know what you are doing. 
 */
 
-#macro tby_version "1.0.0-pre.13"
+#macro tby_version "1.0.0-pre.14"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \

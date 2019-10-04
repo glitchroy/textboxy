@@ -14,22 +14,24 @@ var _height = (_y2 - _y1) / _size;
 var _u = 2;
 
 // Middle
-draw_sprite_part_ext(_sprite, -1, _size*1, _size*1, _size, _size, _x1+_size, _y1+_size, _width-_u, _height-_u, c_white, 1);
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*1 tby_draw_sprite_part_mf2 _size*1 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1+_size tby_draw_sprite_part_mf6 _y1+_size tby_draw_sprite_part_mf7 _width-_u tby_draw_sprite_part_mf8 _height-_u tby_draw_sprite_part_mf9;
+//RowTop
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*1 tby_draw_sprite_part_mf2 0 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1+_size tby_draw_sprite_part_mf6 _y1 tby_draw_sprite_part_mf7 _width-_u tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;
+//RowLeft
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 0 tby_draw_sprite_part_mf2 _size*1 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1 tby_draw_sprite_part_mf6 _y1+_size tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 _height-_u tby_draw_sprite_part_mf9;
+//RowRight
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*2 tby_draw_sprite_part_mf2 _size*1 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x2-_size tby_draw_sprite_part_mf6 _y1+_size tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 _height-_u tby_draw_sprite_part_mf9;
+//RowBottom
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*1 tby_draw_sprite_part_mf2 _size*2 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1+_size tby_draw_sprite_part_mf6 _y2-_size tby_draw_sprite_part_mf7 _width-_u tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;
+//TopLeft
 
-// Row Top
-draw_sprite_part_ext(_sprite, -1, _size*1, 0,       _size, _size, _x1+_size, _y1,       _width-_u, 1,          c_white, 1);
-// Row Left
-draw_sprite_part_ext(_sprite, -1, 0,       _size*1, _size, _size, _x1,       _y1+_size, 1,         _height-_u, c_white, 1);
-// Row Right
-draw_sprite_part_ext(_sprite, -1, _size*2, _size*1, _size, _size, _x2-_size, _y1+_size, 1,         _height-_u, c_white, 1);
-// Row Bottom
-draw_sprite_part_ext(_sprite, -1, _size*1, _size*2, _size, _size, _x1+_size, _y2-_size, _width-_u, 1,          c_white, 1);
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 0 tby_draw_sprite_part_mf2 0 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1 tby_draw_sprite_part_mf6 _y1 tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;
+//TopRight
 
-// Top Left
-draw_sprite_part(_sprite, -1, 0,       0,       _size, _size, _x1,       _y1);
-// Top Right
-draw_sprite_part(_sprite, -1, _size*2, 0,       _size, _size, _x2-_size, _y1);
-// Bottom Left
-draw_sprite_part(_sprite, -1, 0,       _size*2, _size, _size, _x1,       _y2-_size);
-// Bottom Right
-draw_sprite_part(_sprite, -1, _size*2, _size*2, _size, _size, _x2-_size, _y2-_size);
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*2 tby_draw_sprite_part_mf2 0 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x2-_size tby_draw_sprite_part_mf6 _y1 tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;
+//BottomLeft
+
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 0 tby_draw_sprite_part_mf2 _size*2 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x1 tby_draw_sprite_part_mf6 _y2-_size tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;
+//BottomRight
+
+tby_draw_sprite_part_mf0 _sprite tby_draw_sprite_part_mf1 _size*2 tby_draw_sprite_part_mf2 _size*2 tby_draw_sprite_part_mf3 _size tby_draw_sprite_part_mf4 _size tby_draw_sprite_part_mf5 _x2-_size tby_draw_sprite_part_mf6 _y2-_size tby_draw_sprite_part_mf7 1 tby_draw_sprite_part_mf8 1 tby_draw_sprite_part_mf9;

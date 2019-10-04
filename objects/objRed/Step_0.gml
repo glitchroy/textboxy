@@ -56,7 +56,7 @@ if (global.in_dialogue_pause) {
 if (keyboard_check_pressed(ord("F"))) {
 	var _s = choose("§[shake]I'm talking[]!", "§Hey there!", "§[wave]Woaoaahh[]!", "§I can't\nbelieve it!");
 	var _player_talking = tby_branch_create([
-		tby_branch_config(TbyConfig.Instance, id),
+		tby_add_config(TbyConfig.Instance, id),
 		_s
 	]);
 	tby_branch_run(_player_talking, true);

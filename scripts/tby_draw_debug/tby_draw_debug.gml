@@ -10,7 +10,7 @@ draw_set_font(fontTbyDebug);
 
 draw_set_color(c_black);
 draw_set_alpha(0.5);
-draw_rectangle(_tx-1, _ty-1,
+draw_rectangle(_tx-1, _ty,
                _tx+string_width_ext(_text, -1, _max_width),
                _ty+string_height_ext(_text, -1, _max_width)-1,
                false);

@@ -1,5 +1,3 @@
-draw_self();
-
 // Draws the info boxes
 
 tby_draw_debug(0, 0, debug_string);
