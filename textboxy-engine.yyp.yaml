@@ -100,15 +100,14 @@ assets:
                       - "?tby_dim_create | GMScript | 03c3570c-aa70-40c4-acde-03ef69de04ad | 357c3cea-b554-4c86-a5a9-f26c00cf775d"
                       - "?tby_dim_position_update | GMScript | 54303934-ab61-4ca8-8bb3-eb1bd80e20a3 | 32c6ca71-047a-41c2-a056-84fe8e883151"
                       - "?tby_dim_position_clamp | GMScript | 9e40a517-ad7a-4920-b3fc-4b4698c7d788 | 7935ad15-cfe5-4077-9212-34d64882c25d"
-                      - "?tby_dim_line_height | GMScript | 8174fad1-3176-4f1f-b21a-436f164d528a | bb51e25c-2c05-4b5d-b82c-60cbd4c196a2"
-                  - "Pointer | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
-                      - "?tby_pointer | GMScript | e20285d2-d93d-4a4d-96fe-e24be56828a8 | e5666713-67f1-4940-aeed-504b7a1d6353"
-                      - "?tby_pointer_apply | GMScript | 29dca9be-5658-4e0c-9ac9-a09c8b3af839 | d7b84ef5-a4ac-4c4b-ab42-71f56bf5fe37"
                   - "Events | GMScript | 920db9e1-299f-6696-f2d5-e0383062f18c | fcb25d4d-48a0-8d1b-15f6-cb37a6f0f8ba": 
                       - "?tby_event_handle_pause | GMScript | 54fb8a8a-4dc4-4e8d-9138-ab397c336b01 | 9dafcfca-2998-4fca-a295-ee58de28cd9b"
                       - "?tby_event_handle_speed | GMScript | ee687aed-3a23-4510-bfe5-f532658d36cd | c43014db-3494-4c8f-a51c-7405777ef442"
                       - "?tby_event_handle_script | GMScript | 71e7772f-aa65-45f5-9957-671930496fb9 | 3c59ee9e-7fc3-436b-8043-b8bbe640802c"
                       - "?tby_event_handle_wait | GMScript | 641498f9-1546-4cc9-bfe5-76bb841eea25 | 78f1dea6-d837-48b3-b88c-ee1344eda44b"
+                  - "Pointer | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
+                      - "?tby_pointer | GMScript | e20285d2-d93d-4a4d-96fe-e24be56828a8 | e5666713-67f1-4940-aeed-504b7a1d6353"
+                      - "?tby_pointer_apply | GMScript | 29dca9be-5658-4e0c-9ac9-a09c8b3af839 | d7b84ef5-a4ac-4c4b-ab42-71f56bf5fe37"
                   - "TbyList | GMScript | cc62d3d9-c3da-459d-8d07-74be48985f2e | f9ecbd6f-834f-4a32-9b6f-0de275a9ade1": 
                       - "?tby_list_create | GMScript | 597b1aab-40fe-4679-9dc4-628ab054c338 | 83fb731a-124c-44f5-9f49-c73134cacd88"
                       - "?tby_list_destroy | GMScript | 71541187-7040-4eda-8bfe-1ccd0ebded54 | 88d9acf1-e09d-4b38-b4ff-7018858df55d"
@@ -137,12 +136,11 @@ assets:
                       - "?tby_print_array | GMScript | 0fda1946-4467-404c-9054-6f5b3a9d2ec3 | fac5143d-02e6-4da0-a88a-fd60f4cb6ac0"
                   - "Helper | GMScript | 455db885-021f-439c-baf6-ee4841995c65 | 3a74b0f9-a713-4d11-a6b8-4516a9a2cc87": 
                       - "?tby_array_clone | GMScript | 6feed867-4eca-4891-ba75-b192a908fd1d | a246ef91-0899-4f6b-9bf4-64ff94b6ba22"
-                      - "?tby_array_get | GMScript | f15b83f5-857d-4e06-b50c-dc2f67c977c9 | 1f10950a-c52e-44df-b0c6-6a3a3588c46f"
+                      - "?tby_array_get | GMScript | 1dc9b9c8-39f2-4283-8718-d5e598109020 | 1f2108c7-cbae-4bf3-9248-674cc911acd6"
                       - "?tby_concat | GMScript | 18853c11-249e-435e-bc9d-ff1d50e936d8 | 94accaef-0fc9-4ad1-9f0a-f8bbf2a3eeb9"
                       - "?tby_ds_list_to_array | GMScript | 5f17bccc-494d-05bd-c409-d0db82a5d1f6 | f68780bb-1878-dfdb-d1c8-b357c981c19d"
                       - "?tby_queue_to_array | GMScript | c8bd790d-fc2c-4dda-9591-53517b4b6a56 | 1d673ef4-2a70-4878-a31a-bbc458d3788c"
                       - "?tby_spread | GMScript | 73aec559-488a-4a0a-b13b-3a9a0cd74e39 | 6ec07869-7b09-4a3b-8f9b-c5e6ab649456"
-                      - "?tby_string_bool | GMScript | 09d15875-1e0a-461f-b889-8de5f2754f4e | f6c3ce44-4568-40bd-9e54-d8d7d82c78b2"
                       - "?tby_array_flatten | GMScript | 8ee1f6dd-1185-4e60-a8fa-b18bfe0badf6 | 7ef562c4-a593-46cb-a261-f108601b091f"
                       - "?tby_array_flatten_shallow | GMScript | 8391ddbf-1397-42d2-83c2-cbcf41499df7 | cc472d66-5ad8-4811-9117-e21b08da4a4c"
                       - "?tby_array_is_shallow | GMScript | c7702a57-68b3-46fe-b451-a19d546b1204 | ff7be5a7-461c-47a5-971c-143a87a0dc47"

@@ -17,7 +17,7 @@ switch (_type) {
         // Figure out X and Y
         _width = tby_box_width + _padding*2;
         var _lines = _type == TbyType.Box ? tby_box_lines_per_box : 3;
-        _height = tby_dim_line_height(_lines) + _padding*2;
+        _height = tby_dim_line_height_mf0 _lines tby_dim_line_height_mf1 + _padding*2;
         
         _x = (tby_game_width - _width) / 2;
         _y = __lf_tby_dim_create_(_placement, _height);

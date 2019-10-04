@@ -22,7 +22,7 @@ if (draw_bubble_sprite) {
 
 #region Choice type
 if (type == TbyType.Choice && state_name == "Finished") {
-    var _height_offset = tby_dim_line_height(choice_first_line + choice_selected + 1);
+    var _height_offset = tby_dim_line_height_mf0 choice_first_line + choice_selected + 1 tby_dim_line_height_mf1;
     
     draw_sprite(_skin[TbySkin.Arrow], -1,
                 _dim[TbyDim.x_content] + 3,
