@@ -10,4 +10,4 @@ var _data = argument1;
 var _char = argument2;
 
 scribble_typewriter_set_speed(_json, 0);
-tby_state_switch("WaitingForInput");
+tby_state_switch("Waiting");

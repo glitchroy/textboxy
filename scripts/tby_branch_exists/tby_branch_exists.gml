@@ -1,4 +1,4 @@
-/// @desc Return true if the given branch exists in the global branch map.
+/// @desc Return true if the given branch exists.
 /// @param _branch
 var _branch/*:TbyBranch*/ = argument0;
 gml_pragma("forceinline");

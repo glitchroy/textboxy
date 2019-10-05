@@ -54,6 +54,7 @@ assets:
               - "Branch | GMScript | 85e646c0-60cc-46fa-a73a-b65ffe9a0250 | 974443a7-b88f-492f-8f83-ae4f75d2f6f5": 
                   - "?tby_branch_create | GMScript | a374281a-e093-48b7-a684-4d3d481ea15c | 4b35d66e-ff75-4c61-9a10-57bc0669acd0"
                   - "?tby_branch_run | GMScript | f736c6f5-2c2e-44e8-9ac4-2ee429a2b1e6 | da587791-d3e6-4105-a68a-051be31254c0"
+                  - "?tby_branch_destroy | GMScript | 4aee60f2-0f44-4de3-b6a4-4ad3d880a7ad | ebaae35f-3dcb-4d5d-afa3-9fe6c7f52ff2"
                   - "?tby_add_box | GMScript | 778223f8-6d07-439e-b89c-cacb01156b4c | aa190ce9-86c5-4066-b626-6e408a387401"
                   - "?tby_add_bubble | GMScript | 76e90df6-64fe-4e60-8948-385098ae795b | 9c039b5b-855c-416d-b547-47cda645144a"
                   - "?tby_add_choice | GMScript | a6b35fd3-4b0d-43bb-8ecd-630ffdf1414f | 537eb14b-7abe-4a5a-8337-f224e9249f25"
@@ -67,7 +68,6 @@ assets:
                   - "?tby_add_if | GMScript | 3e90aee7-c89d-4ac7-bb3e-f3d9e0cbfe70 | 021c75cd-0369-4a98-a80c-cde554efa344"
                   - "Internal | GMScript | 93032d87-65b6-4829-9ed1-e9a27a5ad785 | 09b8fbc6-2bdf-3a21-b496-705d06fe7e20": 
                       - "?tby_branch_exists | GMScript | b23c07f7-0238-49d9-4e09-b93cbfad80dc | 9f973995-7cc0-8f65-39ee-f30e78eb18ff"
-                      - "?tby_branch_destroy | GMScript | 4aee60f2-0f44-4de3-b6a4-4ad3d880a7ad | ebaae35f-3dcb-4d5d-afa3-9fe6c7f52ff2"
                       - "?tby_branch_next | GMScript | 330da339-9f3d-48bf-b01f-b9304227c5d4 | 33367857-2acf-485f-9f65-65e481a92bf3"
                       - "?tby_branch_entry_handle | GMScript | e5447dbd-fed3-6ea3-b6fd-0dd4ebcc647b | 5b66f12f-1d83-9afd-b639-c16947429a76"
                       - "?tby_branch_callback_execute | GMScript | b90dd7fa-979e-8328-c78b-8f33c2ad1e47 | fd1a428d-307f-0274-1183-5be827fd2d0a"
