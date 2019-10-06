@@ -157,41 +157,43 @@ assets:
               - "Lib | GMScript | 0f27675a-52d7-454e-8739-752ddcd08a16 | 7bd69dbb-9c5b-45d9-ad50-39f98a07b37d": 
                   - "#gmedit-lambda | GMScript | 9d772ed6-9b00-8890-3458-a8303db4a182 | ce46f408-ee5d-9786-7935-b993fc08b729": 
                       - "?__lf_tby_dim_create_ | GMScript | 4fb6a225-5085-b1bf-24ad-728e1563cc76 | 177a71bf-8a7c-5d8b-f800-0b8fb4f5e17d"
-                  - "Scribble | GMScript | 3a03f745-3cee-4f9f-883b-ff2654df00f4 | 3f52f023-b19c-4555-9d8c-b5ab8b388363": 
-                      - "?__scribble_config | GMScript | 8500ffe0-0294-4164-96e1-b708ec7f767a | 39ac8f37-4b85-485d-8802-606e2f055cb6"
-                      - "Essential | GMScript | 7760fa83-c4e2-4b92-93bc-ed86d6c0c9dd | 86ab44e0-4cd8-4b9f-a360-2a689a70a868": 
-                          - "?scribble_init_start | GMScript | d75616b2-3529-4fc2-af10-d876aad0271b | 8c00edd9-2d08-4a7b-ab9e-a3b4558de211"
-                          - "?scribble_init_add_font | GMScript | 4c0c7399-574a-4ce9-b971-da78b5d6dfe4 | eb1b2606-1080-4959-bb9d-c56cadc35726"
-                          - "?scribble_init_add_spritefont | GMScript | 8b413abf-e55b-408b-b220-a8a679efc95f | 9120b5fa-8e83-4212-9f0d-5ebb0deb9a0b"
-                          - "?scribble_init_end | GMScript | ee4c9c7f-36b0-4ebd-882a-7cd86cf740cf | 547b9d3d-abba-4034-80af-0ae01f75da22"
-                          - "?scribble_create | GMScript | 6f30d985-ef79-4b11-a3b3-bd87fb45224f | f02b2def-349c-425b-be2e-ed8837a341b3"
-                          - "?scribble_step | GMScript | 2797742f-5c28-4d79-819e-e7b6df02d3ab | 36b321c4-8c44-4a41-b705-1fbee4a2f047"
-                          - "?scribble_draw | GMScript | b36f8309-002b-4ea9-be51-1a68eb4306fc | 596569f4-70e4-4769-8170-78c040d6bd9d"
-                          - "?scribble_destroy | GMScript | b7f3bf45-03ec-468e-8aa6-839054752bf4 | 0f210f07-9710-4324-882a-28342c751a16"
-                      - "Optional | GMScript | 69e897ec-9739-4038-8101-2527eb78dfca | d30dc9d3-cdb1-439e-ab89-5b890e3ec9c1": 
-                          - "?scribble_set_box_alignment | GMScript | a3f4bdbe-8b3a-41ae-8612-f80d3fa4de95 | 6b294f6d-40a3-4d33-91b8-32acb6e4fcf3"
-                          - "?scribble_get_box | GMScript | 5c74dd00-eb4f-4794-9705-4fd446a6828f | b14e00cc-f061-4fbe-8423-d2e522ef69a0"
-                          - "?scribble_add_colour | GMScript | 8e6e4f30-2b21-4326-8b07-8844db13b3af | 68e02bc7-ee5d-4bef-868c-c0bc119f5c8a"
-                          - "Typewriter | GMScript | 8c09b9b1-a425-4657-b707-ce1a33c119bd | b20f50db-9707-4960-883e-9d69f4e3977c": 
-                              - "?scribble_typewriter_in | GMScript | 375d5531-bf53-4c3e-96ef-1ff1bf450315 | 8fb49a96-41bf-49ab-9ebf-72e76fc54175"
-                              - "?scribble_typewriter_out | GMScript | ff36e2aa-ba29-46f8-bb17-35f700edc37e | 9054bec2-c501-4b17-b438-d9ab1ebb481b"
-                              - "?scribble_typewriter_get_state | GMScript | b706e698-4aca-4f51-914c-552c6e4dbdaa | a18a84f0-69d2-4644-8b32-759980253129"
-                              - "?scribble_typewriter_set_speed | GMScript | a089cd14-d2ad-482c-b48f-2e95eccc672c | e0b0689d-a5ca-4fc3-a6b3-705c98813e44"
-                          - "Advanced Things For Serious People | GMScript | 69fa2348-ae68-412c-bfab-32c00c9aa6f5 | 8d460f2e-d827-4601-8386-9e4e438ad308": 
-                              - "?scribble_set_glyph_property | GMScript | d8fc1f49-4e2b-45a7-a3f9-fd3d8e193c52 | e94efa2f-8283-4d29-a9ff-16bb537fd306"
-                              - "?scribble_get_glyph_property | GMScript | e72153f0-f381-4821-8619-aa114642d489 | 74becd1c-a577-48c9-aee6-78d4420e9c83"
-                              - "?scribble_add_event | GMScript | dbb30ff1-f8ed-4b91-b47e-f94766f2a4d6 | 6537857b-6d48-43ab-bb79-e4295bb0a35a"
-                              - "?scribble_add_flag | GMScript | 9a49f559-8522-4d86-96c9-6ebbc909f569 | 6f86bad4-a5d6-4675-961b-565a3abb8483"
-                              - "?scribble_replace_tag | GMScript | 5eb1db85-3025-48c0-acc4-c1228e552ff6 | 9b7bded6-c0a1-4b51-9a27-6a28c0dcab04"
+                  - "Scribble | GMScript | 4ea9de89-3db1-4f97-ab30-314ae00e0774 | d58f45c6-f167-44c2-b2e5-732a43bf8ab2": 
+                      - "?__scribble_config | GMScript | acb26a39-8033-4289-87d0-228ed7921bc8 | cdaeaff5-383f-482e-9699-0c552fdb6d25"
+                      - "Initialisation | GMScript | a4563a92-874a-4aa3-831a-b953805c2104 | ab7adea6-fe70-4bcb-8c1d-c01b7286d818": 
+                          - "?scribble_init | GMScript | 89e8adda-438e-48f9-ab78-0e8b396b3850 | 61eb349f-db03-4a3c-82da-ba139e5e530b"
+                          - "?scribble_add_font | GMScript | 375e7330-6e30-4902-8a42-dbc8ad380c16 | 6071f528-e864-4cf6-a524-8a95405a05ae"
+                          - "?scribble_add_spritefont | GMScript | 78e35bbe-fd42-485e-9818-8c5f23d7c5b9 | cde5ca8e-2036-48fe-aee4-8484699321a1"
+                          - "?scribble_add_colour | GMScript | bc334b9f-3e78-4213-8e02-f63a7b8776d3 | 9863d5c3-04bf-44a2-bf7a-81d65bbaaf12"
+                      - "?scribble_draw | GMScript | 0a93a84f-87c9-4473-adf8-f92fd1d1e19f | 3e0ce99f-643a-4251-9627-8ddf0acf4430"
+                      - "?scribble_get_bbox | GMScript | 5044992f-3fea-47aa-a11b-2b6d850ac7ee | a466502e-b09f-4b95-ba93-3b0cc19e5244"
+                      - "Drawing Options | GMScript | 42c08bed-775f-4b55-ba1d-27b0b1db6be6 | bc8da538-1c04-4bca-a26a-9b71a3d9be4b": 
+                          - "?scribble_draw_set_box_align | GMScript | 46ab8686-925f-467d-a3e4-dd3697c6cbd1 | f9ddc3c6-7ac3-410b-be35-30b4d8661465"
+                          - "?scribble_draw_set_wrap | GMScript | b3138e5a-27ac-4e57-8f6e-b0d1b84faaf7 | da4ea80f-9e36-49c1-8235-2ed31069e5ef"
+                          - "?scribble_draw_set_transform | GMScript | 681d7f36-7b03-4067-a58f-b23b795b2f31 | cb8b5955-4ceb-493a-85da-73f0db36fb22"
+                          - "?scribble_draw_set_blend | GMScript | b43cf62b-c64f-4436-a8eb-906fd543d4cc | 4a21df15-3da0-4027-bce9-8d21c5f1e26e"
+                          - "?scribble_draw_set_fade | GMScript | 8a72a3a7-a40c-4764-a65f-e44a5bd5746c | 5e4b94d2-d0e5-4246-ae4b-3992417a1790"
+                          - "?scribble_draw_set_animation | GMScript | e89348c7-a709-4b5b-9074-c8965f362fb4 | dba70827-6735-41cf-a08b-44e644bf1cb8"
+                          - "?scribble_draw_reset | GMScript | 0b7de2e4-423b-4049-ae3c-cefbec9a47a6 | adc5b6bf-0682-4e4f-a004-0495c7fb7d81"
+                      - "Auto Typewriter | GMScript | d7eef5ff-8c6d-490d-b506-41b8010df66e | b9e2deda-4771-4997-8ebc-f65ac19b2a19": 
+                          - "?scribble_autotype_set | GMScript | 59086829-c42b-46bc-b263-7ed41965b63c | 4f8af0d6-afb9-441f-9f3e-eb8880c0762e"
+                          - "?scribble_autotype_get | GMScript | 24adc709-497e-43cb-9834-a1a8664cbe74 | 914f059b-0385-43b6-a5a6-00106df75399"
+                          - "?scribble_autotype_add_event | GMScript | a3d9edc7-bc39-46f3-b8c2-98bcc058ea2c | 45049bf0-8ca8-4ae3-ae82-16395707c054"
+                      - "Advanced Things For Serious People | GMScript | ecb4e835-f387-4e63-87a0-4d20811cc710 | dbb809b3-8c4d-4137-b6bd-c2a7efa82c27": 
+                          - "?scribble_draw_get_state | GMScript | 6646aeb5-5c20-419d-af6d-8d625871911d | 61d38c37-3d62-4459-90a0-122c135cdd0e"
+                          - "?scribble_draw_set_state | GMScript | 88f27f62-071a-4441-b908-675e356b8173 | 0f1be239-5e0a-4231-98b3-85a1d1832632"
+                          - "?scribble_draw_set_cache_group | GMScript | 69d1d72f-5451-469e-a947-62f1a426ec6b | f162ae99-e595-49c4-bff4-df8110bc6bcf"
+                          - "?scribble_cache_group_flush | GMScript | 7c1d8641-a93c-4e1e-8530-37a429b86f1f | 413dbbbf-575c-45cd-a8b8-6e0cdffbddae"
+                          - "?scribble_set_glyph_property | GMScript | c1f9a882-5c95-4baa-9aa2-288643547505 | 76c28531-1ee7-4a92-82a7-daa5fe9b69ac"
+                          - "?scribble_get_glyph_property | GMScript | 853cc3dc-bb29-429c-b828-a68514d4f06e | 0eedcef4-c17a-47e6-9ac7-5edbb380481b"
+                          - "?scribble_add_shader_effect | GMScript | 00322d5b-d6eb-4d4e-b389-bb26da697b1d | 4584c448-30ce-49a8-b5b5-fecb196abc67"
       - "Example | GMScript | 2418c3f7-8665-4131-9cee-417459769975 | 7fbf62f9-e3b1-4898-853d-596f1756ec6e": 
           - "?example_hook_branch_start | GMScript | ecedf98b-1efd-4b34-b560-85d1afbbb495 | cc483fc6-0117-4abe-bd75-bbdbdda26bbb"
           - "?example_hook_branch_finished | GMScript | 8fd99032-b652-434f-87b8-3cb026e8d359 | d4b9db1d-195d-4880-98d1-b04011e390f9"
   - "shaders | GMShader | c459431b-207e-415b-b3a7-92d0d49053d1 | 63678702-206e-457b-8663-7692fe299513": 
       - "Lib | GMShader | 24d06646-c05a-42d3-a01e-7587820a134a | b5356e92-c32e-4625-916d-f2c2146f9692": 
           - "textboxy | GMShader | 18a2fb0f-52c6-4390-8bcc-5addc0413026 | c47cd87d-7976-4a8e-ac7c-3572a3971f8d": 
-              - "Scribble | GMShader | b90a36ad-06a9-4e54-adf6-1bfe15482f84 | 0c493bd2-f433-470c-92c5-fe2a531a28ce": 
-                  - "Essential | GMShader | 76dbf68a-dc1b-4b70-a5a9-62d28ca274fc | 560e07f6-ac2d-4d9c-bd13-fcc737615873": 
-                      - "?shScribble | GMShader | 30fbaaf9-cdd9-41ed-a938-9cb6f0c2d718 | 2e1fe9e0-3771-49c9-b6cd-aec69b032e54"
+              - "Scribble | GMShader | 31d06773-0511-47f4-b2b9-1624c2da2561 | 818bf051-325f-4803-ac78-1a2ba5d2be54": 
+                  - "?shd_scribble | GMShader | 1cadf0e8-8394-480c-8ce1-0cce13ec62dc | d8dd0be7-4e7a-4fdb-b454-871da7e104ad"
   - "fonts | GMFont | 503cf607-27a8-45bf-a70c-c4f6011d4644 | 2e664e4e-8780-406d-a7c5-9db63c8ff808": 
       - "Lib | GMFont | b750174d-51e8-4a40-aff6-f407749660d4 | 22ed3817-be2d-4215-8ec7-6b2ad80e5605": 
           - "textboxy | GMFont | 73a9a8e0-e32e-4c49-a540-0e8ed503f4e2 | c4576236-d0e3-4bd3-9a46-f445cab28cc9": 

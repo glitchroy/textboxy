@@ -1,8 +1,8 @@
 {
-    "id": "bc334b9f-3e78-4213-8e02-f63a7b8776d3",
+    "id": "24adc709-497e-43cb-9834-a1a8664cbe74",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "scribble_add_colour",
+    "name": "scribble_autotype_get",
     "IsCompatibility": false,
     "IsDnD": false
 }
