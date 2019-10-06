@@ -1,5 +1,5 @@
 /* This config file is meant to last through updates. */
-/* Also check */__scribble_config()/* for additional
+/* Also check */__scribble_config();/* for additional
    config options. */
 
 
@@ -51,13 +51,13 @@
 #macro tby_default_speed          0.3
 
 /* Defaults for scribble text effects. */
-#macro tby_default_wave_size      SCRIBBLE_DEFAULT_WAVE_SIZE // 4
-#macro tby_default_wave_frequency SCRIBBLE_DEFAULT_WAVE_FREQUENCY // 50
-#macro tby_default_wave_speed     SCRIBBLE_DEFAULT_WAVE_SPEED // 0.2
-#macro tby_default_shake_size     SCRIBBLE_DEFAULT_SHAKE_SIZE // 4
-#macro tby_default_shake_speed    SCRIBBLE_DEFAULT_SHAKE_SPEED // 0.4
-#macro tby_default_rainbow_weight SCRIBBLE_DEFAULT_RAINBOW_WEIGHT // 0.5
-#macro tby_default_rainbow_speed  SCRIBBLE_DEFAULT_RAINBOW_SPEED // 0.01
+#macro tby_default_wave_size      4
+#macro tby_default_wave_frequency 50
+#macro tby_default_wave_speed     0.2
+#macro tby_default_shake_size     4
+#macro tby_default_shake_speed    0.4
+#macro tby_default_rainbow_weight 0.5
+#macro tby_default_rainbow_speed  0.01
 
 #endregion
 
@@ -67,9 +67,9 @@
 
 /* Options for text sounds. Very basic, and subject to be
    swapped out for sound options per-textbox. */
-#macro tby_sound_default_speech       sndTbySpeechDefault
+#macro tby_sound_default_speech      sndTbySpeechDefault
 /* The upper and lower bounds for the random pitch. */
-#macro tby_sound_default_pitch_range  [0.8, 1.2]
+#macro tby_sound_default_pitch_range [0.8, 1.2]
 
 #endregion
 
@@ -119,7 +119,7 @@
 /* The default width for a standard textbox. */
 #macro tby_box_width           (tby_game_width - (tby_game_width/8)*2)	
 /* The default height in lines for a standard textbox. */
-#macro tby_box_lines_per_box    2
+#macro tby_box_lines_per_box   2
 
 #endregion
 

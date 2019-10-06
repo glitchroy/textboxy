@@ -70,7 +70,14 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : _config[TbyConfig.Placement];
         if (_placement == undefined) _placement = _config[TbyConfig.Placement];
 
-        tby_instance_create(TbyType.Box, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], _placement);
+        tby_instance_create(
+            TbyType.Box,
+            _branch[TbyBranch.scribble_cache_group],
+            _text,
+            _config[TbyConfig.Skin],
+            _branch[TbyBranch.config_array],
+            _placement
+            );
     break;
     /******************************/
     case TbyType.Bubble:
@@ -88,7 +95,15 @@ switch (_tb_type) {
             _instance = id; //just use the calling instance
         }
         
-        tby_instance_create(TbyType.Bubble, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], undefined, _instance);
+        tby_instance_create(
+            TbyType.Bubble,
+            _branch[TbyBranch.scribble_cache_group],
+            _text,
+            _config[TbyConfig.Skin],
+            _branch[TbyBranch.config_array],
+            undefined,
+            _instance
+            );
     break;
     /******************************/
     case TbyType.Choice:
@@ -97,7 +112,16 @@ switch (_tb_type) {
         var _placement = tby_arrlen(_tb_args) > 3 ? _tb_args[3] : _config[TbyConfig.Placement];
         if (_placement == undefined) _placement = _config[TbyConfig.Placement];
 
-        tby_instance_create(TbyType.Choice, _text, _config[TbyConfig.Skin], _branch[TbyBranch.config_array], _placement, undefined, _choice_array);
+        tby_instance_create(
+            TbyType.Choice,
+            _branch[TbyBranch.scribble_cache_group],
+            _text,
+            _config[TbyConfig.Skin],
+            _branch[TbyBranch.config_array],
+            _placement,
+            undefined,
+            _choice_array
+            );
     break;
     /******************************/
     case TbyCmd.Config:

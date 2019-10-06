@@ -1,13 +1,13 @@
 /// @desc Scribble event. Handles the wait command.
-/// @param json
-/// @param data(array)
-/// @param character
+/// @param textElement
+/// @param eventData{array}
+/// @param characterIndex
 
 // [wait]
 
-var _json = argument0;
-var _data = argument1;
-var _char = argument2;
+var _text_element = argument0;
+var _event_data   = argument1;
+var _char_index   = argument2;
 
-scribble_typewriter_set_speed(_json, 0);
+scribble_autotype_set(_text_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, 0, 0, true);
 tby_state_switch("Waiting");

@@ -1,15 +1,16 @@
 /// @desc Creates a new TbyBranch. Returns the named identifier or a randomly generated one.
 /// @param _type
+/// @param _cache_group
 /// @param _content
 /// @param _skin
 /// @param _config
 /// @param _placement = TbyPlacement.Auto
 /// @param ?_instance = undefined
 /// @param ?_choices = undefined
-var _type = argument[0], _content = argument[1], _skin/*:TbySkin*/ = argument[2], _config/*:TbyConfig*/ = argument[3];
-var _placement = argument_count > 4 ? argument[4] : TbyPlacement.Auto;
-var _instance = argument_count > 5 ? argument[5] : undefined;
-var _choices = argument_count > 6 ? argument[6] : undefined;
+var _type = argument[0], _cache_group = argument[1], _content = argument[2], _skin/*:TbySkin*/ = argument[3], _config/*:TbyConfig*/ = argument[4];
+var _placement = argument_count > 5 ? argument[5] : TbyPlacement.Auto;
+var _instance = argument_count > 6 ? argument[6] : undefined;
+var _choices = argument_count > 7 ? argument[7] : undefined;
 
 _content = string_replace_all(_content, "\r\n","\n");
 _content = string_replace_all(_content, "\t", "");
@@ -46,29 +47,16 @@ with (_inst) {
     }
     
     // Create scribble structure
-    scribble = scribble_create(
-            content,
-            -1,
-            type == TbyType.Bubble ? tby_bubble_max_width : tby_box_width,
-            tby_default_color,
-            tby_default_font,
-            fa_left//,
-            /*[
-                _config.WaveSize,
-                _config.WaveFrequency,
-                _config.WaveSpeed,
-                _config.ShakeSize,
-                _config.ShakeSpeed,
-                _config.RainbowWeight,
-                _config.RainbowSpeed
-            ]*/
-        );
+    cache_group = _cache_group;
+    scribble_draw_set_cache_group(cache_group, false, true);
+    scribble_draw_set_wrap(-1, type == TbyType.Bubble ? tby_bubble_max_width : tby_box_width);
+    scribble_element = scribble_draw(0, 0, content);
     
-    //set origin point of box to topleft
-    scribble_set_box_alignment(scribble); 
-    scribble_typewriter_in(scribble, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0);
+    scribble_autotype_set(scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0, true);
+    
+    scribble_draw_reset();
 
-    dimensions = tby_dim_create(type, scribble, _skin[TbySkin.TileSize], _placement, instance, sprite_get_height(_skin[TbySkin.Bubble]));
+    dimensions = tby_dim_create(type, scribble_element, _skin[TbySkin.TileSize], _placement, instance, sprite_get_height(_skin[TbySkin.Bubble]));
 }
 
 return _inst;

@@ -94,6 +94,7 @@ enum TbyBranch {
     label_map,
     config_array,
     destroy_on_finish,
+    scribble_cache_group,
     sizeof
 }
 
