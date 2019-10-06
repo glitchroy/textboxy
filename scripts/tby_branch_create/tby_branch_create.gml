@@ -14,6 +14,8 @@ _branch[@TbyBranch.label_map] = ds_map_create();
 _branch[@TbyBranch.config_array] = array_create(TbyConfig.sizeof);
 _branch[@TbyBranch.destroy_on_finish] = false;
 
+_branch[@TbyBranch.scribble_cache_group] = "tby-branch"; 
+
 tby_branch_config_set_defaults(_branch);
 
 return _branch;

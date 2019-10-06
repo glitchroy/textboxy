@@ -12,8 +12,6 @@ if (tby_input_confirm) {
     }
 }
 
-scribble_step(scribble);
-
 // Choice cursor movements
 if (type == TbyType.Choice) {
     var _choice_length = tby_arrlen(choices)-1;

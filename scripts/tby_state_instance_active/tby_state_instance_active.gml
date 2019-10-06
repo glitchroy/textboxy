@@ -1,21 +1,17 @@
-if (scribble == undefined) exit;
+if (scribble_element == undefined) exit;
 
 if (pause_timer > 0) {
     pause_timer--;
 } else {
-	scribble_typewriter_set_speed(scribble, tw_speed);
+	scribble_autotype_set(scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0, true);
 }
-
-tw_position = scribble[| __SCRIBBLE.TW_POSITION];
-
-scribble_step(scribble);
 
 // Skip to end of textbox
 if (tby_input_advance_textbox) {
-	scribble_typewriter_out(scribble, SCRIBBLE_TYPEWRITER_WHOLE, 0);
+	scribble_autotype_set(scribble_element, SCRIBBLE_TYPEWRITER_NONE, tw_speed, 0, true);
 }
 
-var _current_state = scribble_typewriter_get_state(scribble);
+var _current_state = scribble_autotype_get(scribble_element);
 
 // --> FINISHED
 if (_current_state == 1) {
@@ -28,7 +24,7 @@ if (_current_state > 0 && _current_state < 1) {
 	var _sound = _config[TbyConfig.Sound];
 	
 	if (audio_exists(_sound)) {
-		var _new_tw_position = scribble[| __SCRIBBLE.TW_POSITION];
+		var _new_tw_position = scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
 		
 		if (ceil(tw_position) < ceil(_new_tw_position)) {
 			audio_stop_sound(_sound);

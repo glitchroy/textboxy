@@ -1,15 +1,13 @@
 if (state_new) {
-	scribble_typewriter_set_speed(scribble, 0);
+	scribble_autotype_set(scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, 0, 0, true);
 	draw_input_circle = true;
 }
 
 if (tby_input_confirm) {
-	scribble_typewriter_set_speed(scribble, tw_speed);
+	scribble_autotype_set(scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0, true);
 	draw_input_circle = false;
     tby_state_switch_previous();
 }
-
-scribble_step(scribble);
 
 // Update instance position in Bubble
 if (type == TbyType.Bubble) {

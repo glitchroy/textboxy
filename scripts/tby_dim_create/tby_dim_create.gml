@@ -24,7 +24,7 @@ switch (_type) {
     break;
     case TbyType.Bubble:
         // Box at 0/0 with padding
-        var _zero_box/*:SCRIBBLE_BOX*/ = scribble_get_box(
+        var _zero_box/*:SCRIBBLE_BOX*/ = scribble_get_bbox(
             _scribble,
             0,
             0,
@@ -33,8 +33,8 @@ switch (_type) {
             _padding,
             _padding
             );
-        _width = _zero_box[SCRIBBLE_BOX.X1] - _zero_box[SCRIBBLE_BOX.X0];
-        _height = _zero_box[SCRIBBLE_BOX.Y2] - _zero_box[SCRIBBLE_BOX.Y0];
+        _width = _zero_box[SCRIBBLE_BOX.TR_X] - _zero_box[SCRIBBLE_BOX.TL_X];
+        _height = _zero_box[SCRIBBLE_BOX.BL_Y] - _zero_box[SCRIBBLE_BOX.TL_Y];
             
         var _sprite = _instance.sprite_index;
         var _instance_middle = _instance.x - sprite_get_xoffset(_sprite) + sprite_get_width(_sprite)/2;

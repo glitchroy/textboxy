@@ -1,10 +1,25 @@
-if (scribble == undefined) exit;
+if (scribble_element == undefined) exit;
 
 var _skin/*:TbySkin*/ = skin;
 var _dim/*:TbyDim*/ = dimensions;
+var _config/*:TbyConfig*/ = config;
 
 tby_draw_frame(_dim[TbyDim.x1], _dim[TbyDim.y1], _dim[TbyDim.x2], _dim[TbyDim.y2], _skin[TbySkin.TileSize], _skin[TbySkin.Frame]);
-scribble_draw(scribble, _dim[TbyDim.x_content], _dim[TbyDim.y_content]);
+
+scribble_draw_set_animation(
+	_config[TbyConfig.WaveSize],
+	_config[TbyConfig.WaveFrequency],
+	_config[TbyConfig.WaveSpeed],
+	_config[TbyConfig.ShakeSize],
+	_config[TbyConfig.ShakeSpeed],
+	_config[TbyConfig.RainbowWeight],
+	_config[TbyConfig.RainbowSpeed]
+	);
+	
+tw_position = scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
+scribble_draw(_dim[TbyDim.x_content], _dim[TbyDim.y_content], scribble_element);
+
+scribble_draw_reset();
 
 #region Input circle
 if (draw_input_circle) draw_sprite(_skin[TbySkin.Pause], -1, _dim[TbyDim.x2], _dim[TbyDim.y2]);
@@ -47,8 +62,8 @@ if (global.tby_debug) {
     var _ds;
     _ds = string(id-100000) +
     " | State: " + state_name +
-	" | " + string(scribble[| __SCRIBBLE.TW_SPEED]) +
-	" | " + string(scribble[| __SCRIBBLE.TW_POSITION]) +
+	" | " + string(scribble_element[@ __SCRIBBLE.AUTOTYPE_SPEED]) +
+	" | " + string(scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION]) +
 	(pause_timer > 0 ? " (" + string(pause_timer) + ")" : "");
     
     // Choice addition
