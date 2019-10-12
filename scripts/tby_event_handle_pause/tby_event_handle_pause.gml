@@ -15,5 +15,6 @@ if (is_undefined(_event_data) == false || is_array(_event_data) == false || is_r
 } else {
     _seconds = _event_data[0];
 }
+
 pause_timer = room_speed * real(_seconds);
-scribble_autotype_set(_text_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, 0, 0, true);
+tby_scribble_autotype_set_speed(_text_element, 0.0);

@@ -1,5 +1,4 @@
 var _scribble_element = scribble_element;
-var _pause_timer      = pause_timer;
 var _tw_speed         = tw_speed;
 var _tw_position      = tw_position;
 var _type             = type;
@@ -12,12 +11,12 @@ if (_scribble_element == undefined) exit;
 if (pause_timer > 0) {
     pause_timer--;
 } else {
-	scribble_autotype_set(_scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, _tw_speed, 0, true);
+	tby_scribble_autotype_set_speed(_scribble_element, _tw_speed);
 }
 
 // Skip to end of textbox
 if (tby_input_advance_textbox) {
-	scribble_autotype_set(_scribble_element, SCRIBBLE_TYPEWRITER_NONE, _tw_speed, 0, true);
+	_scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION] = _scribble_element[@ __SCRIBBLE.CHARACTERS];
 }
 
 var _current_state = scribble_autotype_get(_scribble_element);

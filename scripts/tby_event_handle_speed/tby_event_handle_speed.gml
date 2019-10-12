@@ -10,4 +10,4 @@ var _event_data   = argument1;
 var _char_index   = argument2;
 
 tw_speed = real(_event_data[0]);
-scribble_autotype_set(_text_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, real(_event_data[0]), 0, true);
+tby_scribble_autotype_set_speed(_text_element, real(_event_data[0]));
