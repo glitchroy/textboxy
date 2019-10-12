@@ -10,12 +10,8 @@
 #macro tby_draw_sprite_part_mf8 , 
 #macro tby_draw_sprite_part_mf9 , c_white, 1) 
 
-//!#mfunc tby_dim_line_height {"args":["lines"],"order":[0]}
-#macro tby_dim_line_height_mf0  //
-#macro tby_dim_line_height_mf1  * scribble_get_glyph_property(tby_default_font, " ", SCRIBBLE_GLYPH.HEIGHT) 
-
 /* Helper */
 //!#mfunc tby_string_bool {"args":["val"],"order":[0,0]}
 #macro tby_string_bool_mf0  //
 #macro tby_string_bool_mf1  ? "true" : (is_undefined(
-#macro tby_string_bool_mf2 ) ? "undefined" : "false")
+#macro tby_string_bool_mf2 ) ? "undefined" : "false"

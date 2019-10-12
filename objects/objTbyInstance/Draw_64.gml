@@ -18,7 +18,7 @@ scribble_draw_set_animation(
 	
 scribble_draw_set_blend(tby_default_color, 1);
 	
-tw_state = scribble_autotype_get(scribble_element);
+tw_position = scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
 scribble_draw(_dim[TbyDim.x_content], _dim[TbyDim.y_content], scribble_element);
 
 scribble_draw_reset();
@@ -39,8 +39,8 @@ if (draw_bubble_sprite) {
 
 #region Choice type
 if (type == TbyType.Choice && state_name == "Finished") {
-    var _height_offset = tby_dim_line_height_mf0 choice_first_line + choice_selected + 1 tby_dim_line_height_mf1;
-    
+    var _height_offset =  tby_dim_line_height(scribble_element, choice_first_line + choice_selected + 1);
+
     draw_sprite(_skin[TbySkin.Arrow], -1,
                 _dim[TbyDim.x_content] + 3,
                 _dim[TbyDim.y_content] + _height_offset + 1);
@@ -72,9 +72,6 @@ if (global.tby_debug) {
     if (type == TbyType.Choice) {
         _ds += " | Selected choice: " + string(choice_selected);
     }
-    
-    var _cam = tby_game_camera;
-    var _cw = _cam != -1 ? camera_get_view_width(_cam) : tby_game_width;
     
     var _debug_width = tby_game_width - _dim[TbyDim.x1];
     tby_draw_debug(_dim[TbyDim.x1], _dim[TbyDim.y1]-string_height_ext(_ds, -1, _debug_width), _ds, _debug_width);

@@ -10,13 +10,8 @@ var _placement = argument0, _height = argument1;
                     // Figure out placement
                     var _i = tby_game_object_respect_auto;
                     if (_i == noone) return 0;
-                    
-                    var _cam_y = 0;
-                    var _cam = tby_game_camera;
-                    if (_cam != -1) {
-                        _cam_y = camera_get_view_y(_cam);
-                    }
-                    var _iy = _i.y - _cam_y;
+
+                    var _iy = tby_dim_gui_y(_i.y);
                     
                     // Assign Top or Bot
                     return (_iy > tby_game_height/2) ? 0 : tby_game_height - _height;

@@ -17,7 +17,7 @@ switch (_type) {
         // Figure out X and Y
         _width = tby_box_width + _padding*2;
         var _lines = _type == TbyType.Box ? tby_box_lines_per_box : 3;
-        _height = tby_dim_line_height_mf0 _lines tby_dim_line_height_mf1 + _padding*2;
+        _height = tby_dim_line_height(_scribble, _lines) + _padding*2;
         
         _x = (tby_game_width - _width) / 2;
         _y = __lf_tby_dim_create_(_placement, _height);
@@ -43,8 +43,8 @@ switch (_type) {
             _sprite_width = sprite_get_width(_sprite);
         }
         
-        var _instance_middle = _instance.x - sprite_get_xoffset(_sprite) + _sprite_width/2;
-        var _instance_top = _instance.y - sprite_get_yoffset(_sprite);
+        var _instance_middle = tby_dim_gui_x(_instance.x) - sprite_get_xoffset(_sprite) + _sprite_width/2;
+        var _instance_top = tby_dim_gui_y(_instance.y) - sprite_get_yoffset(_sprite);
         
         _x = floor(_instance_middle - _width/2);
         _y = floor(_instance_top - _bubble_height - _height);

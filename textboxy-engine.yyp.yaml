@@ -100,6 +100,9 @@ assets:
                       - "?tby_dim_create | GMScript | 03c3570c-aa70-40c4-acde-03ef69de04ad | 357c3cea-b554-4c86-a5a9-f26c00cf775d"
                       - "?tby_dim_position_update | GMScript | 54303934-ab61-4ca8-8bb3-eb1bd80e20a3 | 32c6ca71-047a-41c2-a056-84fe8e883151"
                       - "?tby_dim_position_clamp | GMScript | 9e40a517-ad7a-4920-b3fc-4b4698c7d788 | 7935ad15-cfe5-4077-9212-34d64882c25d"
+                      - "?tby_dim_line_height | GMScript | 55e70a09-6b27-44aa-be94-50d937fe904a | 69ad6197-9feb-415c-924f-ec3bb2ffdf61"
+                      - "?tby_dim_gui_x | GMScript | e231a33c-de1f-435e-8a06-677312bbc908 | 467a9e37-7a8c-41e1-b5a5-8a3d942c927d"
+                      - "?tby_dim_gui_y | GMScript | 5cad8e90-12ba-4217-ae17-fc83ec561a6d | 2e2e7fd1-3c0f-4116-85b6-a0288ec23ef0"
                   - "Events | GMScript | 920db9e1-299f-6696-f2d5-e0383062f18c | fcb25d4d-48a0-8d1b-15f6-cb37a6f0f8ba": 
                       - "?tby_event_handle_pause | GMScript | 54fb8a8a-4dc4-4e8d-9138-ab397c336b01 | 9dafcfca-2998-4fca-a295-ee58de28cd9b"
                       - "?tby_event_handle_speed | GMScript | ee687aed-3a23-4510-bfe5-f532658d36cd | c43014db-3494-4c8f-a51c-7405777ef442"
