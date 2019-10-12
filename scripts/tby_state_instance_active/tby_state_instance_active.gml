@@ -1,10 +1,11 @@
 var _scribble_element = scribble_element;
 var _tw_speed         = tw_speed;
-var _tw_state         = tw_state;
+var _tw_position      = tw_position;
 var _type             = type;
 var _instance         = instance;
 var _dim/*:TbyDim*/       = dimensions;
 var _skin/*:TbySkin*/     = skin;
+var _config/*:TbyConfig*/ = config;
 
 if (_scribble_element == undefined) exit;
 
@@ -28,12 +29,11 @@ if (_current_state == 1) {
 
 // Play audio
 if (_current_state > 0 && _current_state < 1) {
-	var _config/*:TbyConfig*/ = config;
 	var _sound = _config[TbyConfig.Sound];
 	
 	if (audio_exists(_sound)) {
-
-		if (_tw_state < _current_state) {
+		var _new_tw_position = _scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
+		if (ceil(_tw_position) < ceil(_new_tw_position)) {
 			audio_stop_sound(_sound);
 			var _audio = audio_play_sound(_sound, 1, false);
 			var _pitch_bounds = _config[TbyConfig.SoundPitch];
