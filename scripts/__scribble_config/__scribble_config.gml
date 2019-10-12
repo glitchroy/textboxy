@@ -2,14 +2,15 @@
 
 
 
-#macro SCRIBBLE_HASH_NEWLINE       true  //Replaces hashes (#) with newlines (ASCII chr10) to emulate GMS1's newline behaviour
-#macro SCRIBBLE_COLOURISE_SPRITES  true  //Whether to apply the text colour to non-animated sprites (animated sprites are always blended white)
-#macro SCRIBBLE_VERBOSE            true  //Enables verbose console output to aid with debugging.
+#macro SCRIBBLE_HASH_NEWLINE        true  //Replaces hashes (#) with newlines (ASCII chr10) to emulate GMS1's newline behaviour
+#macro SCRIBBLE_COLOURISE_SPRITES   true  //Whether to apply the text colour to non-animated sprites (animated sprites are always blended white)
+#macro SCRIBBLE_VERBOSE             true  //Enables verbose console output to aid with debugging
+#macro SCRIBBLE_ADD_SPRITE_ORIGINS  false //Whether to use sprite origins. Setting this to <false> will vertically centre sprites on the line of text
 
 #region Default parameters
 
 //Starting format
-#macro SCRIBBLE_DEFAULT_TEXT_COLOUR   tby_default_color  //The default (vertex) colour of text.
+#macro SCRIBBLE_DEFAULT_TEXT_COLOUR   c_white  //The default (vertex) colour of text.
 #macro SCRIBBLE_DEFAULT_HALIGN        fa_left
 #macro SCRIBBLE_DEFAULT_SPRITE_SPEED  0.1      //The default animation speed for sprites inserted into text.
 

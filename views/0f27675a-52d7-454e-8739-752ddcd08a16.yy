@@ -5,7 +5,7 @@
     "name": "0f27675a-52d7-454e-8739-752ddcd08a16",
     "children": [
         "9d772ed6-9b00-8890-3458-a8303db4a182",
-        "4ea9de89-3db1-4f97-ab30-314ae00e0774"
+        "765b517f-afc5-4254-a600-7b434772f421"
     ],
     "filterType": "GMScript",
     "folderName": "Lib",
