@@ -1,5 +1,5 @@
 /// @desc Handles the given TbyBranch command and then calls the next entry.
-/// @param _branch
+/// @param {TbyBranch} _branch
 /// @param _tb_data Array with textbox information
 var _branch/*:TbyBranch*/ = argument0, _tb_data = argument1;
 
@@ -27,7 +27,7 @@ if (!_has_args && is_string(_tb_type)) {
     _tb_type = 0;
     _tb_args = 0;
     
-    if (string_char_at(_s, 1) == tby_bubble_quick_mode_char) {
+    if (ord(string_char_at(_s, 1)) == tby_bubble_quick_mode_char) {
         // Bubble Mode
         _tb_type = TbyType.Bubble;
         // Strip the extra character

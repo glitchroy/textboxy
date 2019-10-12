@@ -1,3 +1,4 @@
+var _scribble_element = scribble_element;
 var _choices          = choices;
 var _type             = type;
 var _instance         = instance;
@@ -6,6 +7,7 @@ var _skin/*:TbySkin*/     = skin;
 
 if (state_new) {
     draw_input_circle = true;
+    _scribble_element[@ __SCRIBBLE.AUTOTYPE_METHOD] = SCRIBBLE_TYPEWRITER_NONE;
 }
 
 if (tby_input_confirm) {

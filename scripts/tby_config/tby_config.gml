@@ -134,7 +134,7 @@
 /* Which character a message box should be prefixed with
    to trigger the bubble type automatically.
    Only one character. */
-#macro tby_bubble_quick_mode_char "§"
+#macro tby_bubble_quick_mode_char ord("§")
 
 #endregion
 

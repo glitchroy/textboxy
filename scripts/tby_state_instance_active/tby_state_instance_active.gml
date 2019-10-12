@@ -15,15 +15,11 @@ if (pause_timer > 0) {
 	tby_scribble_autotype_set_speed(_scribble_element, _tw_speed);
 }
 
-// Skip to end of textbox
-if (tby_input_advance_textbox) {
-	_scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION] = _scribble_element[@ __SCRIBBLE.CHARACTERS];
-}
-
 var _current_state = scribble_autotype_get(_scribble_element);
 
 // --> FINISHED
-if (_current_state == 1) {
+if (tby_input_advance_textbox || _current_state == 1) {
+    _scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION] = _scribble_element[@ __SCRIBBLE.CHARACTERS];
     tby_state_switch("Finished");
 }
 

@@ -1,6 +1,6 @@
 
-
 blue_dialogue = tby_branch_create([
+        tby_add_bubble("Hahah[wait]ahahaha![script,tby_error,Wowie]hmmmmmmm", id),
         tby_add_bubble("Haha.[pause,1]test", id),
         tby_add_box("lol"),
         tby_add_choice("choice 1 or 2", "Choice 1", "Choice 2",

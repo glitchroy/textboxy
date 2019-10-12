@@ -194,6 +194,7 @@ assets:
       - "Example | GMScript | 2418c3f7-8665-4131-9cee-417459769975 | 7fbf62f9-e3b1-4898-853d-596f1756ec6e": 
           - "?example_hook_branch_start | GMScript | ecedf98b-1efd-4b34-b560-85d1afbbb495 | cc483fc6-0117-4abe-bd75-bbdbdda26bbb"
           - "?example_hook_branch_finished | GMScript | 8fd99032-b652-434f-87b8-3cb026e8d359 | d4b9db1d-195d-4880-98d1-b04011e390f9"
+          - "?example_window_resize | GMScript | f0cff4e4-41d8-46d9-84cc-b76da5d1b55e | c97542cb-676a-4096-80e6-a79ea0290997"
   - "shaders | GMShader | c459431b-207e-415b-b3a7-92d0d49053d1 | 63678702-206e-457b-8663-7692fe299513": 
       - "Lib | GMShader | 24d06646-c05a-42d3-a01e-7587820a134a | b5356e92-c32e-4625-916d-f2c2146f9692": 
           - "textboxy | GMShader | 18a2fb0f-52c6-4390-8bcc-5addc0413026 | c47cd87d-7976-4a8e-ac7c-3572a3971f8d": 
@@ -212,6 +213,7 @@ assets:
       - "Example | GMObject | 04ca4371-50d8-40e8-8c88-8235608621fc | d24bc0c8-ce09-401a-b1ad-2c0c972ab220": 
           - "?objRed | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"
           - "?objBlue | GMObject | f209f919-2974-455b-a74f-6f2a15149232 | b49e0c5a-5c46-4ec7-97d2-2043a3dbbb4c"
+          - "?objExampleGame | GMObject | 6573d72c-c503-4ef6-a7ee-48596d21522e | 8bfc7673-3385-4587-9c25-61342db7b9c7"
   - "rooms | GMRoom | 84f15521-954c-4d2d-9709-5b2d9ca231f1 | 6d90fb91-fe64-4260-ab7e-1528569c3379": 
       - "Example | GMRoom | cb5aa54e-96f2-4984-88b0-992d202c3476 | bf18fdcc-97cd-4f85-a0a7-7500d8790423": 
           - "?roomInit | GMRoom | 61efe879-76b9-49a9-a04d-80f74022ae90 | add2e66c-119b-4fc1-8bd3-d79ce264e902"
