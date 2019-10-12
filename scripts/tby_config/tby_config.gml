@@ -31,7 +31,7 @@
    textbox auto placement. Usually the player.
    Do not use a object reference, only an instance!
    Can also be set to noone. */
-#macro tby_game_object_respect_auto instance_find(objRed, 0)
+#macro tby_game_object_respect_auto instance_find(obj_red, 0)
 
 #endregion
 
@@ -41,13 +41,13 @@
 
 /* Default and/or fallback options for various things,
    like skins, fonts and colors. */
-#macro tby_default_skin           [sprTbySkinFrameD, \
-                                   sprTbySkinBubbleD, \
-                                   sprTbySkinPauseD, \
-                                   sprTbySkinArrowD, \
+#macro tby_default_skin           [spr_tby_skin_frame_d, \
+                                   spr_tby_skin_bubble_d, \
+                                   spr_tby_skin_pause_d, \
+                                   spr_tby_skin_arrow_d, \
                                    8]
 #macro tby_default_color          c_white
-#macro tby_default_font           "sprTbyFontMain"
+#macro tby_default_font           "spr_tby_font_main"
 #macro tby_default_speed          0.3
 
 /* Defaults for scribble text effects. */
@@ -67,7 +67,7 @@
 
 /* Options for text sounds. Very basic, and subject to be
    swapped out for sound options per-textbox. */
-#macro tby_sound_default_speech      sndTbySpeechDefault
+#macro tby_sound_default_speech      snd_tby_speech_default
 /* The upper and lower bounds for the random pitch. */
 #macro tby_sound_default_pitch_range [0.8, 1.2]
 
@@ -117,7 +117,7 @@
 /* Image_speed for the textbox confirmation dot. */
 #macro tby_generic_blink_speed 1/20
 /* The default width for a standard textbox. */
-#macro tby_box_width           (tby_game_width - (tby_game_width/8)*2)	
+#macro tby_box_width           (tby_game_width - (tby_game_width/8) * 2)	
 /* The default height in lines for a standard textbox. */
 #macro tby_box_lines_per_box   2
 

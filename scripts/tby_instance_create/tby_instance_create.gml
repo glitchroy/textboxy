@@ -15,7 +15,7 @@ var _choices = argument_count > 7 ? argument[7] : undefined;
 _content = string_replace_all(_content, "\r\n","\n");
 _content = string_replace_all(_content, "\t", "");
 
-var _inst = instance_create_layer(0, 0, tby_room_layer_name, objTbyInstance);
+var _inst = instance_create_layer(0, 0, tby_room_layer_name, tby_object_instance);
 with (_inst) {
     type = _type;
     skin = _skin;

@@ -4,40 +4,40 @@ assets:
           - "textboxy | GMSprite | 018f8f3f-9443-4b43-a45f-a0ff2209ec05 | f929f818-bbab-4e49-b7f1-e24b697daca8": 
               - "Skins | GMSprite | 7caec566-e9d3-40be-9983-e0336869c25b | 5e013c43-a2de-4e74-b0df-b4ea0ad9ad50": 
                   - "Skin A | GMSprite | 2b9efbd1-77ec-4668-adc5-64dbbebb3ff9 | 5b114260-43ef-42ae-a904-1196366b7a4d": 
-                      - "?sprTbySkinFrameA | GMSprite | a49be9e1-d8ba-46d9-a667-86d695fb6e9d | 8d022eb4-8578-41c0-9295-5b20ea3f5820"
-                      - "?sprTbySkinBubbleA | GMSprite | fef083b3-4c6a-4d91-b7c4-1e528faa2d21 | 6536f9a9-047d-4ff8-a46d-43bda515fc86"
-                      - "?sprTbySkinPauseA | GMSprite | 866fd18f-73f9-4b43-8f5c-f3ad39ee1986 | 6bb8608a-fc6b-4ca6-9cf0-f09875418e48"
-                      - "?sprTbySkinArrowA | GMSprite | 9cf58a41-7c7a-4e38-a6d8-5fa856270c05 | 6d0a2ce6-bf0e-47cb-9ca0-6adf7ecbcf5b"
+                      - "?spr_tby_skin_frame_a | GMSprite | a49be9e1-d8ba-46d9-a667-86d695fb6e9d | 8d022eb4-8578-41c0-9295-5b20ea3f5820"
+                      - "?spr_tby_skin_bubble_a | GMSprite | fef083b3-4c6a-4d91-b7c4-1e528faa2d21 | 6536f9a9-047d-4ff8-a46d-43bda515fc86"
+                      - "?spr_tby_skin_pause_a | GMSprite | 866fd18f-73f9-4b43-8f5c-f3ad39ee1986 | 6bb8608a-fc6b-4ca6-9cf0-f09875418e48"
+                      - "?spr_tby_skin_arrow_a | GMSprite | 9cf58a41-7c7a-4e38-a6d8-5fa856270c05 | 6d0a2ce6-bf0e-47cb-9ca0-6adf7ecbcf5b"
                   - "Skin B | GMSprite | 57c1f99f-4ade-4526-b319-05a4d1e6d567 | 30a5609a-7e95-4650-8937-33c1867051b2": 
-                      - "?sprTbySkinFrameB | GMSprite | df190b49-7f6f-4ee6-b131-ea8ed5d92bf0 | 5cce34d3-7226-4eaf-93ae-c5a65d42c653"
-                      - "?sprTbySkinBubbleB | GMSprite | f6ab21bd-8cd9-4984-8388-9548d17a18f9 | 63a0bf97-0901-4e33-94da-5ac202ce70f1"
-                      - "?sprTbySkinPauseB | GMSprite | 5bdf17c6-801c-4640-9973-7c9d03784516 | 58eb3a60-2c28-4a75-b7af-8ca3cf2a18ab"
-                      - "?sprTbySkinArrowB | GMSprite | fbe30dd7-f91b-482b-baaf-ff0ff526220b | ed0116a6-c611-42d6-86b8-5479f6573fcd"
+                      - "?spr_tby_skin_frame_b | GMSprite | df190b49-7f6f-4ee6-b131-ea8ed5d92bf0 | 5cce34d3-7226-4eaf-93ae-c5a65d42c653"
+                      - "?spr_tby_skin_bubble_b | GMSprite | f6ab21bd-8cd9-4984-8388-9548d17a18f9 | 63a0bf97-0901-4e33-94da-5ac202ce70f1"
+                      - "?spr_tby_skin_pause_b | GMSprite | 5bdf17c6-801c-4640-9973-7c9d03784516 | 58eb3a60-2c28-4a75-b7af-8ca3cf2a18ab"
+                      - "?spr_tby_skin_arrow_b | GMSprite | fbe30dd7-f91b-482b-baaf-ff0ff526220b | ed0116a6-c611-42d6-86b8-5479f6573fcd"
                   - "Skin C | GMSprite | f0861735-f28f-46f3-97c9-dfb04d0491ad | fb1c15ff-5cab-436c-8bcf-07bd0028ed6d": 
-                      - "?sprTbySkinFrameC | GMSprite | a6c2845c-f82e-4b96-8111-9aa13cbf46bc | 22aff500-b945-4825-a7f4-a089007971b5"
-                      - "?sprTbySkinBubbleC | GMSprite | 0609a2f5-8fdb-46ba-9b94-7cb622bfc16c | 9bd38309-8bf2-4588-b2dd-48846ac7d626"
-                      - "?sprTbySkinPauseC | GMSprite | 42f6803d-8a88-4805-b7a2-b06f87bfd4fd | c34eb5ab-1786-4bbd-98b0-25fc32d84d71"
-                      - "?sprTbySkinArrowC | GMSprite | e2b9de1f-e4a4-40ec-b473-1149aec5dba0 | 9072c07b-642a-407a-8137-bd0f94372e42"
+                      - "?spr_tby_skin_frame_c | GMSprite | a6c2845c-f82e-4b96-8111-9aa13cbf46bc | 22aff500-b945-4825-a7f4-a089007971b5"
+                      - "?spr_tby_skin_bubble_c | GMSprite | 0609a2f5-8fdb-46ba-9b94-7cb622bfc16c | 9bd38309-8bf2-4588-b2dd-48846ac7d626"
+                      - "?spr_tby_skin_pause_c | GMSprite | 42f6803d-8a88-4805-b7a2-b06f87bfd4fd | c34eb5ab-1786-4bbd-98b0-25fc32d84d71"
+                      - "?spr_tby_skin_arrow_c | GMSprite | e2b9de1f-e4a4-40ec-b473-1149aec5dba0 | 9072c07b-642a-407a-8137-bd0f94372e42"
                   - "Skin D | GMSprite | 8481434e-55b9-4e78-95bc-64c9953d0029 | 0dcfb0c5-6ca9-4f59-84fb-57e76a72e843": 
-                      - "?sprTbySkinFrameD | GMSprite | 77810701-2b0f-4200-b548-0d7cafd2bf63 | 7536fa3b-b70b-480c-901e-3b4e73725a6d"
-                      - "?sprTbySkinBubbleD | GMSprite | f595ad17-85a7-440a-9b89-389276eabb58 | 8d5bc43a-166c-4fbf-807c-2599469a5dd4"
-                      - "?sprTbySkinPauseD | GMSprite | d8577805-cb7b-4469-816e-5429c64d7637 | 18792c1a-d25a-4b4e-8944-4b4da70b9fca"
-                      - "?sprTbySkinArrowD | GMSprite | 757f0e07-828b-4710-8213-b36f6e4f14e4 | beb235a3-fbfa-456e-ab78-84d186fa981d"
-                  - "?sprTbySkinFrameDebug | GMSprite | 07877bbe-8759-4553-8fb6-e63914883f74 | 7f025588-6a11-43fe-b28c-8540db3894a4"
+                      - "?spr_tby_skin_frame_d | GMSprite | 77810701-2b0f-4200-b548-0d7cafd2bf63 | 7536fa3b-b70b-480c-901e-3b4e73725a6d"
+                      - "?spr_tby_skin_bubble_d | GMSprite | f595ad17-85a7-440a-9b89-389276eabb58 | 8d5bc43a-166c-4fbf-807c-2599469a5dd4"
+                      - "?spr_tby_skin_pause_d | GMSprite | d8577805-cb7b-4469-816e-5429c64d7637 | 18792c1a-d25a-4b4e-8944-4b4da70b9fca"
+                      - "?spr_tby_skin_arrow_d | GMSprite | 757f0e07-828b-4710-8213-b36f6e4f14e4 | beb235a3-fbfa-456e-ab78-84d186fa981d"
+                  - "?spr_tby_skin_frame_debug | GMSprite | 07877bbe-8759-4553-8fb6-e63914883f74 | 7f025588-6a11-43fe-b28c-8540db3894a4"
               - "Scribble | GMSprite | c568d3f8-59d6-43c6-855d-d486934a0315 | 9d4bf57d-ccd3-4723-a5f3-a808c9cbd4ee": 
-                  - "?sprTbyFontMain | GMSprite | 3f26a63f-a895-485f-81b6-ef35d9ee94cd | a4e6b423-3cca-4733-8656-3eca9d3cbf3a"
-                  - "?sprTbyFontSmall | GMSprite | 4391d373-68b9-4dfc-9f18-229496d9de41 | 9f187e18-ae8e-4446-894c-391945847b5c"
+                  - "?spr_tby_font_main | GMSprite | 3f26a63f-a895-485f-81b6-ef35d9ee94cd | a4e6b423-3cca-4733-8656-3eca9d3cbf3a"
+                  - "?spr_tby_font_small | GMSprite | 4391d373-68b9-4dfc-9f18-229496d9de41 | 9f187e18-ae8e-4446-894c-391945847b5c"
       - "Example | GMSprite | fc6e2841-f3fb-4a80-9dab-9db9b186c314 | 819f1349-35eb-4727-b6a8-bc8f7f0cfdb7": 
-          - "?sprBlueBall | GMSprite | 5b82bc25-1362-48aa-8b9f-be9b4847c91a | 16c709bc-64b7-47f6-b35c-30fd62b02f85"
-          - "?sprRedBall | GMSprite | c420b082-a50f-4033-80b6-08226f98c71d | f281a39d-f0b1-4ce5-a6d3-a55ffeda3bf0"
-          - "?sprTestTiles | GMSprite | dae614e8-5e88-4ab5-a7bb-aedfc22f62d8 | ecd2d299-a328-428d-8d99-3f6a2300589f"
+          - "?spr_ball_blue | GMSprite | 5b82bc25-1362-48aa-8b9f-be9b4847c91a | 16c709bc-64b7-47f6-b35c-30fd62b02f85"
+          - "?spr_ball_red | GMSprite | c420b082-a50f-4033-80b6-08226f98c71d | f281a39d-f0b1-4ce5-a6d3-a55ffeda3bf0"
+          - "?spr_tiles_example | GMSprite | dae614e8-5e88-4ab5-a7bb-aedfc22f62d8 | ecd2d299-a328-428d-8d99-3f6a2300589f"
   - "tilesets | GMTileSet | 3a479606-3abc-4c0a-ba65-b8a104c61c52 | 2cdd511b-4766-4599-9ac5-8e48dcf7e855": 
       - "Example | GMTileSet | e2f88731-9eb3-4a64-aa8a-fda3e73fcfa4 | 4f6224ea-2ee8-4c15-86e1-508efb54634b": 
-          - "tilesets\\tsTest\\tsTest.yy | GMTileSet | 989dfe38-5bd5-4f44-84b4-c15559091d2b | 13d4008c-cd4e-443b-8887-edbe980debe7"
+          - "tilesets\\ts_test\\ts_test.yy | GMTileSet | 989dfe38-5bd5-4f44-84b4-c15559091d2b | 13d4008c-cd4e-443b-8887-edbe980debe7"
   - "sounds | GMSound | 0983f652-6ae8-4dd0-b1df-11881acb290e | a9052d48-7523-437f-a0e1-597cc264b99d": 
       - "Lib | GMSound | c0d97feb-dc37-4d77-8ae6-ed2cbfc1ae3a | aebef8ea-1eac-43a4-b115-cb7464d1d89d": 
           - "textboxy | GMSound | 02c87faa-1876-4ab8-87ee-8fa023660655 | d37dc84c-655e-4df2-b7e1-84e07a99c493": 
-              - "?sndTbySpeechDefault | GMSound | f7ac0330-ed1e-4f84-9fbe-ca9be2ab9835 | e411818c-bc97-445d-a5ad-546bf7aadfac"
+              - "?snd_tby_speech_default | GMSound | f7ac0330-ed1e-4f84-9fbe-ca9be2ab9835 | e411818c-bc97-445d-a5ad-546bf7aadfac"
   - "paths | GMPath | d31795bd-3e13-4c6b-bec6-ccf6cfdf0bce | 897c9eeb-3a61-4efe-bf6f-c17ad23d001f": []
   - "scripts | GMScript | f86819ac-c627-4fd4-95a4-0e87a325a6ff | b13bb939-d2c8-4d06-b135-734b3f3ac81a": 
       - "Lib | GMScript | eb8508c7-2f86-4197-ae2c-c36773bf4743 | c626fbb8-1795-43fe-9c91-014a359ff582": 
@@ -203,21 +203,21 @@ assets:
   - "fonts | GMFont | 503cf607-27a8-45bf-a70c-c4f6011d4644 | 2e664e4e-8780-406d-a7c5-9db63c8ff808": 
       - "Lib | GMFont | b750174d-51e8-4a40-aff6-f407749660d4 | 22ed3817-be2d-4215-8ec7-6b2ad80e5605": 
           - "textboxy | GMFont | 73a9a8e0-e32e-4c49-a540-0e8ed503f4e2 | c4576236-d0e3-4bd3-9a46-f445cab28cc9": 
-              - "?fontTbyDebug | GMFont | e6ebaf96-d4a7-4499-88f2-fae3d15ed4e6 | 08394c19-2c15-4277-8d7e-092db788c413"
+              - "?font_tby_debug | GMFont | e6ebaf96-d4a7-4499-88f2-fae3d15ed4e6 | 08394c19-2c15-4277-8d7e-092db788c413"
   - "timelines | GMTimeline | a9c1c006-82cc-4168-94cf-cda9593ef14e | b7f2f356-4008-4e35-bc1c-b9f950d1d9c3": []
   - "objects | GMObject | 946479bd-e52d-41cb-994f-9184d806b8b5 | 42472f94-8ec7-488a-bdeb-1e502bc60846": 
       - "Lib | GMObject | 0852564a-66d0-4da1-8c69-dd9be9913c9e | cb08e433-94ca-48ba-a3bf-7ea215bc5558": 
           - "textboxy | GMObject | c991b869-28ba-4186-865e-4587275e51f7 | 36417e85-4b9f-4cea-9f95-18a2869dd875": 
-              - "?objTby | GMObject | a7f14741-32df-436c-bdd6-bf28e6c92a13 | 25ffd523-6638-4454-aa95-e7d3ae3ba4aa"
-              - "?objTbyInstance | GMObject | fab8c8d3-55fe-498a-939a-13e315987df3 | ede223e1-0764-441c-94b4-ded6a12a2cb4"
+              - "?obj_tby | GMObject | a7f14741-32df-436c-bdd6-bf28e6c92a13 | 25ffd523-6638-4454-aa95-e7d3ae3ba4aa"
+              - "?obj_tby_instance | GMObject | fab8c8d3-55fe-498a-939a-13e315987df3 | ede223e1-0764-441c-94b4-ded6a12a2cb4"
       - "Example | GMObject | 04ca4371-50d8-40e8-8c88-8235608621fc | d24bc0c8-ce09-401a-b1ad-2c0c972ab220": 
-          - "?objRed | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"
-          - "?objBlue | GMObject | f209f919-2974-455b-a74f-6f2a15149232 | b49e0c5a-5c46-4ec7-97d2-2043a3dbbb4c"
-          - "?objExampleGame | GMObject | 6573d72c-c503-4ef6-a7ee-48596d21522e | 8bfc7673-3385-4587-9c25-61342db7b9c7"
+          - "?obj_red | GMObject | 6bd6d3f6-2644-4ad4-90ee-44c90ee48157 | 15977b44-8852-425b-8767-42a4c48072a4"
+          - "?obj_blue | GMObject | f209f919-2974-455b-a74f-6f2a15149232 | b49e0c5a-5c46-4ec7-97d2-2043a3dbbb4c"
+          - "?obj_example_game | GMObject | 6573d72c-c503-4ef6-a7ee-48596d21522e | 8bfc7673-3385-4587-9c25-61342db7b9c7"
   - "rooms | GMRoom | 84f15521-954c-4d2d-9709-5b2d9ca231f1 | 6d90fb91-fe64-4260-ab7e-1528569c3379": 
       - "Example | GMRoom | cb5aa54e-96f2-4984-88b0-992d202c3476 | bf18fdcc-97cd-4f85-a0a7-7500d8790423": 
-          - "?roomInit | GMRoom | 61efe879-76b9-49a9-a04d-80f74022ae90 | add2e66c-119b-4fc1-8bd3-d79ce264e902"
-          - "?roomExample | GMRoom | 039c9361-409e-4933-9f36-b830d054c819 | c8e4e00d-6b64-4a74-a657-f3e3c3a00a22"
+          - "?room_init | GMRoom | 61efe879-76b9-49a9-a04d-80f74022ae90 | add2e66c-119b-4fc1-8bd3-d79ce264e902"
+          - "?room_example | GMRoom | 039c9361-409e-4933-9f36-b830d054c819 | c8e4e00d-6b64-4a74-a657-f3e3c3a00a22"
   - "notes | GMNotes | b1d302c2-0fa0-4efb-8e77-0aa33c500be6 | c82b71e2-a66c-43a9-a7c4-597472cf21f2": []
   - "datafiles | GMIncludedFile | 73d76eff-c580-4c7f-8a7a-50753795d711 | 559e402a-c64c-4409-9612-507c72f5be72": 
       - "Fonts | GMIncludedFile | 04606b0d-be78-4425-8c31-0ba46f270727 | 3d7fc0f6-9151-4e4f-b7e8-142d55c6a769": []

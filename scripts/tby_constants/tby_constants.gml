@@ -11,7 +11,8 @@
 #macro tby_arrlen array_length_1d
 
 /* Internal objects */
-#macro tby_object_manager objTby
+#macro tby_object_manager obj_tby
+#macro tby_object_instance obj_tby_instance
 
 #macro tby_box_horz_padding floor(tby_game_width/8)
 

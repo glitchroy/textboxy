@@ -8,7 +8,7 @@ var _tx = argument[0], _ty = argument[1], _text = argument[2];
 var _max_width = argument_count > 3 ? argument[3] : -1;
 var _color = argument_count > 4 ? argument[4] : c_white;
 
-draw_set_font(fontTbyDebug);
+draw_set_font(font_tby_debug);
 
 draw_set_color(c_black);
 draw_set_alpha(0.5);
