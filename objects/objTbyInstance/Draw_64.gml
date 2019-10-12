@@ -18,8 +18,7 @@ scribble_draw_set_animation(
 	
 scribble_draw_set_blend(tby_default_color, 1);
 	
-tw_position = scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
-tby_msg("tw_pos from draw", tw_position);
+tw_state = scribble_autotype_get(scribble_element);
 scribble_draw(_dim[TbyDim.x_content], _dim[TbyDim.y_content], scribble_element);
 
 scribble_draw_reset();
@@ -66,7 +65,7 @@ if (global.tby_debug) {
     _ds = string(id-100000) +
     " | State: " + state_name +
 	" | " + string(scribble_element[@ __SCRIBBLE.AUTOTYPE_SPEED]) +
-	" | " + string(scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION]) +
+	" | " + string(scribble_autotype_get(scribble_element)) +
 	(pause_timer > 0 ? " (" + string(pause_timer) + ")" : "");
     
     // Choice addition
@@ -77,7 +76,7 @@ if (global.tby_debug) {
     var _cam = tby_game_camera;
     var _cw = _cam != -1 ? camera_get_view_width(_cam) : tby_game_width;
     
-    var _debug_width = _dim[TbyDim.x2] - _dim[TbyDim.x1];
+    var _debug_width = tby_game_width - _dim[TbyDim.x1];
     tby_draw_debug(_dim[TbyDim.x1], _dim[TbyDim.y1]-string_height_ext(_ds, -1, _debug_width), _ds, _debug_width);
 }
 #endregion

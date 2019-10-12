@@ -5,7 +5,7 @@
 /// @returns {Array} The concatenated array
 /*
 @example
-_tby_concat([0, 1, 2], [3, 4, 5]);
+tby_concat([0, 1, 2], [3, 4, 5]);
 // => [0, 1, 2, 3, 4, 5]
 */
 

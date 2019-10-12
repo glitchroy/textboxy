@@ -2,8 +2,8 @@
 /// @param _type
 /// @param _cache_group
 /// @param _content
-/// @param _skin
-/// @param _config
+/// @param {TbySkin} _skin
+/// @param {TbyConfig} _config
 /// @param _placement = TbyPlacement.Auto
 /// @param ?_instance = undefined
 /// @param ?_choices = undefined
@@ -28,7 +28,7 @@ with (_inst) {
     image_speed = tby_generic_blink_speed;
     
     pause_timer = 0;
-    tw_position = 0;
+    tw_state = 0;
     
     draw_bubble_sprite = type == TbyType.Bubble;
     draw_input_circle = false;
