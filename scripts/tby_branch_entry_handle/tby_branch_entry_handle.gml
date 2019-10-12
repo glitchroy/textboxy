@@ -85,17 +85,6 @@ switch (_tb_type) {
         var _instance = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : _config[TbyConfig.Instance];
         if (_instance == noone || _instance == undefined) _instance = _config[TbyConfig.Instance];
         
-        /*
-        // check if its a string thats an object type (from json usually)
-        if (is_string(_instance)) {
-            var _object_id = asset_get_index(_instance);
-            if (_object_id != -1)_instance = _object_id;
-        } else if (_instance == undefined || !instance_exists(_instance)) {
-            // sanity check
-            tby_log("No valid instance specified for bubble textbox, using ", id, "as substitute.");
-            _instance = id; //just use the calling instance
-        }*/
-        
         tby_instance_create(
             TbyType.Bubble,
             _branch[TbyBranch.scribble_cache_group],
@@ -172,6 +161,8 @@ switch (_tb_type) {
         if (instance_exists(_calling_instance)) {
             variable_instance_set(_calling_instance, _variable_name, _variable_value);
         }
+        
+        tby_branch_next(_branch);
     break;
     /******************************/
     case TbyCmd.SetGlobal:
@@ -179,6 +170,8 @@ switch (_tb_type) {
         var _variable_value = _tb_args[1];
     
         variable_global_set(_variable_name, _variable_value);
+        
+        tby_branch_next(_branch);
     break;
     /******************************/
     case TbyCmd.Conditional:
@@ -194,6 +187,24 @@ switch (_tb_type) {
         }
         
         // After inserting conditional, skip this instruction
+        tby_branch_next(_branch);
+    break;
+    /******************************/
+    case TbyCmd.Script:
+        var _script_index = _tb_args[0];
+        
+        if (script_exists(_script_index)) {
+            if (tby_arrlen(_tb_args) > 1) {
+                var _args = [];
+                for (var i = 1; i < tby_arrlen(_tb_args); i++) {
+                    _args[@ tby_arrlen(_args)] = _tb_args[i];
+                }
+                tby_spread(_script_index, _args);
+            } else {
+                script_execute(_script_index);
+            }
+        }
+        
         tby_branch_next(_branch);
     break;
 }

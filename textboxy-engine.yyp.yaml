@@ -59,6 +59,7 @@ assets:
                   - "?tby_add_bubble | GMScript | 76e90df6-64fe-4e60-8948-385098ae795b | 9c039b5b-855c-416d-b547-47cda645144a"
                   - "?tby_add_choice | GMScript | a6b35fd3-4b0d-43bb-8ecd-630ffdf1414f | 537eb14b-7abe-4a5a-8337-f224e9249f25"
                   - "?tby_add_config | GMScript | 40af14e2-6ee2-4312-a85b-aefd7713d6c2 | 863d87e2-df04-462f-ba42-48669fbb71a3"
+                  - "?tby_add_script | GMScript | 37e57765-1074-46ec-9d99-fb6b845512e5 | 62daec58-1fb3-4d11-ac6e-dc5cf23e238f"
                   - "?tby_add_set_var | GMScript | 63e4bb54-d4f3-4b91-aef8-5a37e881d5ce | 74b64f5b-b147-472a-a526-8a8078a49d59"
                   - "?tby_add_set_global | GMScript | 9ef4d238-cf04-40d0-b857-0dad3081a7a9 | 0a873194-4e41-46fe-82ac-f6a0c2326e92"
                   - "?tby_add_pause | GMScript | e5051370-783d-42ba-ad33-6d858338e12d | 1c9c9cf4-3a55-4470-9946-c643642453ac"
@@ -106,7 +107,6 @@ assets:
                   - "Events | GMScript | 920db9e1-299f-6696-f2d5-e0383062f18c | fcb25d4d-48a0-8d1b-15f6-cb37a6f0f8ba": 
                       - "?tby_event_handle_pause | GMScript | 54fb8a8a-4dc4-4e8d-9138-ab397c336b01 | 9dafcfca-2998-4fca-a295-ee58de28cd9b"
                       - "?tby_event_handle_speed | GMScript | ee687aed-3a23-4510-bfe5-f532658d36cd | c43014db-3494-4c8f-a51c-7405777ef442"
-                      - "?tby_event_handle_script | GMScript | 71e7772f-aa65-45f5-9957-671930496fb9 | 3c59ee9e-7fc3-436b-8043-b8bbe640802c"
                       - "?tby_event_handle_wait | GMScript | 641498f9-1546-4cc9-bfe5-76bb841eea25 | 78f1dea6-d837-48b3-b88c-ee1344eda44b"
                   - "Pointer | GMScript | 9d5cb47d-3d8f-413f-a901-d71c81899b48 | d55ced00-d234-4675-834e-1cce6bb94408": 
                       - "?tby_pointer | GMScript | e20285d2-d93d-4a4d-96fe-e24be56828a8 | e5666713-67f1-4940-aeed-504b7a1d6353"

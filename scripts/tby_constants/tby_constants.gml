@@ -30,7 +30,8 @@ enum TbyCmd {
     GoTo        = 800,
     SetVar      = 900,
     SetGlobal   = 1000,
-    Conditional = 1100
+    Conditional = 1100,
+    Script      = 1200
 }
 
 enum TbySkin {

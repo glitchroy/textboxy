@@ -1,4 +1,4 @@
-/// @param _branch
+/// @param {TbyBranch} _branch
 /// @param _command_list
 var _branch/*:TbyBranch*/ = argument0, _command_list = argument1;
 

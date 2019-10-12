@@ -1,5 +1,5 @@
 /// @desc Calls the next entry on the TbyBranch or destroys it if finished.
-/// @param _branch
+/// @param {TbyBranch} _branch
 var _branch/*:TbyBranch*/ = argument0;
 
 #region Exit Conditions
