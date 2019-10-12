@@ -418,12 +418,18 @@ if (!is_array(_draw_string))
                                                 #region Write sprites
                                                 
                                                 var _sprite_index  = asset_get_index(_command_name);
-                                                var _sprite_x      = _text_x + sprite_get_xoffset(_sprite_index);
-                                                var _sprite_y      = _text_y + sprite_get_yoffset(_sprite_index);
+                                                var _sprite_x      = _text_x;
+                                                var _sprite_y      = _text_y;
                                                 var _sprite_width  = _text_scale*sprite_get_width(_sprite_index);
                                                 var _sprite_height = _text_scale*sprite_get_height(_sprite_index);
                                                 var _sprite_number = sprite_get_number(_sprite_index);
                                                 
+                                                if (SCRIBBLE_ADD_SPRITE_ORIGINS)
+                                                {
+                                                    _sprite_x -= sprite_get_xoffset(_sprite_index);
+                                                    _sprite_y -= sprite_get_yoffset(_sprite_index);
+                                                }
+                                                 
                                                 _char_width  = _sprite_width;
                                                 _line_height = max(_line_height, _sprite_height);
                                                 
@@ -571,7 +577,8 @@ if (!is_array(_draw_string))
                                                 }
                                                 else
                                                 {
-                                                    if ((string_length(_command_name) <= 7) && (string_copy(_command_name, 1, 1) == "$"))
+                                                    var _first_char = string_copy(_command_name, 1, 1);
+                                                    if ((string_length(_command_name) <= 7) && ((_first_char == "$") || (_first_char == "#")))
                                                     {
                                                         #region Hex colour decoding
                                                         
@@ -1027,13 +1034,14 @@ if (global.scribble_state_allow_draw)
             var _typewriter_smoothness = global.scribble_state_tw_smoothness;
             var _typewriter_position   = global.scribble_state_tw_position;
             var _typewriter_fade_in    = global.scribble_state_tw_fade_in;
+            var _typewriter_speed      = 0;
         }
         else
         {
             var _typewriter_smoothness = _scribble_array[__SCRIBBLE.AUTOTYPE_SMOOTHNESS];
             var _typewriter_position   = _scribble_array[__SCRIBBLE.AUTOTYPE_POSITION  ];
             var _typewriter_fade_in    = _scribble_array[__SCRIBBLE.AUTOTYPE_FADE_IN   ];
-            var _typewriter_speed      = _scribble_array[__SCRIBBLE.AUTOTYPE_SPEED     ];
+            var _typewriter_speed      = _scribble_array[__SCRIBBLE.AUTOTYPE_SPEED     ]*SCRIBBLE_STEP_SIZE;
             
             #region Scan for autotype events
         
@@ -1084,6 +1092,8 @@ if (global.scribble_state_allow_draw)
                                 
                                 if (_scribble_array[__SCRIBBLE.AUTOTYPE_SPEED] <= 0.0)
                                 {
+                                    _scribble_array[@ __SCRIBBLE.AUTOTYPE_SPEED] = 0;
+                                    _typewriter_speed = 0;
                                     _break = true;
                                     break;
                                 }
@@ -1096,7 +1106,7 @@ if (global.scribble_state_allow_draw)
                             ++_scan;
                         }
                         
-                        if (_break && (_typewriter_method == SCRIBBLE_TYPEWRITER_PER_CHARACTER)) _typewriter_position = _scan + 1;
+                        if (_break && (_typewriter_method == SCRIBBLE_TYPEWRITER_PER_CHARACTER)) _typewriter_position = _scan;
                         
                         _scribble_array[@ __SCRIBBLE.EVENT_CHAR_PREVIOUS] = _scan;
                     }
@@ -1126,7 +1136,7 @@ if (global.scribble_state_allow_draw)
             if (_increment_timers)
             {
                 //...then advance the autotype position
-                _scribble_array[@ __SCRIBBLE.AUTOTYPE_POSITION] = clamp(_typewriter_position + _typewriter_speed*SCRIBBLE_STEP_SIZE, 0, _typewriter_count);
+                _scribble_array[@ __SCRIBBLE.AUTOTYPE_POSITION] = clamp(_typewriter_position + _typewriter_speed, 0, _typewriter_count);
             }
         }
         
