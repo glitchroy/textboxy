@@ -16,7 +16,10 @@ scribble_draw_set_animation(
 	_config[TbyConfig.RainbowSpeed]
 	);
 	
+scribble_draw_set_blend(tby_default_color, 1);
+	
 tw_position = scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
+tby_msg("tw_pos from draw", tw_position);
 scribble_draw(_dim[TbyDim.x_content], _dim[TbyDim.y_content], scribble_element);
 
 scribble_draw_reset();

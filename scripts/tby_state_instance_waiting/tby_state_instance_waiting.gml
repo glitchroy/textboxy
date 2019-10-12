@@ -6,12 +6,12 @@ var _dim/*:TbyDim*/       = dimensions;
 var _skin/*:TbySkin*/     = skin;
 
 if (state_new) {
-	scribble_autotype_set(_scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, 0, 0, true);
+	tby_scribble_autotype_set_speed(_scribble_element, 0.0);
 	draw_input_circle = true;
 }
 
 if (tby_input_confirm) {
-	scribble_autotype_set(_scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, _tw_speed, 0, true);
+	tby_scribble_autotype_set_speed(_tw_speed, 0.0);
 	draw_input_circle = false;
     tby_state_switch_previous();
 }

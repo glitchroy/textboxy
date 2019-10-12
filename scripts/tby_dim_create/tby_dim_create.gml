@@ -37,7 +37,13 @@ switch (_type) {
         _height = _zero_box[SCRIBBLE_BOX.BL_Y] - _zero_box[SCRIBBLE_BOX.TL_Y];
             
         var _sprite = _instance.sprite_index;
-        var _instance_middle = _instance.x - sprite_get_xoffset(_sprite) + sprite_get_width(_sprite)/2;
+        var _sprite_width = 16;
+
+        if (_sprite != -1) {
+            _sprite_width = sprite_get_width(_sprite);
+        }
+        
+        var _instance_middle = _instance.x - sprite_get_xoffset(_sprite) + _sprite_width/2;
         var _instance_top = _instance.y - sprite_get_yoffset(_sprite);
         
         _x = floor(_instance_middle - _width/2);

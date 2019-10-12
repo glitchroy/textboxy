@@ -85,6 +85,7 @@ switch (_tb_type) {
         var _instance = tby_arrlen(_tb_args) > 1 ? _tb_args[1] : _config[TbyConfig.Instance];
         if (_instance == noone || _instance == undefined) _instance = _config[TbyConfig.Instance];
         
+        /*
         // check if its a string thats an object type (from json usually)
         if (is_string(_instance)) {
             var _object_id = asset_get_index(_instance);
@@ -93,7 +94,7 @@ switch (_tb_type) {
             // sanity check
             tby_log("No valid instance specified for bubble textbox, using ", id, "as substitute.");
             _instance = id; //just use the calling instance
-        }
+        }*/
         
         tby_instance_create(
             TbyType.Bubble,

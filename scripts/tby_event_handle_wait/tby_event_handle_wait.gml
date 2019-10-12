@@ -9,5 +9,5 @@ var _text_element = argument0;
 var _event_data   = argument1;
 var _char_index   = argument2;
 
-scribble_autotype_set(_text_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, 0, 0, true);
+tby_scribble_autotype_set_speed(_text_element, 0.0);
 tby_state_switch("Waiting");

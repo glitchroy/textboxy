@@ -5,7 +5,7 @@ var _branch/*:TbyBranch*/ = argument0;
 var _config/*:TbyConfig*/ = _branch[TbyBranch.config_array];
 
 _config[@TbyConfig.Skin]          = tby_default_skin;
-_config[@TbyConfig.Instance]      = noone;
+_config[@TbyConfig.Instance]      = id;
 _config[@TbyConfig.Callback]      = -1;
 _config[@TbyConfig.Placement]     = TbyPlacement.Auto;
 _config[@TbyConfig.Sound]         = tby_sound_default_speech;
