@@ -5,7 +5,7 @@ var _s = "";
 
 for (var i = 0; i < argument_count; i++) {
 	var _arg = argument[i];
-	if (is_array(_arg)) _arg = tby_print_array(_arg);
+	if (is_array(_arg)) _arg = _tby_print_array(_arg);
 	
 	_s += string(_arg) + "\n";
 }

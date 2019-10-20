@@ -7,9 +7,9 @@ scribble_add_spritefont("spr_tby_font_small", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456
 
 scribble_add_colour("c_thought", $78d7ff);
 
-scribble_autotype_add_event("pause", tby_event_handle_pause);
-scribble_autotype_add_event("speed", tby_event_handle_speed);
-scribble_autotype_add_event("wait", tby_event_handle_wait);
+scribble_autotype_add_event("pause", _tby_event_handle_pause);
+scribble_autotype_add_event("speed", _tby_event_handle_speed);
+scribble_autotype_add_event("wait", _tby_event_handle_wait);
 
 scribble_set_glyph_property("spr_tby_font_small", "T", SCRIBBLE_GLYPH.X_OFFSET, -1, true);
 scribble_set_glyph_property("spr_tby_font_small", "I", SCRIBBLE_GLYPH.X_OFFSET, -1, true);

@@ -1,8 +1,8 @@
-tby_state_machine_init();
+_tby_state_machine_init();
 
-tby_state_create("Active",          tby_state_instance_active);
-tby_state_create("Waiting",         tby_state_instance_waiting);
-tby_state_create("Finished",        tby_state_instance_finished);
-tby_state_create("Vanishing",       tby_state_instance_vanishing);
+_tby_state_create("Active",          _tby_state_instance_active);
+_tby_state_create("Waiting",         _tby_state_instance_waiting);
+_tby_state_create("Finished",        _tby_state_instance_finished);
+_tby_state_create("Vanishing",       _tby_state_instance_vanishing);
 
-tby_state_init("Active");
+_tby_state_init("Active");

@@ -1,1 +1,1 @@
-tby_state_cleanup();
+_tby_state_cleanup();

@@ -4,7 +4,7 @@ var _skin/*:TbySkin*/ = skin;
 var _dim/*:TbyDim*/ = dimensions;
 var _config/*:TbyConfig*/ = config;
 
-tby_draw_frame(_dim[TbyDim.x1], _dim[TbyDim.y1], _dim[TbyDim.x2], _dim[TbyDim.y2], _skin[TbySkin.TileSize], _skin[TbySkin.Frame]);
+_tby_draw_frame(_dim[TbyDim.x1], _dim[TbyDim.y1], _dim[TbyDim.x2], _dim[TbyDim.y2], _skin[TbySkin.TileSize], _skin[TbySkin.Frame]);
 
 scribble_draw_set_animation(
 	_config[TbyConfig.WaveSize],
@@ -39,7 +39,7 @@ if (draw_bubble_sprite) {
 
 #region Choice type
 if (type == TbyType.Choice && state_name == "Finished") {
-    var _height_offset =  tby_dim_line_height(scribble_element, choice_first_line + choice_selected + 1);
+    var _height_offset =  _tby_dim_line_height(scribble_element, choice_first_line + choice_selected + 1);
 
     draw_sprite(_skin[TbySkin.Arrow], -1,
                 _dim[TbyDim.x_content] + 3,
@@ -74,6 +74,6 @@ if (global.tby_debug) {
     }
     
     var _debug_width = tby_game_width - _dim[TbyDim.x1];
-    tby_draw_debug(_dim[TbyDim.x1], _dim[TbyDim.y1]-string_height_ext(_ds, -1, _debug_width), _ds, _debug_width);
+    _tby_draw_debug(_dim[TbyDim.x1], _dim[TbyDim.y1]-string_height_ext(_ds, -1, _debug_width), _ds, _debug_width);
 }
 #endregion
