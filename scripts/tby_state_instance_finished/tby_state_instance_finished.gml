@@ -7,7 +7,7 @@ var _skin/*:TbySkin*/     = skin;
 
 if (state_new) {
     draw_input_circle = true;
-    _scribble_element[@ __SCRIBBLE.AUTOTYPE_METHOD] = SCRIBBLE_TYPEWRITER_NONE;
+    _scribble_element[@ __SCRIBBLE.AUTOTYPE_METHOD] = SCRIBBLE_AUTOTYPE_NONE;
 }
 
 if (tby_input_confirm) {

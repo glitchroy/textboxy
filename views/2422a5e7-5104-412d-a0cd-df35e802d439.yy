@@ -1,8 +1,8 @@
 {
-    "id": "66b1ec66-4c33-4ba5-b1c4-d4684ec28896",
+    "id": "2422a5e7-5104-412d-a0cd-df35e802d439",
     "modelName": "GMFolder",
     "mvc": "1.1",
-    "name": "66b1ec66-4c33-4ba5-b1c4-d4684ec28896",
+    "name": "2422a5e7-5104-412d-a0cd-df35e802d439",
     "children": [
         "46ab8686-925f-467d-a3e4-dd3697c6cbd1",
         "b3138e5a-27ac-4e57-8f6e-b0d1b84faaf7",

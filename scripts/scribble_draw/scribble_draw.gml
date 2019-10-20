@@ -144,7 +144,7 @@ if (!is_array(_draw_string))
         _scribble_array[@ __SCRIBBLE.AUTOTYPE_FADE_IN   ] = -1;
         _scribble_array[@ __SCRIBBLE.AUTOTYPE_SPEED     ] = 0;
         _scribble_array[@ __SCRIBBLE.AUTOTYPE_POSITION  ] = 0;
-        _scribble_array[@ __SCRIBBLE.AUTOTYPE_METHOD    ] = SCRIBBLE_TYPEWRITER_NONE;
+        _scribble_array[@ __SCRIBBLE.AUTOTYPE_METHOD    ] = SCRIBBLE_AUTOTYPE_NONE;
         _scribble_array[@ __SCRIBBLE.AUTOTYPE_SMOOTHNESS] = 0;
     
         _scribble_array[@ __SCRIBBLE.__SECTION5         ] = "-- Events --";
@@ -673,7 +673,7 @@ if (!is_array(_draw_string))
                     ++_v;
                 }
             }
-            else if (_character_code < 32)//If this character code is below a space then ignore it
+            else if (_character_code < 32) //If this character code is below a space then ignore it
             {
                 continue;
             }
@@ -735,7 +735,7 @@ if (!is_array(_draw_string))
                 }
             
                 //Update WORD_START_TELL
-                _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = buffer_tell(_glyph_buffer);
+                if (global.scribble_state_character_wrap) _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = buffer_tell(_glyph_buffer);
             
                 #endregion
             
@@ -790,8 +790,10 @@ if (!is_array(_draw_string))
     
             #region Handle new line creation
     
-            if (_force_newline || ((_char_width + _text_x > _max_width) && (_max_width >= 0)))
+            if (_force_newline || ((_char_width + _text_x > _max_width) && (_max_width >= 0) && (_character_code > 32)))
             {
+                var _line_offset_x = -_text_x;
+                
                 var _v = 0;
                 repeat(ds_list_size(_vertex_buffer_list))
                 {
@@ -812,11 +814,16 @@ if (!is_array(_draw_string))
                 
                         if (_tell_a < _tell_b)
                         {
-                            //Retroactively move the last word to a new line
+                            //Find the buffer position of the start of the previous word
                             var _tell = _tell_a + __SCRIBBLE_VERTEX.X;
+                            
+                            //We want to offset to the left by the x-position of the start of the word
+                            _line_offset_x = -buffer_peek(_buffer, _tell, buffer_f32);
+                            
+                            //Retroactively move the last word to a new line
                             repeat((_tell_b - _tell_a) / __SCRIBBLE_VERTEX.__SIZE)
                             {
-                                buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) - _text_x);
+                                buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_offset_x);
                         
                                 _tell += __SCRIBBLE_VERTEX.Y - __SCRIBBLE_VERTEX.X;
                                 buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_height);
@@ -851,10 +858,10 @@ if (!is_array(_draw_string))
                 ds_list_add(_line_list, _line_array);
         
                 //Reset state
-                _text_x      = 0;
-                _text_y      = _text_y + _line_height;
-                _line_width  = 0;
-                _line_height = _line_min_height;
+                _text_x      += _line_offset_x;
+                _text_y       = _text_y + _line_height;
+                _line_width   = 0;
+                _line_height  = _line_min_height;
         
                 _force_newline = false;
             }
@@ -1027,7 +1034,7 @@ if (global.scribble_state_allow_draw)
     if (_count > 0)
     {
         var _typewriter_method = _scribble_array[__SCRIBBLE.AUTOTYPE_METHOD];
-        if (_typewriter_method == SCRIBBLE_TYPEWRITER_NONE)
+        if (_typewriter_method == SCRIBBLE_AUTOTYPE_NONE)
         {
             //If the text element's internal autotype method hasn't been set then use the global draw set state value
                 _typewriter_method     = global.scribble_state_tw_method;
@@ -1050,11 +1057,11 @@ if (global.scribble_state_allow_draw)
                 //Find the last character we need to scan
                 switch(_typewriter_method)
                 {
-                    case SCRIBBLE_TYPEWRITER_PER_CHARACTER:
+                    case SCRIBBLE_AUTOTYPE_PER_CHARACTER:
                         var _scan_b = ceil(_typewriter_position + _typewriter_speed);
                     break;
                 
-                    case SCRIBBLE_TYPEWRITER_PER_LINE:
+                    case SCRIBBLE_AUTOTYPE_PER_LINE:
                         var _list   = _scribble_array[__SCRIBBLE.LINE_LIST];
                         var _line   = _list[| min(ceil(_typewriter_position + _typewriter_speed), _scribble_array[__SCRIBBLE.LINES]-1)];
                         var _scan_b = _line[__SCRIBBLE_LINE.LAST_CHAR];
@@ -1106,7 +1113,7 @@ if (global.scribble_state_allow_draw)
                             ++_scan;
                         }
                         
-                        if (_break && (_typewriter_method == SCRIBBLE_TYPEWRITER_PER_CHARACTER)) _typewriter_position = _scan;
+                        if (_break && (_typewriter_method == SCRIBBLE_AUTOTYPE_PER_CHARACTER)) _typewriter_position = _scan;
                         
                         _scribble_array[@ __SCRIBBLE.EVENT_CHAR_PREVIOUS] = _scan;
                     }
@@ -1117,7 +1124,7 @@ if (global.scribble_state_allow_draw)
         }
         
         //Figure out the limit and smoothness values
-        if (_typewriter_method == SCRIBBLE_TYPEWRITER_NONE)
+        if (_typewriter_method == SCRIBBLE_AUTOTYPE_NONE)
         {
             var _typewriter_smoothness = 0;
             var _typewriter_t          = 1;
@@ -1126,8 +1133,8 @@ if (global.scribble_state_allow_draw)
         {
             switch(_typewriter_method)
             {
-                case SCRIBBLE_TYPEWRITER_PER_CHARACTER: var _typewriter_count = _scribble_array[__SCRIBBLE.CHARACTERS]; break;
-                case SCRIBBLE_TYPEWRITER_PER_LINE:      var _typewriter_count = _scribble_array[__SCRIBBLE.LINES     ]; break;
+                case SCRIBBLE_AUTOTYPE_PER_CHARACTER: var _typewriter_count = _scribble_array[__SCRIBBLE.CHARACTERS]; break;
+                case SCRIBBLE_AUTOTYPE_PER_LINE:      var _typewriter_count = _scribble_array[__SCRIBBLE.LINES     ]; break;
             }
             
             var _typewriter_t = clamp(_typewriter_position, 0, _typewriter_count + _typewriter_smoothness);

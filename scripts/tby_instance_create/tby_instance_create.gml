@@ -52,7 +52,7 @@ with (_inst) {
     scribble_draw_set_wrap(-1, type == TbyType.Bubble ? tby_bubble_max_width : tby_box_width);
     scribble_element = scribble_draw(0, 0, content);
     
-    scribble_autotype_fade_in(scribble_element, SCRIBBLE_TYPEWRITER_PER_CHARACTER, tw_speed, 0);
+    scribble_autotype_fade_in(scribble_element, SCRIBBLE_AUTOTYPE_PER_CHARACTER, tw_speed, 0);
     
     scribble_draw_reset();
 
