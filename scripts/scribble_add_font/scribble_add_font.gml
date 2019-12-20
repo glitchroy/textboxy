@@ -98,9 +98,37 @@ var _json_string = buffer_read(_json_buffer, buffer_text);
 buffer_delete(_json_buffer);
 var _json = json_decode(_json_string);
 
+var _fail = false;
+//Check to see if the JSON was successfully decoded
+if (_json < 0)
+{
+    show_error("Scribble:\nFailed to decode JSON for \"" + _path + "\"\n ", false);
+    _fail = true;
+}
+
+//Additional check to verify we have glyph data
+if (!ds_map_exists(_json, "glyphs"))
+{
+    show_error("Scribble:\nFailed to find \"glyphs\" key for \"" + _path + "\"\n ", false);
+    _fail = true;
+}
+
+//If either of the checks have failed, delete the data array and abort
+if (_fail)
+{
+    if (__SCRIBBLE_DEBUG) show_debug_message("Scribble: JSON string that failed is \"" + string(_json_string) + "\"");
+    ds_map_delete(global.__scribble_font_data, _font);
+    exit;
+}
 
 
 var _yy_glyph_list = _json[? "glyphs" ];
+if (__SCRIBBLE_DEBUG)
+{
+    var _is_list = (_yy_glyph_list != undefined) && ds_exists(_yy_glyph_list, ds_type_list);
+    show_error("Scribble:\n_yy_glyph_list = " + string(_yy_glyph_list) + "\n" + (_is_list? "It is a list" : "It is not a list") + "\n ", false);
+}
+
 var _size = ds_list_size(_yy_glyph_list);
 if (SCRIBBLE_VERBOSE) show_debug_message("Scribble:   \"" + _font + "\" has " + string(_size) + " characters");
 

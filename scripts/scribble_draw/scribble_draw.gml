@@ -502,6 +502,7 @@ if (!is_array(_draw_string))
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.BUFFER         ] = _buffer;
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.VERTEX_BUFFER  ] = undefined;
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.TEXTURE        ] = _sprite_texture;
+                                                        _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = 0;
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = 0;
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.LINE_START_LIST] = _line_break_list;
                                                         ds_list_add(_vertex_buffer_list, _vbuff_data);
@@ -511,6 +512,7 @@ if (!is_array(_draw_string))
                                                     else
                                                     {
                                                         var _buffer = _vbuff_data[__SCRIBBLE_VERTEX_BUFFER.BUFFER];
+                                                        _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = buffer_tell(_buffer);
                                                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = buffer_tell(_buffer);
                                                     }
                                                     
@@ -718,6 +720,7 @@ if (!is_array(_draw_string))
                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.BUFFER         ] = _glyph_buffer;
                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.VERTEX_BUFFER  ] = undefined;
                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.TEXTURE        ] = _font_texture;
+                        _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = 0;
                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = 0;
                         _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.LINE_START_LIST] = _line_break_list;
                         ds_list_add(_vertex_buffer_list, _vbuff_data);
@@ -734,7 +737,8 @@ if (!is_array(_draw_string))
                     repeat(ds_list_size(_line_list) - ds_list_size(_line_break_list)) ds_list_add(_line_break_list, _tell);
                 }
             
-                //Update WORD_START_TELL
+                //Update CHAR_START_TELL, and WORD_START_TELL if needed
+                _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = buffer_tell(_glyph_buffer);
                 if (global.scribble_state_character_wrap) _vbuff_data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = buffer_tell(_glyph_buffer);
             
                 #endregion
@@ -789,8 +793,9 @@ if (!is_array(_draw_string))
             }
     
             #region Handle new line creation
-    
-            if (_force_newline || ((_char_width + _text_x > _max_width) && (_max_width >= 0) && (_character_code > 32)))
+            
+            if (_force_newline
+            || ((_char_width + _text_x > _max_width) && (_max_width >= 0) && (_character_code > 32)))
             {
                 var _line_offset_x = -_text_x;
                 
@@ -811,7 +816,8 @@ if (!is_array(_draw_string))
                     {
                         var _tell_a = _data[__SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL];
                         ds_list_add(_line_break_list, _tell_a);
-                
+                        
+                        //If we've added anything to this buffer
                         if (_tell_a < _tell_b)
                         {
                             //Find the buffer position of the start of the previous word
@@ -820,23 +826,48 @@ if (!is_array(_draw_string))
                             //We want to offset to the left by the x-position of the start of the word
                             _line_offset_x = -buffer_peek(_buffer, _tell, buffer_f32);
                             
-                            //Retroactively move the last word to a new line
-                            repeat((_tell_b - _tell_a) / __SCRIBBLE_VERTEX.__SIZE)
+                            //If the start of the word is at 0 then we know that entire word is longer than the textbox max width
+                            //We fall back to use the character start position for this vertex buffer instead
+                            if (_line_offset_x >= 0)
                             {
-                                buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_offset_x);
-                        
-                                _tell += __SCRIBBLE_VERTEX.Y - __SCRIBBLE_VERTEX.X;
-                                buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_height);
-                        
-                                _tell += __SCRIBBLE_VERTEX.NY - __SCRIBBLE_VERTEX.Y;
-                                buffer_poke(_buffer, _tell, buffer_f32, _meta_lines+1);
-                        
-                                _tell += __SCRIBBLE_VERTEX.X + __SCRIBBLE_VERTEX.__SIZE - __SCRIBBLE_VERTEX.NY;
+                                var _tell_a = _data[__SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL];
+                                
+                                //Find the buffer position of the start of the previous word
+                                var _tell = _tell_a + __SCRIBBLE_VERTEX.X;
+                                
+                                //We want to offset to the left by the x-position of the start of the word
+                                _line_offset_x = -buffer_peek(_buffer, _tell, buffer_f32);
+                                
+                                //Set our word start tell position to be the same as the character start tell
+                                //This allows us to handle single words that exceed the maximum textbox width multiple times (!)
+                                _data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = _tell_a;
+                            }
+                            else
+                            {
+                                //If our word didn't start at x=0 then 
+                                //Set our word/character start position to be the current tell for this buffer
+                                _data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = _tell_b;
+                                _data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = _tell_b;
+                            }
+                            
+                            if (_line_offset_x < 0)
+                            {
+                                //Retroactively move the last word to a new line
+                                repeat((_tell_b - _tell_a) / __SCRIBBLE_VERTEX.__SIZE)
+                                {
+                                    buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_offset_x);
+                                    
+                                    _tell += __SCRIBBLE_VERTEX.Y - __SCRIBBLE_VERTEX.X;
+                                    buffer_poke(_buffer, _tell, buffer_f32, buffer_peek(_buffer, _tell, buffer_f32) + _line_height);
+                                    
+                                    _tell += __SCRIBBLE_VERTEX.NY - __SCRIBBLE_VERTEX.Y;
+                                    buffer_poke(_buffer, _tell, buffer_f32, _meta_lines+1);
+                                    
+                                    _tell += __SCRIBBLE_VERTEX.X + __SCRIBBLE_VERTEX.__SIZE - __SCRIBBLE_VERTEX.NY;
+                                }
                             }
                         }
                     }
-            
-                    _data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = _tell_b;
             
                     ++_v;
                 }
@@ -942,7 +973,8 @@ if (!is_array(_draw_string))
             _data[@ __SCRIBBLE_VERTEX_BUFFER.BUFFER       ] = undefined;
             buffer_delete(_buffer);
     
-            //Wipe WORD_START_TELL
+            //Wipe CHAR_START_TELL and WORD_START_TELL
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.CHAR_START_TELL] = undefined;
             _data[@ __SCRIBBLE_VERTEX_BUFFER.WORD_START_TELL] = undefined;
     
             ++_v;
@@ -1201,22 +1233,22 @@ if (SCRIBBLE_CACHE_TIMEOUT > 0)
         //Scan through the cache to see if any text elements have elapsed
         global.__scribble_cache_test_index = (global.__scribble_cache_test_index + 1) mod _size;
         var _cache_string = global.__scribble_global_cache_list[| global.__scribble_cache_test_index];
-        var _scribble_array = global.__scribble_global_cache_map[? _cache_string];
+        var _cache_array = global.__scribble_global_cache_map[? _cache_string];
         
-        if (!is_array(_scribble_array)
-        || (array_length_1d(_scribble_array) != __SCRIBBLE.__SIZE)
-        || (_scribble_array[__SCRIBBLE.VERSION] != __SCRIBBLE_VERSION)
-        || _scribble_array[__SCRIBBLE.FREED])
+        if (!is_array(_cache_array)
+        || (array_length_1d(_cache_array) != __SCRIBBLE.__SIZE)
+        || (_cache_array[__SCRIBBLE.VERSION] != __SCRIBBLE_VERSION)
+        || _cache_array[__SCRIBBLE.FREED])
         {
             if (__SCRIBBLE_DEBUG) show_debug_message("Scribble: \"" + _cache_string + "\" exists in cache but doesn't exist elsewhere");
             ds_list_delete(global.__scribble_global_cache_list, global.__scribble_cache_test_index);
         }
-        else if (_scribble_array[__SCRIBBLE.TIME] + SCRIBBLE_CACHE_TIMEOUT < current_time)
+        else if (_cache_array[__SCRIBBLE.TIME] + SCRIBBLE_CACHE_TIMEOUT < current_time)
         {
             if (__SCRIBBLE_DEBUG) show_debug_message("Scribble: Removing \"" + _cache_string + "\" from cache");
             
             //Free data (basically a duplicate of scribble_flush)
-            var _vbuff_list = _scribble_array[__SCRIBBLE.VERTEX_BUFFER_LIST];
+            var _vbuff_list = _cache_array[__SCRIBBLE.VERTEX_BUFFER_LIST];
             var _count = ds_list_size(_vbuff_list);
             for(var _i = 0; _i < _count; _i++)
             {
@@ -1225,17 +1257,17 @@ if (SCRIBBLE_CACHE_TIMEOUT > 0)
                 vertex_delete_buffer(_vbuff);
             }
             
-            ds_list_destroy(_scribble_array[@ __SCRIBBLE.LINE_LIST]);
+            ds_list_destroy(_cache_array[@ __SCRIBBLE.LINE_LIST]);
             ds_list_destroy(_vbuff_list);
             
-            _scribble_array[@ __SCRIBBLE.FREED] = true;
+            _cache_array[@ __SCRIBBLE.FREED] = true;
             
             //Remove reference from cache
             ds_map_delete(global.__scribble_global_cache_map,_cache_string);
             ds_list_delete(global.__scribble_global_cache_list, global.__scribble_cache_test_index);
             
             //Remove global reference
-            ds_map_delete(global.scribble_alive, _scribble_array[__SCRIBBLE.GLOBAL_INDEX]);
+            ds_map_delete(global.scribble_alive, _cache_array[__SCRIBBLE.GLOBAL_INDEX]);
         }
     }
 }

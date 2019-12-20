@@ -19,8 +19,8 @@
 /// 8) Automatically scans Included Files for fonts (if enabled)
 /// 
 /// 
-/// Scribble v5.1.0
-/// 2019/10/19
+/// Scribble v5.1.2
+/// 2019/12/15
 /// @jujuadams
 /// With thanks to glitchroy, Mark Turner, Rob van Saaze, DragoniteSpam, and sp202
 /// 
@@ -28,8 +28,8 @@
 
 #region Internal Macro Definitions
 
-#macro __SCRIBBLE_VERSION  "5.1.0"
-#macro __SCRIBBLE_DATE     "2019/10/19"
+#macro __SCRIBBLE_VERSION  "5.1.2"
+#macro __SCRIBBLE_DATE     "2019/12/15"
 #macro __SCRIBBLE_DEBUG    false
 
 enum SCRIBBLE_BOX
@@ -94,6 +94,7 @@ enum __SCRIBBLE_VERTEX_BUFFER
     BUFFER,
     VERTEX_BUFFER,
     TEXTURE,
+    CHAR_START_TELL,
     WORD_START_TELL,
     LINE_START_LIST,
     __SIZE
@@ -287,10 +288,14 @@ global.__scribble_colours[? "c_aqua"   ] = c_aqua;
 global.__scribble_colours[? "c_black"  ] = c_black;
 global.__scribble_colours[? "c_blue"   ] = c_blue;
 global.__scribble_colours[? "c_dkgray" ] = c_dkgray;
+global.__scribble_colours[? "c_dkgrey" ] = c_dkgray;
 global.__scribble_colours[? "c_fuchsia"] = c_fuchsia;
+global.__scribble_colours[? "c_gray"   ] = c_gray;
 global.__scribble_colours[? "c_green"  ] = c_green;
+global.__scribble_colours[? "c_grey"   ] = c_gray;
 global.__scribble_colours[? "c_lime"   ] = c_lime;
 global.__scribble_colours[? "c_ltgray" ] = c_ltgray;
+global.__scribble_colours[? "c_ltgrey" ] = c_ltgray;
 global.__scribble_colours[? "c_maroon" ] = c_maroon;
 global.__scribble_colours[? "c_navy"   ] = c_navy;
 global.__scribble_colours[? "c_olive"  ] = c_olive;
