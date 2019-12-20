@@ -3,7 +3,7 @@
     Only change if you know what you are doing. 
 */
 
-#macro tby_version "1.0.0-pre.15"
+#macro tby_version "1.0.0-pre.16"
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \
@@ -14,15 +14,12 @@
 #macro tby_object_manager obj_tby
 #macro tby_object_instance obj_tby_instance
 
-#macro tby_box_horz_padding floor(tby_game_width/8)
-
+/* Internal commands */
 enum TbyType {
     Box    = 100,
     Bubble = 200,
     Choice = 300
 }
-
-// Internal commands typically wrapped in a TbyBranch script
 enum TbyCmd {
     Config      = 400,
     Pause       = 500,
@@ -35,6 +32,7 @@ enum TbyCmd {
     Script      = 1200
 }
 
+/* Enums */
 enum TbySkin {
     Frame,
     Bubble,
@@ -69,6 +67,14 @@ enum TbyConfig {
     sizeof
 }
 
+enum TbyPlacement {
+    Top,
+    Middle,
+    Bottom,
+    Auto
+}
+
+/* Meta */
 enum TbyListMeta {
     IdentifierString,
     Pointer,
@@ -81,16 +87,7 @@ enum TbyPointerMeta {
     VariableName
 }
 
-enum TbyPlacement {
-    Top,
-    Middle,
-    Bottom,
-    Auto
-}
-
-
 /* Types */
-
 enum TbyBranch {
     message_list,
     label_map,

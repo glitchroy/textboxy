@@ -19,6 +19,6 @@ GitHub Issues for bug reports
 https://github.com/glitchroy/textboxy/issues
 ---------------------
 
-Please take a look at the credits, too: (*/tby_credits()/*)
+Please take a look at the credits, too: (*/tby_credits();/*)
 
 ********************/

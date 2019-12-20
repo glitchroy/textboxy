@@ -1,6 +1,5 @@
 //!#import tby_branch.*    as TbyBranch
 //!#import tby_add.*       as TbyAdd
-//!#import tby_state.*     as TbyState
 //!#import tby_scribble.*  as TbyScribble
 
 /* Internal */
