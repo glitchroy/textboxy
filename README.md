@@ -1,9 +1,11 @@
 # textboxy scribble
 
-> This project is a new version of textboxy, using the [scribble](https://github.com/GameMakerDiscord/scribble/) engine (v4.5.1) by @jujuadams.  
+This README is currently WIP, please check the wiki for more recent documentation.
+
+> This project is a new version of textboxy, using the [scribble](https://github.com/GameMakerDiscord/scribble/) engine by @jujuadams.  
 A small example is included. Please note that this version is not yet ready and considered a preview build or beta.  
 The documentation is being worked on in the wiki.
-**Current version: `v1.0.0-pre.8`**
+**Current version: `v1.0.0-pre.17`**
 
 > textboxy is built using [GMEdit](https://yellowafterlife.itch.io/gmedit) and best viewed through it, as namespacing and lambda previews will make navigating the codebase a lot more comfortable.
 
