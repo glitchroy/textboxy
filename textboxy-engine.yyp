@@ -279,6 +279,14 @@
             }
         },
         {
+            "Key": "23d75bdd-78f0-49e1-97e3-4ba85942b241",
+            "Value": {
+                "id": "9e625960-d1a4-46a3-960f-a333d84a8b1d",
+                "resourcePath": "views\\23d75bdd-78f0-49e1-97e3-4ba85942b241.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "2418c3f7-8665-4131-9cee-417459769975",
             "Value": {
                 "id": "7fbf62f9-e3b1-4898-853d-596f1756ec6e",
@@ -903,6 +911,14 @@
             }
         },
         {
+            "Key": "81048cfd-f310-4867-be73-53a335f3ce76",
+            "Value": {
+                "id": "9a2dbb8a-1521-4f66-a47c-2388c87a9c88",
+                "resourcePath": "datafiles_yy\\lang\\test.json.yy",
+                "resourceType": "GMIncludedFile"
+            }
+        },
+        {
             "Key": "8391ddbf-1397-42d2-83c2-cbcf41499df7",
             "Value": {
                 "id": "cc472d66-5ad8-4811-9117-e21b08da4a4c",
@@ -1090,7 +1106,7 @@
             "Key": "97cb4641-0ff6-4cb4-890b-a8b5ca546fd3",
             "Value": {
                 "id": "cc31c202-586c-44d2-b916-cba49ff0c304",
-                "resourcePath": "scripts\/_tby_external_strings_init\/_tby_external_strings_init.yy",
+                "resourcePath": "scripts\\_tby_load_json_from_file\\_tby_load_json_from_file.yy",
                 "resourceType": "GMScript"
             }
         },

@@ -137,14 +137,3 @@
 #macro tby_bubble_quick_mode_char ord("§")
 
 #endregion
-
-
-
-#region HANDLING EXTERNAL FILES
-
-#macro tby_lang_file_use_external     true
-/* What external file to use for loading dialogue.
-   Must be a .json file added to the included files.*/
-#macro tby_lang_file_default_external "lang.json"
-
-#endregion

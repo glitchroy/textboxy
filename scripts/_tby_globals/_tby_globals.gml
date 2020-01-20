@@ -11,11 +11,6 @@ global.tby_choice_result = undefined;
 /* This ds_map holds conditions defined in TbyBranches for live comparison. */
 global.tby_conditions = undefined;
 
-/* This ds_map holds all the key and value pairs that are
-   defined by an external file, using _tby_external_strings_init.
-   Otherwise, it is undefined. */
-global.tby_external_strings_map = undefined;
-
 //Create Text layer if it doesn't exist
 layer_set_target_room(room_first);
 if (!layer_exists(tby_room_layer_name)) {
@@ -25,8 +20,4 @@ layer_reset_target_room();
 
 if (!instance_exists(tby_object_manager)) {
 	room_instance_add(room_first, 0, 0, tby_object_manager);
-}
-
-if (tby_lang_file_use_external) {
-	_tby_external_strings_init(tby_lang_file_default_external);
 }

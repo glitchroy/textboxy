@@ -2,7 +2,7 @@
 /// @param _identifier
 var _identifier = argument0;
 
-var _map = global.tby_external_strings_map;
+var _map = _tby_load_json_from_file(_identifier)
 
 if (_map != undefined && ds_exists(_map, ds_type_map)) {
 
