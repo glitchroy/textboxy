@@ -7,7 +7,7 @@
 
 /* Shortcut macros */
 #macro tby_singleton if (instance_number(object_index)>1) \
-                        {instance_destroy();}
+                     {instance_destroy();}
 #macro tby_arrlen array_length_1d
 
 /* Internal objects */
