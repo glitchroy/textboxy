@@ -29,7 +29,8 @@ enum TbyCmd {
     SetVar      = 900,
     SetGlobal   = 1000,
     Conditional = 1100,
-    Script      = 1200
+    Script      = 1200,
+    Select      = 1300
 }
 
 /* Enums */
