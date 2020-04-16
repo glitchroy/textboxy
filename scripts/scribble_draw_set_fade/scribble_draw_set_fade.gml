@@ -9,8 +9,8 @@
 /// 
 /// 
 /// Scribble supports two fade effects:
-/// SCRIBBLE_AUTOTYPE_PER_CHARACTER: Fade each character individually. <position> is measured in "number of drawn characters"
-/// SCRIBBLE_AUTOTYPE_PER_LINE:      Fade each line of text as a group. <position> is measured in "number of lines of text"
+/// SCRIBBLE_TYPEWRITER_PER_CHARACTER: Fade each character individually. <position> is measured in "number of drawn characters"
+/// SCRIBBLE_TYPEWRITER_PER_LINE:      Fade each line of text as a group. <position> is measured in "number of lines of text"
 /// 
 /// This script "sets state". All text drawn with scribble_draw() will use these settings until they're overwritten,
 /// either by calling this script again or by calling scribble_draw_reset() / scribble_draw_set_state().

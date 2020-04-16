@@ -2,6 +2,7 @@
 /// This script should be called before any other Scribble script.
 /// 
 /// 
+/// Returns: Whether initialisation was successful
 /// @param fontDirectory    The directory to look in (relative to game_save_id) for font .yy files.
 /// @param defaultFont      The name of the default Scribble font to use, as a string.
 /// @param autoScan         Whether or not to automatically find normal font .yy files in the font directory.
@@ -19,17 +20,17 @@
 /// 8) Automatically scans Included Files for fonts (if enabled)
 /// 
 /// 
-/// Scribble v5.4.1.pre
-/// 2020-02-23
+/// Scribble v5.4.5c
+/// 2020-04-16
 /// @jujuadams
-/// With thanks to glitchroy, Mark Turner, Rob van Saaze, DragoniteSpam, and sp202
+/// With thanks to glitchroy, Mark Turner, DragoniteSpam, sp202, Rob van Saaze, soVes, and @stoozey_
 /// 
 /// For use with GMS2.2.2 and later
 
 #region Internal Macro Definitions
 
-#macro __SCRIBBLE_VERSION  "5.4.1.pre"
-#macro __SCRIBBLE_DATE     "2020-02-24"
+#macro __SCRIBBLE_VERSION  "5.4.5c"
+#macro __SCRIBBLE_DATE     "2020-04-16"
 #macro __SCRIBBLE_DEBUG    false
 
 //You'll usually only want to modify SCRIBBLE_GLYPH.X_OFFSET, SCRIBBLE_GLYPH.Y_OFFSET, and SCRIBBLE_GLYPH.SEPARATION
@@ -156,6 +157,7 @@ enum __SCRIBBLE
     __SECTION0,             // 0
     VERSION,                // 1
     STRING,                 // 2
+    CACHE_STRING,           // 3
     DEFAULT_FONT,           // 3
     DEFAULT_COLOUR,         // 4
     DEFAULT_HALIGN,         // 5
@@ -214,10 +216,10 @@ enum __SCRIBBLE
 
 #endregion
 
-if ( variable_global_exists("__scribble_global_count") )
+if (variable_global_exists("__scribble_global_count"))
 {
-    show_error("Scribble:\nscribble_init() should not be called twice!\n ", false);
-    exit;
+    if (SCRIBBLE_WARNING_REINITIALIZE) show_error("Scribble:\nscribble_init() should not be called twice!\n(Set SCRIBBLE_WARNING_REINITIALIZE to <false> to hide this warning)\n ", false);
+    return false;
 }
 
 show_debug_message("Scribble: Welcome to Scribble by @jujuadams! This is version " + __SCRIBBLE_VERSION + ", " + __SCRIBBLE_DATE);
@@ -280,6 +282,7 @@ else if ((asset_get_type(_default_font) != asset_font) && (asset_get_type(_defau
 }
 
 //Declare global variables
+global.__scribble_lcg               = date_current_datetime()*100;
 global.__scribble_font_directory    = _font_directory;
 global.__scribble_font_data         = ds_map_create();  //Stores a data array for each font defined inside Scribble
 global.__scribble_colours           = ds_map_create();  //Stores colour definitions, including custom colours
@@ -422,7 +425,7 @@ if (_auto_scan)
                     
                     if (asset_get_type(_font) != asset_font)
                     {
-                        show_debug_message("Scribble: WARNING! Autoscan found \"" + _file + "\", but \"" + _font + "\" was not found in the project");
+                        show_debug_message("Scribble: Warning! Autoscan found \"" + _file + "\", but \"" + _font + "\" was not found in the project as a font asset");
                     }
                     else
                     {
@@ -437,3 +440,5 @@ if (_auto_scan)
         ds_list_destroy(_directory_list);
     }
 }
+
+return true;
