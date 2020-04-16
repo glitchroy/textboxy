@@ -24,15 +24,16 @@ if (tby_input_advance_textbox || _current_state == 1) {
 }
 
 // Play audio
+/*
 if (_current_state > 0 && _current_state < 1) {
-	var _sound = _config[TbyConfig.Sound];
+	var _sound = _config.Sound;
 	
 	if (audio_exists(_sound)) {
 		var _new_tw_position = _scribble_element[@ __SCRIBBLE.AUTOTYPE_POSITION];
 		if (ceil(_tw_position) < ceil(_new_tw_position)) {
 			audio_stop_sound(_sound);
 			var _audio = audio_play_sound(_sound, 1, false);
-			var _pitch_bounds = _config[TbyConfig.SoundPitch];
+			var _pitch_bounds = _config.SoundPitch;
 			var _pitch = 1;
 		
 			if (is_array(_pitch_bounds)) {
@@ -46,7 +47,7 @@ if (_current_state > 0 && _current_state < 1) {
 			audio_sound_pitch(_audio, _pitch);
 		}
 	}
-}
+}*/
 
 // Update instance position in Bubble
 if (_type == TbyType.Bubble) {

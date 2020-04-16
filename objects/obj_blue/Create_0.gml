@@ -17,7 +17,7 @@ blue_dialogue = tby_branch_create([
         ),
         tby_add_config(TbyConfig.Placement, TbyPlacement.Middle),
         ["§test2", id],
-        tby_add_select(),
+        tby_add_select(-1),
         tby_add_config(TbyConfig.Instance, instance_find(obj_blue, 0)),
         tby_add_if(
             5, TbyCondition.Equals, 5, 

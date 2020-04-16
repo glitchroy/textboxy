@@ -54,6 +54,8 @@ with (_inst) {
     
     scribble_autotype_fade_in(scribble_element, SCRIBBLE_AUTOTYPE_PER_CHARACTER, tw_speed, 0);
     
+    scribble_autotype_set_sound(scribble_element, _config[TbyConfig.Sound], 50)
+    
     scribble_draw_reset();
 
     dimensions = _tby_dim_create(type, scribble_element, _skin[TbySkin.TileSize], _placement, instance, sprite_get_height(_skin[TbySkin.Bubble]));
