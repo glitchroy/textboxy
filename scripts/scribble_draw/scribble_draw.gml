@@ -672,15 +672,15 @@ function scribble_draw(argument0, argument1, argument2) {
 	                                                    buffer_write(_glyph_buffer, buffer_f32, _quad_cx); buffer_write(_glyph_buffer, buffer_f32, _quad_cy); buffer_write(_glyph_buffer, buffer_f32, _packed_indexes);    buffer_write(_glyph_buffer, buffer_f32, _quad_l + _slant_offset); buffer_write(_glyph_buffer, buffer_f32, _quad_t); buffer_write(_glyph_buffer, buffer_f32, _text_effect_flags);    buffer_write(_glyph_buffer, buffer_u32, _colour);    buffer_write(_glyph_buffer, buffer_f32, _uvs[0]); buffer_write(_glyph_buffer, buffer_f32, _uvs[1]);
 	                                                    buffer_write(_glyph_buffer, buffer_f32, _quad_cx); buffer_write(_glyph_buffer, buffer_f32, _quad_cy); buffer_write(_glyph_buffer, buffer_f32, _packed_indexes);    buffer_write(_glyph_buffer, buffer_f32, _quad_r + _slant_offset); buffer_write(_glyph_buffer, buffer_f32, _quad_t); buffer_write(_glyph_buffer, buffer_f32, _text_effect_flags);    buffer_write(_glyph_buffer, buffer_u32, _colour);    buffer_write(_glyph_buffer, buffer_f32, _uvs[2]); buffer_write(_glyph_buffer, buffer_f32, _uvs[1]);
                                                     
-	                                                    ++_image;
-	                                                    if (_image_speed > 0) ++_colour;
+	                                                    _image++;
+	                                                    if (_image_speed > 0) _colour++;
 	                                                }
                                                 
                                                 #endregion
                                                 
 	                                                _text_effect_flags = ~((~_text_effect_flags) | 1); //Reset animated sprite effect flag specifically
-	                                                ++_meta_page_characters;
-	                                                ++_meta_element_characters;
+	                                                _meta_page_characters++;
+	                                                _meta_element_characters++;
                                                 
                                                 #endregion
 	                                            }
