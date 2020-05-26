@@ -1,8 +1,12 @@
 {
-    "id": "dfe44656-863c-4090-8935-d02a9111544c",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scribble_get_quad",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scribble",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scribble_get_quad",
+  "tags": [],
+  "resourceType": "GMScript",
 }

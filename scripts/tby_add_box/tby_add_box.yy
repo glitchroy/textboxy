@@ -1,8 +1,12 @@
 {
-    "id": "778223f8-6d07-439e-b89c-cacb01156b4c",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "tby_add_box",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Branch Commands",
+    "path": "folders/Scripts/Lib/textboxy/Branch Commands.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "tby_add_box",
+  "tags": [],
+  "resourceType": "GMScript",
 }

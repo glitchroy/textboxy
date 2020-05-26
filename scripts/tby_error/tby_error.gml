@@ -1,13 +1,17 @@
 /// @desc Returns the given string(s) as an error textbox, halting execution.
-if (!tby_debug_do_output) exit;
+function tby_error() {
+	if (!tby_debug_do_output) exit;
 
-var _s = "";
+	var _s = "";
 
-for (var i = 0; i < argument_count; i++) {
-	var _arg = argument[i];
-	if (is_array(_arg)) _arg = _tby_print_array(_arg);
+	for (var i = 0; i < argument_count; i++) {
+		var _arg = argument[i];
+		if (is_array(_arg)) _arg = _tby_print_array(_arg);
 	
-	_s += string(_arg) + "\n";
-}
+		_s += string(_arg) + "\n";
+	}
 
-show_message(_s);
+	show_message(_s);
+
+
+}

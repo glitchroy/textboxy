@@ -1,8 +1,12 @@
 {
-    "id": "aeee024e-5ea2-4cc2-9db3-dbd837ef5d82",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_state_instance_vanishing",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Instance",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Instance.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_state_instance_vanishing",
+  "tags": [],
+  "resourceType": "GMScript",
 }

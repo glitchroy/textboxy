@@ -1,8 +1,12 @@
 {
-    "id": "5cad8e90-12ba-4217-ae17-fc83ec561a6d",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_dim_gui_y",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Dimensions",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Dimensions.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_dim_gui_y",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,8 +1,12 @@
 {
-    "id": "8391ddbf-1397-42d2-83c2-cbcf41499df7",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_array_flatten_shallow",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Helper",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Helper.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_array_flatten_shallow",
+  "tags": [],
+  "resourceType": "GMScript",
 }

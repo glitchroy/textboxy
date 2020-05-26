@@ -1,8 +1,12 @@
 {
-    "id": "5a6c3b00-f5bb-4d36-9c22-668b61d3d3b5",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "tby_credits",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Docs and Configs",
+    "path": "folders/Scripts/Lib/textboxy/Docs and Configs.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "tby_credits",
+  "tags": [],
+  "resourceType": "GMScript",
 }

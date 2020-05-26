@@ -2,10 +2,14 @@
 /// @param _branch
 /// @param _label_name
 /// @param _label_value
-var _branch = argument0, _label_name = argument1, _label_value = argument2;
+function _tby_branch_label_set(argument0, argument1, argument2) {
+	var _branch = argument0, _label_name = argument1, _label_value = argument2;
 
-var _b/*:TbyBranch*/ = _branch;
+	var _b/*:TbyBranch*/ = _branch;
 
-var _label_map = _b[TbyBranch.label_map];
+	var _label_map = _b[TbyBranch.label_map];
 
-_label_map[? _label_name] = _label_value;
+	_label_map[? _label_name] = _label_value;
+
+
+}

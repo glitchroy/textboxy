@@ -1,8 +1,12 @@
 {
-    "id": "0cb29613-6eb5-4667-be61-a06f554fc7ee",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_state_init",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "State Machine",
+    "path": "folders/Scripts/Lib/textboxy/Internal/State Machine.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_state_init",
+  "tags": [],
+  "resourceType": "GMScript",
 }

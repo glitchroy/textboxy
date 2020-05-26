@@ -14,16 +14,20 @@
 /// 
 /// This script "sets state". All text drawn with scribble_draw() will use these settings until they're overwritten,
 /// either by calling this script again or by calling scribble_draw_reset() / scribble_draw_set_state().
+function scribble_draw_set_fade(argument0, argument1, argument2, argument3) {
 
-global.scribble_state_tw_fade_in    = argument0;
-global.scribble_state_tw_position   = argument1;
-global.scribble_state_tw_method     = argument2;
-global.scribble_state_tw_smoothness = argument3;
+	global.scribble_state_tw_fade_in    = argument0;
+	global.scribble_state_tw_position   = argument1;
+	global.scribble_state_tw_method     = argument2;
+	global.scribble_state_tw_smoothness = argument3;
 
-if ((global.scribble_state_tw_method != SCRIBBLE_FADE_NONE)
-&&  (global.scribble_state_tw_method != SCRIBBLE_FADE_PER_CHARACTER)
-&&  (global.scribble_state_tw_method != SCRIBBLE_FADE_PER_LINE))
-{
-    show_error("Scribble:\nMethod not recognised.\nPlease use SCRIBBLE_FADE_NONE, SCRIBBLE_FADE_PER_CHARACTER, or SCRIBBLE_FADE_PER_LINE.\n ", false);
-    global.scribble_state_tw_method = SCRIBBLE_FADE_NONE;
+	if ((global.scribble_state_tw_method != SCRIBBLE_FADE_NONE)
+	&&  (global.scribble_state_tw_method != SCRIBBLE_FADE_PER_CHARACTER)
+	&&  (global.scribble_state_tw_method != SCRIBBLE_FADE_PER_LINE))
+	{
+	    show_error("Scribble:\nMethod not recognised.\nPlease use SCRIBBLE_FADE_NONE, SCRIBBLE_FADE_PER_CHARACTER, or SCRIBBLE_FADE_PER_LINE.\n ", false);
+	    global.scribble_state_tw_method = SCRIBBLE_FADE_NONE;
+	}
+
+
 }

@@ -12,6 +12,11 @@
 /// 
 /// This script "sets state". All text drawn with scribble_draw() will use these settings until they're overwritten,
 /// either by calling this script again or by calling scribble_draw_reset() / scribble_draw_set_state().
+function scribble_draw_set_blend(argument0, argument1) {
 
-global.scribble_state_colour = argument0;
-global.scribble_state_alpha  = argument1;
+	global.scribble_state_colour = argument0;
+	global.scribble_state_alpha  = argument1;
+
+
+
+}

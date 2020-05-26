@@ -1,8 +1,12 @@
 {
-    "id": "acb26a39-8033-4289-87d0-228ed7921bc8",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "__scribble_config",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Scribble",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "__scribble_config",
+  "tags": [],
+  "resourceType": "GMScript",
 }

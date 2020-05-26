@@ -1,8 +1,12 @@
 {
-    "id": "e70ddf0a-8115-4b58-a835-4e2735c7ff94",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_list_size",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "TbyList",
+    "path": "folders/Scripts/Lib/textboxy/Internal/TbyList.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_list_size",
+  "tags": [],
+  "resourceType": "GMScript",
 }

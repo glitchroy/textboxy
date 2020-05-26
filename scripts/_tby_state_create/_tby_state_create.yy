@@ -1,8 +1,12 @@
 {
-    "id": "705e25d6-b017-4359-a765-b4e0869116c9",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_state_create",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "State Machine",
+    "path": "folders/Scripts/Lib/textboxy/Internal/State Machine.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_state_create",
+  "tags": [],
+  "resourceType": "GMScript",
 }

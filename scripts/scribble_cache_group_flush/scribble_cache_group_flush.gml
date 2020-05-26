@@ -20,58 +20,62 @@
 /// the argument.
 /// 
 /// To track how much Scribble data exists at any one time, call ds_map_size(global.scribble_alive).
+function scribble_cache_group_flush(argument0) {
 
-var _target = argument0;
+	var _target = argument0;
 
-if (ds_map_exists(global.__scribble_cache_group_map, _target))
-{
-    if (__SCRIBBLE_DEBUG) show_debug_message("Scribble: Trying to clear cache group " + string(_target));
+	if (ds_map_exists(global.__scribble_cache_group_map, _target))
+	{
+	    if (__SCRIBBLE_DEBUG) show_debug_message("Scribble: Trying to clear cache group " + string(_target));
     
-    var _list = global.__scribble_cache_group_map[? _target];
-    var _i = 0;
-    repeat(ds_list_size(_list))
-    {
-        var _scribble_array = _list[| _i];
+	    var _list = global.__scribble_cache_group_map[? _target];
+	    var _i = 0;
+	    repeat(ds_list_size(_list))
+	    {
+	        var _scribble_array = _list[| _i];
         
-        if (is_array(_scribble_array)
-        && (array_length_1d(_scribble_array) == __SCRIBBLE.__SIZE)
-        && (_scribble_array[__SCRIBBLE.VERSION] == __SCRIBBLE_VERSION)
-        && !_scribble_array[__SCRIBBLE.FREED])
-        {
-            //Remove reference from cache
-            ds_map_delete(global.__scribble_global_cache_map,_scribble_array[__SCRIBBLE.CACHE_STRING]);
+	        if (is_array(_scribble_array)
+	        && (array_length_1d(_scribble_array) == __SCRIBBLE.__SIZE)
+	        && (_scribble_array[__SCRIBBLE.VERSION] == __SCRIBBLE_VERSION)
+	        && !_scribble_array[__SCRIBBLE.FREED])
+	        {
+	            //Remove reference from cache
+	            ds_map_delete(global.__scribble_global_cache_map,_scribble_array[__SCRIBBLE.CACHE_STRING]);
             
-            //Remove global reference
-            ds_map_delete(global.scribble_alive, _scribble_array[__SCRIBBLE.GLOBAL_INDEX]);
+	            //Remove global reference
+	            ds_map_delete(global.scribble_alive, _scribble_array[__SCRIBBLE.GLOBAL_INDEX]);
             
-            //Destroy vertex buffers
-            var _element_pages_array = _scribble_array[__SCRIBBLE.PAGES_ARRAY];
-            var _p = 0;
-            repeat(array_length_1d(_element_pages_array))
-            {
-                var _page_array = _element_pages_array[_p];
-                var _vertex_buffers_array = _page_array[__SCRIBBLE_PAGE.VERTEX_BUFFERS_ARRAY];
-                var _v = 0;
-                repeat(array_length_1d(_vertex_buffers_array))
-                {
-                    var _vbuff_data = _vertex_buffers_array[_v];
-                    var _vbuff = _vbuff_data[__SCRIBBLE_VERTEX_BUFFER.VERTEX_BUFFER];
-                    vertex_delete_buffer(_vbuff);
-                    ++_v;
-                }
-                ++_p;
-            }
+	            //Destroy vertex buffers
+	            var _element_pages_array = _scribble_array[__SCRIBBLE.PAGES_ARRAY];
+	            var _p = 0;
+	            repeat(array_length_1d(_element_pages_array))
+	            {
+	                var _page_array = _element_pages_array[_p];
+	                var _vertex_buffers_array = _page_array[__SCRIBBLE_PAGE.VERTEX_BUFFERS_ARRAY];
+	                var _v = 0;
+	                repeat(array_length_1d(_vertex_buffers_array))
+	                {
+	                    var _vbuff_data = _vertex_buffers_array[_v];
+	                    var _vbuff = _vbuff_data[__SCRIBBLE_VERTEX_BUFFER.VERTEX_BUFFER];
+	                    vertex_delete_buffer(_vbuff);
+	                    ++_v;
+	                }
+	                ++_p;
+	            }
         
-            _scribble_array[@ __SCRIBBLE.FREED] = true;
-        }
+	            _scribble_array[@ __SCRIBBLE.FREED] = true;
+	        }
         
-        ++_i;
-    }
+	        ++_i;
+	    }
     
-    ds_list_clear(_list);
+	    ds_list_clear(_list);
     
-    return true;
+	    return true;
+	}
+
+	if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: WARNING! Cache group \"" + string(_target) + "\" has not yet been created");
+	return false;
+
+
 }
-
-if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: WARNING! Cache group \"" + string(_target) + "\" has not yet been created");
-return false;

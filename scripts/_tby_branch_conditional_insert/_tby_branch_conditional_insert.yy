@@ -1,8 +1,12 @@
 {
-    "id": "f81024a1-33ee-4692-be44-f18a637307ad",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_branch_conditional_insert",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Branch Conditional",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Branch/Branch Conditional.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_branch_conditional_insert",
+  "tags": [],
+  "resourceType": "GMScript",
 }

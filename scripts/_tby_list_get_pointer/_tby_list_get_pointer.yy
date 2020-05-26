@@ -1,8 +1,12 @@
 {
-    "id": "d5d7cc72-5fbd-4cb4-8075-d02aa481bb9f",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_list_get_pointer",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "TbyList",
+    "path": "folders/Scripts/Lib/textboxy/Internal/TbyList.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_list_get_pointer",
+  "tags": [],
+  "resourceType": "GMScript",
 }

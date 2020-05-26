@@ -1,8 +1,12 @@
 {
-    "id": "c8bd790d-fc2c-4dda-9591-53517b4b6a56",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_queue_to_array",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Helper",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Helper.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_queue_to_array",
+  "tags": [],
+  "resourceType": "GMScript",
 }

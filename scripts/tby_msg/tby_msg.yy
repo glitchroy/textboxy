@@ -1,8 +1,12 @@
 {
-    "id": "a240add3-01ac-409a-9087-9507a622cd5b",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "tby_msg",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Debug",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Debug.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "tby_msg",
+  "tags": [],
+  "resourceType": "GMScript",
 }

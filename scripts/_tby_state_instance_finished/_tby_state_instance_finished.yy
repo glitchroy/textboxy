@@ -1,8 +1,12 @@
 {
-    "id": "6f0fd73b-a2d7-4a10-85c1-5bb9f26d4190",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_state_instance_finished",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Instance",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Instance.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_state_instance_finished",
+  "tags": [],
+  "resourceType": "GMScript",
 }

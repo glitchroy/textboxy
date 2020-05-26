@@ -2,12 +2,16 @@
 /// @param textElement
 /// @param eventData{array}
 /// @param characterIndex
+function _tby_event_handle_speed(argument0, argument1, argument2) {
 
-// [speed,1] (bigger -> slower)
+	// [speed,1] (bigger -> slower)
 
-var _text_element = argument0;
-var _event_data   = argument1;
-var _char_index   = argument2;
+	var _text_element = argument0;
+	var _event_data   = argument1;
+	var _char_index   = argument2;
 
-tw_speed = real(_event_data[0]);
-_tby_scribble_autotype_set_speed(_text_element, real(_event_data[0]));
+	tw_speed = real(_event_data[0]);
+	_tby_scribble_autotype_set_speed(_text_element, real(_event_data[0]));
+
+
+}

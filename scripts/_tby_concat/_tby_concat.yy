@@ -1,8 +1,12 @@
 {
-    "id": "18853c11-249e-435e-bc9d-ff1d50e936d8",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_concat",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Helper",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Helper.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_concat",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,8 +1,12 @@
 {
-    "id": "4a7c2ca9-1001-4016-b367-2e64dfadca55",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_branch_config_set_defaults",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Branch",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Branch.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_branch_config_set_defaults",
+  "tags": [],
+  "resourceType": "GMScript",
 }

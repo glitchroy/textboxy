@@ -19,7 +19,11 @@
 /// the argument.
 /// 
 /// To track how much Scribble data exists at any one time, call ds_map_size(global.scribble_alive).
+function scribble_draw_set_cache_group(argument0, argument1, argument2) {
 
-global.scribble_state_cache_group = (argument0 != undefined)? argument0 : SCRIBBLE_DEFAULT_CACHE_GROUP;
-global.scribble_state_allow_draw  = argument1;
-global.scribble_state_freeze      = argument2;
+	global.scribble_state_cache_group = (argument0 != undefined)? argument0 : SCRIBBLE_DEFAULT_CACHE_GROUP;
+	global.scribble_state_allow_draw  = argument1;
+	global.scribble_state_freeze      = argument2;
+
+
+}

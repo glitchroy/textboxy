@@ -1,8 +1,12 @@
 {
-    "id": "ae125a71-7429-5858-56d6-9f3439988db9",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_branch_label_scan",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Branch Label",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Branch/Branch Label.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_branch_label_scan",
+  "tags": [],
+  "resourceType": "GMScript",
 }

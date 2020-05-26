@@ -1,8 +1,12 @@
 {
-    "id": "257ab514-7a98-485e-b98a-9b329d12b22f",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_constants",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Internal Docs",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Internal Docs.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_constants",
+  "tags": [],
+  "resourceType": "GMScript",
 }

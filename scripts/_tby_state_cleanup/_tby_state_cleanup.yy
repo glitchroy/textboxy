@@ -1,8 +1,12 @@
 {
-    "id": "96869772-5b9b-4079-a001-b28cef08d91c",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_state_cleanup",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "State Machine",
+    "path": "folders/Scripts/Lib/textboxy/Internal/State Machine.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_state_cleanup",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,8 +1,12 @@
 {
-    "id": "d4851883-2f1c-4246-bdfe-cf58b268a32c",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_globals",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Internal Docs",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Internal Docs.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_globals",
+  "tags": [],
+  "resourceType": "GMScript",
 }

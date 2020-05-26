@@ -1,8 +1,12 @@
 {
-    "id": "597b1aab-40fe-4679-9dc4-628ab054c338",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_list_create",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "TbyList",
+    "path": "folders/Scripts/Lib/textboxy/Internal/TbyList.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_list_create",
+  "tags": [],
+  "resourceType": "GMScript",
 }

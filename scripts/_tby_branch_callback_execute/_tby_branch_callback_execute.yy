@@ -1,8 +1,12 @@
 {
-    "id": "b90dd7fa-979e-8328-c78b-8f33c2ad1e47",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "_tby_branch_callback_execute",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Branch",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Branch.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "_tby_branch_callback_execute",
+  "tags": [],
+  "resourceType": "GMScript",
 }

@@ -1,8 +1,12 @@
 {
-    "id": "bc1d9d35-0438-426a-8ad8-defddf328e10",
-    "modelName": "GMScript",
-    "mvc": "1.0",
-    "name": "scribble_page_count",
-    "IsCompatibility": false,
-    "IsDnD": false
+  "isDnD": false,
+  "isCompatibility": false,
+  "parent": {
+    "name": "Pages",
+    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble/Extras/Pages.yy",
+  },
+  "resourceVersion": "1.0",
+  "name": "scribble_page_count",
+  "tags": [],
+  "resourceType": "GMScript",
 }
