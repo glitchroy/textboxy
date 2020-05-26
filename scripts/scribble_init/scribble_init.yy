@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Initialisation",
-    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble/Initialisation.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/Initialisation.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_init",

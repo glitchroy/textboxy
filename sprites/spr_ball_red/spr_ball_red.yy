@@ -70,7 +70,7 @@
   ],
   "parent": {
     "name": "Example",
-    "path": "folders/Sprites/Example.yy",
+    "path": "folders/Lib/textboxy/Example.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ball_red",

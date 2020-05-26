@@ -157,7 +157,7 @@
   },
   "parent": {
     "name": "Example",
-    "path": "folders/Tile Sets/Example.yy",
+    "path": "folders/Lib/textboxy/Example.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_test",

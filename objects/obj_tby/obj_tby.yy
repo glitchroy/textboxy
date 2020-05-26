@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "textboxy",
-    "path": "folders/Objects/Lib/textboxy.yy",
+    "name": "Internal",
+    "path": "folders/Lib/textboxy/Internal.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_tby",

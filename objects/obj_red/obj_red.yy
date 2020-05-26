@@ -28,7 +28,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Example",
-    "path": "folders/Objects/Example.yy",
+    "path": "folders/Lib/textboxy/Example.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_red",

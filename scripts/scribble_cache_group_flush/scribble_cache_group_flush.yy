@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Advanced Things For Serious People",
-    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble/Extras/Advanced Things For Serious People.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/Extras/Advanced Things For Serious People.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_cache_group_flush",

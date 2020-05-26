@@ -13,8 +13,8 @@
   "soundFile": "snd_tby_speech_default",
   "duration": 0.135612,
   "parent": {
-    "name": "textboxy",
-    "path": "folders/Sounds/Lib/textboxy.yy",
+    "name": "Internal",
+    "path": "folders/Lib/textboxy/Internal.yy",
   },
   "resourceVersion": "1.0",
   "name": "snd_tby_speech_default",

@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Drawing Options",
-    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble/Drawing Options.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/Drawing Options.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_draw_set_blend",

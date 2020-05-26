@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "#gmedit-lambda",
-    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/#gmedit-lambda.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/#gmedit-lambda.yy",
   },
   "resourceVersion": "1.0",
   "name": "__lf__tby_dim_create_",

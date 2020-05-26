@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "textboxy",
-    "path": "folders/Fonts/Lib/textboxy.yy",
+    "name": "Internal",
+    "path": "folders/Lib/textboxy/Internal.yy",
   },
   "resourceVersion": "1.0",
   "name": "font_tby_debug",

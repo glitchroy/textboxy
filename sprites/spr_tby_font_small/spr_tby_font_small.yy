@@ -266,7 +266,7 @@
   ],
   "parent": {
     "name": "Scribble",
-    "path": "folders/Sprites/Lib/textboxy/Scribble.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scribble.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tby_font_small",

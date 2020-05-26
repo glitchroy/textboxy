@@ -49,8 +49,8 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Example",
-    "path": "folders/Rooms/Example.yy",
+    "name": "Rooms",
+    "path": "folders/Lib/textboxy/Example/Rooms.yy",
   },
   "resourceVersion": "1.0",
   "name": "room_init",

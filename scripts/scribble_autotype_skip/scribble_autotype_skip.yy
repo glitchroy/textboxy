@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Auto Typewriter",
-    "path": "folders/Scripts/Lib/textboxy/Internal/Lib/Scribble/Extras/Auto Typewriter.yy",
+    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/Extras/Auto Typewriter.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_autotype_skip",

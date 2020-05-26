@@ -70,7 +70,7 @@
   ],
   "parent": {
     "name": "Skins",
-    "path": "folders/Sprites/Lib/textboxy/Skins.yy",
+    "path": "folders/Lib/textboxy/Internal/Skins.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tby_skin_frame_debug",
