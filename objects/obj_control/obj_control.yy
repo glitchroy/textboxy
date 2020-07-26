@@ -24,8 +24,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "tby23",
-    "path": "tby23.yyp",
+    "name": "textboxy-engine",
+    "path": "textboxy-engine.yyp",
   },
   "resourceVersion": "1.0",
   "name": "obj_control",
