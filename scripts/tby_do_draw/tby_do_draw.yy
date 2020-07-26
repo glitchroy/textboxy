@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "textboxy-engine",
-    "path": "folders/textboxy-engine.yy",
+    "path": "textboxy-engine.yyp",
   },
   "resourceVersion": "1.0",
   "name": "tby_do_draw",

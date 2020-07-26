@@ -17,6 +17,15 @@
 	                      keyboard_check_pressed( \
 	                      vk_space))
 
+// Used in calculating the textbox width
+#macro tby_game_width 480
+#macro tby_game_height 270
+
+// Padding in pixels to add to the left and to the right of
+// the textbox
+#macro tby_box_padding 48
+
+
 
 /************************/
 // old config
@@ -45,8 +54,8 @@
 	/* The width and height of the camera viewport.
 	   Used in calculating if a talking instance is
 	   outside of the camera. */
-#macro tby_game_width               480
-#macro tby_game_height              270
+//#macro tby_game_width               480
+//#macro tby_game_height              270
 	/* The view camera. Can be -1 if you don't use
 	   a camera. */
 #macro tby_game_camera              view_camera[0]

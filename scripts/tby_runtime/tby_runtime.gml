@@ -1,6 +1,5 @@
 // tby_frames_list : Global list of all TbyFrame instances to draw
 global.tby_frames_list = ds_list_create();
-global.tby_chains = ds_list_create();
 
 function TbyException(_exception, _custom_message) constructor {
     exception = _exception;
@@ -11,8 +10,6 @@ function TbyException(_exception, _custom_message) constructor {
 };
 
 function TbyChain(_chunks) constructor {
-    ds_list_add(global.tby_chains, self);
-    
     chunks = _chunks;
     pointer = 0;
     config = tby_default_config;
@@ -30,7 +27,7 @@ function TbyChain(_chunks) constructor {
                 var _text = _chunk.text;
                 var _placement = tby_undefined_safe(_chunk.placement, config.placement);
                 var _speed = config.speed;
-                var _frame = new TbyTextbox(self, irandom_range(10, 100), 10, _text, _speed, _placement);
+                var _frame = new TbyTextbox(self, _text, _speed, _placement);
             break;
             case "bubble":
                 var _text = _chunk.text;
@@ -40,7 +37,8 @@ function TbyChain(_chunks) constructor {
             break;
             case "pause":
                 var _seconds = tby_undefined_safe(_chunk.seconds, 1);
-                pause = _seconds*room_speed;
+                //pause = _seconds*room_speed;
+                tby_pause_add_callback(_seconds*room_speed, self);
             break;
         }
     };
@@ -85,7 +83,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content, _speed) constructor {
         var _size = ds_list_size(global.tby_frames_list);
         return _size > 0 && global.tby_frames_list[| _size] == self;
     };*/
-    static accepts_input = function() {
+    static dismissable = function() {
         return false;
     };
     
@@ -101,40 +99,60 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content, _speed) constructor {
         draw_rectangle(x, y, x+w, y+h, false);
         draw_set_color(c_black);
         scribble_draw(x, y, content);
+        
+        if (dismissable()) draw_focus_indicator();
     };
+    
+    static draw_focus_indicator = function() {
+        draw_set_color(c_green);
+        draw_circle(x+w, y+h, 5, false);
+    }
 };
 
-function TbyTextbox(_chain, _x, _y, _content, _speed, _placement) : TbyFrame(_chain, _x, _y, 100, 100, _content, _speed) constructor {
+function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1, _content, _speed) constructor {
+    placement = _placement;
     
-    static accepts_input = function() {
-        return true;
+    x = tby_box_padding / 2;
+    w = tby_game_width - tby_box_padding;
+    h = 100;
+    
+    switch (placement) {
+        case "top":
+        case "t":
+            y = 0;
+        break;
+        case "middle":
+        case "center":
+        case "mid":
+        case "c":
+        case "m":
+            y = (tby_game_height - h) / 2
+        break;
+        case "auto":
+        case "bottom":
+        case "b":
+        case "bot":
+            y = tby_game_height - h;
+        break;
+    }
+    
+    scribble_set_wrap(w, h);
+    
+    static dismissable = function() {
+        return scribble_autotype_get(content) == 1
     };
     
     static draw = function() {
         _p_draw();
-        
-        if (accepts_input()) {
-            // Focus indicator
-            draw_set_color(c_green);
-            draw_circle(x, y, 5, false);
-        }
     };
 };
 
 function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, _x, _y, _content, _speed) constructor {
-    static accepts_input = function() {
+    static dismissable = function() {
         return true;
     };
     
     static draw = function() {
         _p_draw();
-        draw_set_color(c_blue);
-        draw_rectangle(x+w/2, y+h, x+(w/2)+5, y+h+5, false);
-        
-        if (accepts_input()) {
-            // Focus indicator
-            draw_set_color(c_green);
-            draw_circle(x, y, 5, false);
-        }
     };
 };
