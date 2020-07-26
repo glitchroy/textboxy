@@ -1,6 +1,3 @@
-// tby_frames_list : Global list of all TbyFrame instances to draw
-global.tby_frames_list = ds_list_create();
-
 function TbyException(_exception, _custom_message) constructor {
     exception = _exception;
     msg = _custom_message;
@@ -38,7 +35,7 @@ function TbyChain(_chunks) constructor {
             case "pause":
                 var _seconds = tby_undefined_safe(_chunk.seconds, 1);
                 //pause = _seconds*room_speed;
-                tby_pause_add_callback(_seconds*room_speed, self);
+                tby_pause_register(_seconds*room_speed, self);
             break;
         }
     };
@@ -68,21 +65,16 @@ function TbyChain(_chunks) constructor {
 
 // TbyFrame draws a frame with scribble content,
 // but has no autotype associated
-function TbyFrame(_chain, _x, _y, _w, _h, _content, _speed) constructor {
-    ds_list_add(global.tby_frames_list, self);
+function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
+    tby_frame_register(self);
     
     chain = _chain;
-    speed = _speed;
     x = _x;
     y = _y;
     w = _w;
     h = _h;
     /*static*/ content = scribble_cache(_content);
-    scribble_autotype_fade_in(content, speed, 0, false);
-    /*static has_focus = function() {
-        var _size = ds_list_size(global.tby_frames_list);
-        return _size > 0 && global.tby_frames_list[| _size] == self;
-    };*/
+
     static dismissable = function() {
         return false;
     };
@@ -90,8 +82,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content, _speed) constructor {
     static finish = function() {
         chain._advance();
         
-        var _index = ds_list_find_index(global.tby_frames_list, self);
-        ds_list_delete(global.tby_frames_list, _index);
+        tby_frame_remove(self);
     };
     
     static _p_draw = function() {
@@ -109,8 +100,9 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content, _speed) constructor {
     }
 };
 
-function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1, _content, _speed) constructor {
+function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1, _content) constructor {
     placement = _placement;
+    speed = _speed;
     
     x = tby_box_padding / 2;
     w = tby_game_width - tby_box_padding;
@@ -136,6 +128,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
         break;
     }
     
+    scribble_autotype_fade_in(content, speed, 0, false);
     scribble_set_wrap(w, h);
     
     static dismissable = function() {
@@ -147,7 +140,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     };
 };
 
-function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, _x, _y, _content, _speed) constructor {
+function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, _x, _y, _content) constructor {
     static dismissable = function() {
         return true;
     };

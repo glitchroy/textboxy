@@ -1,11 +1,23 @@
 global.tby_pause_callbacks_list = ds_list_create();
-function tby_pause_add_callback(_time, _chain_context) {
+function tby_pause_register(_time, _chain_context) {
     ds_list_add(global.tby_pause_callbacks_list, { timer: _time, chain: _chain_context })
 }
 
-function tby_do_step(){
-    // Chain timers
-    if (ds_list_size(global.tby_pause_callbacks_list) > 0) {
+global.tby_frames_list = ds_list_create();
+function tby_frame_register(_frame_context) {
+    ds_list_add(global.tby_frames_list, _frame_context);
+}
+function tby_frame_remove(_frame_context) {
+    var _index = ds_list_find_index(global.tby_frames_list, _frame_context);
+    ds_list_delete(global.tby_frames_list, _index);
+}
+function tby_frame_get() {
+    return global.tby_frames_list;
+}
+
+function tby_do_step() {
+    // Tick all open timers & execute advance if neccessary
+    var static advance_chain_timers = function() {
         var i = 0;
         while (i < ds_list_size(global.tby_pause_callbacks_list)) {
             var cb_object = global.tby_pause_callbacks_list[| i];
@@ -21,18 +33,20 @@ function tby_do_step(){
         }
     }
     
-    // Check for confirm input
-    if (tby_input_confirm) {
-        // check frames
-        
+    // Finish every frame that is dismissable
+    var static check_input_confirm = function() {
         var _frames_size = ds_list_size(global.tby_frames_list);
         if (_frames_size > 0) {
-            for (var id = 0; i < _frames_size; i++) {
+            for (var i = 0; i < _frames_size; i++) {
                 var _frame = global.tby_frames_list[| i];
                 if (_frame.dismissable()) {
                     _frame.finish();
                 }
             }
         }
-    };
+    }
+    
+    // Chain timers
+    if (ds_list_size(global.tby_pause_callbacks_list) > 0) advance_chain_timers();
+    if (tby_input_confirm) check_input_confirm();
 };
