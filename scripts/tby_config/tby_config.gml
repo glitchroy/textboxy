@@ -1,14 +1,17 @@
 #macro tby_default_config { \
-	skin: [spr_tby_skin_frame_d, \
-           spr_tby_skin_bubble_d, \
-           spr_tby_skin_pause_d, \
-           spr_tby_skin_arrow_d, \
-           8], \
+	skin: { frame: spr_tby_skin_frame_d, \
+            bubble: spr_tby_skin_bubble_d, \
+            pause: spr_tby_skin_pause_d, \
+            arrow: spr_tby_skin_arrow_d, \
+            tile_size: 8 }, \
 	instance: noone, \
 	callback: undefined, \
 	placement: "auto", \
 	sound: snd_tby_speech_default, \
 	sound_pitch: [0.8, 1.2], \
+	text: { color: c_white, \
+	        font: font_tby_default, \
+	        halign: fa_left }, \
 	speed: 0.3 \
 } 
 

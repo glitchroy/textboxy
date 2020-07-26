@@ -73,7 +73,14 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     y = _y;
     w = _w;
     h = _h;
-    /*static*/ content = scribble_cache(_content);
+    
+    scribble_set_starting_format(
+        chain.config.text.font,
+        chain.config.text.color,
+        chain.config.text.halign
+    );
+    content = scribble_cache(_content);
+    padding = chain.config.skin.tile_size;
 
     static dismissable = function() {
         return false;
@@ -86,10 +93,30 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     };
     
     static _p_draw = function() {
-        draw_set_color(c_orange);
-        draw_rectangle(x, y, x+w, y+h, false);
-        draw_set_color(c_black);
-        scribble_draw(x, y, content);
+        var draw_frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
+            var d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
+                draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size,
+                _size, _size, _x, _y, _xs, _ys, c_white, 1);
+            }
+            
+            var _w = _x2 - _x1 - _size*2;
+            var _h = _y2 - _y1 - _size*2;
+            
+            d(0, 0, _x1,          _y1,          1,        1,        _spr, _size);
+            d(1, 0, _x1+_size,    _y1,          _w/_size, 1,        _spr, _size);
+            d(2, 0, _x1+_w+_size, _y1,          1,        1,        _spr, _size);
+            
+            d(0, 1, _x1,          _y1+_size,    1,        _h/_size, _spr, _size);
+            d(1, 1, _x1+_size,    _y1+_size,    _w/_size, _h/_size, _spr, _size);
+            d(2, 1, _x1+_w+_size, _y1+_size,    1,        _h/_size, _spr, _size);
+            
+            d(0, 2, _x1,          _y1+_h+_size, 1,        1,        _spr, _size);
+            d(1, 2, _x1+_size,    _y1+_h+_size, _w/_size, 1,        _spr, _size);
+            d(2, 2, _x1+_w+_size, _y1+_h+_size, 1,        1,        _spr, _size);
+        }
+        
+        draw_frame(x, y, x+w, y+h, chain.config.skin.tile_size, chain.config.skin.frame)
+        scribble_draw(x+padding, y+padding, content);
         
         if (dismissable()) draw_focus_indicator();
     };
@@ -129,7 +156,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     }
     
     scribble_autotype_fade_in(content, speed, 0, false);
-    scribble_set_wrap(w, h);
+    scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
         return scribble_autotype_get(content) == 1
