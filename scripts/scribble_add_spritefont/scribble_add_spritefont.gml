@@ -1,24 +1,39 @@
-/// Adds a spritefont for use with Scribble.
+/// Adds a spritefont for use with Scribble
 ///
-/// @param fontName       String name of the spritefont to add.
-/// @param mapString      String from which sprite sub-image order is taken. (Same behaviour as GameMaker's native font_add_sprite_ext())
-/// @param separation     The space to leave between each letter. (Same behaviour as GameMaker's native font_add_sprite_ext())
-/// @param [spaceWidth]   Pixel width of the space character. Defaults to emulating GameMaker's behaviour.
+/// @param fontName        Name of the spritefont to add, as a string
+/// @param mapString       String from which sprite sub-image order is taken (Same behaviour as GameMaker's native font_add_sprite_ext())
+/// @param separation      The space to leave between each letter (Same behaviour as GameMaker's native font_add_sprite_ext())
+/// @param [spaceWidth]    Pixel width of the space character. Defaults to emulating GameMaker's behaviour
+/// @param [proportional]  Allows characters to have variable widths depending on their size. Defaults to <true>. Set to <false> to make every character's width identical
 ///
-/// Scribble's spritefonts emulate GameMaker's native behaviour. Spritefonts otherwise behave indentically to normal fonts within Scribble.
-/// All Scribble spritefonts are proportional as per GameMaker's font_add_sprite_ext() function.
-function scribble_add_spritefont() {
+/// scribble_add_spritefont() emulates the behaviour of font_add_sprite_ext(). For more information on the behaviour of font_add_sprite_ext(), please refer to the
+/// GameMaker Studio 2 documentation.
+/// 
+/// Sprites used for spritefonts have specific requirements that must be met for Scribble to render them properly:
+/// 
+///     Collision mask mode set to Automatic
+///     Colllision mask type set to Precise Per Frame (Slow)
+///     "Separate Texture Page" set to off
+///     The sprite must have at least a 1 pixel transparent border around the edge
+/// 
+/// If your characters are drawn partially garbled, try placing the spritefont in its own texture group.
+/// 
+/// Unlike standard fonts, spritefonts do not need to have any files added as Included Files. Similarly, spritefonts will not be added by using the autoScan feature
+/// of scribble_init(). Each spritefont must be added manually by calling scribble_add_spritefont().
 
-	if (!variable_global_exists("__scribble_global_count"))
+function scribble_add_spritefont()
+{
+	if (!variable_global_exists("__scribble_lcg"))
 	{
 	    show_error("Scribble:\nscribble_add_spritefont() should be called after scribble_init()\n ", true);
 	    exit;
 	}
 
-	var _font        = argument[0];
-	var _mapstring   = argument[1];
-	var _separation  = argument[2];
-	var _space_width = (argument_count > 3)? argument[3] : undefined;
+	var _font         = argument[0];
+	var _mapstring    = argument[1];
+	var _separation   = argument[2];
+	var _space_width  = (argument_count > 3)? argument[3] : undefined;
+	var _proportional = (argument_count > 4)? argument[4] : true;
 
 	if (ds_map_exists(global.__scribble_font_data, _font))
 	{
@@ -53,7 +68,6 @@ function scribble_add_spritefont() {
 
 
 
-	show_debug_message("Scribble: Reminder - Set your spritefonts' collision type to \"Precise Per Frame (Slow)\". This helps Scribble determine how big each character is");
 	if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: Processing spritefont \"" + _font + "\"");
         
 	//Strip out a map of of glyphs
@@ -69,36 +83,41 @@ function scribble_add_spritefont() {
 	}
 	else if (_length < _sprite_length)
 	{
-	    show_debug_message("Scribble:   Warning! mapString for \"" + _font + "\" has fewer characters (" + string(_length) + ") than the sprite (" + string(_sprite_length) + ")");
+	    show_debug_message("Scribble:   WARNING! mapString for \"" + _font + "\" has fewer characters (" + string(_length) + ") than the sprite (" + string(_sprite_length) + ")");
 	}
 
 
 
+	var _sprite_width  = sprite_get_width( _sprite);
+	var _sprite_height = sprite_get_height(_sprite);
 
 	var _data = array_create(__SCRIBBLE_FONT.__SIZE);
 	_data[@ __SCRIBBLE_FONT.NAME        ] = _font;
 	_data[@ __SCRIBBLE_FONT.PATH        ] = undefined;
+	_data[@ __SCRIBBLE_FONT.FAMILY_NAME ] = undefined;
 	_data[@ __SCRIBBLE_FONT.TYPE        ] = __SCRIBBLE_FONT_TYPE.SPRITE;
 	_data[@ __SCRIBBLE_FONT.GLYPHS_MAP  ] = undefined;
 	_data[@ __SCRIBBLE_FONT.GLYPHS_ARRAY] = undefined;
 	_data[@ __SCRIBBLE_FONT.GLYPH_MIN   ] = 32;
 	_data[@ __SCRIBBLE_FONT.GLYPH_MAX   ] = 32;
-	_data[@ __SCRIBBLE_FONT.TEXTURE     ] = sprite_get_texture(_sprite, 0);
 	_data[@ __SCRIBBLE_FONT.SPACE_WIDTH ] = _space_width;
 	_data[@ __SCRIBBLE_FONT.MAPSTRING   ] = _mapstring;
 	_data[@ __SCRIBBLE_FONT.SEPARATION  ] = _separation;
 	global.__scribble_font_data[? _font ] = _data;
 
+	var _texture = sprite_get_texture(_sprite, 0);
+
 	if (sprite_get_bbox_left(  _sprite) == 0)
 	|| (sprite_get_bbox_top(   _sprite) == 0)
-	|| (sprite_get_bbox_right( _sprite) == sprite_get_width(_sprite)-1)
-	|| (sprite_get_bbox_bottom(_sprite) == sprite_get_height(_sprite)-1)
+	|| (sprite_get_bbox_right( _sprite) == _sprite_width-1)
+	|| (sprite_get_bbox_bottom(_sprite) == _sprite_height-1)
 	{
-	    show_debug_message("Scribble:   Warning! \"" + _font + "\" may be rendered incorrectly due to the bounding box overlapping the edge of the sprite. Please add at least a 1px border around your spritefont sprite. Please also update the bounding box if needed");
+	    show_debug_message("Scribble:   WARNING! \"" + _font + "\" may be rendered incorrectly due to the bounding box overlapping the edge of the sprite. Please add at least a 1px border around your spritefont sprite. Please also update the bounding box if needed");
 	}
         
-	var _sprite_string  = _mapstring;
-	var _shift_constant = _separation;
+	var _sprite_string   = _mapstring;
+	var _shift_constant  = _separation;
+	var _monospace_width = (!_proportional)? sprite_get_width(_sprite) : undefined;
         
 	var _font_glyphs_map = ds_map_create();
 	_data[@ __SCRIBBLE_FONT.GLYPHS_MAP] = _font_glyphs_map;
@@ -119,37 +138,38 @@ function scribble_add_spritefont() {
 	{
 	    var _char = string_char_at(_sprite_string, _i+1);
 	    if (ds_map_exists(_font_glyphs_map, ord(_char))) continue;
-	    if (_char == " ") show_debug_message("Scribble:   WARNING! It is strongly recommended that you do *not* use a space character in your sprite font in GMS2.2.1 and above due to IDE bugs. Use scribble_font_char_set_*() to define a space character");
-            
+	    if ((_char == " ") && (_space_width == undefined)) show_debug_message("Scribble:   WARNING! It is recommended that you do *not* use a space character in your spritefont. Please override the space character width by using the optional [spaceWidth] argument of scribble_add_spritefont()");
+    
 	    image_index = _i;
 	    var _uvs = sprite_get_uvs(_sprite, image_index);
-	    if ((_uvs[4] == 0.0) && (_uvs[5] == 0.0) && (_uvs[6] == 1.0) && (_uvs[7] == 1.0)) _potential_separate_texture_page++;
+	    if ((_uvs[0] == 0.0) && (_uvs[1] == 0.0) && (_uvs[4] == 0.0) && (_uvs[5] == 0.0) && (_uvs[6] == 1.0) && (_uvs[7] == 1.0)) _potential_separate_texture_page++;
     
 	    //Perform line sweeping to get accurate glyph data
-	    var _left   = bbox_left-1;
-	    var _top    = bbox_top-1;
-	    var _right  = bbox_right+1;
-	    var _bottom = bbox_bottom+1;
+	    var _left   = bbox_left-2;
+	    var _top    = bbox_top-2;
+	    var _right  = bbox_right+2;
+	    var _bottom = bbox_bottom+2;
             
-	    while (!collision_line(      _left, bbox_top-1,        _left, bbox_bottom+1, id, true, false) && (_left < _right )) _left++;
-	    while (!collision_line(bbox_left-1,       _top, bbox_right+1,          _top, id, true, false) && (_top  < _bottom)) _top++;
-	    while (!collision_line(     _right, bbox_top-1,       _right, bbox_bottom+1, id, true, false) && (_right  > _left)) _right--;
-	    while (!collision_line(bbox_left-1,    _bottom, bbox_right+1,       _bottom, id, true, false) && (_bottom > _top )) _bottom--;
+	    while (!collision_line(      _left, bbox_top-1,        _left, bbox_bottom+1, id, true, false) && (_left <= _right )) _left++;
+	    while (!collision_line(bbox_left-1,       _top, bbox_right+1,          _top, id, true, false) && (_top  <= _bottom)) _top++;
+	    while (!collision_line(     _right, bbox_top-1,       _right, bbox_bottom+1, id, true, false) && (_right  >= _left)) _right--;
+	    while (!collision_line(bbox_left-1,    _bottom, bbox_right+1,       _bottom, id, true, false) && (_bottom >= _top )) _bottom--;
             
 	    //Build an array to store this glyph's properties
 	    var _array = array_create(SCRIBBLE_GLYPH.__SIZE, 0);
 	    _array[@ SCRIBBLE_GLYPH.CHARACTER] = _char;
 	    _array[@ SCRIBBLE_GLYPH.INDEX    ] = ord(_char);
             
-	    if ((_left == _right) && (_top == _bottom))
+	    if ((_left > _right) && (_top > _bottom))
 	    {
-	        show_debug_message("Scribble:   Warning! Character " + string(ord(_char)) + "(" + _char + ") for spritefont \"" + _font + "\" is empty");
+	        show_debug_message("Scribble:   WARNING! Character " + string(ord(_char)) + " (" + _char + ") for spritefont \"" + _font + "\" is empty");
                 
 	        _array[@ SCRIBBLE_GLYPH.WIDTH     ] = 1;
-	        _array[@ SCRIBBLE_GLYPH.HEIGHT    ] = sprite_get_height(_sprite);
+	        _array[@ SCRIBBLE_GLYPH.HEIGHT    ] = _sprite_height;
 	        _array[@ SCRIBBLE_GLYPH.X_OFFSET  ] = 0;
 	        _array[@ SCRIBBLE_GLYPH.Y_OFFSET  ] = 0;
 	        _array[@ SCRIBBLE_GLYPH.SEPARATION] = 1 + _shift_constant;
+	        _array[@ SCRIBBLE_GLYPH.TEXTURE   ] = _texture;
 	        _array[@ SCRIBBLE_GLYPH.U0        ] = 0;
 	        _array[@ SCRIBBLE_GLYPH.V0        ] = 0;
 	        _array[@ SCRIBBLE_GLYPH.U1        ] = 0;
@@ -160,11 +180,22 @@ function scribble_add_spritefont() {
 	    {
 	        var _glyph_width  = 1 + _right - _left;
 	        var _glyph_height = 1 + _bottom - _top;
+        
+	        var _x_offset   = SCRIBBLE_SPRITEFONT_ALIGN_GLYPHS_LEFT? 0 : (_left - bbox_left);
+	        var _separation = _glyph_width + _shift_constant;
+        
+	        if (!_proportional)
+	        {
+	            _x_offset   = _left;
+	            _separation = _monospace_width + _shift_constant;
+	        }
+        
 	        _array[@ SCRIBBLE_GLYPH.WIDTH     ] = _glyph_width;
 	        _array[@ SCRIBBLE_GLYPH.HEIGHT    ] = _glyph_height;
-	        _array[@ SCRIBBLE_GLYPH.X_OFFSET  ] = _left - bbox_left;
+	        _array[@ SCRIBBLE_GLYPH.X_OFFSET  ] = _x_offset;
 	        _array[@ SCRIBBLE_GLYPH.Y_OFFSET  ] = _top;
-	        _array[@ SCRIBBLE_GLYPH.SEPARATION] = _glyph_width + _shift_constant;
+	        _array[@ SCRIBBLE_GLYPH.SEPARATION] = _separation;
+	        _array[@ SCRIBBLE_GLYPH.TEXTURE   ] = _texture;
 	        _array[@ SCRIBBLE_GLYPH.U0        ] = _uvs[0];
 	        _array[@ SCRIBBLE_GLYPH.V0        ] = _uvs[1];
 	        _array[@ SCRIBBLE_GLYPH.U1        ] = _uvs[2];
@@ -174,20 +205,27 @@ function scribble_add_spritefont() {
 	    }
 	}
         
-	if (!ds_map_exists(_font_glyphs_map, 32))
+	if (ds_map_exists(_font_glyphs_map, 32))
 	{
-	    var _glyph_width  = sprite_get_width(_sprite);
-	    var _glyph_height = sprite_get_height(_sprite);
+	    //Set the space character's height just in case the user has decided to use a space in the mapstring
+	    var _array = _font_glyphs_map[? 32];
+	    _array[@ SCRIBBLE_GLYPH.HEIGHT] = _sprite_height;
+	}
+	else
+	{
+	    var _glyph_width  = (!_proportional)? _sprite_width : (1 + bbox_right - bbox_left);
+	    if (_space_width == undefined) _glyph_width += _shift_constant;
             
 	    //Build an array to store this glyph's properties
 	    var _array = array_create(SCRIBBLE_GLYPH.__SIZE, 0);
 	    _array[@ SCRIBBLE_GLYPH.CHARACTER ] = " ";
 	    _array[@ SCRIBBLE_GLYPH.INDEX     ] = 32;
 	    _array[@ SCRIBBLE_GLYPH.WIDTH     ] = _glyph_width;
-	    _array[@ SCRIBBLE_GLYPH.HEIGHT    ] = _glyph_height;
+	    _array[@ SCRIBBLE_GLYPH.HEIGHT    ] = _sprite_height;
 	    _array[@ SCRIBBLE_GLYPH.X_OFFSET  ] = 0;
 	    _array[@ SCRIBBLE_GLYPH.Y_OFFSET  ] = 0;
 	    _array[@ SCRIBBLE_GLYPH.SEPARATION] = _glyph_width + _shift_constant;
+	    _array[@ SCRIBBLE_GLYPH.TEXTURE   ] = _texture;
 	    _array[@ SCRIBBLE_GLYPH.U0        ] = 0;
 	    _array[@ SCRIBBLE_GLYPH.V0        ] = 0;
 	    _array[@ SCRIBBLE_GLYPH.U1        ] = 0;
@@ -207,12 +245,10 @@ function scribble_add_spritefont() {
 	x            = _old_x;
 	y            = _old_y;
 
-	if (_potential_separate_texture_page > 0.5*_length)
+	if (SCRIBBLE_WARNING_TEXTURE_PAGE && (_potential_separate_texture_page > 0.5*_length))
 	{
-	    show_error("Scribble:\nSpritefont \"" + string(_font) + "\" appears to be set to Separate Texture Page\nPlease untick Separate Texture Page for this sprite\n ", true);
+	    show_error("Scribble:\nSpritefont \"" + string(_font) + "\" appears to be set to Separate Texture Page\nPlease untick Separate Texture Page for this sprite\n \n(Set SCRIBBLE_WARNING_TEXTURE_PAGE to <false> to turn off this warning)\n ", true);
 	}
 
 	if (SCRIBBLE_VERBOSE) show_debug_message("Scribble: Added \"" + _font + "\" as a spritefont");
-
-
 }

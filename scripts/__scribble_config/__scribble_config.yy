@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Lib/textboxy/Internal/Lib/Scribble/Scripts.yy",
+    "name": "(Deprecated)",
+    "path": "folders/textboxy-engine/lib/Scribble/(Deprecated).yy",
   },
   "resourceVersion": "1.0",
   "name": "__scribble_config",

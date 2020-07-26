@@ -1,7 +1,29 @@
-function tby_config() {
-	/* This config file is meant to last through updates. */
-	/* Also check */__scribble_config();/* for additional
-	   config options. */
+#macro tby_default_config { \
+	skin: [spr_tby_skin_frame_d, \
+           spr_tby_skin_bubble_d, \
+           spr_tby_skin_pause_d, \
+           spr_tby_skin_arrow_d, \
+           8], \
+	instance: noone, \
+	callback: undefined, \
+	placement: "auto", \
+	sound: snd_tby_speech_default, \
+	sound_pitch: [0.8, 1.2], \
+	speed: 0.3 \
+} 
+
+#macro tby_input_confirm (keyboard_check_pressed( \
+	                      vk_enter) || \
+	                      keyboard_check_pressed( \
+	                      vk_space))
+
+
+/************************/
+// old config
+
+/* This config file is meant to last through updates. */
+/* Also check scribble_macros(); for additional
+   config options. */
 
 
 
@@ -92,10 +114,10 @@ function tby_config() {
 	/* Options for inputs, like navigating the choice textbox
 	   or confirming a dialogue.
 	   Expressions should evaluate to a boolean. */
-#macro tby_input_confirm         (keyboard_check_pressed(\
+/*#macro tby_input_confirm         (keyboard_check_pressed(\
 	                                  vk_enter) || \
 	                                  keyboard_check_pressed(\
-									  vk_space))
+									  vk_space))*/
 #macro tby_input_choice_up       (keyboard_check_pressed(\
 	                                  vk_up) || \
 	                                  keyboard_check_pressed(\
@@ -138,6 +160,3 @@ function tby_config() {
 #macro tby_bubble_quick_mode_char ord("§")
 
 #endregion
-
-
-}

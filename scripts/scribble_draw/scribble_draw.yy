@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Lib/textboxy/Internal/Lib/Scribble/Scripts.yy",
+    "name": "Scribble",
+    "path": "folders/textboxy-engine/lib/Scribble.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_draw",

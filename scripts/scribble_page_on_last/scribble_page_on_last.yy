@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Pages",
-    "path": "folders/Lib/textboxy/Internal/Lib/Scripts/Extras/Pages.yy",
+    "path": "folders/textboxy-engine/lib/Scribble/Pages.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_page_on_last",

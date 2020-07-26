@@ -1,7 +1,6 @@
 {
   "bboxMode": 0,
   "collisionKind": 1,
-  "separateMasks": false,
   "type": 0,
   "origin": 9,
   "preMultiplyAlpha": false,
@@ -73,8 +72,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"860cdf27-81de-40d2-bb45-d016a7b37be5","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Skin D",
-    "path": "folders/Sprites/Lib/textboxy/Skins/Skin D.yy",
+    "name": "d",
+    "path": "folders/textboxy-engine/assets/skins/d.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_tby_skin_pause_d",

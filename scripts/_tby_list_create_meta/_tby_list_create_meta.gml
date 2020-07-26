@@ -1,8 +1,0 @@
-/// @desc Returns the meta information for a new TbyList.
-function _tby_list_create_meta() {
-
-	// IdentifierString, Pointer, HasBeenAdvanced
-	return ["TBY_LIST-1.0", 0, false];
-
-
-}
