@@ -75,7 +75,7 @@
     {"id":{"name":"spr_tby_skin_arrow_d","path":"sprites/spr_tby_skin_arrow_d/spr_tby_skin_arrow_d.yy",},"order":0,},
     {"id":{"name":"spr_tby_skin_bubble_d","path":"sprites/spr_tby_skin_bubble_d/spr_tby_skin_bubble_d.yy",},"order":1,},
     {"id":{"name":"spr_tby_skin_frame_d","path":"sprites/spr_tby_skin_frame_d/spr_tby_skin_frame_d.yy",},"order":2,},
-    {"id":{"name":"spr_tby_skin_pause_d","path":"sprites/spr_tby_skin_pause_d/spr_tby_skin_pause_d.yy",},"order":3,},
+    {"id":{"name":"spr_tby_skin_confirm_d","path":"sprites/spr_tby_skin_confirm_d/spr_tby_skin_confirm_d.yy",},"order":3,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},

@@ -122,8 +122,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     };
     
     static draw_focus_indicator = function() {
-        draw_set_color(c_green);
-        draw_circle(x+w, y+h, 5, false);
+        draw_sprite(chain.config.skin.confirm, global.tby_blink_timer, x+w, y+h);
     }
 };
 

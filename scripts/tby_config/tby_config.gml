@@ -1,7 +1,7 @@
 #macro tby_default_config { \
 	skin: { frame: spr_tby_skin_frame_d, \
             bubble: spr_tby_skin_bubble_d, \
-            pause: spr_tby_skin_pause_d, \
+            confirm: spr_tby_skin_confirm_d, \
             arrow: spr_tby_skin_arrow_d, \
             tile_size: 8 }, \
 	instance: noone, \
@@ -28,7 +28,7 @@
 // the textbox
 #macro tby_box_padding 48
 
-
+#macro tby_confirm_blink_speed 1/16
 
 /************************/
 // old config

@@ -15,7 +15,12 @@ function tby_frame_get() {
     return global.tby_frames_list;
 }
 
+global.tby_blink_timer = 0;
+
 function tby_do_step() {
+    global.tby_blink_timer += tby_confirm_blink_speed;
+    if (global.tby_blink_timer >= 2) global.tby_blink_timer = 0;
+    
     // Tick all open timers & execute advance if neccessary
     var static advance_chain_timers = function() {
         var i = 0;
