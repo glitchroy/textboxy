@@ -1,5 +1,5 @@
-function TbyException(_exception, _custom_message) constructor {
-    exception = _exception;
+function TbyException(_custom_message, _exception) constructor {
+    exception = _exception == undefined ? "" : _exception;
     msg = _custom_message;
     
     // show
@@ -34,8 +34,19 @@ function TbyChain(_chunks) constructor {
             break;
             case "pause":
                 var _seconds = tby_undefined_safe(_chunk.seconds, 1);
-                //pause = _seconds*room_speed;
                 tby_pause_register(_seconds*room_speed, self);
+            break;
+            case "config":
+                var _id = _chunk.config_id;
+                var _value = _chunk.config_value;
+                
+                if (variable_struct_exists(config, _id)) {
+                    variable_struct_set(config, _id, _value)
+                } else {
+                    var _ex = new TbyException("Invalid config option \"" + _id + "\".");
+                }
+                
+                _advance();
             break;
         }
     };
@@ -50,11 +61,10 @@ function TbyChain(_chunks) constructor {
             return new TbyException(_ex, "TbyChain index out of bounds.");
         };
         
-        _handle_chunk(_chunk);
-        
         // advance pointer
         pointer++;
-        // if (pointer >= array_length(chunks)) pointer = 0;
+        
+        _handle_chunk(_chunk);
     };
     
     static run = function() {
@@ -93,8 +103,8 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     };
     
     static _p_draw = function() {
-        var draw_frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
-            var d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
+        var static draw_frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
+            var static d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
                 draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size,
                 _size, _size, _x, _y, _xs, _ys, c_white, 1);
             }
@@ -166,12 +176,30 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     };
 };
 
-function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, _x, _y, _content) constructor {
+function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, 0, 0, 1, 1, _content) constructor {
+    speed = _speed;
+    speaker = _speaker == noone ? id : _speaker;
+    
+    w = scribble_get_width(content) + padding*2;
+    h = scribble_get_height(content) + padding*2;
+	
+    scribble_autotype_fade_in(content, speed, 0, false);
+    scribble_set_wrap(w-padding*2, h-padding*2);
+    
     static dismissable = function() {
-        return true;
+        return scribble_autotype_get(content) == 1
     };
     
     static draw = function() {
+	    var _speaker_sprite = speaker.sprite_index;
+		var _bubble_offset = sprite_get_yoffset(chain.config.skin.bubble);
+	    bubble_x = speaker.x - sprite_get_xoffset(_speaker_sprite) + speaker.sprite_width/2
+	    bubble_y = speaker.y - sprite_get_yoffset(_speaker_sprite) - _bubble_offset;
+	    x = bubble_x - w/2;
+	    y = bubble_y - h;
+		
         _p_draw();
+		
+		draw_sprite(chain.config.skin.bubble, -1, bubble_x, bubble_y);
     };
 };
