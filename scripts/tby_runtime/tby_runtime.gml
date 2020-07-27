@@ -12,6 +12,10 @@ function TbyChain(_chunks) constructor {
     config = tby_default_config;
     pause = 0;
     
+    _meta = {
+    	version: tby_version
+    }
+    
     static _handle_chunk = function(_chunk) {
         try {
             var _type = _chunk.type;
@@ -48,6 +52,19 @@ function TbyChain(_chunks) constructor {
                 
                 _advance();
             break;
+            case "halt":
+            	pointer = 0;
+            break;
+            case "label":
+            	_advance();
+            break;
+            case "goto":
+            	var _name = _chunk.name;
+            	
+            	var _label_ref = variable_struct_get(labels, _name);
+            	if (!is_undefined(_label_ref)) pointer = _label_ref;
+            	
+            	_advance();
         }
     };
     
@@ -71,6 +88,19 @@ function TbyChain(_chunks) constructor {
         pointer = 0;
         _advance();
     };
+
+    // Scan all chunks for label commands & build map
+    static _scan_labels = function() {
+    	var _labels = {};
+    	for (var i = 0; i < array_length(chunks); i++) {
+    		var _chunk = chunks[i];
+    		if (_chunk.type != "label") continue;
+    		
+    		variable_struct_set(_labels, _chunk.name, i);
+    	}
+    	return _labels;
+    }
+    labels = _scan_labels();
 };
 
 // TbyFrame draws a frame with scribble content,

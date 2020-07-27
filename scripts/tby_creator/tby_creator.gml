@@ -6,9 +6,9 @@ function TbyChunk() constructor {
 		// choice
 		config: function(_id, _value)           { return { type: "config", config_id: _id, config_value: _value }; },
 		halt:   function()                      { return { type: "halt" }; },
-		// goto
+		goto:	function(_name)					{ return { type: "goto", name: _name }; },
 		// if
-		// label
+		label:	function(_name)					{ return { type: "label", name: _name }; },
 		pause:  function(_seconds)              { return { type: "pause", seconds: _seconds }; }
 		// script
 		// select

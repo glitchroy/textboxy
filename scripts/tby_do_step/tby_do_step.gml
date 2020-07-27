@@ -1,9 +1,7 @@
-global.tby_pause_callbacks_list = ds_list_create();
 function tby_pause_register(_time, _chain_context) {
     ds_list_add(global.tby_pause_callbacks_list, { timer: _time, chain: _chain_context })
 }
 
-global.tby_frames_list = ds_list_create();
 function tby_frame_register(_frame_context) {
     ds_list_add(global.tby_frames_list, _frame_context);
 }
@@ -14,8 +12,6 @@ function tby_frame_remove(_frame_context) {
 function tby_frame_get() {
     return global.tby_frames_list;
 }
-
-global.tby_blink_timer = 0;
 
 function tby_do_step() {
     global.tby_blink_timer += tby_confirm_blink_speed;

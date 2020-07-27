@@ -3,4 +3,10 @@ function tby_init(){
 		scribble_add_font("font_tby_default");
 		scribble_add_font("font_tby_debug");
 	}
+	
+	global.tby_pause_callbacks_list = ds_list_create();
+	global.tby_frames_list = ds_list_create();
+	global.tby_blink_timer = 0;
+	
+	#macro tby_version "dev"
 }
