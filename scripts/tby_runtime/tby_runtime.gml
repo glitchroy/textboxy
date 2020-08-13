@@ -14,7 +14,7 @@ function TbyChain(_chunks) constructor {
     
     _meta = {
     	version: tby_version
-    }
+    };
     
     static _handle_chunk = function(_chunk) {
         try {
@@ -45,7 +45,7 @@ function TbyChain(_chunks) constructor {
                 var _value = _chunk.config_value;
                 
                 if (variable_struct_exists(config, _id)) {
-                    variable_struct_set(config, _id, _value)
+                    variable_struct_set(config, _id, _value);
                 } else {
                     var _ex = new TbyException("Invalid config option \"" + _id + "\".");
                 }
@@ -63,6 +63,14 @@ function TbyChain(_chunks) constructor {
             	
             	var _label_ref = variable_struct_get(labels, _name);
             	if (!is_undefined(_label_ref)) pointer = _label_ref;
+            	
+            	_advance();
+            break;
+            case "execute":
+            	var _script_name = _chunk.script_name;
+            	var _script_args = tby_undefined_safe(_chunk.script_args, []);
+            	
+            	tby_spread(_script_name, _script_args);
             	
             	_advance();
         }
