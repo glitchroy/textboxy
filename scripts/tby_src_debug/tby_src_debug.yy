@@ -6,7 +6,7 @@
     "path": "folders/textboxy-engine.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tby_runtime",
+  "name": "tby_src_debug",
   "tags": [],
   "resourceType": "GMScript",
 }

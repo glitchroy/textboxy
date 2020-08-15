@@ -159,6 +159,12 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         scribble_draw(x+padding, y+padding, content);
         
         if (dismissable()) draw_focus_indicator();
+        
+        if (tby_debug) {
+        	var _d = "";
+        	_d += "a_t: " + string(scribble_autotype_get(content));
+        	tby_debug_draw(x, y, _d, w)
+        }
     };
     
     static draw_focus_indicator = function() {
@@ -198,7 +204,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return scribble_autotype_get(content) == 1
+        return tby_frame_get_latest() == self && scribble_autotype_get(content) == 1
     };
     
     static draw = function() {
@@ -217,7 +223,7 @@ function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return scribble_autotype_get(content) == 1
+        return scribble_autotype_get(content) == 1 && tby_frame_get_latest() == self 
     };
     
     static draw = function() {

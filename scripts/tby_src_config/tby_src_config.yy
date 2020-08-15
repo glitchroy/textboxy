@@ -6,7 +6,7 @@
     "path": "folders/textboxy-engine.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tby_config",
+  "name": "tby_src_config",
   "tags": [],
   "resourceType": "GMScript",
 }

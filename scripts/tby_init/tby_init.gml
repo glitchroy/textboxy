@@ -9,4 +9,6 @@ function tby_init(){
 	global.tby_blink_timer = 0;
 	
 	#macro tby_version "dev"
+	
+	#macro tby_debug true
 }

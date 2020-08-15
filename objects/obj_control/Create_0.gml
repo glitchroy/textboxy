@@ -8,12 +8,14 @@ var c = new TbyChain([
     new TbyChunk().add.box("123", "top"),
     new TbyChunk().add.pause(1),
     new TbyChunk().add.goto("x"),
-    new TbyChunk().add.box("hiu", "top"),
+    new TbyChunk().add.box("hiu", "top")
+    
 ]);
 
 var d = new TbyChain([
     new TbyChunk().add.box("tkkkkkkkkkkkkkkkkkko", "middle"),
+    new TbyChunk().add.bubble("uizuiz", instance_find(obj_talker, 0))
 ]);
 
-//c.run();
+d.run();
 c.run();

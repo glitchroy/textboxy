@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "textboxy-engine",
-    "path": "textboxy-engine.yyp",
+    "path": "folders/textboxy-engine.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tby_init",
+  "name": "tby_src_runtime",
   "tags": [],
   "resourceType": "GMScript",
 }
