@@ -7,8 +7,9 @@ function tby_init(){
 	global.tby_pause_callbacks_list = ds_list_create();
 	global.tby_frames_list = ds_list_create();
 	global.tby_blink_timer = 0;
+	global.tby_debug = true;
 	
 	#macro tby_version "dev"
 	
-	#macro tby_debug true
+	#macro tby_is_debug global.tby_debug
 }

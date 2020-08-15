@@ -1,6 +1,6 @@
 tby_do_draw();
 
-if (tby_debug) {
+if (tby_is_debug) {
 	var _ds_list_to_string = function(l, _seperator, _truncuate_amount) {
 		if (!ds_exists(l, ds_type_list)) return "[]\n";
 		if (ds_list_empty(l)) return "[]\n";

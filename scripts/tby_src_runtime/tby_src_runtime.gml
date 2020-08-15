@@ -11,6 +11,7 @@ function TbyChain(_chunks) constructor {
     pointer = 0;
     config = tby_default_config;
     pause = 0;
+    parent_chain = undefined;
     
     _meta = {
     	version: tby_version
@@ -73,11 +74,36 @@ function TbyChain(_chunks) constructor {
             	tby_spread(_script_name, _script_args);
             	
             	_advance();
+            break;
+            case "branch":
+            	var _func = _chunk.func;
+            	var _chunks_true = _chunk.chunks_true;
+            	var _chunks_false = tby_undefined_safe(_chunk.chunks_false, []);
+            	
+            	// evaluate script
+            	var _result = _func();
+            	
+            	if (_result && array_length(_chunks_true) > 0) {
+            		// execute true chain
+            		var _child = new TbyChain(_chunks_true)._run_as_child(self);
+            	} else if (!_result && array_length(_chunks_false) > 0) {
+            		// execute false chain
+            		var _child = new TbyChain(_chunks_false)._run_as_child(self);
+            	} else {
+            		// skip
+            		_advance();
+            	}
+            	
+            break;
         }
     };
     
     static _advance = function() {
-        if (pointer >= array_length(chunks)) return -1;
+        if (pointer >= array_length(chunks)) {
+        	// advance parent if child
+        	if (parent_chain != undefined) parent_chain._advance();
+        	return -1;
+        }
         
         // advances according to pointer
         try {
@@ -96,6 +122,12 @@ function TbyChain(_chunks) constructor {
         pointer = 0;
         _advance();
     };
+    
+    static _run_as_child = function(_parent_chain) {
+    	parent_chain = _parent_chain;
+    	pointer = 0;
+    	_advance();
+    }
 
     // Scan all chunks for label commands & build map
     static _scan_labels = function() {
@@ -168,7 +200,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         
         if (dismissable()) draw_focus_indicator();
         
-        if (tby_debug) {
+        if (tby_is_debug) {
         	var _d = "";
         	_d += "a_t: " + string(scribble_autotype_get(content));
         	tby_debug_draw(x, y, _d, w)
