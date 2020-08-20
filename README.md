@@ -1,7 +1,7 @@
 # textboxy
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/31043192/90832595-6a5e4400-e346-11ea-982b-10745c5956cf.gif"><br/>
+  <a href="https://twitter.com/glitchroy" target="_blank"><img src="https://user-images.githubusercontent.com/31043192/90832595-6a5e4400-e346-11ea-982b-10745c5956cf.gif"></a><br/>
   Twitter: <a href="https://twitter.com/glitchroy" target="_blank">@glitchroy</a>
 </p>
 
