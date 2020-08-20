@@ -53,6 +53,24 @@ function TbyChain(_chunks) constructor {
                 
                 _advance();
             break;
+            case "profile":
+            	var _profile = _chunk.profile;
+            	if (typeof(_profile) == "struct") {
+            		var _config_ids = variable_struct_get_names(_profile);
+            		
+            		tby_foreach(_config_ids, function(_id, i, _size, _args) {
+		                if (variable_struct_exists(_args.config, _id)) {
+		                	// Get value
+		                	var _value = variable_struct_get(_args.profile, _id);
+		                    variable_struct_set(_args.config, _id, _value);
+		                }
+            		}, {config: config, profile: _profile});
+            	} else {
+            		var _ex = new TbyException("Profile provided is of type \"" + typeof(_profile) + "\", must be a struct.", undefined);
+            	}
+            	
+            	_advance();
+            break;
             case "halt":
             	pointer = 0;
             break;
@@ -98,10 +116,10 @@ function TbyChain(_chunks) constructor {
             	
             	if (_result && array_length(_chunks_true) > 0) {
             		// execute true chain
-            		var _child = new TbyChain(_chunks_true)._run_as_child(self);
+            		var _child = new TbyChain(_chunks_true)._run_as_child(self, config);
             	} else if (!_result && array_length(_chunks_false) > 0) {
             		// execute false chain
-            		var _child = new TbyChain(_chunks_false)._run_as_child(self);
+            		var _child = new TbyChain(_chunks_false)._run_as_child(self, config);
             	} else {
             		// skip
             		_advance();
@@ -136,9 +154,10 @@ function TbyChain(_chunks) constructor {
         _advance();
     };
     
-    static _run_as_child = function(_parent_chain) {
+    static _run_as_child = function(_parent_chain, _config) {
     	parent_chain = _parent_chain;
     	pointer = 0;
+    	config = _config;
     	_advance();
     };
 
