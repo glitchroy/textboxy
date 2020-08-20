@@ -28,7 +28,7 @@ function scribble_autotype_fade_in()
 
 	var _scribble_array = scribble_cache(_scribble_array, _occurance_name);
 	if (_scribble_array == undefined) return undefined;
-	
+
 	//Find our occurance data
 	var _occurance_map = _scribble_array[SCRIBBLE.OCCURANCES_MAP];
 	var _occurance_array = _occurance_map[? _occurance_name];

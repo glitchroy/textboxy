@@ -10,7 +10,7 @@
 	sound: snd_tby_speech_default, \
 	sound_pitch: [0.8, 1.2], \
 	text: { color: c_white, \
-	        font: font_tby_default, \
+	        font: "font_tby_default", \
 	        halign: fa_left }, \
 	speed: 0.3 \
 } 

@@ -25,7 +25,19 @@ function scribble_bake_shader()
 	var _separation       = argument[8];
 	var _smooth           = argument[9];
 	var _texture_size     = (argument_count > 10)? argument[10] : 2048;
-
+    
+    if (!is_string(_source_font_name))
+    {
+        show_error("Scribble:\nFonts should be specified using their name as a string.\n(Input was an invalid datatype)\n ", false);
+        exit;
+    }
+    
+    if (!is_string(_new_font_name))
+    {
+        show_error("Scribble:\nFonts should be specified using their name as a string.\n(Input was an invalid datatype)\n ", false);
+        exit;
+    }
+    
 	if (_source_font_name == _new_font_name)
 	{
 		show_error("Scribble:\nSource font and new font cannot share the same name\n ", false);
@@ -33,9 +45,13 @@ function scribble_bake_shader()
 	}
 
 	var _src_font_array = global.__scribble_font_data[? _source_font_name];
-
-
-
+    if (!is_array(_src_font_array))
+    {
+		show_error("Scribble:\nSource font \"" + string(_source_font_name) + "\" not found\n\"" + string(_new_font_name) + "\" will not be available\n ", false);
+        return undefined;
+    }
+    
+    
 	//Unpack source glyphs into an intermediate array
 	var _src_glyphs_map = _src_font_array[__SCRIBBLE_FONT.GLYPHS_MAP];
 	if (_src_glyphs_map != undefined)
@@ -281,6 +297,7 @@ function scribble_bake_shader()
 		//Make a sprite from the effect surface to make the texture stick
 		var _sprite = sprite_create_from_surface(_surface_1, 0, 0, _texture_size, _texture_size, false, false, 0, 0);
 		surface_free(_surface_0);
+        surface_free(_surface_1);
 		vertex_delete_buffer(_vbuff);
     
     
