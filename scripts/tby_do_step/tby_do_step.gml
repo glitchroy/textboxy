@@ -1,21 +1,24 @@
 function tby_pause_register(_time, _chain_context) {
-    ds_list_add(global.tby_pause_callbacks_list, { timer: _time, chain: _chain_context })
-}
+    ds_list_add(global.tby_pause_callbacks_list, { timer: _time, chain: _chain_context });
+};
 
 function tby_frame_register(_frame_context) {
     ds_list_insert(global.tby_frames_list, 0, _frame_context);
-}
+};
+
 function tby_frame_remove(_frame_context) {
     var _index = ds_list_find_index(global.tby_frames_list, _frame_context);
     ds_list_delete(global.tby_frames_list, _index);
-}
+};
+
 function tby_frame_get_latest() {
     if (ds_list_empty(global.tby_frames_list)) return undefined;
-    return global.tby_frames_list[| ds_list_size(global.tby_frames_list)-1]
-}
-function tby_frame_get() {
+    return global.tby_frames_list[| ds_list_size(global.tby_frames_list)-1];
+};
+
+function tby_frame_list_get() {
     return global.tby_frames_list;
-}
+};
 
 function tby_do_step() {
     global.tby_blink_timer += tby_confirm_blink_speed;
@@ -36,7 +39,7 @@ function tby_do_step() {
                 i++;
             }
         }
-    }
+    };
     
     // Finish every frame that is dismissable
     var static check_input_confirm = function() {
@@ -49,7 +52,7 @@ function tby_do_step() {
                 }
             }
         }
-    }
+    };
     
     // Chain timers
     if (ds_list_size(global.tby_pause_callbacks_list) > 0) advance_chain_timers();

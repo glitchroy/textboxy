@@ -21,7 +21,7 @@ function TbyChain(_chunks) constructor {
         try {
             var _type = _chunk.type;
         } catch(_ex) {
-            return new TbyException(_ex, "Invalid chunk format.");
+            return new TbyException("Invalid chunk format.", _ex);
         };
         
         switch (_type) {
@@ -63,8 +63,13 @@ function TbyChain(_chunks) constructor {
             	var _name = _chunk.name;
             	
             	var _label_ref = variable_struct_get(labels, _name);
-            	if (!is_undefined(_label_ref)) pointer = _label_ref;
             	
+		        if (!is_undefined(_label_ref)) {
+		        	pointer = _label_ref;
+		        } else {
+		            var _ex = new TbyException("Could not find label \"" + _name + "\" in current TbyChain to go to.", undefined);
+		        };
+
             	_advance();
             break;
             case "execute":
@@ -117,7 +122,7 @@ function TbyChain(_chunks) constructor {
         try {
             var _chunk = chunks[pointer];
         } catch(_ex) {
-            return new TbyException(_ex, "TbyChain index out of bounds.");
+            return new TbyException("TbyChain index out of bounds.", _ex);
         };
         
         // advance pointer

@@ -21,9 +21,10 @@ var d = new TbyChain([
 var e = new TbyChain([
 	new TbyChunk().add.label("loop1"),
 	new TbyChunk().add.box("let's test your mouse position!"),
+	new TbyChunk().add.goto("loop2"),
 	new TbyChunk().add.branch(function() { return mouse_x > tby_game_width/2 },
 	[
-		new TbyChunk().add.box("your mouse is right")
+		new TbyChunk().add.box("your mouse is right"),
 	],
 	[
 		new TbyChunk().add.box("your mouse is left")
