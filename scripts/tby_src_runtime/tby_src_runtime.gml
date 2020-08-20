@@ -14,7 +14,7 @@ function TbyChain(_chunks) constructor {
     parent_chain = undefined;
     
     _meta = {
-    	version: tby_version
+    	version: global.tby.version
     };
     
     static _handle_chunk = function(_chunk) {
@@ -39,7 +39,7 @@ function TbyChain(_chunks) constructor {
             break;
             case "pause":
                 var _seconds = tby_undefined_safe(_chunk.seconds, 1);
-                tby_pause_register(_seconds*room_speed, self);
+                global.tby.pause_register(_seconds*room_speed, self);
             break;
             case "config":
                 var _id = _chunk.config_id;
@@ -145,12 +145,11 @@ function TbyChain(_chunks) constructor {
     // Scan all chunks for label commands & build map
     static _scan_labels = function() {
     	var _labels = {};
-    	for (var i = 0; i < array_length(chunks); i++) {
-    		var _chunk = chunks[i];
-    		if (_chunk.type != "label") continue;
-    		
-    		variable_struct_set(_labels, _chunk.name, i);
-    	}
+    	
+    	tby_foreach(chunks, function(_chunk, i, _size, _args) {
+    		if (_chunk.type == "label") variable_struct_set(_args.labels, _chunk.name, i);
+    	}, {labels: _labels});
+    	
     	return _labels;
     };
     labels = _scan_labels();
@@ -159,7 +158,7 @@ function TbyChain(_chunks) constructor {
 // TbyFrame draws a frame with scribble content,
 // but has no autotype associated
 function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
-    tby_frame_register(self);
+    global.tby.frame_register(self);
     
     chain = _chain;
     x = _x;
@@ -182,7 +181,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     static finish = function() {
         chain._advance();
         
-        tby_frame_remove(self);
+        global.tby.frame_remove(self);
     };
     
     static _p_draw = function() {
@@ -213,7 +212,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         
         if (dismissable()) draw_focus_indicator();
         
-        if (tby_is_debug) {
+        if (tby_debug_mode) {
         	var _d = "";
         	_d += "a_t: " + string(scribble_autotype_get(content));
         	tby_debug_draw(x, y, _d, w, c_white);
@@ -221,7 +220,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     };
     
     static draw_focus_indicator = function() {
-        draw_sprite(chain.config.skin.confirm, global.tby_blink_timer, x+w, y+h);
+        draw_sprite(chain.config.skin.confirm, global.tby.blink_timer, x+w, y+h);
     };
 };
 
@@ -257,7 +256,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return tby_frame_get_latest() == self && scribble_autotype_get(content) == 1;
+        return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
     };
     
     static draw = function() {
@@ -276,7 +275,7 @@ function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return scribble_autotype_get(content) == 1 && tby_frame_get_latest() == self;
+        return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
     };
     
     static draw = function() {
