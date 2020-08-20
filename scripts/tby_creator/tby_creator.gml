@@ -11,7 +11,6 @@ function TbyChunk() constructor {
 		label:	 function(_name)                       { return { type: "label", name: _name }; },
 		pause:   function(_seconds)                    { return { type: "pause", seconds: _seconds }; },
 		execute: function(_script_name, _args)         { return { type: "execute", script_name: _script_name, script_args: _args }; }
-		// script
 		// select
 		// setvar
     };

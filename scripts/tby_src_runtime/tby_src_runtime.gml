@@ -48,7 +48,7 @@ function TbyChain(_chunks) constructor {
                 if (variable_struct_exists(config, _id)) {
                     variable_struct_set(config, _id, _value);
                 } else {
-                    var _ex = new TbyException("Invalid config option \"" + _id + "\".");
+                    var _ex = new TbyException("Invalid config option \"" + _id + "\".", undefined);
                 }
                 
                 _advance();
@@ -69,9 +69,17 @@ function TbyChain(_chunks) constructor {
             break;
             case "execute":
             	var _script_name = _chunk.script_name;
-            	var _script_args = tby_undefined_safe(_chunk.script_args, []);
             	
-            	tby_spread(_script_name, _script_args);
+            	if (typeof(_script_name) == "method") {
+            		// Inline function
+            		_script_name(_script_args);
+            	} else if (is_real(_script_name) && script_exists(_script_name)) {
+            		// Script resource
+            		var _script_args = tby_undefined_safe(_chunk.script_args, []);
+            		tby_spread(_script_name, _script_args);
+            	} else {
+            		var _ex = new TbyException("Invalid argument \"" + string(_script_name) + "\" for execute, is not a script or function.", undefined);
+            	}
             	
             	_advance();
             break;
@@ -127,7 +135,7 @@ function TbyChain(_chunks) constructor {
     	parent_chain = _parent_chain;
     	pointer = 0;
     	_advance();
-    }
+    };
 
     // Scan all chunks for label commands & build map
     static _scan_labels = function() {
@@ -139,7 +147,7 @@ function TbyChain(_chunks) constructor {
     		variable_struct_set(_labels, _chunk.name, i);
     	}
     	return _labels;
-    }
+    };
     labels = _scan_labels();
 };
 
@@ -177,7 +185,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
             var static d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
                 draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size,
                 _size, _size, _x, _y, _xs, _ys, c_white, 1);
-            }
+            };
             
             var _w = _x2 - _x1 - _size*2;
             var _h = _y2 - _y1 - _size*2;
@@ -193,9 +201,9 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
             d(0, 2, _x1,          _y1+_h+_size, 1,        1,        _spr, _size);
             d(1, 2, _x1+_size,    _y1+_h+_size, _w/_size, 1,        _spr, _size);
             d(2, 2, _x1+_w+_size, _y1+_h+_size, 1,        1,        _spr, _size);
-        }
+        };
         
-        draw_frame(x, y, x+w, y+h, chain.config.skin.tile_size, chain.config.skin.frame)
+        draw_frame(x, y, x+w, y+h, chain.config.skin.tile_size, chain.config.skin.frame);
         scribble_draw(x+padding, y+padding, content);
         
         if (dismissable()) draw_focus_indicator();
@@ -203,13 +211,13 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         if (tby_is_debug) {
         	var _d = "";
         	_d += "a_t: " + string(scribble_autotype_get(content));
-        	tby_debug_draw(x, y, _d, w)
+        	tby_debug_draw(x, y, _d, w, c_white);
         }
     };
     
     static draw_focus_indicator = function() {
         draw_sprite(chain.config.skin.confirm, global.tby_blink_timer, x+w, y+h);
-    }
+    };
 };
 
 function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1, _content) constructor {
@@ -230,7 +238,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
         case "mid":
         case "c":
         case "m":
-            y = (tby_game_height - h) / 2
+            y = (tby_game_height - h) / 2;
         break;
         case "auto":
         case "bottom":
@@ -244,7 +252,7 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return tby_frame_get_latest() == self && scribble_autotype_get(content) == 1
+        return tby_frame_get_latest() == self && scribble_autotype_get(content) == 1;
     };
     
     static draw = function() {
@@ -263,13 +271,13 @@ function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(
     scribble_set_wrap(w-padding*2, h-padding*2);
     
     static dismissable = function() {
-        return scribble_autotype_get(content) == 1 && tby_frame_get_latest() == self 
+        return scribble_autotype_get(content) == 1 && tby_frame_get_latest() == self;
     };
     
     static draw = function() {
 	    var _speaker_sprite = speaker.sprite_index;
 		var _bubble_offset = sprite_get_yoffset(chain.config.skin.bubble);
-	    bubble_x = speaker.x - sprite_get_xoffset(_speaker_sprite) + speaker.sprite_width/2
+	    bubble_x = speaker.x - sprite_get_xoffset(_speaker_sprite) + speaker.sprite_width/2;
 	    bubble_y = speaker.y - sprite_get_yoffset(_speaker_sprite) - _bubble_offset;
 	    x = bubble_x - w/2;
 	    y = bubble_y - h;

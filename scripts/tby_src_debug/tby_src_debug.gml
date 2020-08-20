@@ -16,4 +16,4 @@ function tby_debug_draw(_x, _y, _text, _max_width, _color) {
     
     draw_set_color(_c);
     draw_text_ext(_x, _y, _text, -1, _mw);
-}
+};
