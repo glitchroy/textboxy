@@ -1,16 +1,15 @@
 tby_init();
 
 var c = new TbyChain([
-	new TbyChunk().add.box("tsesto texto", "top"),
+	new TbyChunk().add.box("This is cu[delay]rious!"),
 	new TbyChunk().add.label("x"),
-	new TbyChunk().add.bubble("[shake]hi duuuuuu", instance_find(obj_talker, 0)),
+	new TbyChunk().add.bubble("[pin_center][shake]This is amazing![/][pin_left]And totally a work in progress. Check out [c_orange]@glitchroy[/] on Twitter for updates!", instance_find(obj_talker, 0)),
 	new TbyChunk().add.execute(tby_error, "test 123"),
 	new TbyChunk().add.config("instance", noone),
     new TbyChunk().add.box("123", "top"),
     new TbyChunk().add.pause(1),
     new TbyChunk().add.goto("x"),
     new TbyChunk().add.box("hiu", "top")
-    
 ]);
 
 var d = new TbyChain([
@@ -36,9 +35,9 @@ var e = new TbyChain([
 	),
 	new TbyChunk().add.box("anyways..."),
 	new TbyChunk().add.goto("loop1")
-]).run();
+])
 
-//d.run();
+c.run();
 //e.run();
 
 window_scale = 2;

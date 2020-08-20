@@ -6,13 +6,17 @@
             tile_size: 8 }, \
 	instance: noone, \
 	callback: undefined, \
+	bubble: { \
+		max_width: 150, \
+		max_height: 250 \
+	}, \
 	placement: "auto", \
 	sound: snd_tby_speech_default, \
 	sound_pitch: [0.8, 1.2], \
 	text: { color: c_white, \
 	        font: "font_tby_default", \
 	        halign: fa_left }, \
-	speed: 0.3 \
+	speed: 0.25 \
 } 
 
 #macro tby_input_confirm (keyboard_check_pressed( \

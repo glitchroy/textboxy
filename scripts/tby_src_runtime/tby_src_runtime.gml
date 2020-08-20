@@ -176,7 +176,7 @@ function TbyChain(_chunks) constructor {
 
 // TbyFrame draws a frame with scribble content,
 // but has no autotype associated
-function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
+function TbyFrame(_chain, _x, _y, _w, _h) constructor {
     global.tby.frame_register(self);
     
     chain = _chain;
@@ -190,8 +190,9 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         chain.config.text.color,
         chain.config.text.halign
     );
-    content = scribble_cache(_content);
     padding = chain.config.skin.tile_size;
+    content = undefined;
+    
 
     static dismissable = function() {
         return false;
@@ -227,6 +228,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         };
         
         draw_frame(x, y, x+w, y+h, chain.config.skin.tile_size, chain.config.skin.frame);
+        
         scribble_draw(x+padding, y+padding, content);
         
         if (dismissable()) draw_focus_indicator();
@@ -234,6 +236,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
         if (tby_debug_mode) {
         	var _d = "";
         	_d += "a_t: " + string(scribble_autotype_get(content));
+        	_d += "| w: " + string(w) + ", h: " + string(h);
         	tby_debug_draw(x, y, _d, w, c_white);
         }
     };
@@ -243,7 +246,7 @@ function TbyFrame(_chain, _x, _y, _w, _h, _content) constructor {
     };
 };
 
-function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1, _content) constructor {
+function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1) constructor {
     placement = _placement;
     speed = _speed;
     
@@ -271,8 +274,9 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
         break;
     }
     
-    scribble_autotype_fade_in(content, speed, 0, false);
     scribble_set_wrap(w-padding*2, h-padding*2);
+    content = scribble_cache(_content);
+    scribble_autotype_fade_in(content, speed, 0, false);
     
     static dismissable = function() {
         return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
@@ -283,16 +287,37 @@ function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 
     };
 };
 
-function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, 0, 0, 1, 1, _content) constructor {
+function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, 0, 0, 1, 1) constructor {
     speed = _speed;
     speaker = _speaker == noone ? id : _speaker;
     
-    w = scribble_get_width(content) + padding*2;
-    h = scribble_get_height(content) + padding*2;
+    // Define default w/h with presets or -1
+    var _temp_w = tby_undefined_safe(chain.config.bubble.max_width, -1);
+    var _temp_h = tby_undefined_safe(chain.config.bubble.max_height, -1);
+    scribble_set_wrap(_temp_w, _temp_h);
+    
+    // Get real size of bounding box
+    var _temp_cache = scribble_cache(_content);
+    w = scribble_get_width(_temp_cache);
+    h = scribble_get_height(_temp_cache);
+    
+    // Set actual size
+    if (_temp_w == -1 || w < _temp_w) w = _temp_w;
+    if (_temp_h == -1 || h < _temp_h) h = _temp_h;
+    scribble_set_wrap(w-padding*2, h-padding*2);
+    content = scribble_cache(_content);
+    
+    
+    var _max_w = tby_undefined_safe(chain.config.bubble.max_width, -1);
+    w = min(_max_w, scribble_get_width(_content)) + padding*2;
+    var _max_h = tby_undefined_safe(chain.config.bubble.max_height, -1);
+    h = min(_max_h, scribble_get_height(_content)) + padding*2;
+	
+	scribble_set_wrap(w-padding*2, h-padding*2);
+	content = scribble_cache(_content);
 	
     scribble_autotype_fade_in(content, speed, 0, false);
-    scribble_set_wrap(w-padding*2, h-padding*2);
-    
+
     static dismissable = function() {
         return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
     };
