@@ -17,8 +17,16 @@ function tby_init(){
 };
 
 function TbyGlobal() constructor {
+	// Holds all "pause callback" structs for wenn a textbox is paused
+	// Format: { timer:number, chain:struct }
 	pause_callbacks_list = ds_list_create();
+	
+	// Holds references to all TbyFrame structs, in order of creation
 	frames_list = ds_list_create();
+	
+	// Temporary list for the tby_split_string function
+	string_split_list = ds_list_create();
+	
 	blink_timer = 0;
 	debug = true;
 	version = "indev";
@@ -80,8 +88,24 @@ function TbyGlobal() constructor {
 	    if (tby_input_confirm) _input_check_confirm();
     };
     
-    static destroy = function() {
-        if (ds_exists(pause_callbacks_list, ds_type_list)) ds_list_destroy(pause_callbacks_list);
-        if (ds_exists(frames_list, ds_type_list))         ds_list_destroy(frames_list);
+    static clean_up = function() {
+    	if (ds_exists(pause_callbacks_list, ds_type_list)) {
+	    	if (ds_list_size(pause_callbacks_list) > 0) {
+	    		tby_foreach(pause_callbacks_list, function(_el) { delete _el; }, {});
+	    	}
+	        ds_list_destroy(pause_callbacks_list);
+    	}
+
+		if (ds_exists(frames_list, ds_type_list)) {
+	        if (ds_list_size(frames_list) > 0) {
+	        	tby_foreach(frames_list, function(_el) { delete _el; }, {});
+	        }
+	        ds_list_destroy(frames_list);
+		}
+		
+		if (ds_exists(string_split_list, ds_type_list)) {
+	        ds_list_destroy(string_split_list);
+		}
+		
     };
 };

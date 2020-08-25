@@ -24,17 +24,42 @@ function TbyChain(_chunks) constructor {
             return new TbyException("Invalid chunk format.", _ex);
         };
         
+        // Replaces value in struct, including another nested struct
+        // Only works up to 1 level (more isn't needed for the config struct)
+        var _struct_replace_deep = function(_key, _val, _struct) {
+        	if (string_count(".", _key) == 0) {
+        		// nothing nested, simple replace
+        		variable_struct_set(_struct, _key, _val);
+        		return _struct;
+        	}
+        	
+        	// Otherwise, . is in key
+        	var _split_key = tby_split_string(_key, ".");
+        	
+        	// Nested key
+        	// Replace value in nested struct
+        	var _nested_struct = variable_struct_get(_struct, _split_key[0]);
+        	if (!is_struct(_nested_struct)) _nested_struct = {};
+        	
+        	variable_struct_set(_nested_struct, _split_key[1], _val);
+        	
+        	// Replace value in parent struct
+        	variable_struct_set(_struct, _split_key[0], _nested_struct);
+        	
+        	return _struct;
+        };
+        
         switch (_type) {
             case "box":
                 var _text = _chunk.text;
                 var _placement = tby_undefined_safe(_chunk.placement, config.placement);
-                var _speed = config.speed;
+                var _speed = config.text.speed;
                 var _frame = new TbyTextbox(self, _text, _speed, _placement);
             break;
             case "bubble":
                 var _text = _chunk.text;
-                var _instance = tby_undefined_safe(_chunk.instance, config.instance);
-                var _speed = config.speed;
+                var _instance = tby_undefined_safe(_chunk.instance, config.bubble.instance);
+                var _speed = config.text.speed;
                 var _frame = new TbySpeechBubble(self, irandom_range(10, 100), 100, _text, _speed, _instance);
             break;
             case "pause":
@@ -45,11 +70,7 @@ function TbyChain(_chunks) constructor {
                 var _id = _chunk.config_id;
                 var _value = _chunk.config_value;
                 
-                if (variable_struct_exists(config, _id)) {
-                    variable_struct_set(config, _id, _value);
-                } else {
-                    var _ex = new TbyException("Invalid config option \"" + _id + "\".", undefined);
-                }
+                _struct_replace_deep(_id, _value, config);
                 
                 _advance();
             break;
@@ -171,6 +192,7 @@ function TbyChain(_chunks) constructor {
     	
     	return _labels;
     };
+	
     labels = _scan_labels();
 };
 

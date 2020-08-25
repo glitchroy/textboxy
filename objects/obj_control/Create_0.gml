@@ -3,6 +3,7 @@ tby_init();
 var c = new TbyChain([
 	new TbyChunk().add.box("This is cu[delay]rious!"),
 	new TbyChunk().add.label("x"),
+	new TbyChunk().add.config("text.speed", 10),
 	new TbyChunk().add.bubble("[pin_center][shake]This is amazing![/][pin_left]And totally a work in progress. Check out [c_orange]@glitchroy[/] on Twitter for updates!", instance_find(obj_talker, 0)),
 	new TbyChunk().add.execute(tby_error, "test 123"),
 	new TbyChunk().add.config("instance", noone),
@@ -18,14 +19,16 @@ var d = new TbyChain([
 ]);
 
 var _profile = {
-	speed: 3
+	text: {
+		speed: 3
+	}
 };
 
 var e = new TbyChain([
 	new TbyChunk().add.profile(_profile),
 	new TbyChunk().add.label("loop1"),
 	new TbyChunk().add.box("let's test your mouse position!"),
-	new TbyChunk().add.branch(function() { return mouse_x > tby_game_width/2 },
+	new TbyChunk().add.branch(function() { return mouse_x > tby_game_width/2; },
 	[
 		new TbyChunk().add.box("your mouse is right"),
 	],
@@ -35,7 +38,7 @@ var e = new TbyChain([
 	),
 	new TbyChunk().add.box("anyways..."),
 	new TbyChunk().add.goto("loop1")
-])
+]);
 
 c.run();
 //e.run();
@@ -58,5 +61,5 @@ debug_resize = function(_scale, _scale_max) {
 	    
 	//Set AppSurface to window size 1:1 for subpixels
 	surface_resize(application_surface, _window_width, _window_height);
-}
+};
 debug_resize(window_scale, window_scale_max);

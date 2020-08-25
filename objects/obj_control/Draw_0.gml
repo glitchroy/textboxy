@@ -23,6 +23,6 @@ if (tby_debug_mode) {
 	var _d = "debug mode (f3)\n";
 	_d += "textboxy version " + global.tby.version + " (scribble v" + __SCRIBBLE_VERSION + ")\n";
 	_d += "tby.frames_list:\n" + _ds_list_to_string(global.tby.frames_list, ",\n", 4);
-	_d += "tby.pause_callbacks_list:\n" + _ds_list_to_string(global.tby.pause_callbacks_list, ",\n", 4)
+	_d += "tby.pause_callbacks_list:\n" + _ds_list_to_string(global.tby.pause_callbacks_list, ",\n", 4);
 	tby_debug_draw(0, 0, _d, tby_game_width/1.5, c_white);
 }

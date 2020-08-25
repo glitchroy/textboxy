@@ -4,5 +4,5 @@ function tby_do_draw() {
     
     tby_foreach(_list, function(_frame, i) {
         _frame.draw();
-    })
+    }, {});
 };

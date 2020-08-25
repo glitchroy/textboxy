@@ -1,22 +1,28 @@
 #macro tby_default_config { \
-	skin: { frame: spr_tby_skin_frame_d, \
-            bubble: spr_tby_skin_bubble_d, \
-            confirm: spr_tby_skin_confirm_d, \
-            arrow: spr_tby_skin_arrow_d, \
-            tile_size: 8 }, \
-	instance: noone, \
+	skin: { \
+		frame: spr_tby_skin_frame_d, \
+        bubble: spr_tby_skin_bubble_d, \
+        confirm: spr_tby_skin_confirm_d, \
+        arrow: spr_tby_skin_arrow_d, \
+        tile_size: 8 \
+	}, \
 	callback: undefined, \
 	bubble: { \
+		instance: noone, \
 		max_width: 150, \
 		max_height: 250 \
 	}, \
 	placement: "auto", \
-	sound: snd_tby_speech_default, \
-	sound_pitch: [0.8, 1.2], \
-	text: { color: c_white, \
-	        font: "font_tby_default", \
-	        halign: fa_left }, \
-	speed: 0.25 \
+	audio: { \
+		sound: snd_tby_speech_default, \
+		pitch: [0.8, 1.2], \
+	}, \
+	text: { \
+		color: c_white, \
+		speed: 0.25, \
+	    font: "font_tby_default", \
+	    halign: fa_left, \
+	} \
 } 
 
 #macro tby_input_confirm (keyboard_check_pressed( \
