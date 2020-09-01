@@ -1,23 +1,5 @@
 tby_init();
 
-var c = new TbyChain([
-	new TbyChunk().add.box("This is cu[delay]rious!"),
-	new TbyChunk().add.label("x"),
-	new TbyChunk().add.config("text.speed", 10),
-	new TbyChunk().add.bubble("[pin_center][shake]This is amazing![/][pin_left]And totally a work in progress. Check out [c_orange]@glitchroy[/] on Twitter for updates!", instance_find(obj_talker, 0)),
-	new TbyChunk().add.execute(tby_error, "test 123"),
-	new TbyChunk().add.config("instance", noone),
-    new TbyChunk().add.box("123", "top"),
-    new TbyChunk().add.pause(1),
-    new TbyChunk().add.goto("x"),
-    new TbyChunk().add.box("hiu", "top")
-]);
-
-var d = new TbyChain([
-    new TbyChunk().add.box("tkkkkkkkkkkkkkkkkkko", "middle"),
-    new TbyChunk().add.bubble("uizuiz", instance_find(obj_talker, 0))
-]);
-
 var _profile = {
 	text: {
 		speed: 3
@@ -25,23 +7,24 @@ var _profile = {
 };
 
 var e = new TbyChain([
-	new TbyChunk().add.profile(_profile),
-	new TbyChunk().add.label("loop1"),
-	new TbyChunk().add.box("let's test your mouse position!"),
-	new TbyChunk().add.branch(function() { return mouse_x > tby_game_width/2; },
+	//tby_chunk.profile(_profile),
+	tby_chunk.box("You encounter a strange fellow with an even stranger request..."),
+	tby_chunk.label("loop1"),
+	tby_chunk.config("bubble.instance", instance_find(obj_talker, 0)),
+	tby_chunk.bubble("Let's test your [wheel]mouse position[/wheel]!"),
+	tby_chunk.branch(function() { return mouse_x > room_width/2; },
 	[
-		new TbyChunk().add.box("your mouse is right"),
+		tby_chunk.bubble("Your mouse is on the [c_orange]right[/]."),
 	],
 	[
-		new TbyChunk().add.box("your mouse is left")
+		tby_chunk.bubble("Your mouse is on the [c_orange]left[/]."),
+		tby_chunk.pause(1),
+		tby_chunk.bubble("[shake]I waited a bit![/shake]")
 	]
 	),
-	new TbyChunk().add.box("anyways..."),
-	new TbyChunk().add.goto("loop1")
-]);
-
-c.run();
-//e.run();
+	tby_chunk.bubble("let's try again..."),
+	tby_chunk.goto("loop1")
+]).run();
 
 window_scale = 2;
 window_scale_max = 4;

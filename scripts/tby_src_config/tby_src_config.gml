@@ -19,7 +19,7 @@
 	}, \
 	text: { \
 		color: c_white, \
-		speed: 0.25, \
+		speed: 1, \
 	    font: "font_tby_default", \
 	    halign: fa_left, \
 	} \

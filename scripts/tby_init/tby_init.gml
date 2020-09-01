@@ -14,6 +14,7 @@ function tby_init(){
 	global.tby = new TbyGlobal();
 	
 	#macro tby_debug_mode global.tby.debug
+	#macro tby_chunk new TbyChunk().add
 };
 
 function TbyGlobal() constructor {
