@@ -1,7 +1,3 @@
-function tby_undefined_safe(_value, _fallback) {
-	return is_undefined(_value) ? _fallback: _value; 
-};
-
 function tby_spread(_script, _args) {
 	if (is_undefined(_args)) return script_execute(_script);
 	
@@ -68,7 +64,7 @@ function tby_foreach(_list, _cb, _args) {
 // Courtesy of YAL (https://yal.cc/gamemaker-split-string/)
 function tby_split_string(_str, _delimiter) {
 	/// string_split(:string, delimiter:string):array<string>
-	var rl = global.tby.string_split_list;
+	var rl = global.__tby.string_split_list;
 	var p = string_pos(_delimiter, _str), o = 1;
 	var dl = string_length(_delimiter);
 	ds_list_clear(rl);

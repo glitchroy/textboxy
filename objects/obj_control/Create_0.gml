@@ -8,22 +8,22 @@ var _profile = {
 
 var e = new TbyChain([
 	//tby_chunk.profile(_profile),
-	tby_chunk.box("You encounter a strange fellow with an even stranger request..."),
-	tby_chunk.label("loop1"),
-	tby_chunk.config("bubble.instance", instance_find(obj_talker, 0)),
-	tby_chunk.bubble("Let's test your [wheel]mouse position[/wheel]!"),
-	tby_chunk.branch(function() { return mouse_x > room_width/2; },
+	tby.box("You encounter a strange fellow with an even stranger request..."),
+	tby.label("loop1"),
+	tby.config("bubble.instance", instance_find(obj_talker, 0)),
+	tby.bubble("Let's test your [wheel]mouse position[/wheel]!"),
+	tby.branch(function() { return mouse_x > room_width/2; },
 	[
-		tby_chunk.bubble("Your mouse is on the [c_orange]right[/]."),
+		tby.bubble("Your mouse is on the [c_orange]right[/]."),
 	],
 	[
-		tby_chunk.bubble("Your mouse is on the [c_orange]left[/]."),
-		tby_chunk.pause(1),
-		tby_chunk.bubble("[shake]I waited a bit![/shake]")
+		tby.bubble("Your mouse is on the [c_orange]left[/]."),
+		tby.pause(1),
+		tby.bubble("[shake]I waited a bit![/shake]")
 	]
 	),
-	tby_chunk.bubble("let's try again..."),
-	tby_chunk.goto("loop1")
+	tby.bubble("let's try again..."),
+	tby.goto("loop1")
 ]).run();
 
 window_scale = 2;

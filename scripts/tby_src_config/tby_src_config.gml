@@ -37,6 +37,7 @@
 // Padding in pixels to add to the left and to the right of
 // the textbox
 #macro tby_box_padding 48
+#macro tby_box_height 100
 
 #macro tby_confirm_blink_speed 1/16
 

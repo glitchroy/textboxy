@@ -1,6 +1,6 @@
 function tby_debug_draw(_x, _y, _text, _max_width, _color) {
-    var _mw = tby_undefined_safe(_max_width, -1);
-    var _c  = tby_undefined_safe(_color, c_white);
+    var _mw = tby_nc_set(_max_width) ? tby_nc_val : -1;
+    var _c  = tby_nc_set(_color) ? tby_nc_val : c_white;
     
     draw_set_font(font_tby_debug);
     draw_set_color(c_black);

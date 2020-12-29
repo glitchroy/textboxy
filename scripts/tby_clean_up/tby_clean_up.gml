@@ -1,4 +1,4 @@
 function tby_clean_up(){
-	global.tby.clean_up();
-	delete global.tby;
+	global.__tby.clean_up();
+	delete global.__tby;
 }

@@ -1,5 +1,5 @@
 function tby_init(){
-	if (scribble_init("textboxy/fonts", "font_tby_default", false)) {
+	/*if (scribble_init("textboxy/fonts", "font_tby_default", false)) {
 		scribble_add_font("font_tby_default");
 		scribble_add_font("font_tby_debug");
 		
@@ -9,12 +9,15 @@ function tby_init(){
 		scribble_add_autotype_character_delay("!", 200);
 		scribble_add_autotype_character_delay("?", 200);
 		scribble_add_autotype_character_delay(":", 200);
-	}
+	}*/
+	scribble_font_add("font_tby_default", "textboxy/fonts/font_tby_default.yy");
+	scribble_font_add("font_tby_debug",   "textboxy/fonts/font_tby_debug.yy");
+	//scribble_font_add_all();
 	
-	global.tby = new TbyGlobal();
+	global.__tby = new TbyGlobal();
 	
-	#macro tby_debug_mode global.tby.debug
-	#macro tby_chunk new TbyChunk().add
+	#macro tby_debug_mode global.__tby.debug
+	//#macro tby_chunk new TbyChunk().add
 };
 
 function TbyGlobal() constructor {
@@ -110,3 +113,12 @@ function TbyGlobal() constructor {
 		
     };
 };
+
+globalvar tby_nc_val;
+tby_nc_val = undefined;
+/// @param value
+/// @returns {bool} Whether the value is non-null
+function tby_nc_set(v) {
+	tby_nc_val = v;
+    return v != undefined && v != noone;
+}

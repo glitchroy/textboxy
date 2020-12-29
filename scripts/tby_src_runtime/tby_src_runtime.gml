@@ -14,7 +14,7 @@ function TbyChain(_chunks) constructor {
     parent_chain = undefined;
     
     _meta = {
-    	version: global.tby.version
+    	version: global.__tby.version
     };
     
     static _handle_chunk = function(_chunk) {
@@ -52,19 +52,19 @@ function TbyChain(_chunks) constructor {
         switch (_type) {
             case "box":
                 var _text = _chunk.text;
-                var _placement = tby_undefined_safe(_chunk.placement, config.placement);
+                var _placement = tby_nc_set(_chunk.placement) ? tby_nc_val : config.placement;
                 var _speed = config.text.speed;
                 var _frame = new TbyTextbox(self, _text, _speed, _placement);
             break;
             case "bubble":
                 var _text = _chunk.text;
-                var _instance = tby_undefined_safe(_chunk.instance, config.bubble.instance);
+                var _instance = tby_nc_set(_chunk.instance) ? tby_nc_val : config.bubble.instance;
                 var _speed = config.text.speed;
                 var _frame = new TbySpeechBubble(self, irandom_range(10, 100), 100, _text, _speed, _instance);
             break;
             case "pause":
-                var _seconds = tby_undefined_safe(_chunk.seconds, 1);
-                global.tby.pause_register(_seconds*room_speed, self);
+                var _seconds = tby_nc_set(_chunk.seconds) ? tby_nc_val : 1;
+                global.__tby.pause_register(_seconds*room_speed, self);
             break;
             case "config":
                 var _id = _chunk.config_id;
@@ -119,7 +119,7 @@ function TbyChain(_chunks) constructor {
             		_script_name(_script_args);
             	} else if (is_real(_script_name) && script_exists(_script_name)) {
             		// Script resource
-            		var _script_args = tby_undefined_safe(_chunk.script_args, []);
+            		var _script_args = tby_nc_set(_chunk.script_args) ? tby_nc_val : [];
             		tby_spread(_script_name, _script_args);
             	} else {
             		var _ex = new TbyException("Invalid argument \"" + string(_script_name) + "\" for execute, is not a script or function.", undefined);
@@ -130,7 +130,7 @@ function TbyChain(_chunks) constructor {
             case "branch":
             	var _func = _chunk.func;
             	var _chunks_true = _chunk.chunks_true;
-            	var _chunks_false = tby_undefined_safe(_chunk.chunks_false, []);
+            	var _chunks_false = tby_nc_set(_chunk.chunks_false) ? tby_nc_val : [];
             	
             	// evaluate script
             	var _result = _func();
@@ -196,38 +196,24 @@ function TbyChain(_chunks) constructor {
     labels = _scan_labels();
 };
 
-// TbyFrame draws a frame with scribble content,
-// but has no autotype associated
-function TbyFrame(_chain, _x, _y, _w, _h) constructor {
-    global.tby.frame_register(self);
-    
+// TbyFrame draws a frame with arbitrary scribble content (no typewriter)
+function TbyFrame(_chain) constructor {
+    global.__tby.frame_register(self);
     chain = _chain;
-    x = _x;
-    y = _y;
-    w = _w;
-    h = _h;
-    
-    scribble_set_starting_format(
-        chain.config.text.font,
-        chain.config.text.color,
-        chain.config.text.halign
-    );
     padding = chain.config.skin.tile_size;
-    content = undefined;
     
-
     static dismissable = function() {
         return false;
     };
     
     static finish = function() {
         chain._advance();
-        
-        global.tby.frame_remove(self);
+        global.__tby.frame_remove(self);
     };
     
-    static _p_draw = function() {
+    static _p_draw = function(_x, _y, _w, _h) {
         var static draw_frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
+        	
             var static d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
                 draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size,
                 _size, _size, _x, _y, _xs, _ys, c_white, 1);
@@ -249,99 +235,89 @@ function TbyFrame(_chain, _x, _y, _w, _h) constructor {
             d(2, 2, _x1+_w+_size, _y1+_h+_size, 1,        1,        _spr, _size);
         };
         
-        draw_frame(x, y, x+w, y+h, chain.config.skin.tile_size, chain.config.skin.frame);
+        draw_frame(_x, _y, _x+_w, _y+_h, chain.config.skin.tile_size, chain.config.skin.frame);
         
-        scribble_draw(x+padding, y+padding, content);
+        content.draw(_x+padding, _y+padding);
         
         if (dismissable()) draw_focus_indicator();
         
         if (tby_debug_mode) {
         	var _d = "";
-        	_d += "a_t: " + string(scribble_autotype_get(content));
-        	_d += "| w: " + string(w) + ", h: " + string(h);
-        	tby_debug_draw(x, y, _d, w, c_white);
+        	_d += "a_t: " + string(content.get_typewriter_state());
+        	_d += "| w: " + string(_w) + ", h: " + string(_h);
+        	tby_debug_draw(_x, _y, _d, _w, c_white);
         }
     };
     
     static draw_focus_indicator = function() {
-        draw_sprite(chain.config.skin.confirm, global.tby.blink_timer, x+w, y+h);
+        draw_sprite(chain.config.skin.confirm, global.__tby.blink_timer, x+w, y+h);
     };
 };
 
-function TbyTextbox(_chain, _content, _speed, _placement) : TbyFrame(_chain, 0, 0, 1, 1) constructor {
-    placement = _placement;
-    speed = _speed;
+function TbyTextbox(_chain, _text, _speed, _placement) : TbyFrame(_chain) constructor {
+	chain = _chain;
     
     x = tby_box_padding / 2;
     w = tby_game_width - tby_box_padding;
-    h = 100;
+    h = tby_box_height;
+    y = function(_placement) {
+	    switch (_placement) {
+	        case "top":
+	        case "t":
+	            return 0;
+	        break;
+	        case "middle":
+	        case "center":
+	        case "mid":
+	        case "c":
+	        case "m":
+	            return (tby_game_height - h) / 2;
+	        break;
+	        case "auto":
+	        case "bottom":
+	        case "b":
+	        case "bot":
+	            return tby_game_height - h;
+	        break;
+	    }
+    }(_placement);
     
-    switch (placement) {
-        case "top":
-        case "t":
-            y = 0;
-        break;
-        case "middle":
-        case "center":
-        case "mid":
-        case "c":
-        case "m":
-            y = (tby_game_height - h) / 2;
-        break;
-        case "auto":
-        case "bottom":
-        case "b":
-        case "bot":
-            y = tby_game_height - h;
-        break;
-    }
-    
-    scribble_set_wrap(w-padding*2, h-padding*2);
-    content = scribble_cache(_content);
-    scribble_autotype_fade_in(content, speed, 0, false);
+    content = scribble(_text)
+    	.starting_format(chain.config.text.font, chain.config.text.color)
+    	.align(chain.config.text.halign)
+    	.wrap(w-padding*2, h-padding*2)
+    	.typewriter_in(_speed, 0);
     
     static dismissable = function() {
-        return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
+        return global.__tby.frame_get_latest() == self && content.get_typewriter_state() == 1;
     };
     
     static draw = function() {
-        _p_draw();
+        _p_draw(x, y, w, h);
     };
 };
 
-function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(_chain, 0, 0, 1, 1) constructor {
-    speed = _speed;
-    speaker = _speaker == noone ? id : _speaker;
+function TbySpeechBubble(_chain, _x, _y, _text, _speed, _speaker) : TbyFrame(_chain) constructor {
+    speaker = tby_nc_set(_speaker) ? tby_nc_val : id;
+    
+    content = scribble(_text)
+    	.starting_format(chain.config.text.font, chain.config.text.color)
+    	.align(chain.config.text.halign);
     
     // Define default w/h with presets or -1
-    var _temp_w = tby_undefined_safe(chain.config.bubble.max_width, -1);
-    var _temp_h = tby_undefined_safe(chain.config.bubble.max_height, -1);
-    scribble_set_wrap(_temp_w, _temp_h);
-    
-    // Get real size of bounding box
-    var _temp_cache = scribble_cache(_content);
-    w = scribble_get_width(_temp_cache);
-    h = scribble_get_height(_temp_cache);
+	var _max_w = tby_nc_set(chain.config.bubble.max_width) ? tby_nc_val : -1;
+    var _max_h = tby_nc_set(chain.config.bubble.max_height) ? tby_nc_val : -1;
+    content.wrap(_max_w, _max_h);
     
     // Set actual size
-    if (_temp_w == -1 || w < _temp_w) w = _temp_w;
-    if (_temp_h == -1 || h < _temp_h) h = _temp_h;
-    scribble_set_wrap(w-padding*2, h-padding*2);
-    content = scribble_cache(_content);
+    w = min(_max_w, content.get_width()) + padding*2;
+    h = min(_max_h, content.get_height()) + padding*2;
     
-    
-    var _max_w = tby_undefined_safe(chain.config.bubble.max_width, -1);
-    w = min(_max_w, scribble_get_width(_content)) + padding*2;
-    var _max_h = tby_undefined_safe(chain.config.bubble.max_height, -1);
-    h = min(_max_h, scribble_get_height(_content)) + padding*2;
-	
-	scribble_set_wrap(w-padding*2, h-padding*2);
-	content = scribble_cache(_content);
-	
-    scribble_autotype_fade_in(content, speed, 0, false);
+    content.wrap(w-padding*2, h-padding*2);
+    content.typewriter_in(_speed, 0);
 
     static dismissable = function() {
-        return global.tby.frame_get_latest() == self && scribble_autotype_get(content) == 1;
+        return global.__tby.frame_get_latest() == self && content.get_typewriter_state() == 1;
     };
     
     static draw = function() {
@@ -352,7 +328,7 @@ function TbySpeechBubble(_chain, _x, _y, _content, _speed, _speaker) : TbyFrame(
 	    x = bubble_x - w/2;
 	    y = bubble_y - h;
 		
-        _p_draw();
+        _p_draw(x, y, w, h);
 		
 		draw_sprite(chain.config.skin.bubble, -1, bubble_x, bubble_y);
     };
