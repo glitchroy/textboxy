@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "textboxy-engine",
-    "path": "folders/textboxy-engine.yy",
+    "name": "Font Modification",
+    "path": "folders/textboxy-engine/lib/Scribble/Font Modification.yy",
   },
   "resourceVersion": "1.0",
-  "name": "tby_clean_up",
+  "name": "scribble_font_combine",
   "tags": [],
   "resourceType": "GMScript",
 }

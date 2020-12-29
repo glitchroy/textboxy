@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "textboxy-engine",
-    "path": "folders/textboxy-engine.yy",
+    "name": "(System)",
+    "path": "folders/Scribble/(System).yy",
   },
   "resourceVersion": "1.0",
-  "name": "tby_clean_up",
+  "name": "__scribble_mesh",
   "tags": [],
   "resourceType": "GMScript",
 }
