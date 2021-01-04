@@ -211,12 +211,11 @@ function TbyFrame(_chain) constructor {
         global.__tby.frame_remove(self);
     };
     
-    static _p_draw = function(_x, _y, _w, _h) {
-        var static draw_frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
+    static draw_frame = function(_x, _y, _w, _h) {
+        var static _frame = function(_x1, _y1, _x2, _y2, _size, _spr) {
         	
             var static d = function(_left, _top, _x, _y, _xs, _ys, _spr, _size) {
-                draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size,
-                _size, _size, _x, _y, _xs, _ys, c_white, 1);
+                draw_sprite_part_ext(_spr, -1, _left*_size, _top*_size, _size, _size, _x, _y, _xs, _ys, c_white, 1);
             };
             
             var _w = _x2 - _x1 - _size*2;
@@ -235,7 +234,7 @@ function TbyFrame(_chain) constructor {
             d(2, 2, _x1+_w+_size, _y1+_h+_size, 1,        1,        _spr, _size);
         };
         
-        draw_frame(_x, _y, _x+_w, _y+_h, chain.config.skin.tile_size, chain.config.skin.frame);
+        _frame(_x, _y, _x+_w, _y+_h, chain.config.skin.tile_size, chain.config.skin.frame);
         
         content.draw(_x+padding, _y+padding);
         
@@ -293,7 +292,7 @@ function TbyTextbox(_chain, _text, _speed, _placement) : TbyFrame(_chain) constr
     };
     
     static draw = function() {
-        _p_draw(x, y, w, h);
+        draw_frame(x, y, w, h);
     };
 };
 
@@ -328,7 +327,7 @@ function TbySpeechBubble(_chain, _x, _y, _text, _speed, _speaker) : TbyFrame(_ch
 	    x = bubble_x - w/2;
 	    y = bubble_y - h;
 		
-        _p_draw(x, y, w, h);
+        draw_frame(x, y, w, h);
 		
 		draw_sprite(chain.config.skin.bubble, -1, bubble_x, bubble_y);
     };
