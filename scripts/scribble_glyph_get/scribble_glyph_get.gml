@@ -11,25 +11,18 @@
 
 function scribble_glyph_get(_font, _character, _property)
 {
-    var _font_data = global.__scribble_font_data[? _font ];
+    var _font_data = __scribble_get_font_data(_font);
 
-    var _array = _font_data.glyphs_array;
-    var _map   = _font_data.glyphs_map;
+    var _grid = _font_data.__glyph_data_grid;
+    var _map  = _font_data.__glyphs_map;
+    var _unicode = is_real(_character)? _character : ord(_character);
+    var _glyph_index = _map[? _unicode];
     
-    if (_array == undefined)
-    {
-        var _glyph_data = _map[? ord(_character)];
-    }
-    else
-    {
-        var _glyph_data = _array[ord(_character) - _font_data.glyphs_min];
-    }
-
-    if (_glyph_data == undefined)
+    if (_glyph_index == undefined)
     {
         __scribble_error("Character \"", _character, "\" not found for font \"", _font, "\"");
         return undefined;
     }
 
-    return _glyph_data[_property];
+    return _grid[# _glyph_index, _property];
 }

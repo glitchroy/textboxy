@@ -1,19 +1,4 @@
 function tby_init(){
-	/*if (scribble_init("textboxy/fonts", "font_tby_default", false)) {
-		scribble_add_font("font_tby_default");
-		scribble_add_font("font_tby_debug");
-		
-		scribble_add_autotype_character_delay(".", 200);
-		scribble_add_autotype_character_delay(",", 200);
-		scribble_add_autotype_character_delay(";", 200);
-		scribble_add_autotype_character_delay("!", 200);
-		scribble_add_autotype_character_delay("?", 200);
-		scribble_add_autotype_character_delay(":", 200);
-	}*/
-	scribble_font_add("font_tby_default", "textboxy/fonts/font_tby_default.yy");
-	scribble_font_add("font_tby_debug",   "textboxy/fonts/font_tby_debug.yy");
-	//scribble_font_add_all();
-	
 	global.__tby = new TbyGlobal();
 	
 	#macro tby_debug_mode global.__tby.debug
