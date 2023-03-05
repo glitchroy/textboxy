@@ -236,13 +236,13 @@ function TbyFrame(_chain) constructor {
         
         _frame(_x, _y, _x+_w, _y+_h, chain.config.skin.tile_size, chain.config.skin.frame);
         
-        content.draw(_x+padding, _y+padding);
+        content.draw(_x+padding, _y+padding, typist);
         
         if (dismissable()) draw_focus_indicator();
         
         if (tby_debug_mode) {
         	var _d = "";
-        	_d += "a_t: " + string(content.get_typewriter_state());
+        	_d += "a_t: " + string(typist.get_state());
         	_d += "| w: " + string(_w) + ", h: " + string(_h);
         	tby_debug_draw(_x, _y, _d, _w, c_white);
         }
@@ -281,14 +281,16 @@ function TbyTextbox(_chain, _text, _speed, _placement) : TbyFrame(_chain) constr
 	    }
     }(_placement);
     
+    typist = scribble_typist();
+    typist.in(_speed, 0);
+    
     content = scribble(_text)
     	.starting_format(chain.config.text.font, chain.config.text.color)
     	.align(chain.config.text.halign)
     	.wrap(w-padding*2, h-padding*2)
-    	.typewriter_in(_speed, 0);
     
     static dismissable = function() {
-        return global.__tby.frame_get_latest() == self && content.get_typewriter_state() == 1;
+        return global.__tby.frame_get_latest() == self && typist.get_state() == 1;
     };
     
     static draw = function() {
@@ -298,6 +300,9 @@ function TbyTextbox(_chain, _text, _speed, _placement) : TbyFrame(_chain) constr
 
 function TbySpeechBubble(_chain, _x, _y, _text, _speed, _speaker) : TbyFrame(_chain) constructor {
     speaker = tby_nc_set(_speaker) ? tby_nc_val : id;
+    
+    typist = scribble_typist();
+    typist.in(_speed, 0);
     
     content = scribble(_text)
     	.starting_format(chain.config.text.font, chain.config.text.color)
@@ -313,10 +318,9 @@ function TbySpeechBubble(_chain, _x, _y, _text, _speed, _speaker) : TbyFrame(_ch
     h = min(_max_h, content.get_height()) + padding*2;
     
     content.wrap(w-padding*2, h-padding*2);
-    content.typewriter_in(_speed, 0);
 
     static dismissable = function() {
-        return global.__tby.frame_get_latest() == self && content.get_typewriter_state() == 1;
+        return global.__tby.frame_get_latest() == self && typist.get_state() == 1;
     };
     
     static draw = function() {
