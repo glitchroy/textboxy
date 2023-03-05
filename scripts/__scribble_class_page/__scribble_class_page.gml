@@ -1,213 +1,94 @@
-enum __SCRIBBLE_PAGE
-{
-    LINES,                // 0
-    START_CHAR,           // 1
-    LAST_CHAR,            // 2
-    LINES_ARRAY,          // 3
-    VERTEX_BUFFERS_ARRAY, // 4
-    START_EVENT,          // 5
-    MAX_X,                // 6
-    MIN_X,                // 7
-    WIDTH,                // 8
-    HEIGHT,               // 9
-    __SIZE
-}
-
 function __scribble_class_page() constructor
 {
-    lines               = 0;
-    start_char          = 0;
-    last_char           = 0;
-    lines_array         = [];
-    vertex_buffer_array = [];
-    start_event         = 0;
-    max_x               = 0;
-    min_x               = 0;
-    width               = 0;
-    height              = 0;
+    static __scribble_state = __scribble_get_state();
+    static __gc_vbuff_refs  = __scribble_get_cache_state().__gc_vbuff_refs;
+    static __gc_vbuff_ids   = __scribble_get_cache_state().__gc_vbuff_ids;
     
-    texture_to_buffer_dict = {};
+    __text = "";
+    __glyph_grid = undefined;
     
-    static __new_line = function()
+    __created_frame = __scribble_state.__frames;
+    __frozen = undefined;
+    
+    __character_count = 0;
+    
+    __glyph_start = undefined;
+    __glyph_end   = undefined;
+    __glyph_count = 0;
+    
+    __line_start = undefined;
+    __line_end   = undefined;
+    __line_count = 0;
+    
+    __width  = 0;
+    __height = 0;
+    __min_x  = 0;
+    __min_y  = 0;
+    __max_x  = 0;
+    __max_y  = 0;
+    
+    __vertex_buffer_array = [];
+    if (!__SCRIBBLE_ON_WEB) __texture_to_vertex_buffer_dict = {}; //FIXME - Workaround for pointers not being stringified properly on HTML5
+    
+    __char_events  = {};
+    __line_events  = {};
+    __region_array = [];
+    
+    static __submit = function(_msdf_feather_thickness, _double_draw)
     {
-        var _line_data = new __scribble_class_line();
         
-        lines_array[@ lines] = _line_data;
-        lines++;
-        
-        return _line_data;
-    }
-    
-    static __new_vertex_buffer = function(_texture, _for_text)
-    {
-        var _vertex_buffer_data = new __scribble_class_vertex_buffer(_texture, _for_text)
-        
-        vertex_buffer_array[@ array_length(vertex_buffer_array)] = _vertex_buffer_data;
-        
-        return _vertex_buffer_data;
-    }
-    
-    static __find_vertex_buffer = function(_texture, _for_text)
-    {
-        var _pointer_string = string(_texture);
-        
-        var _vbuff_data = texture_to_buffer_dict[$ _pointer_string];
-        if (_vbuff_data == undefined)
-        {
-            var _vbuff_data = __new_vertex_buffer(_texture, _for_text);
-            texture_to_buffer_dict[$ _pointer_string] = _vbuff_data;
-        }
-        
-        return _vbuff_data;
-    }
-    
-    static __reset_word_start = function()
-    {
-        var _v = 0;
-        repeat(array_length(vertex_buffer_array))
-        {
-            var vbuff_data = vertex_buffer_array[_v];
-            vbuff_data.word_start_tell = buffer_tell(vbuff_data.buffer);
-            vbuff_data.word_x_offset   = undefined;
-            ++_v;
-        }
-    }
-    
-    static __clean_up = function(_destroy_buffer)
-    {
-        texture_to_buffer_dict = undefined;
-        
-        var _i = 0;
-        repeat(array_length(vertex_buffer_array))
-        {
-            vertex_buffer_array[_i].__clean_up(_destroy_buffer);
-            ++_i;
-        }
-    }
-    
-    static __flush = function()
-    {
-        __clean_up(true);
-        
-        var _i = 0;
-        repeat(array_length(vertex_buffer_array))
-        {
-            vertex_buffer_array[_i].__flush();
-            ++_i;
-        }
-    }
-    
-    static __submit = function(_element)
-    {
-        var _tw_method = 0;
-        if (_element.tw_do) _tw_method = _element.tw_in? 1 : -1;
+        if (SCRIBBLE_INCREMENTAL_FREEZE && !__frozen && (__created_frame < __scribble_state.__frames)) __freeze();
         
         var _shader = undefined;
-        
-        //TODO - Calculate this somewhere else
-        var _tw_method   = 0;
-        var _tw_char_max = 0;
-        if (_element.tw_do)
-        {
-            _tw_method = _element.tw_anim_ease_method;
-            if (!_element.tw_in) _tw_method += SCRIBBLE_EASE.__SIZE;
-            if (_element.tw_backwards) _tw_char_max = 1 + last_char - start_char;
-        }
-        
         var _i = 0;
-        repeat(array_length(vertex_buffer_array))
+        repeat(array_length(__vertex_buffer_array))
         {
-            var _vertex_buffer = vertex_buffer_array[_i];
+            var _data = __vertex_buffer_array[_i];
+            var _bilinear = _data[__SCRIBBLE_VERTEX_BUFFER.__BILINEAR];
             
-            if (_vertex_buffer.shader != _shader)
+            if (_data[__SCRIBBLE_VERTEX_BUFFER.__SHADER] != _shader)
             {
-                _shader = _vertex_buffer.shader;
-                
-                if (_shader == __shd_scribble)
-                {
-                    shader_set(__shd_scribble);
-                    shader_set_uniform_f(global.__scribble_u_fTime, _element.animation_time);
-                    
-                    shader_set_uniform_f(global.__scribble_u_vColourBlend, colour_get_red(  _element.blend_colour)/255,
-                                                                           colour_get_green(_element.blend_colour)/255,
-                                                                           colour_get_blue( _element.blend_colour)/255,
-                                                                           _element.blend_alpha);
-                    
-                    shader_set_uniform_f(global.__scribble_u_vFog, colour_get_red(  _element.fog_colour)/255,
-                                                                   colour_get_green(_element.fog_colour)/255,
-                                                                   colour_get_blue( _element.fog_colour)/255,
-                                                                   _element.fog_alpha);
-                    
-                    shader_set_uniform_f_array(global.__scribble_u_aDataFields, _element.animation_array);
-                    shader_set_uniform_f_array(global.__scribble_u_aBezier, _element.bezier_array);
-                    shader_set_uniform_f(global.__scribble_u_fBlinkState, _element.animation_blink_state);
-                    
-                    shader_set_uniform_i(global.__scribble_u_iTypewriterMethod,        _tw_method);
-                    shader_set_uniform_i(global.__scribble_u_iTypewriterCharMax,       _tw_char_max);
-                    shader_set_uniform_f(global.__scribble_u_fTypewriterSmoothness,    _element.tw_anim_smoothness);
-                    shader_set_uniform_f(global.__scribble_u_vTypewriterStartPos,      _element.tw_anim_dx, _element.tw_anim_dy);
-                    shader_set_uniform_f(global.__scribble_u_vTypewriterStartScale,    _element.tw_anim_xscale, _element.tw_anim_yscale);
-                    shader_set_uniform_f(global.__scribble_u_fTypewriterStartRotation, _element.tw_anim_rotation);
-                    shader_set_uniform_f(global.__scribble_u_fTypewriterAlphaDuration, _element.tw_anim_alpha_duration);
-                    shader_set_uniform_f_array(global.__scribble_u_fTypewriterWindowArray, _element.tw_do? _element.tw_window_array : global.__scribble_window_array_null);
-                }
-                else if (_shader == __shd_scribble_msdf)
-                {
-                    shader_set(__shd_scribble_msdf);
-                    shader_set_uniform_f(global.__scribble_msdf_u_fTime, _element.animation_time);
-                    
-                    shader_set_uniform_f(global.__scribble_msdf_u_vColourBlend, colour_get_red(  _element.blend_colour)/255,
-                                                                                colour_get_green(_element.blend_colour)/255,
-                                                                                colour_get_blue( _element.blend_colour)/255,
-                                                                                _element.blend_alpha);
-                    
-                    shader_set_uniform_f(global.__scribble_msdf_u_vFog, colour_get_red(  _element.fog_colour)/255,
-                                                                        colour_get_green(_element.fog_colour)/255,
-                                                                        colour_get_blue( _element.fog_colour)/255,
-                                                                        _element.fog_alpha);
-                    
-                    shader_set_uniform_f_array(global.__scribble_msdf_u_aDataFields, _element.animation_array);
-                    shader_set_uniform_f_array(global.__scribble_msdf_u_aBezier, _element.bezier_array);
-                    shader_set_uniform_f(global.__scribble_msdf_u_fBlinkState, _element.animation_blink_state);
-                    
-                    shader_set_uniform_i(global.__scribble_msdf_u_iTypewriterMethod,        _tw_method);
-                    shader_set_uniform_i(global.__scribble_msdf_u_iTypewriterCharMax,       _tw_char_max);
-                    shader_set_uniform_f(global.__scribble_msdf_u_fTypewriterSmoothness,    _element.tw_anim_smoothness);
-                    shader_set_uniform_f(global.__scribble_msdf_u_vTypewriterStartPos,      _element.tw_anim_dx, _element.tw_anim_dy);
-                    shader_set_uniform_f(global.__scribble_msdf_u_vTypewriterStartScale,    _element.tw_anim_xscale, _element.tw_anim_yscale);
-                    shader_set_uniform_f(global.__scribble_msdf_u_fTypewriterStartRotation, _element.tw_anim_rotation);
-                    shader_set_uniform_f(global.__scribble_msdf_u_fTypewriterAlphaDuration, _element.tw_anim_alpha_duration);
-                    shader_set_uniform_f_array(global.__scribble_msdf_u_fTypewriterWindowArray, _element.tw_do? _element.tw_window_array : global.__scribble_window_array_null);
-                }
+                _shader = _data[__SCRIBBLE_VERTEX_BUFFER.__SHADER];
+                shader_set(_shader);
             }
             
-            if (_shader == __shd_scribble_msdf)
+            if (_bilinear != undefined)
             {
-                shader_set_uniform_f(global.__scribble_msdf_u_vTexel, _vertex_buffer.texel_width, _vertex_buffer.texel_height);
-                shader_set_uniform_f(global.__scribble_msdf_u_fMSDFRange, _element.msdf_feather_thickness*_vertex_buffer.msdf_range);
-                
-                shader_set_uniform_f(global.__scribble_msdf_u_vShadowOffset, _element.msdf_shadow_xoffset, _element.msdf_shadow_yoffset);
-                
-                shader_set_uniform_f(global.__scribble_msdf_u_vShadowColour, colour_get_red(  _element.msdf_shadow_colour)/255,
-                                                                             colour_get_green(_element.msdf_shadow_colour)/255,
-                                                                             colour_get_blue( _element.msdf_shadow_colour)/255,
-                                                                             _element.msdf_shadow_alpha);
-                                                                                
-                shader_set_uniform_f(global.__scribble_msdf_u_vBorderColour, colour_get_red(  _element.msdf_border_colour)/255,
-                                                                             colour_get_green(_element.msdf_border_colour)/255,
-                                                                             colour_get_blue( _element.msdf_border_colour)/255);
-                                                                             
-                shader_set_uniform_f(global.__scribble_msdf_u_fBorderThickness, _element.msdf_border_thickness);
-                
                 //Force texture filtering when using MSDF fonts
                 var _old_tex_filter = gpu_get_tex_filter();
-                gpu_set_tex_filter(true);
+                gpu_set_tex_filter(_bilinear);
             }
-            
-            _vertex_buffer.__submit();
             
             if (_shader == __shd_scribble_msdf)
             {
+                static _msdf_u_vTexel               = shader_get_uniform(__shd_scribble_msdf, "u_vTexel"              );
+                static _msdf_u_fMSDFRange           = shader_get_uniform(__shd_scribble_msdf, "u_fMSDFRange"          );
+                static _msdf_u_fMSDFThicknessOffset = shader_get_uniform(__shd_scribble_msdf, "u_fMSDFThicknessOffset");
+                static _msdf_u_fSecondDraw          = shader_get_uniform(__shd_scribble_msdf, "u_fSecondDraw"         );
+                
+                //Set shader uniforms unique to the MSDF shader
+                shader_set_uniform_f(_msdf_u_vTexel, _data[__SCRIBBLE_VERTEX_BUFFER.__TEXEL_WIDTH], _data[__SCRIBBLE_VERTEX_BUFFER.__TEXEL_HEIGHT]);
+                shader_set_uniform_f(_msdf_u_fMSDFRange, _msdf_feather_thickness*_data[__SCRIBBLE_VERTEX_BUFFER.__MSDF_RANGE]);
+                shader_set_uniform_f(_msdf_u_fMSDFThicknessOffset, __scribble_state.__msdf_thickness_offset + _data[__SCRIBBLE_VERTEX_BUFFER.__MSDF_THICKNESS_OFFSET]);
+                
+                vertex_submit(_data[__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER], pr_trianglelist, _data[__SCRIBBLE_VERTEX_BUFFER.__TEXTURE]);
+                
+                if (_double_draw)
+                {
+                    shader_set_uniform_f(_msdf_u_fSecondDraw, 1);
+                    vertex_submit(_data[__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER], pr_trianglelist, _data[__SCRIBBLE_VERTEX_BUFFER.__TEXTURE]);
+                    shader_set_uniform_f(_msdf_u_fSecondDraw, 0);
+                }
+            }
+            else
+            {
+                //Other shaders don't need extra work
+                vertex_submit(_data[__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER], pr_trianglelist, _data[__SCRIBBLE_VERTEX_BUFFER.__TEXTURE]);
+            }
+            
+            if (_bilinear != undefined)
+            {
+                //Reset the texture filtering
                 gpu_set_tex_filter(_old_tex_filter);
             }
             
@@ -215,5 +96,183 @@ function __scribble_class_page() constructor
         }
         
         shader_reset();
+    }
+    
+    static __freeze = function()
+    {
+        if (!__frozen)
+        {
+            if (SCRIBBLE_VERBOSE)
+            {
+                var _t = get_timer();
+            }
+            
+            var _i = 0;
+            repeat(array_length(__vertex_buffer_array))
+            {
+                vertex_freeze(__vertex_buffer_array[_i][__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER]);
+                ++_i;
+            }
+            
+            __frozen = true;
+            
+            if (SCRIBBLE_VERBOSE)
+            {
+                __scribble_trace("Incrementally froze page vertex buffers, time taken = ", (get_timer() - _t)/1000, "ms");
+            }
+        }
+    }
+    
+    static __get_glyph_data = function(_index)
+    {
+        if (!SCRIBBLE_ALLOW_GLYPH_DATA_GETTER) __scribble_error("Cannot get glyph data, SCRIBBLE_ALLOW_GLYPH_DATA_GETTER = <false>\nPlease set SCRIBBLE_ALLOW_GLYPH_DATA_GETTER to <true> to get glyph data");
+        
+        if (_index < 1)
+        {
+            return {
+                unicode: 0,
+                left:    __glyph_grid[# 0, __SCRIBBLE_GLYPH_LAYOUT.__LEFT],
+                top:     __glyph_grid[# 0, __SCRIBBLE_GLYPH_LAYOUT.__TOP ],
+                right:   __glyph_grid[# 0, __SCRIBBLE_GLYPH_LAYOUT.__LEFT],
+                bottom:  __glyph_grid[# 0, __SCRIBBLE_GLYPH_LAYOUT.__TOP ],
+            };
+        }
+        else if (_index <= __glyph_count)
+        {
+            return {
+                unicode: __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__UNICODE],
+                left:    __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__LEFT   ],
+                top:     __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__TOP    ],
+                right:   __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__RIGHT  ],
+                bottom:  __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__BOTTOM ],
+            };
+        }
+        else
+        {
+            _index = __glyph_count-1;
+            return {
+                unicode: 0,
+                left:    __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__RIGHT ],
+                top:     __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__BOTTOM],
+                right:   __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__RIGHT ],
+                bottom:  __glyph_grid[# _index, __SCRIBBLE_GLYPH_LAYOUT.__BOTTOM],
+            };
+        }
+    }
+    
+    static __get_vertex_buffer = function(_texture, _pxrange, _thickness_offset, _bilinear, _model_struct)
+    {
+        var _pointer_string = string(_texture);
+        
+        if (!__SCRIBBLE_ON_WEB)
+        {
+            var _data = __texture_to_vertex_buffer_dict[$ _pointer_string];
+        }
+        else //FIXME - Workaround for pointers not being stringified properly on HTML5
+        {
+            var _data = undefined;
+            var _i = 0;
+            repeat(array_length(__vertex_buffer_array))
+            {
+                var _vbuff_data = __vertex_buffer_array[_i];
+                if (_vbuff_data[__SCRIBBLE_VERTEX_BUFFER.__TEXTURE] == _texture)
+                {
+                    _data = _vbuff_data;
+                    break;
+                }
+                
+                ++_i;
+            }
+        }
+        
+        if (_data == undefined)
+        {
+            if (_pxrange == undefined)
+            {
+                _model_struct.__uses_standard_font = true;
+                var _shader = __shd_scribble;
+            }
+            else
+            {
+                _model_struct.__uses_msdf_font = true;
+                var _shader = __shd_scribble_msdf;
+            }
+            
+            static _vertex_format = undefined;
+            if (_vertex_format == undefined)
+            {
+                vertex_format_begin();
+                vertex_format_add_position_3d();                                  //12 bytes
+                vertex_format_add_normal();                                       //12 bytes
+                vertex_format_add_colour();                                       // 4 bytes
+                vertex_format_add_texcoord();                                     // 8 bytes
+                vertex_format_add_custom(vertex_type_float2, vertex_usage_color); // 8 bytes
+                _vertex_format = vertex_format_end();            //44 bytes per vertex, 132 bytes per tri, 264 bytes per glyph
+            }
+            
+            var _vbuff = vertex_create_buffer(); //TODO - Can we preallocate this? i.e. copy "for text" system we had in the old version
+            vertex_begin(_vbuff, _vertex_format);
+            
+            if (__SCRIBBLE_VERBOSE_GC) __scribble_trace("Adding vertex buffer ", _vbuff, " to tracking");
+            array_push(__gc_vbuff_refs, weak_ref_create(self));
+            array_push(__gc_vbuff_ids, _vbuff);
+            
+            var _data = array_create(__SCRIBBLE_VERTEX_BUFFER.__SIZE);
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER        ] = _vbuff;
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__TEXTURE              ] = _texture;
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__MSDF_RANGE           ] = _pxrange;
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__MSDF_THICKNESS_OFFSET] = _thickness_offset;
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__TEXEL_WIDTH          ] = texture_get_texel_width(_texture);
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__TEXEL_HEIGHT         ] = texture_get_texel_height(_texture);
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__SHADER               ] = _shader;
+            _data[@ __SCRIBBLE_VERTEX_BUFFER.__BILINEAR             ] = _bilinear;
+            
+            __vertex_buffer_array[@ array_length(__vertex_buffer_array)] = _data;
+            if (!__SCRIBBLE_ON_WEB) __texture_to_vertex_buffer_dict[$ _pointer_string] = _data;
+            
+            return _vbuff;
+        }
+        else
+        {
+            return _data[__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER];
+        }
+    }
+    
+    static __finalize_vertex_buffers = function(_freeze)
+    {
+        var _i = 0;
+        repeat(array_length(__vertex_buffer_array))
+        {
+            var _vbuff = __vertex_buffer_array[_i][__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER];
+            vertex_end(_vbuff);
+            if (_freeze) vertex_freeze(_vbuff);
+            
+            ++_i;
+        }
+        
+        __frozen = _freeze;
+    }
+    
+    static __flush = function()
+    {
+        var _i = 0;
+        repeat(array_length(__vertex_buffer_array))
+        {
+            var _vbuff = __vertex_buffer_array[_i][__SCRIBBLE_VERTEX_BUFFER.__VERTEX_BUFFER];
+            vertex_delete_buffer(_vbuff);
+            
+            var _index = __scribble_array_find_index(__gc_vbuff_ids, _vbuff);
+            if (_index >= 0)
+            {
+                if (__SCRIBBLE_VERBOSE_GC) __scribble_trace("Manually removing vertex buffer ", _vbuff, " from tracking");
+                array_delete(__gc_vbuff_refs, _index, 1);
+                array_delete(__gc_vbuff_ids,  _index, 1);
+            }
+            
+            ++_i;
+        }
+        
+        __texture_to_vertex_buffer_dict = {};
+        array_resize(__vertex_buffer_array, 0);
     }
 }

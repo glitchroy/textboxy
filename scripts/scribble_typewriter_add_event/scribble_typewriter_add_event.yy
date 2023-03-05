@@ -1,12 +1,11 @@
 {
+  "resourceType": "GMScript",
+  "resourceVersion": "1.0",
+  "name": "scribble_typewriter_add_event",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Miscellaneous",
-    "path": "folders/textboxy-engine/lib/Scribble/Miscellaneous.yy",
+    "name": "Deprecated",
+    "path": "folders/textboxy-engine/lib/Scribble/(System - don't call these functions)/Deprecated.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "scribble_typewriter_add_event",
-  "tags": [],
-  "resourceType": "GMScript",
 }
